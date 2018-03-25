@@ -5,15 +5,7 @@ permalink: /portfolio/
 ---
 
 <p align="justify">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
-</p>
+Here are some of the projects I am currently working on / accomplished. Links to codes on GitHub is made public. </p>
 
 *****
 
@@ -50,7 +42,16 @@ Several creative features:
 
 ### Viola Jones Face Detection
 <span style="color:#1d58a6"><sup>Mar 2018 - Now</sup></span>  
+<p align="justify">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
+</p>
 
 [see this project](https://github.com/Zhenye-Na/viola-jones-face-detection)
 <br><br>
@@ -58,12 +59,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eg
 ### Neural Network for Estimating Shortest Path Problem
 <span style="color:#1d58a6"><sup>Nov 2017 - Dec 2017</sup></span>  
 
-We analyzed the problem and selected Deep Neural Network and Graph Convolutional Network as the architecture we used. We generated 
-
-Evaluated whether this particular architecture scales and whether it is robust.
-
-Concluded an 84% accuracy of prediction of the shortest path problem.
-
+<p align="justify">
+We analyzed the problem and selected Deep Neural Network and Graph Convolutional Network as the architecture we used. We generated random graph to feed in GCN architecture. The final result concluded an 84% accuracy of prediction of the shortest path problem via GCN whihc is much higher than DNN model.
+</p>
 
 [see this project](https://github.com/Zhenye-Na/gcn-spp)
 <br><br>
