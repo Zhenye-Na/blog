@@ -5,6 +5,9 @@ description: > # this means to ignore newlines until "twitter_username:"
   Graduate student @ UIUC
   Google-Oriented-Programming
 
+# baseurl: "/home/"
+# url: "https://zhenye-na.github.io"
+
 # social links
 # twitter_username: jekyllrb
 github_username:  Zhenye-Na
@@ -29,9 +32,18 @@ header_pages:
   - about.md
 
 disqus:
-  shortname: my_disqus_shortname
+  shortname: zhenye
+# defaults:
+#   -
+#     scope:
+#       path: ""
+#       type: "posts"
+#     values:
+#       comments: true
 
 show_excerpts: false # set to true to show excerpts on the homepage
+
+google_analytics: UA-NNNNNNNN-N
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
