@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Install MySQL on Mac OS X"
+author: "Zhenye Na"
+comments: true
+date:   2017-07-17 
+---
+
 <style>
 img.pics {
     display: block;
@@ -12,7 +20,7 @@ img.pics {
 
 Downdload MySQL for mac [here](https://dev.mysql.com/downloads/mysql/). I prefer DMG Archive.
 
-<img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql1.png" class="pics" />
+<img src="https://Zhenye-Na.github.io/images/mysql1.png" class="pics" />
 <br>
 <img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql2.png" class="pics" />
 <br>
