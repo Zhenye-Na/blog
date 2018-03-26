@@ -20,8 +20,6 @@ img.pics {
 
 Downdload MySQL for mac [here](https://dev.mysql.com/downloads/mysql/). I prefer `DMG Archive`.
 
-<!--![]({{ site.url }}/images/mysql1.png)-->
-
 <img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql1.png?raw=true" class="pics" />
 <br>
 <img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql2.png?raw=true" class="pics" />
