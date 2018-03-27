@@ -15,7 +15,10 @@
     </main>
 
     {%- include footer.html -%}
-
+  
+    {% if jekyll.environment == 'production' %}
+    {% include google-analytics.html %}
+    {% endif %}
   </body>
 
 </html>

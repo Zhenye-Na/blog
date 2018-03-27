@@ -2,8 +2,7 @@ title: Loading...
 author: Zhenye Na
 email: zna2@illinois.edu
 description: > # this means to ignore newlines until "twitter_username:"
-  Graduate student @ UIUC 
-  Google-Oriented-Programming
+  Graduate student @ UIUC <br> Google-Oriented-Programming
 
 # baseurl: "/home/"
 # url: "https://zhenye-na.github.io"
@@ -31,6 +30,10 @@ header_pages:
   - portfolio.md
   - about.md
 
+github:
+  repo: https://github.com/Zhenye-Na/Zhenye-Na.github.io/
+
+
 disqus:
   shortname: zhenye
 # defaults:
@@ -43,7 +46,7 @@ disqus:
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
-google_analytics: UA-NNNNNNNN-N
+google_analytics: UA-116457928-1
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
