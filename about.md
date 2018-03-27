@@ -28,7 +28,6 @@ img.avatar {
 <br><br>
 <!--![Zhenye-Na's Blue Github Chart](http://ghchart.rshah.org/1d58a6/Zhenye-Na)-->
 
-<p align="justify">
 <span style="font-family: Trebuchet MS">
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -51,4 +50,3 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </span>
-</p>
