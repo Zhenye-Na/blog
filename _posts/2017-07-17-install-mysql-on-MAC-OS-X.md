@@ -4,6 +4,7 @@ title:  "Install MySQL on Mac OS X"
 author: "Zhenye Na"
 comments: true
 date:   2017-07-17 
+tags: MySQL
 ---
 
 <style>
