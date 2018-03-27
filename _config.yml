@@ -28,6 +28,7 @@ linkedin_username: zhenyena
 #   instance: example.com
 header_pages:
   - portfolio.md
+  - tags.md
   - about.md
 
 github:
