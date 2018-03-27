@@ -2,6 +2,22 @@
 layout: default
 ---
 
+<style>
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+img.avatar {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 150px
+}
+</style>
+
+
 <div class="home">
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
@@ -10,7 +26,24 @@ layout: default
   {{ content }}
 
   {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
+    
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfUbNhms4t13sANVrWC7Gjo5ub5jTPSlFpjhdnHZWTACk_vdCIrQ" class="avatar" />
+
+    <div align="center">
+      <p> <span style="font-family: Trebuchet MS"> <font size="5"> Zhenye Na </font></span></p>
+      <p> <span style="font-family: Trebuchet MS"> ISE @ UIUC </span></p>
+      <p> <span style="font-family: Trebuchet MS; color: grey"> <font size="4"> 
+        <a href="/tag/Python"> Python </a> | 
+        <a href="/tag/R"> R </a> | 
+        <a href="/tag/MySQL"> MySQL </a> | 
+        <a href="/tag/Java"> Java </a> | 
+        <a href="/tag/Matlab"> Matlab </a> </font></span></p>
+    </div>
+
+    <div>
+    {% include archive.html %}
+    </div>
     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>
