@@ -15,17 +15,32 @@ img.avatar {
     margin: 30px auto;
     width: 150px;
 }
+
+.tags {
+    <!--list-style: none;-->
+    padding: 0 0 25px 0;
+    <!--text-align: center;-->
+    font-size: 15px;
+    word-spacing: 30px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 </style>
+
+
 <img src="https://pic.qqtn.com/up/2018-2/2018022614235526444.jpg!360_360" class="avatar" vspace="50" />
 <div align="center">
       <p> <span style="font-family: Trebuchet MS"> <font size="5"> Zhenye Na </font></span></p>
       <p> <span style="font-family: Trebuchet MS"> ISE @ UIUC </span></p>
-      <p> <span style="font-family: Trebuchet MS; color: grey"> <font size="4"> 
-        <code class="highligher-rouge"><a href="/tag/Python">Python</a></code> | 
-        <code class="highligher-rouge"><a href="/tag/R">R</a></code> | 
-        <code class="highligher-rouge"><a href="/tag/MySQL">MySQL</a></code> | 
-        <code class="highligher-rouge"><a href="/tag/Java">Java</a></code> | 
-        <code class="highligher-rouge"><a href="/tag/Matlab">Matlab</a></code> 
+      <p class="tags" > <span style="font-family: Trebuchet MS;"> <font size="4"> 
+        <a href="/tag/Python">Python </a>
+        <a href="/tag/R"> R </a>
+        <a href="/tag/MySQL"> MySQL </a>
+        <a href="/tag/Java"> Java </a>
+        <a href="/tag/Matlab"> Matlab </a>
       </font></span></p>
     </div>
 
