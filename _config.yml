@@ -2,7 +2,7 @@ title: Loading...
 author: Zhenye Na
 email: zna2@illinois.edu
 description: > # this means to ignore newlines until "twitter_username:"
-  Graduate student @ UIUC <br> Google-Oriented-Programming
+  Graduate student @ UIUC<br>Google-Oriented-Programming
 
 # baseurl: "/home/"
 # url: "https://zhenye-na.github.io"
@@ -10,9 +10,9 @@ description: > # this means to ignore newlines until "twitter_username:"
 # social links
 # twitter_username: jekyllrb
 github_username:  Zhenye-Na
-rss: rss
+# rss: rss
 # dribbble_username: jekyll
-# facebook_username: jekyll
+facebook_username: zhenye.na.1
 # flickr_username: jekyll
 # instagram_username: jekyll
 linkedin_username: zhenyena

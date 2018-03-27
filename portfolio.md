@@ -3,7 +3,31 @@ layout: page
 title: Portfolio
 permalink: /portfolio/
 ---
+<style>
+<!--img.center {
+    display: block;
+    margin: 0 auto;
+}-->
 
+img.avatar {
+    border-radius: 50%;
+    display: block;
+    margin: 30px auto;
+    width: 150px;
+}
+</style>
+<img src="https://pic.qqtn.com/up/2018-2/2018022614235526444.jpg!360_360" class="avatar" vspace="50" />
+<div align="center">
+      <p> <span style="font-family: Trebuchet MS"> <font size="5"> Zhenye Na </font></span></p>
+      <p> <span style="font-family: Trebuchet MS"> ISE @ UIUC </span></p>
+      <p> <span style="font-family: Trebuchet MS; color: grey"> <font size="4"> 
+        <code class="highligher-rouge"><a href="/tag/Python">Python</a></code> | 
+        <code class="highligher-rouge"><a href="/tag/R">R</a></code> | 
+        <code class="highligher-rouge"><a href="/tag/MySQL">MySQL</a></code> | 
+        <code class="highligher-rouge"><a href="/tag/Java">Java</a></code> | 
+        <code class="highligher-rouge"><a href="/tag/Matlab">Matlab</a></code> 
+      </font></span></p>
+    </div>
 
 Here are some of the projects I am currently working on / accomplished. Links to codes on GitHub are made public.
 
