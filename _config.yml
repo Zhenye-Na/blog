@@ -4,7 +4,7 @@ email: zna2@illinois.edu
 description: > # this means to ignore newlines until "twitter_username:"
   Graduate student @ UIUC<br>Google-Oriented-Programming
 
-# baseurl: "/home/"
+baseurl: ""
 # url: "https://zhenye-na.github.io"
 
 # social links

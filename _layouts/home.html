@@ -2,6 +2,107 @@
 layout: default
 ---
 
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <!-- Image profile -->
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/images/avatar.jpg?raw=true" class="avatar" vspace="50" />
+
+  <!-- Name + Detail + Main Tags -->
+  <div align="center">
+    <p> <span style="font-family: Trebuchet MS"> <font size="5"> Zhenye Na </font></span></p>
+    <p> <span style="font-family: Trebuchet MS"> ISE @ UIUC </span></p>
+    <p class="tags" > <span style="font-family: Trebuchet MS;"> <font size="4"> 
+      <a href="/tag/Python">Python </a>
+      <a href="/tag/R"> R </a>
+      <a href="/tag/MySQL"> MySQL </a>
+      <a href="/tag/Java"> Java </a>
+      <a href="/tag/Matlab"> Matlab </a>
+    </font></span></p>
+  </div>
+
+  <!-- <p>
+    This is an experimental example of my blog homepage :tada:
+  </p> -->
+
+  {%- if site.posts.size > 0 -%}
+    
+
+    <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
+
+
+    <div id="search-searchbar"></div>
+
+    <!-- Previous Original Version -->
+    <!-- <ul class="post-list">
+      {%- for post in site.posts -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul> -->
+
+    <!-- Mixture -->
+    <!-- <div class="post-list" id="search-hits">
+      {%- for post in site.posts -%}
+        <li class="post-item">
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+
+          <div class="post-snippet">{{ post.excerpt }}</div>
+
+        </li>
+      {%- endfor -%}
+    </div> -->
+
+    <!-- Exactly what in guide -->
+    <div class="post-list" id="search-hits">
+      {% for post in site.posts %}
+        <div class="post-item">
+          {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+
+          <h2>
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </h2>
+          <div class="post-snippet">{{ post.excerpt }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
+  {%- endif -%}
+
+</div>
+
+{% include algolia.html %}
+
+
+
 <style>
 /*img.center {
     display: block;
@@ -28,108 +129,26 @@ img.avatar {
 }
 */
 
+/* unvisited link */
+/*a:link {
+    color: green;
+}*/
+
+/* visited link */
+/*a:visited {
+    color: green;
+}*/
+
+/* mouse over link */
 a:hover {
+    color: #6699ff;
     text-decoration: none;
 }
 
+/* selected link */
+/*a:active {
+    color: yellow;
+} */
+
+
 </style>
-
-
-
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
-
-  {{ content }}
-
-  {%- if site.posts.size > 0 -%}
-    <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
-
-    <!-- Image profile -->
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/images/avatar.jpg?raw=true" class="avatar" vspace="50" />
-
-    <!-- Name + Detail + Main Tags -->
-    <div align="center">
-      <p> <span style="font-family: Trebuchet MS"> <font size="5"> Zhenye Na </font></span></p>
-      <p> <span style="font-family: Trebuchet MS"> ISE @ UIUC </span></p>
-      <p class="tags" > <span style="font-family: Trebuchet MS;"> <font size="4"> 
-        <a href="/tag/Python">Python </a>
-        <a href="/tag/R"> R </a>
-        <a href="/tag/MySQL"> MySQL </a>
-        <a href="/tag/Java"> Java </a>
-        <a href="/tag/Matlab"> Matlab </a>
-      </font></span></p>
-    </div>
-
-    <!-- <h1 class="page-heading">Posts</h1> -->
-
-    <div id="search-searchbar"></div>
-
-    <!-- Previous Original Version -->
-<!--     <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul> -->
-
-
-    <!-- Exactly what in guide -->
-    <div class="post-list" id="search-hits">
-      {%- for post in site.posts -%}
-      <li>
-      <div class="post-item">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-        <div class="post-snippet">{{ post.excerpt }}</div>
-      </div>
-      </li>
-      {%- endfor -%}
-    </div>
-
-
-    <!-- Mixture -->
-<!--     <div class="post-list" id="search-hits">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </div> -->
-
-    {% include algolia.html %}
-
-
-    <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
-  {%- endif -%}
-
-</div>
