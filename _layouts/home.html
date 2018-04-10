@@ -67,7 +67,7 @@ a:hover {
     <div id="search-searchbar"></div>
 
     <!-- Previous Original Version -->
-    <ul class="post-list">
+<!--     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
@@ -82,11 +82,11 @@ a:hover {
         {%- endif -%}
       </li>
       {%- endfor -%}
-    </ul>
+    </ul> -->
 
 
     <!-- Exactly what in guide -->
-    <ul class="post-list" id="search-hits">
+    <div class="post-list" id="search-hits">
       {%- for post in site.posts -%}
       <li>
       <div class="post-item">
@@ -105,7 +105,7 @@ a:hover {
       </div>
       </li>
       {%- endfor -%}
-    </ul>
+    </div>
 
 
     <!-- Mixture -->
