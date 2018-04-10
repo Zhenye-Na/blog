@@ -35,6 +35,12 @@ github:
   repo: https://github.com/Zhenye-Na/Zhenye-Na.github.io/
 
 
+algolia:
+   application_id: WTER55O7RW
+   index_name: personal_website
+   search_only_api_key: 55070820608977870936b3c72bb44701
+
+
 disqus:
   shortname: zhenye
 # defaults:
@@ -62,6 +68,8 @@ minima:
 # Build settings
 markdown: kramdown
 theme: minima
+plugins:
+  - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock
