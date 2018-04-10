@@ -31,7 +31,7 @@ a:hover {
 </style>
 
 
-<img src="https://pic.qqtn.com/up/2018-2/2018022614235526444.jpg!360_360" class="avatar" vspace="50" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/images/avatar.jpg?raw=true" class="avatar" vspace="50" />
 <div align="center">
       <p> <span style="font-family: Trebuchet MS"> <font size="5"> Zhenye Na </font></span></p>
       <p> <span style="font-family: Trebuchet MS"> ISE @ UIUC </span></p>
