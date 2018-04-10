@@ -38,7 +38,7 @@ github:
 algolia:
    application_id: WTER55O7RW
    index_name: personal_website
-   search_only_api_key: 55070820608977870936b3c72bb44701
+   search_only_api_key: 2cb439f656ac372217ae4135dac6fc07
 
 
 disqus:
