@@ -39,7 +39,7 @@ layout: default
     <div id="search-searchbar"></div>
 
     <!-- Previous Original Version -->
-<!--     <ul class="post-list">
+    <!-- <ul class="post-list">
       {%- for post in site.posts -%}
         <li>
           {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
@@ -57,7 +57,7 @@ layout: default
     </ul> -->
 
     <!-- Mixture -->
-    <div class="post-list" id="search-hits">
+    <!-- <div class="post-list" id="search-hits">
       {%- for post in site.posts -%}
         <div class="post-item">
           {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
@@ -73,26 +73,28 @@ layout: default
             {{ post.excerpt }}
           {%- endif -%}
 
-          <!-- <div class="post-snippet">{{ post.excerpt }}</div> -->
+          <div class="post-snippet">{{ post.excerpt }}</div>
 
         </div>
       {%- endfor -%}
-    </div>
+    </div> -->
 
     <!-- Exactly what in guide -->
-<!--     <div class="post-list" id="search-hits">
+    <div class="post-list" id="search-hits">
       {% for post in site.posts %}
         <div class="post-item">
           {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
           <span class="post-meta">{{ post.date | date: date_format }}</span>
 
-          <h2>
-            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-          </h2>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
           <div class="post-snippet">{{ post.excerpt }}</div>
         </div>
       {% endfor %}
-    </div> -->
+    </div>
 
     <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
   {%- endif -%}
