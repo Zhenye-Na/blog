@@ -10,7 +10,7 @@ tag:
 comments: true
 ---
 
-<img src="http://spectralefficiency.co.uk/img/logo_white.png" align="center"> </img>
+<img src="http://spectralefficiency.co.uk/img/logo_white.png" align="center">
 
 ## Overview
 
@@ -30,6 +30,6 @@ These are two main parts of the ﬁnal project.
 <br><br>
 
 <div class="container" align="center">
-  <button type="button" class="btn" href="https://github.com/Zhenye-Na/music-info-retrieval">Basic</button
+  <button type="button" class="btn btn-dark">See this project</button>
 </div>
 
