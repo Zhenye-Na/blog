@@ -3,7 +3,7 @@ layout: post
 title: "Install MySQL on Mac OS X"
 author: "Zhenye Na"
 date:   2017-07-17 
-excerpt: "Examples and code for displaying images in posts."
+excerpt: "About how to install MySQL on Mac OS X"
 tags: [MySQL, Mac OS X]
 comments: true
 ---
@@ -35,15 +35,15 @@ mysql  Ver 14.14 Distrib 5.7.18, for macos10.12 (x86_64) using  EditLine wrapper
 
 Please download and install version 5.5.48 to make sure that all the steps will work correctly. If for some reason the installer is no longer available on the MySQL web site you can download it from here.
 
-<img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql1.png?raw=true" class="pics" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mysql-installation/mysql1.png?raw=true" class="pics" />
 <br>
-<img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql2.png?raw=true" class="pics" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mysql-installation/mysql2.png?raw=true" class="pics" />
 <br>
-<img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql3.png?raw=true" class="pics" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mysql-installation/mysql3.png?raw=true" class="pics" />
 <br><br>
 Pay attention to the password in notification center. If you do not save the proper `password` for `admin`, open notification center and scroll a little bit, you will find something like this:
 
-<img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql4.jpg?raw=true" class="pics" /> 
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mysql-installation/mysql4.jpg?raw=true" class="pics" /> 
 
 * * *
 
@@ -51,7 +51,7 @@ Pay attention to the password in notification center. If you do not save the pro
 
 - Choose Apple () menu > System Preferences > MySQL, select MySQL and start MySQL server and move to the next step. If you use MySQL frequently, make sure to leave the checkbox **“Automatically Start MySQL Server on Startup”** so you won’t have to do that again and again.
 
-<img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql5.jpg?raw=true" class="pics" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mysql-installation/mysql6.png?raw=true" class="pics" />
 
 
 - Open terminal and type:
@@ -62,7 +62,7 @@ Pay attention to the password in notification center. If you do not save the pro
 	open -e .bash_profile
 	```
 
-<img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql7.jpg?raw=true" class="pics" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mysql-installation/mysql7.jpg?raw=true" class="pics" />
 
 - Type this piece of codes in the file you opened, then save the file and quit.
 
@@ -81,7 +81,7 @@ Pay attention to the password in notification center. If you do not save the pro
 	SET PASSWORD FOR 'root'@'localhost' = PASSWORD('new password');
 	```
 
-<img src="https://github.com/Zhenye-Na/home/blob/master/images/mysql8.jpg?raw=true" class="pics" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mysql-installation/mysql8.jpg?raw=true" class="pics" />
 	
 - This is it! Now you have `MySQL` installed and secured on your Mac.
 
