@@ -1,8 +1,8 @@
 # Site
 title:              Loading...
 author:             Zhenye Na
-bio:                'M.S. in Advanced Analytics in Department of Industrial and Enterprise Systems Engineering at University of Illinois at Urbana Champaign'
-description:        "UIUC Graduate Student<br>Google-Oriented-Programming"
+bio:                'UIUC Graduate Student | Google-Oriented-Programming'
+description:        "M.S. in Advanced Analytics in Department of Industrial and Enterprise Systems Engineering at University of Illinois at Urbana-Champaign"
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/avatar/avatar.jpg'
@@ -12,7 +12,7 @@ locale:             en_US
 # url:                https://taylantatli.github.io/Moon
 
 # Jekyll
-# permalink:          /:title/
+permalink:          /:title/
 markdown:           kramdown
 highlighter:        rouge
 kramdown:
