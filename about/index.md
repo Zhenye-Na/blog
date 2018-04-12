@@ -7,17 +7,16 @@ comments: false
 ---
     
 <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/avatar/avatar.jpg?raw=true" class="avatar" vspace="50" />
-
-
+<br>
 <div align="center">
-<img src="http://ghchart.rshah.org/1d58a6/Zhenye-Na" alt="Zhenye-Na's Blue Github Chart" />
+<img src="http://ghchart.rshah.org/d04e59/Zhenye-Na" alt="Zhenye-Na's Blue Github Chart" />
 <br><br>
 </div>
  
 
 ## Welcome!
 
-I am Zhenye Na, a Master candidate, in Department of Industrial and Enterprise Systems Engineering [(ISE)](https://ise.illinois.edu/) at University of Illinois at Urbana-Champaign[(UIUC)](http://illinois.edu/). I am majoring in Industrial Engineering (Track: Advanced Analytics) and concentration in Computational Science & Engeering. I am advised by [Prof. Justin A. Sirignano](http://jasirign.github.io/).
+I am Zhenye Na, a Master candidate, in Department of Industrial and Enterprise Systems Engineering [(ISE)](https://ise.illinois.edu/) at University of Illinois at Urbana-Champaign [(UIUC)](http://illinois.edu/). I am majoring in Industrial Engineering (Track: Advanced Analytics) and concentration in Computational Science & Engeering. I am advised by [Prof. Justin A. Sirignano](http://jasirign.github.io/) for graduate study.
 
 I am interested in research relating to Machine Learning, Deep Learning, and Computer Vision. Furthermore, Audio Analysis, Speech and Image Processing.
 
