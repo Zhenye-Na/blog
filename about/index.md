@@ -13,27 +13,15 @@ comments: false
 <img src="http://ghchart.rshah.org/1d58a6/Zhenye-Na" alt="Zhenye-Na's Blue Github Chart" />
 <br><br>
 </div>
+ 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  
-<br><br>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  
-<br><br>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+## Welcome!
+
+I am Zhenye Na, a Master candidate, in Department of Industrial and Enterprise Systems Engineering [(ISE)](https://ise.illinois.edu/) at University of Illinois at Urbana-Champaign[(UIUC)](http://illinois.edu/). I am majoring in Industrial Engineering (Track: Advanced Analytics) and concentration in Computational Science & Engeering. I am advised by [Prof. Justin A. Sirignano](http://jasirign.github.io/)
+
+I am interested in research relating to Machine Learning, Deep Learning, and Computer Vision. Furthermore, Audio Analysis, Speech and Image Processing.
+
+I received my B.E. in Harbor, Waterway and Coastal Engineering from Dalian University of Technology [(DUT)](http://en.dlut.edu.cn/)
 
 
 
