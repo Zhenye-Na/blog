@@ -1,75 +1,78 @@
-title: Loading...
-author: Zhenye Na
-email: zna2@illinois.edu
-description: > # this means to ignore newlines until "twitter_username:"
-  Graduate student @ UIUC<br>Google-Oriented-Programming
+# Site
+title:              Loading...
+author:             Zhenye Na
+bio:                'Graduate student @ UIUC<br>Google-Oriented-Programming'
+description:        "Graduate student @ UIUC<br>Google-Oriented-Programming"
+reading_time:       true
+words_per_minute:   200
+logo:               'assets/img/logo.png'
+background:         'assets/img/placeholder-big.jpg'
+tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
+locale:             en_US
+# url:                https://taylantatli.github.io/Moon
 
-baseurl: ""
-# url: "https://zhenye-na.github.io"
+# Jekyll
+# permalink:          /:title/
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+mathjax:            true
+sass:
+  sass_dir:         _sass
+  style:            compressed
 
-# social links
-# twitter_username: jekyllrb
-github_username:  Zhenye-Na
-# rss: rss
-# dribbble_username: jekyll
-facebook_username: zhenye.na.1
-# flickr_username: jekyll
-# instagram_username: jekyll
-linkedin_username: zhenyena
-# pinterest_username: jekyll
-# youtube_username: jekyll
-# googleplus_username: +jekyll
+# Comments
+disqus_shortname:   zhenye
 
-# Mastodon instances
-# mastodon:
-# - username: jekyll
-#   instance: example.com
-# - username: jekyll2
-#   instance: example.com
-header_pages:
-  - portfolio.md
-  - tags.md
-  - about.md
+# Social
+# if you don't have any of social below, comment the line.
+google:
+  #plus:            #username
+  analytics:        UA-116457928-1
+  #verify:
+  #ad-client:
+  #ad-slot:
+#bing-verify:
+email:              zna2@illinois.edu
+facebook:           zhenye.na.1
+github-url:         Zhenye-Na
+stackoverflow:      8692953/zayne-na
+#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
+#twitter:           username
+#linkedin:          username
+#xing:              username
+#instagram:         username
+#lastfm:            username
+#tumblr:            username
+#medium:            '@username'
+#pinterest:         username
+#foursquare:        username
+#steam:             username
+#dribbble:          username
+#youtube:           username
+#youtube-channel:   channel
+#soundcloud:        username
+#weibo:             username
+#flickr:            username
+#codepen:           username
+#keybase:           username
+#xmpp:              username@server.com
+#hackernews:        username
 
-github:
-  repo: https://github.com/Zhenye-Na/Zhenye-Na.github.io/
-
-
-algolia:
-   application_id: WTER55O7RW
-   index_name: personal_website
-   search_only_api_key: 2cb439f656ac372217ae4135dac6fc07
-
-
-disqus:
-  shortname: zhenye
-# defaults:
-#   -
-#     scope:
-#       path: ""
-#       type: "posts"
-#     values:
-#       comments: true
-
-show_excerpts: false # set to true to show excerpts on the homepage
-
-google_analytics: UA-116457928-1
-
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.html
-
-# Build settings
-markdown: kramdown
-theme: minima
-plugins:
+# Gems
+gems:
+  - jekyll-mentions
   - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock
+  - jekyll-sitemap
+  - jekyll-gist
+
+jekyll-mentions:
+    base_url: https://github.com
+
+# Exclude list
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
