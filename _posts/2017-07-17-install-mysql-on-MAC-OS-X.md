@@ -11,7 +11,7 @@ comments: true
 
 * * *
 
-### For Beginners
+## For Beginners
 
 Mac OS X doesn't ship with its own copy of `MySQL`, nor does `Sequel Pro`. You will have to install a copy on your local machine, or connect to the MySQL server on a machine somewhere on the Internet.
 
@@ -19,7 +19,7 @@ Most webservers and website packages will include a MySQL installation as part o
 
 **Important!** IncoPOS for macOS can now download, install and configure MySQL server for you when it is started for the first time. You can download it from [here](https://vladster.net/en/downloads/).
 
-### Download MySQL
+## Download MySQL
 
 The first step is to download MySQL server on your Mac. 
 
@@ -47,7 +47,7 @@ Pay attention to the password in notification center. If you do not save the pro
 
 * * *
 
-### MySQL Configuration
+## MySQL Configuration
 
 - Choose Apple () menu > System Preferences > MySQL, select MySQL and start MySQL server and move to the next step. If you use MySQL frequently, make sure to leave the checkbox **“Automatically Start MySQL Server on Startup”** so you won’t have to do that again and again.
 
