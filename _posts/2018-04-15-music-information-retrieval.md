@@ -7,6 +7,7 @@ project: true
 tag:
 - MIR 
 - Python
+- Machine Learning
 comments: true
 ---
 
@@ -28,5 +29,3 @@ These are two main parts of the ﬁnal project.
 
 <br><br>
 <a align="center" class="btn zoombtn" href="https://github.com/Zhenye-Na/music-info-retrieval">See this project</a>
-
-
