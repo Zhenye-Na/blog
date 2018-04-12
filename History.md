@@ -22,4 +22,6 @@
 - Add Searching Box [Algolia - instantsearch.js](https://community.algolia.com/instantsearch.js)
 
 ## Apr 12<sup>th</sup>
-- Changed Jekyll Theme from [Minima](https://jekyll.github.io/minima/) to [Moon](https://taylantatli.github.io/Moon/)
+- **Transfer** Jekyll Theme from [Minima](https://jekyll.github.io/minima/) to [Moon](https://taylantatli.github.io/Moon/) (Everything Changed!)
+- Add Personal Information
+- Add MIR project

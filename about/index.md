@@ -17,7 +17,7 @@ comments: false
 
 ## Welcome!
 
-I am Zhenye Na, a Master candidate, in Department of Industrial and Enterprise Systems Engineering [(ISE)](https://ise.illinois.edu/) at University of Illinois at Urbana-Champaign[(UIUC)](http://illinois.edu/). I am majoring in Industrial Engineering (Track: Advanced Analytics) and concentration in Computational Science & Engeering. I am advised by [Prof. Justin A. Sirignano](http://jasirign.github.io/)
+I am Zhenye Na, a Master candidate, in Department of Industrial and Enterprise Systems Engineering [(ISE)](https://ise.illinois.edu/) at University of Illinois at Urbana-Champaign[(UIUC)](http://illinois.edu/). I am majoring in Industrial Engineering (Track: Advanced Analytics) and concentration in Computational Science & Engeering. I am advised by [Prof. Justin A. Sirignano](http://jasirign.github.io/).
 
 I am interested in research relating to Machine Learning, Deep Learning, and Computer Vision. Furthermore, Audio Analysis, Speech and Image Processing.
 
