@@ -55,7 +55,7 @@ Pay attention to the password in notification center. If you do not save the pro
 
 
 - Open terminal and type:
-	
+		
 	```bash
 	cd ~
 	touch .bash_profile
