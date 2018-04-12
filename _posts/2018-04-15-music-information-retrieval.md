@@ -26,6 +26,5 @@ These are two main parts of the ﬁnal project.
 
 2. **Music Audio Analysis and Generation**  
 	I will perform Music Audio Analysis in Python and will use some neural nets architecture to generate ’its’ own music.
-
 <br><br>
 <a align="center" class="btn zoombtn" href="https://github.com/Zhenye-Na/music-info-retrieval">See this project</a>
