@@ -29,7 +29,6 @@ These are two main parts of the ﬁnal project.
 [see this project](https://github.com/Zhenye-Na/music-info-retrieval)
 <br><br>
 
-<div class="container" align="center">
-  <button type="button" class="btn btn-dark">See this project</button>
-</div>
+<button type="button" class="btn btn-dark">See this project</button>
+
 
