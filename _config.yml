@@ -1,8 +1,8 @@
 # Site
 title:              Loading...
 author:             Zhenye Na
-bio:                'M.S. in Advanced Analytics at Department of Industrial and Enterprise Systems Engineering at University of Illinois at Urbana-Champaign'
-description:        "UIUC Graduate Student at ISE | Google-Oriented-Programming"
+bio:                'M.S. Candidate in Advanced Analytics in Department of Industrial and Enterprise Systems Engineering at University of Illinois at Urbana-Champaign'
+description:        "UIUC Graduate Student in ISE <br> Google-Oriented-Programming"
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/avatar/avatar.jpg'
@@ -39,12 +39,12 @@ google:
   #ad-slot:
 #bing-verify:
 email:              zna2@illinois.edu
+linkedin:           zhenyena
 github-url:         Zhenye-Na
 stackoverflow:      8692953/zayne-na
-facebook:           zhenye.na.1
+#facebook:          zhenye.na.1
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
 #twitter:           username
-#linkedin:          username
 #xing:              username
 #instagram:         username
 #lastfm:            username
