@@ -22,6 +22,15 @@ Suppose that a [Markov chain](https://en.wikipedia.org/wiki/Markov_chain) is in 
 3. Accept the proposed move with probability 
    \\[ \alpha = \min \\{1, r\\}; \\] otherwise, remain at x (i.e., \\( X^{(t+1)} = X^{(t)} \\))
 
+
+## Sampling Result
+
+Below is the sampling result of the implementation above. LFH is the sampling result from Metropolis-Hasting Algorithm and RHS is the groundtruth of distribution.
+
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mh-algo/MH.jpg?raw=true">
+
+
+
 ## Metropolis-Hastings Algorithm for continuous distributions
 
 **MCMC-MH:** We need to generate identically-distributed samples \\(X \sim f(x) \\) according to some (complicated) PDF \\( f(\cdot) \\) that can be computed upto a proportionality constant.
@@ -226,9 +235,3 @@ real	19m45.548s
 user	18m12.284s
 sys	0m9.108s
 ```
-
-## Result
-
-Below is the sampling result of the implementation above.
-
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mh-algo/MH.jpg?raw=true">
