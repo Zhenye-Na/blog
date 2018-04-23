@@ -16,14 +16,21 @@ comments: false
 
 ## Welcome!
 
-I am Zhenye Na, a Master candidate, in Department of Industrial and Enterprise Systems Engineering [(ISE)](https://ise.illinois.edu/) at University of Illinois at Urbana-Champaign [(UIUC)](http://illinois.edu/). I am majoring in Industrial Engineering (Track: Advanced Analytics) and concentration in Computational Science & Engeering. I am advised by [Prof. Justin A. Sirignano](http://jasirign.github.io/) for graduate study.
+I am Zhenye Na, a Master candidate in Department of Industrial and Enterprise Systems Engineering [(ISE)](https://ise.illinois.edu/) at University of Illinois at Urbana-Champaign [(UIUC)](http://illinois.edu/). I am majoring in Industrial Engineering (Track: Advanced Analytics) and my concentration is in Computational Science & Engeering. I am currently advised by [Prof. Justin A. Sirignano](http://jasirign.github.io/) for my graduate study.
 
-I am interested in research relating to Machine Learning, Deep Learning, and Computer Vision. Furthermore, Audio Analysis, Speech and Image Processing.
+I am interested in research related to Machine Learning, Deep Learning and Computer Vision. I am also interested in Audio Analysis, Speech, Image Processing and other Data Science related fields.
 
 I received my B.E. in Harbor, Waterway and Coastal Engineering from Dalian University of Technology [(DUT)](http://en.dlut.edu.cn/)
 
+* * *
 
+I love playing football (not American football, LOL), it makes so relaxing, the most important is I can have a good sleep without weird dreams after that, LOL. I sometimes play PES on my laptop (wish me I have no more dues, LOL)! Please contact me if you wanna join!
 
+I also playing [Garageband](https://www.apple.com/ios/garageband/) when I have spare time. I have played [Erhu](https://en.wikipedia.org/wiki/Erhu) for 5 years (Erhu is a traditional Chinese instrument and it is also supported by Garageband in the latest release - [Garageband Erhu](https://support.apple.com/kb/PH24855?viewlocale=en_HK&locale=en_HK)).
+
+Among so many football clubs, I love [Chelsea](http://www.chelseafc.com/) the best and [Eden Hazard](https://en.wikipedia.org/wiki/Eden_Hazard) is my favorite football star. This is the [overall season statistics summary](http://www.chelseafc.com/teams/first-team/eden-hazard.html) of Eden Hazard in Chelsea.
+
+* * *
 
 <style>
 <!--img.center {
