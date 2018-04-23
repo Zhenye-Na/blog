@@ -29,6 +29,7 @@ This can help user easier to understand the tradeoff of different setups and cho
 ## Video Demo
 
 Below is a video demo of the website in action!
-<!--<iframe width="560" height="315" src="//www.youtube.com/embed/SU3kYxJmWuQ" frameborder="0"> </iframe>-->
+<br><br>
+<iframe width="560" height="315" src="//www.youtube.com/embed/a_5dKE140d0" frameborder="0"> </iframe>
 <br><br>
 <a align="center" class="btn zoombtn" href="https://github.com/Zhenye-Na/mining-rig-assembly">See this project</a>
