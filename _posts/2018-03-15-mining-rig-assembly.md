@@ -10,6 +10,8 @@ tag:
 comments: true
 ---
 
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/projs-img/rigassembly/homepage.png?raw=true">
+
 # Overview
 
 [Mining Rig Assembly](http://rigassembly.web.engr.illinois.edu/index.php) is a Web-based Application that allows the users to browse different parts of a mining rig, store rig setups, and estimate the performance of their setups on one integrated site. Users can set their expected payback periods for the setups, and our application will calculate the potential proﬁts of them based on real-time price information, and notify the user when their expected payback periods can be achieved. Whats more, this website can visualize the performance comparison between different setups and components for speciﬁc users.
