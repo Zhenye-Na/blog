@@ -7,8 +7,6 @@ tags: [MCMC]
 comments: true
 ---
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/MCMC.png?raw=true">
-
 ## Overview
 
 As we have seen, the ability to sample from the posterior distribution is essential to the practice of Bayesian statistics, as it allows Monte Carlo estimation of all posterior quantities of interest. Today, I will discuss the mechanisms that allow us to carry out this sampling when a direct approach is not possible - **Metropolis-Hastings Algorithm**, as well as discuss why these approaches work.
@@ -22,10 +20,22 @@ Suppose that a [Markov chain](https://en.wikipedia.org/wiki/Markov_chain) is in 
 3. Accept the proposed move with probability 
    \\[ \alpha = \min \\{1, r\\}; \\] otherwise, remain at x (i.e., \\( X^{(t+1)} = X^{(t)} \\))
 
+The Metropolis algorithm can be coded as follows:
+
+```r
+N <- 10000 
+mu <- numeric(N) 
+for (i in 1:(N-1)) {
+	proposal <- mu[i] + rnorm(1)
+	r <- p(proposal)/p(mu[i])
+	accept <- rbinom(1, 1, min(1,r))
+	mu[i+1] <- if (accept) proposal else mu[i]
+}
+```
 
 ## Sampling Result
 
-Below is the sampling result of the implementation above. LFH is the sampling result from Metropolis-Hasting Algorithm and RHS is the groundtruth of distribution.
+Below is the sampling result of the implementation above. LHS is the sampling result from Metropolis-Hasting Algorithm and RHS is the groundtruth of distribution.
 
 <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mh-algo/MH.jpg?raw=true">
 
@@ -39,7 +49,7 @@ Assume that for right now, you have a present value \\( x^{(j)} \\) for \\( X \s
 
 \\[ p(\hat{x}, x^{(j)}) = \min \left \\{1, \frac{f(\hat{x})}{f(x^{(j)})} \times \frac{q(x^{(j)} \vert \hat{x})}{q(\hat{x} \vert x^{(j)})} \right \\} \\]
 
-The sequence of (not necessarily independent) samples \\( \\{x^{(j)}\\}^{\infty}_{j=1} \\) will be distributed according $f(x)$. In many cases, we will pick Proposal Distributions that are symmetric, that is, \\( q(x^{(j)}  \vert  \hat{x}) = q(\hat{x}  \vert  x^{(j)}) \\), in which case the above expression simplifies to 
+The sequence of (not necessarily independent) samples \\( \\{x^{(j)}\\}^{\infty}_{j=1} \\) will be distributed according $f(x)$. In many cases, we will pick **Proposal Distributions that are symmetric**, that is, \\( q(x^{(j)}  \vert  \hat{x}) = q(\hat{x}  \vert  x^{(j)}) \\), in which case the above expression simplifies to 
 
 \\[ p(\hat{x}, x^{(j)}) = \min \left \\{1, \frac{f(\hat{x})}{f(x^{(j)})} \right \\} \\]
 
@@ -49,7 +59,7 @@ That is, \\( \hat{x} \sim N(x^{(j)} , 1) \\) – which means we are drawing \\( 
 
 ## Implementation of Metropolis-Hastings Algorithm
 
-The Proposal Distribution is the d-dimensional Multivariate Gaussian with **zero-mean** (i.e. \\( \mu = 0 \\) ) and **Unit-Covariance** (i.e. \\( \Sigma = \textbf{I} \\) ). Assume that for right now we have generated \\( \\{x_i\\}^j_{i=1} \\). where \\( \textbf{x}_i \sim N(\textbf{x}, \mu, \Sigma) \\). We can generate RVs  \\(\hat{\textbf{x}} \sim N(\textbf{x}, \textbf{x}_j, \textbf{I}) \\) as \\( \hat{\textbf{x}} = \textbf{x}_j + \textbf{y} \\), where \\( \textbf{y} \sim N(\textbf{y}, \textbf{0}, \textbf{I}) \\).
+The Proposal Distribution is the d-dimensional Multivariate Gaussian with **zero-mean** (i.e. \\( \mu = 0 \\) ) and **Unit-Covariance** (i.e. \\( \Sigma = \textbf{I} \\) ). Assume that for right now we have generated \\( \\{x_i \\}^j_{i=1} \\). where \\( \textbf{x}_i \sim N(\textbf{x}, \mu, \Sigma) \\). We can generate RVs  \\(\hat{\textbf{x}} \sim N(\textbf{x}, \textbf{x}_j, \textbf{I}) \\) as \\( \hat{\textbf{x}} = \textbf{x}_j + \textbf{y} \\), where \\( \textbf{y} \sim N(\textbf{y}, \textbf{0}, \textbf{I}) \\).
 
 ```c++
 #include <iostream>
@@ -99,8 +109,6 @@ ColumnVector Generate_Independent_Multivariate_Gaussian(ColumnVector mean)
 
 double MH_Discriminant(ColumnVector Current_value, ColumnVector Previous_value, SymmetricMatrix C, ColumnVector mean)
 {
-    // double x_hat = get_gaussian(mean(mean.nrows()), 1);
-    
     Matrix c = (Current_value - mean).t() * C.i() * (Current_value - mean);
     double up_c = c(1, 1);
     double up = exp(-0.5 * up_c);
