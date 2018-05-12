@@ -53,7 +53,7 @@ repository_tree: master
 ## => Navigation
 ##############################
 paths:
-  base: /
+  base: /blog
   home: /
   all:  /all.html
   rss:  /feed.xml
