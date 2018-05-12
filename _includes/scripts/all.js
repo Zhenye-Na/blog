@@ -37,7 +37,6 @@
       for (i = 0; i < _data[year].length; i++) {
         cur = _data[year][i], _tags = cur.tags;
         cur.title = window.decodeUrl(cur.title);
-        cur.url = window.decodeUrl(cur.url);
         if (_tags && _tags.length > 0) {
           for (j = 0; j < _tags.length; j++) {
             _tags[j] = window.decodeUrl(_tags[j]);
@@ -211,7 +210,6 @@
         tagSelect(window.decodeUrl(_tag));
         buttonFoucs(searchButtonsByTag(_tag));
       } else if (_q !== undefined) {
-        _q = window.decodeUrl(_q);
         queryInput(_q); setSearchBoxVal(_q);
       } else {
         showAll();
@@ -225,12 +223,6 @@
     $searchInput.on('input', window.throttle(function() {
       queryInput($(this).val());
     }, 400));
-    $searchInput.on('focus', function() {
-      addClass($(this), 'focus');
-    });
-    $searchInput.on('blur', function() {
-      removeClass($(this), 'focus');
-    });
     $searchClear.on('click', function() {
       clearSearchBox();
     });

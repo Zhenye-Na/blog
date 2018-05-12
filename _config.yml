@@ -11,142 +11,85 @@
 #    |  |  \   --. /  .'.  \  |  |
 #    `--'   `----''--'   '--' `--'
 
-
-
-
-## => Site Settings
-##############################
-text_color_theme: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
-url: # the base hostname & protocol for your site e.g. https://www.someone.com
-baseurl: # does not include hostname
+## Base settings ##
+url:  #the base hostname & protocol for your site e.g. https://www.someone.com
+baseurl: /
 title: Zhenye Na
-description: > # this means to ignore newlines until "Language & timezone"
-  UIUC Graduate Student in ISE <br> Google-Oriented-Programming
-
-
-## => Language and Timezone
-##############################
-lang: # the language of your site, "en" (default, English), "zh"(简体中文), "zh-Hans"(简体中文), "zh-Hant"(繁體中文)
-timezone: America/Chicago # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
-
-
-## => Author and Social
-##############################
-author:
-  name:      Zhenye Na
-  email:     zna2@illinois.edu
-  facebook:  zhenye.na.1
-  # twitter: # your Twitter username
-  github:    zhenye-na
-  linkedin:  zhenyena
-  # googleplus: # your Google+ username
-  # weibo: # your Weibo username
-  # douban: # your Douban username
-
-
-## => GitHub Repository (if the site is hosted by GitHub)
-##############################
-repository: zhenye-na/zhenye-na.github.io
-repository_tree: master
-
-
-## => Navigation
-##############################
-paths:
-  base: /blog
-  home: /
-  all:  /blog/all.html
-  rss:  /feed.xml
+description: > #this means to ignore newlines until "nav_lists:"
+    UIUC Graduate Student in ISE | Google-Oriented-Programming
 
 nav_lists:
+  - title: Projects
+    url: /blog/projects.html
   - titles:
       en: About
       zh: 关于
       zh-Hans: 关于
       zh-Hant: 關於
-    url: /about.html
+    url: /blog/about.html
 
 
-## => Post
-##############################
-## excerpt
+
+paths:
+  base: /blog
+  home: /
+  all:  /blog/all.html
+  # rss:  /feed.xml
+
+## GitHub repository (if the site is hosted by GitHub) ##
+repository: zhenye-na/zhenye-na.github.io
+repository_tree: master
+
+## Language & timezone ##
+lang: en # the language of your site, eg: en(English), zh(简体中文), zh-Hans(简体中文), zh-Hant(繁體中文)
+timezone: America/Chicago
+
+## Author & social ##
+author:
+  name: "Zhenye Na"
+  email: zna2@illinois.edu
+  facebook:  zhenye.na.1 #your Facebook username
+  # twitter: kitian616
+  github:  zhenye-na
+  # googleplus:
+  # weibo: 
+  # douban: 
+  linkedin:  zhenyena #your Linkedin username
+
+## Comment system (Disqus) ##
+disqus:
+  shortname: zhenye #the Disqus shortname for the site
+
+## Google Analytics ##
+ga_tracking_id: UA-116457928-1 #Google analytics id for the site
+
+## Reading quantity (LeanCloud) ##
+# leancloud:
+#   app_id: 
+#   app_key: 
+#   app_class: 
+
+mathjax: true
+
+## Paginate ##
+paginate: 7
+paginate_path: /blog/page:num
+
+## Post excerpts ##
 excerpt_separator: <!--more-->
-excerpt_type: html # text (default), html
+excerpt_type: html # text | html
 
 ## Build ##
-markdown: kramdown
-highlighter: rouge
-permalink: dat
-
-## TOC
-toc:
-  selectors: # "h1,h2,h3" (default)
-
-## Markdown Enhancements
-
-# Mathjax
-mathjax: true # false (default), true
-mathjax_autoNumber: true # false (default), true
-
-# Mermaid
-mermaid: true # false (default), true
-
-# Chart
-chart: true # false (default), true
-
-
-## => Paginate
-##############################
-paginate: 8
-paginate_path: /blog/page:num # don't change this unless for special need
-
-
-## => Sources
-##############################
-sources: # bootcdn (default), unpkg
-
-
-## => Comments
-##############################
-## Disqus
-disqus:
-  shortname: zhenye
-
-## Gitalk
-# please refer to https://github.com/gitalk/gitalk for more info.
-# gitalk:
-#   clientID: # GitHub Application Client ID
-#   clientSecret: # GitHub Application Client Secret
-#   repository: # GitHub repo
-#   owner: # GitHub repo owner
-#   admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-#     # - your GitHub Id
-
-
-## => Pageview
-##############################
-## Leancloud
-# leancloud:
-#   app_id: # LeanCloud App id
-#   app_key: # LeanCloud App key
-#   app_class: # LeanCloud App class
-
-
-## => Analytics
-##############################
-## Google Analytics
-ga_tracking_id: UA-116457928-1
-
-
-## => Build
-##############################
 markdown: kramdown
 highlighter: rouge
 permalink: date
 
 exclude:
+  - CHANGELOG.md
+  - CHECKLIST.md
   - Gemfile
   - Gemfile.lock
+  - LICENSE
   - README-*.md
   - README.md
   - gulpfile.js
@@ -155,13 +98,13 @@ exclude:
   - package.json
   - /docs
   - /node_modules
+  - /screenshots
+  - /test
   - /vendor
 
-
-## => Plugins
-##############################
+## Plugins ##
 plugins:
+  - jekyll-sitemap
   - jekyll-feed
   - jekyll-paginate
-  - jekyll-sitemap
   - jemoji

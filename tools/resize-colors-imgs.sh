@@ -1,1 +1,0 @@
-mogrify -resize 800 -path screenshots screenshots/origin/colors_*.png
