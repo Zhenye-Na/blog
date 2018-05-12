@@ -19,8 +19,6 @@ description: > #this means to ignore newlines until "nav_lists:"
     UIUC Graduate Student in ISE | Google-Oriented-Programming
 
 nav_lists:
-  - title: Projects
-    url: /blog/projects.html
   - titles:
       en: About
       zh: 关于
