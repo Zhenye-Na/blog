@@ -1,0 +1,78 @@
+# Site
+title:              Loading...
+author:             Zhenye Na
+bio:                'M.S. Candidate in Advanced Analytics in Department of Industrial and Enterprise Systems Engineering at University of Illinois at Urbana-Champaign'
+description:        "UIUC Graduate Student in ISE <br> Google-Oriented-Programming"
+reading_time:       true
+words_per_minute:   200
+logo:               'assets/img/avatar/avatar.jpg'
+background:         'assets/img/placeholder-big.jpg'
+tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
+locale:             en_US
+# url:                https://taylantatli.github.io/Moon
+
+# Jekyll
+permalink:          /:title/
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+mathjax:            true
+sass:
+  sass_dir:         _sass
+  style:            compressed
+
+# Comments
+disqus_shortname:   zhenye
+
+# Social
+# if you don't have any of social below, comment the line.
+google:
+  #plus:            #username
+  analytics:        UA-116457928-1
+  #verify:
+  #ad-client:
+  #ad-slot:
+#bing-verify:
+email:              zna2@illinois.edu
+linkedin:           zhenyena
+github-url:         Zhenye-Na
+stackoverflow:      8692953/zayne-na
+#facebook:          zhenye.na.1
+#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
+#twitter:           username
+#xing:              username
+#instagram:         username
+#lastfm:            username
+#tumblr:            username
+#medium:            '@username'
+#pinterest:         username
+#foursquare:        username
+#steam:             username
+#dribbble:          username
+#youtube:           username
+#youtube-channel:   channel
+#soundcloud:        username
+#weibo:             username
+#flickr:            username
+#codepen:           username
+#keybase:           username
+#xmpp:              username@server.com
+#hackernews:        username
+
+# Gems
+gems:
+  - jekyll-mentions
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
+
+jekyll-mentions:
+    base_url: https://github.com
+
+# Exclude list
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]

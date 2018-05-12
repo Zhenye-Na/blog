@@ -1,50 +1,135 @@
 ---
-layout: compress
+layout: base
+titles:
+  en: Blog
+  zh: 博客
+  zh-Hans: 博客
+  zh-Hant: 博客
 ---
-<!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
-<head>
-    {% include head.html %}
-</head>
-<body>
-    {% include nav.html %}
-    <!-- Header -->
-    <header class="header flex" role="banner">
-        <div class="container animated fadeIn">
-            <div class="row">
-                    <a href="{{ site.url }}">
-                        <img src="{{ site.logo }}" class="img-circle zoombtn animated rotateIn">
-                    </a>
-                    <h3 class="title">
-                        <a class="zoombtn" href="{{ site.url }}">
-                        	<p style="font-size:1.2rem;font-weight:300">{{ site.author }}</p>
-			            </a>
-                    </h3>
-                    <hr class="hr-line">
-                    <h3 class="title">
-                        <a href="{{ site.url }}">
-                        	<p style="font-size:1rem;font-weight:300">{{ site.bio }}</p>
-			            </a>
-                    </h3>
-                    {% include social-links.html %}
-                  <hr class="hr-line">
-                  <h3 class="title">
-                         <a class="btn zoombtn" href="{{ site.url }}/about">
-                         About
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/posts">
-                         Posts
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/projects">
-                         Projects
-                         </a>
-                 </h3>
-            </div>
-        </div>
-    </header>
-    {% include scripts.html %}
-</body>
-</html>
+<div class="m-home">
+  <div class="main">
+    <div class="m-post-list">
+      {%- for post in paginator.posts -%}
+        <article>
+          {%- assign __path = post.url -%}
+          {%- include snippets/prepend-baseurl.html -%}
+          {%- assign href = __return -%}
+          <h1><a href="{{ href }}">{{ post.title }}</a></h1>
+          <div class="m-article-content">
+            {%- assign _excerpt_type = site.excerpt_type | default: site.data.variables.default.excerpt_type  -%}
+            {%- if _excerpt_type == 'html' -%}
+              {{ post.excerpt }}
+            {%- else -%}
+              {{ post.excerpt | strip_html | truncate: 350 }}
+            {%- endif -%}
+          </div>
+          {%- assign __path = post.url -%}
+          {%- include snippets/prepend-baseurl.html -%}
+          {%- assign __locale = site.data.locale.READMORE -%}
+          {%- include snippets/locale-to-string.html -%}
+          <a href="{{ href }}">{{ __return }}</a>
+          {%- include article-info.html -%}
+        </article>
+      {%- endfor -%}
+    </div>
+    {%- if paginator.total_pages > 1 -%}
+        <nav class="m-pagination">
+          {%- assign __locale = site.data.locale.STATISTICS -%}
+          {%- include snippets/locale-to-string.html -%}
+          {%- assign post_count = site.posts | size -%}
+          {%- assign page_count = paginator.total_pages -%}
+          <p>{{ __return | replace: '[POST_COUNT]', post_count | replace: '[PAGE_COUNT]', page_count }}</p>
+          <ul>
+            {%- assign _max_show = 5 -%}
+            {%- assign _max_show_modulo_two = _max_show | modulo: 2 -%}
+            {%- assign _length = paginator.total_pages -%}
+            {%- assign _length_mimus_one = _length | minus: 1 -%}
+            {%- assign _cur = paginator.page -%}
+            {%- assign _extra = _max_show | minus: 3 -%}
+            {%- assign _extra_half = _extra | divided_by: 2 -%}
+            {%- if  _max_show > 4 and _max_show_modulo_two == 1 and paginator.total_pages > _max_show -%}
+              {%- assign _condition0 = _extra | divided_by: 2 | plus: 1 -%}
+              {%- assign _condition1 = _length | minus: _extra_half  -%}
+              {%- if _cur <= _condition0 -%}
+                {%- assign _n0 = 2 -%}
+                {%- assign _n1 = _extra | plus: 2 -%}
+              {%- elsif _cur >= _condition1 -%}
+                {%- assign _n0 = _length | minus: _extra | minus: 1 -%}
+                {%- assign _n1 = _length | minus: 1 -%}
+              {%- else -%}
+                {%- assign _n0 = _cur | minus: _extra_half -%}
+                {%- assign _n1 = _cur | plus: _extra_half -%}
+              {%- endif -%}
+            {%- endif -%}
+            {%- if paginator.previous_page -%}
+              {%- assign __path = paginator.previous_page_path -%}
+              {%- include snippets/prepend-baseurl.html -%}
+              {%- assign href = __return -%}
+              <li><a class="round-button" href="{{ href }}">
+                <div class="icon icon--previous">{%- include svg/icon/previous.svg -%}</div></a>
+              </li>
+            {%- else -%}
+              <li><div class="round-button inactive">
+                <div class="icon icon--prrevious">{%- include svg/icon/previous.svg -%}</div></div>
+              </li>
+            {%- endif -%}
+
+            {%- for page in (1.._length) -%}
+              {%- if page == _cur -%}
+                <li>
+                  <div class="round-button cur"><span>{{ page }}</span></div>
+                </li>
+              {%- elsif page == 1 -%}
+                {%- assign __path = site.data.variables.default.paths.base -%}
+                {%- if site.paths.base -%}
+                  {%- assign __path = site.paths.base -%}
+                {%- endif -%}
+                {%- include snippets/prepend-baseurl.html -%}
+                {%- assign href = __return -%}
+                <li>
+                  <a class="round-button" href="{{ href }}"><span>{{ page }}</span></a>
+                </li>
+              {%- else -%}
+                {%- if _n0 and _n1 -%}
+                  {%- if page > 1 and page < _n0 -%}
+                    {%- if page == 2 -%}<li><span class="omit">{%- include svg/icon/omit.svg -%}</span></li>{%- endif -%}
+                  {%- elsif page > _n1 and page < _length -%}
+                    {%- if page == _length_mimus_one -%}<li><span class="omit">{%- include svg/icon/omit.svg -%}</span></li>{%- endif -%}
+                  {%- else -%}
+                    {%- assign __path = site.paginate_path -%}
+                    {%- include snippets/prepend-baseurl.html -%}
+                    {%- assign href = __return -%}
+                    <li>
+                      <a class="round-button" href="{{ href | replace: ':num', page }}"><span>{{ page }}</span></a>
+                    </li>
+                  {%- endif -%}
+                {%- else -%}
+                  {%- assign __path = site.paginate_path -%}
+                  {%- include snippets/prepend-baseurl.html -%}
+                  {%- assign href = __return -%}
+                  <li>
+                    <a class="round-button" href="{{ href | replace: ':num', page }}"><span>{{ page }}</span></a>
+                  </li>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if paginator.next_page -%}
+              {%- assign __path = paginator.next_page_path -%}
+              {%- include snippets/prepend-baseurl.html -%}
+              {%- assign href = __return -%}
+              <li>
+                <a class="round-button" href="{{ href }}">
+                  <div class="icon icon--next">{%- include svg/icon/next.svg -%}</div>
+                </a>
+              </li>
+            {%- else -%}
+                <li><div class="round-button inactive">
+                  <div class="icon icon--next">{%- include svg/icon/next.svg -%}</div>
+                  </div>
+                </li>
+            {%- endif -%}
+          </ul>
+        </nav>
+    {%- endif -%}
+  </div>
+</div>
