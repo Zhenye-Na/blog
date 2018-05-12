@@ -4,10 +4,10 @@ title: About
 key: page-about
 ---
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/avatar/avatar.jpg?raw=true" class="avatar" vspace="50" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/avatar/avatar.jpg?raw=true" class="avatar" vspace="50" />
 <br>
 <div align="center">
-<img src="http://ghchart.rshah.org/d04e59/Zhenye-Na" alt="Zhenye-Na's Blue Github Chart" />
+<img src="http://ghchart.rshah.org/f94f54/Zhenye-Na" alt="Zhenye-Na's Blue Github Chart" />
 <br><br>
 </div>
  
