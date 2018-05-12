@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "From GAN to WGAN"
+title: "Introduction to Ganerative Adversarial Network"
 date: 2018-05-11
 excerpt: "Under the hood: Generative Adversarial Network"
 tags: [GAN, WGAN, Deep Learning, Machine Learning]
