@@ -14,12 +14,9 @@ category: blog
 ## Background
 
 Mac OS X doesn't ship with its own copy of `MySQL`, nor does `Sequel Pro`. You will have to install a copy on your local machine, or connect to the MySQL server on a machine somewhere on the Internet.
-{:.info}
-
-Success Text.
-{:.success}
 
 Most webservers and website packages will include a MySQL installation as part of the services they provide, and usually provide external connection details to allow you to connect to them in an external program like Sequel Pro. (See [Web Hosting Providers](https://sequelpro.com/docs/Web_Hosting_Providers) for a list of hosting options).
+{:.info}
 
 **Important!** IncoPOS for macOS can now download, install and configure MySQL server for you when it is started for the first time. You can download it from [here](https://vladster.net/en/downloads/).
 
