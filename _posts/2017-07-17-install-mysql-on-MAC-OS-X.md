@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Install MySQL on Mac OS X"
+key: 10001
 date: 2017-07-17 
 excerpt: "Tutorial: How to install MySQL on Mac OS X"
 tags: [MySQL, Mac OS X]
