@@ -14,6 +14,7 @@ category: blog
 ## Background
 
 Mac OS X doesn't ship with its own copy of `MySQL`, nor does `Sequel Pro`. You will have to install a copy on your local machine, or connect to the MySQL server on a machine somewhere on the Internet.
+{:.info}
 
 Most webservers and website packages will include a MySQL installation as part of the services they provide, and usually provide external connection details to allow you to connect to them in an external program like Sequel Pro. (See [Web Hosting Providers](https://sequelpro.com/docs/Web_Hosting_Providers) for a list of hosting options).
 
@@ -64,7 +65,7 @@ Pay attention to the password in notification center. If you do not save the pro
 
 <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/mysql-installation/mysql7.jpg?raw=true" class="pics" />
 
-- Type this piece of codes in the file you opened, then save the file and quit.
+- Type this piece of codes in the file you opened, then save and quit.
 
 	```
 	export PATH=${PATH}:/usr/local/mysql/bin
@@ -75,7 +76,7 @@ Pay attention to the password in notification center. If you do not save the pro
 	```bash
 	mysql -uroot -p
 	```
-- If you successfully log in using Terminal, you can use this piece of code to reset/change your password.
+- If you successfully log in using `Terminal`, you can use this piece of code to reset/change your password.
 	
 	```bash
 	SET PASSWORD FOR 'root'@'localhost' = PASSWORD('new password');
@@ -85,7 +86,7 @@ Pay attention to the password in notification center. If you do not save the pro
 	
 - This is it! Now you have `MySQL` installed and secured on your Mac.
 
-> *If you notice mistakes and errors in this post, don’t hesitate to contact me at [lilian dot wengweng at gmail dot com] and I would be super happy to correct them right away!*
+> *If you notice mistakes and errors in this post, don’t hesitate to gice a comment and I would be super happy to correct them right away!*
 
 > Thanks! :)
 
