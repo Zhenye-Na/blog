@@ -8,12 +8,7 @@ tags: [MySQL, Mac OS X]
 category: blog
 ---
 
-> MySQL is the most popular open source database management system. It allows you to quickly download and install and run a powerful database system on almost any platform available including Linux, Windows, and Mac OS X etc. In this tutorial, I am going to explain how to download and install MySQL on Mac OS X in a few easy steps. 
-
-* [Background](#background)
-* [Download MySQL](#download-mysql)
-* [MySQL Configuration](#mysql-configuration)
-
+> *MySQL is the most popular open source database management system. It allows you to quickly download and install and run a powerful database system on almost any platform available including Linux, Windows, and Mac OS X etc. In this tutorial, I am going to explain how to download and install MySQL on Mac OS X in a few easy steps.* 
 
 
 ## Background
