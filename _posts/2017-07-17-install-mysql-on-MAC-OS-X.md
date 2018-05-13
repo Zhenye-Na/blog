@@ -85,7 +85,9 @@ Pay attention to the password in notification center. If you do not save the pro
 	
 - This is it! Now you have `MySQL` installed and secured on your Mac.
 
+> *If you notice mistakes and errors in this post, don’t hesitate to contact me at [lilian dot wengweng at gmail dot com] and I would be super happy to correct them right away!*
 
+> Thanks! :)
 
 
 <style>
