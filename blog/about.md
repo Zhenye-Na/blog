@@ -2,64 +2,42 @@
 layout: page
 title: About
 key: page-about
-comment: false
+---
+Welcome to my blog! :earth_asia: :earth_africa: :earth_americas:
+
+My Name is Tian Qi (You can also call me Thomas Tian), I am a ~~frontend engineer~~ development engineer working at [Qunar.com](https://www.qunar.com) in Beijing.
+
+## Skills
+
+- HTML5, CSS3(SASS), JavaScript(ES2017, Node.js), Bash(Zsh)
+- React, React Native, Vue.js
+- gulp, webpack
+- Adobe Photoshop, Sketch
+
+<!--more-->
+
+## About Me | 关于我
+
+你们好，我叫田琦，这是我的博客。
+
+我崇尚 Geek 精神与开源文化 :octocat:，喜欢简洁、优美、模块化的代码。爱折腾，折腾系统，折腾软件，折腾语言，折腾框架……生命不息，折腾不止。:muscle:
+
+平时喜欢看小说，看漫画 :books:。没事跑跑步 :runner:，看看电影 :movie_camera: ，聚个餐 :rice: :notes:。一个很普通的开发者。:see_no_evil:
+
+感谢计算机给我们提供了一个完美的试验场，这里没有太多的约束，就像*我的世界*一样，是一片自由的乌托邦之地。在这里，我们可以让想象力 :thought_balloon: 自由驰骋 :rocket:，让计算机完成我们想到的事。我认为，将计算机世界和现实世界连接起来 :computer: :link: :earth_asia: 是我等猿族的使命。
+
+如果你有任何问题，请给我发送邮件：[kitian616@outlook.com](mailto:kitian616@outlook.com)
+
+## Some Links | 相关链接
+
+- [About This Blog](/blog/2015/10/14/about-this-blog.html)
+
+- [Site Log](/blog/site-log.html)
+
+- [TeXt Theme](https://github.com/kitian616/jekyll-TeXt-theme) [![GitHub stars](https://img.shields.io/github/stars/kitian616/jekyll-TeXt-theme.svg?style=social&label=Stars)]()
+
 ---
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/avatar/avatar.jpg?raw=true" class="avatar" vspace="50" />
-<br>
-<div align="center">
-<img src="http://ghchart.rshah.org/f94f54/Zhenye-Na" alt="Zhenye-Na's Blue Github Chart" />
-<br><br>
-</div>
- 
+- [dwb-blog](http://dwbbb.com/)
 
-## Welcome!
-
-I am Zhenye Na, a Master candidate in Department of Industrial and Enterprise Systems Engineering [(ISE)](https://ise.illinois.edu/) at University of Illinois at Urbana-Champaign [(UIUC)](http://illinois.edu/). I am majoring in Industrial Engineering (Track: Advanced Analytics) and my concentration is in Computational Science & Engeering. I am currently advised by [Prof. Justin A. Sirignano](http://jasirign.github.io/) for my graduate study.
-{: style="text-align: justify"}
-
-I am interested in research related to Machine Learning, Deep Learning and Computer Vision. I am also interested in Audio Analysis, Speech, Image Processing and other Data Science related fields.
-{: style="text-align: justify"}
-
-I received my B.E. in Harbor, Waterway and Coastal Engineering from Dalian University of Technology [(DUT)](http://en.dlut.edu.cn/)
-{: style="text-align: justify"}
-
-* * *
-
-I love playing football (not American football, LOL), it makes so relaxing, the most important is I can have a good sleep without weird dreams after that, LOL. I sometimes play PES on my laptop (wish me I have no more dues, LOL)! Please contact me if you wanna join!
-{: style="text-align: justify"}
-
-I also playing [Garageband](https://www.apple.com/ios/garageband/) when I have spare time. I have played [Erhu](https://en.wikipedia.org/wiki/Erhu) for 5 years (Erhu is a traditional Chinese instrument and it is also supported by Garageband in the latest release - [Garageband Erhu](https://support.apple.com/kb/PH24855?viewlocale=en_HK&locale=en_HK)).
-{: style="text-align: justify"}
-
-Among so many football clubs, I love [Chelsea](http://www.chelseafc.com/) the best and [Eden Hazard](https://en.wikipedia.org/wiki/Eden_Hazard) is my favorite football star. This is the [overall season statistics summary](http://www.chelseafc.com/teams/first-team/eden-hazard.html) of Eden Hazard in Chelsea.
-{: style="text-align: justify"}
-
-* * *
-
-<style>
-<!--img.center {
-    display: block;
-    margin: 0 auto;
-}-->
-
-img.avatar {
-    border-radius: 50%;
-    display: block;
-    margin: 30px auto;
-    width: 150px;
-}
-
-.tags {
-    <!--list-style: none;-->
-    padding: 0 0 25px 0;
-    <!--text-align: center;-->
-    font-size: 15px;
-    word-spacing: 30px;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-</style>
+- [venoral's blog](http://www.cnblogs.com/venoral)
