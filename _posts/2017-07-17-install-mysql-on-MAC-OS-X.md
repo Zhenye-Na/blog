@@ -5,6 +5,7 @@ author: "Zhenye Na"
 date:   2017-07-17 
 excerpt: "About how to install MySQL on Mac OS X"
 tags: [MySQL, Mac OS X]
+comment: true
 ---
 
 
