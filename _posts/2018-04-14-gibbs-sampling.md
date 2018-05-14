@@ -5,6 +5,8 @@ key: 10006
 date: 2018-04-17
 excerpt: "Bayesian Inference: Gibbs Sampling"
 tags: [MCMC, Gibbs Sampling]
+mathjax: true
+mathjax_autoNumber: true
 ---
 
 
