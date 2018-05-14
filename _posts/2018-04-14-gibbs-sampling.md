@@ -19,7 +19,7 @@ As Bayesian models of cognitive phenomena become more sophisticated, the need fo
 
 The underlying logic of MCMC sampling is that we can estimate any desired expectation by ergodic averages. That is, we can compute any statistic of a posterior distribution as long as we have N simulated samples from that distribution:
 
-\\[  E[f(s)]_{\mathcal{P}} \approx \frac{1}{N} \sum \limits_{i=1}^{N}f(s^{(i)}) \\]
+$$ E[f(s)]_{\mathcal{P}} \approx \frac{1}{N} \sum \limits_{i=1}^{N}f(s^{(i)}) $$
 
 where \\( \mathcal{P} \\) is the posterior distribution of interest, \\( f(s) \\) is the desired expectation, and \\( f(s^{(i)}) \\) is the \\( i^{th} \\) simulated sample from \\( \mathcal{P} \\).
 
