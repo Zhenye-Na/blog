@@ -45,7 +45,7 @@ $$ \begin{align} \text{Gamma}(\lambda; a, b) &= \frac{1}{\Gamma(a)}b^a \lambda^{
 
 The initial mean $ \lambda_1$ jumps to a new value $ \lambda_2$ after a random time step $ n $. Thus the generative model is as follows:
 
-$$ \begin{align} n & \sim \text{Uniform}(1, 2, ..., N) \\ \lambda_i &\sim \text{Gamma(\lambda_i;a, b)} \\ x_i &\sim \cases{\text{Poisson}(x_i ; \lambda_1)  & \text{if } 1 \le i \le n \cr \text{Poisson}(x_i ; \lambda_2) & \text{if } n \le i \le N }  \end{align} $$
+$$ \begin{align} n & \sim \text{Uniform}(1, 2, ..., N) \\ \lambda_i &\sim \text{Gamma(\lambda_i;a, b)} \\ x_i &\sim \begin{cases} \text{Poisson}(x_i ; \lambda_1), & \text{if}\ 1 \leq i \leq n \\ \text{Poisson}(x_i ; \lambda_2), & \text{if}\ n \leq i \leq N \end{cases} \end{align} $$
 
 The problem of inferring the posterior distribution over the latent variables $ n $, $ \lambda_1 $, $ \lambda_2 $ can be solved via Bayes theorem.
 
@@ -81,8 +81,6 @@ $$ \begin{align} \log p(n \vert \lambda_1, \lambda_2, x_{1:N}) &= \sum \limits_{
 Note that the conditional posterior for n is not of a known closed form. But we can easily obtain a multinomial distribution for n by computing $ p(n \vert \lambda_1, \lambda_1, x_{1:N} ) $ for $ n = 1, . . . , N $  which we can use to draw new samples.
 
 Now that we have the posterior conditionals for all the latent variables, we are ready to simulate samples from the target joint posterior in Equation 5 using Algorithm 1.
-
-
 
 ## Implementation
 
@@ -351,7 +349,7 @@ We illustrated both of these steps in a change-point detection problem.
 
 
 ## References
-[1] Lynch, S. M. (2007). Introduction to Applied Bayesian Statistics and Estimation for Social Scientists. New York: Springer;  
-[2] Taylan Cemgil’s [lecture slides](http://www.cmpe.boun.edu.tr/courses/cmpe58n/fall2009/) on Monte Carlo methods
+[1] Lynch, S. M. (2007). [*Introduction to Applied Bayesian Statistics and Estimation for Social Scientists*](https://www.springer.com/us/book/9780387712642). New York: Springer;
+[2] Taylan Cemgil’s [lecture slides](http://www.cmpe.boun.edu.tr/courses/cmpe58n/fall2009/) on Monte Carlo methods;
 
-[3] Gilks, W. R., Richardson, S., & Spiegelhalter, D. J. (1996). *Markov Chain Monte Carlo in Practice*. London: Chapman and Hall.
+[3] Gilks, W. R., Richardson, S., & Spiegelhalter, D. J. (1996). [*Markov Chain Monte Carlo in Practice*](http://www.stat.columbia.edu/~gelman/research/published/kass5.pdf). London: Chapman and Hall.
