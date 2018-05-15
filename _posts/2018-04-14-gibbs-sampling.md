@@ -36,11 +36,11 @@ A good way of learning about MCMC techniques is to study examples. In the rest o
 ## A change-point model
 Suppose that we observe a sequence of counts $x_1 $, $x_2 $, ... , $x_N $ where the average of the counts has some value for time steps 1 to n, and a diﬀerent value for time steps $ n + 1 $to $ N $. We model the counts at each time step $ i $ as a Poisson variable, which has the following density function:
 
-$$ \begin{align}  \text{Poisson}(x; \lambda) &= e^{-\lambda} \frac{\lambda ^{x}}{x!} \tag{1} \\ &= \exp (x \log \lambda − \lambda − \log(x!)) \tag{2} \end{align} $$
+$$ \begin{align}  \text{Poisson}(x; \lambda) &= e^{-\lambda} \frac{\lambda ^{x}}{x!} \tag{1} \\ &= \exp (x \log \lambda − \lambda − \log(x!)) \end{align} $$
 
 where $ \lambda $ is the mean of the distribution. We model the mean $ \lambda $ as a Gamma distribution, which has the following density function:
 
-$$ \begin{align} \text{Gamma}(\lambda; a, b) &= \frac{1}{\Gamma(a)}b^a \lambda^{a-1} \exp (-b \lambda) \tag{3} \\ &= \exp ((a-1) \log \lambda - b \lambda - \log \Gamma(a) + a \log b) \tag{4} \end{align} $$
+$$ \begin{align} \text{Gamma}(\lambda; a, b) &= \frac{1}{\Gamma(a)}b^a \lambda^{a-1} \exp (-b \lambda) \tag{3} \\ &= \exp ((a-1) \log \lambda - b \lambda - \log \Gamma(a) + a \log b) \end{align} $$
 
 
 The initial mean $ \lambda_1$ jumps to a new value $ \lambda_2$ after a random time step $ n $. Thus the generative model is as follows:
@@ -49,7 +49,7 @@ $$ \begin{align} n & \sim \text{Uniform}(1, 2, ..., N) \\ \lambda_i &\sim \text{
 
 The problem of inferring the posterior distribution over the latent variables $ n $, $ \lambda_1 $, $ \lambda_2 $ can be solved via Bayes theorem.
 
-$$ p(\lambda_1, \lambda_2, n \vert x_{1:N}) \varpropto p(x_{1:n} \vert \lambda_1)p(x_{n+1:N} \vert \lambda_2)p(\lambda_1)p(\lambda_2)p(n) \tag{5} $$
+$$ p(\lambda_1, \lambda_2, n \vert x_{1:N}) \varpropto p(x_{1:n} \vert \lambda_1)p(x_{n+1:N} \vert \lambda_2)p(\lambda_1)p(\lambda_2)p(n) $$
 
 
 ## Conditional distributions
@@ -57,26 +57,26 @@ As **Algorithm 1** illustrates, we need the posterior conditionals for each of t
 
 A form of the full joint distribution is given on the right hand side of Equation 5. We start our derivation from there.
 
-$$ \begin{equation} p(x_{1:n} \vert \lambda_1)p(x_{n+1:N} \vert \lambda_2)p(\lambda_1)p(\lambda_2)p(n) \\ = \bigg(\prod \limits_{i=1}^n p(x_i |\lambda_1)\bigg) \bigg(\prod \limits_{i=n+1}^N p(x_i |\lambda_2)\bigg) p(\lambda_1)p(\lambda_2)p(n) \tag{6} \end{equation} $$
+$$ \begin{equation} p(x_{1:n} \vert \lambda_1)p(x_{n+1:N} \vert \lambda_2)p(\lambda_1)p(\lambda_2)p(n) \\ = \bigg(\prod \limits_{i=1}^n p(x_i |\lambda_1)\bigg) \bigg(\prod \limits_{i=n+1}^N p(x_i |\lambda_2)\bigg) p(\lambda_1)p(\lambda_2)p(n) \end{equation} $$
 
 
 Next we write the log of the full posterior by taking the logarithm of the right hand side of Equation 6 and plugging in Equations 1 ~ 4 wherever appropriate.
 
-$$ \begin{equation} \log p(x_{1:n} \vert \lambda_1 ) + \log p(x_{n+1:N} \vert \lambda_2) + \log(\lambda_1) + \log(\lambda_2) + \log p(n) \\ = \sum \limits_{i=1}^n (x_i \log \lambda_1 - \lambda_1 - \log (x_i!)) \\ + \sum \limits_{i=n+1}^N (x_i \log \lambda_2 - \lambda_2 - \log (x_i!)) \\ + (a-1) \log \lambda_1 - b \lambda_1 - \log \Gamma(a) + a \log b \\ + (a-1) \log \lambda_2 - b \lambda_2 - \log \Gamma(a) + a \log b \\ - \log N \tag{7} \end{equation} $$
+$$ \begin{equation} \log p(x_{1:n} \vert \lambda_1 ) + \log p(x_{n+1:N} \vert \lambda_2) + \log(\lambda_1) + \log(\lambda_2) + \log p(n) \\ = \sum \limits_{i=1}^n (x_i \log \lambda_1 - \lambda_1 - \log (x_i!)) \\ + \sum \limits_{i=n+1}^N (x_i \log \lambda_2 - \lambda_2 - \log (x_i!)) \\ + (a-1) \log \lambda_1 - b \lambda_1 - \log \Gamma(a) + a \log b \\ + (a-1) \log \lambda_2 - b \lambda_2 - \log \Gamma(a) + a \log b \\ - \log N \end{equation} $$
 
 Now we obtain the posterior conditionals for each of the latent variables by collecting the terms in the full joint distribution that include the latent variable of interest. We start with $ \lambda_1 $ . We obtain its posterior conditional by picking up the relevant terms in Equation 7 (and rearranging some of these terms).
 
-$$ \begin{align} \log p(\lambda_1 \vert n, \lambda_2, x_{1:N}) &=^+ \sum \limits_{i=1}^n (x_i \log \lambda_1 - \lambda_1) + (a-1)\log \lambda_1 - b \lambda_1 \\ &= \bigg( a + \sum \limits_{i=1}^n x_i - 1 \bigg) \log \lambda_1 - (n+b)\lambda_1 \\ &=^+ \log \Gamma \bigg( a + \sum \limits_{i=1}^n x_i, n+b \bigg) \tag{8}    \end{align} $$
+$$ \begin{align} \log p(\lambda_1 \vert n, \lambda_2, x_{1:N}) &=^+ \sum \limits_{i=1}^n (x_i \log \lambda_1 - \lambda_1) + (a-1)\log \lambda_1 - b \lambda_1 \\ &= \bigg( a + \sum \limits_{i=1}^n x_i - 1 \bigg) \log \lambda_1 - (n+b)\lambda_1 \\ &=^+ \log \Gamma \bigg( a + \sum \limits_{i=1}^n x_i, n+b \bigg)    \end{align} $$
 
 where the operator $=^+$ means "equal up to a constant". Note that the posterior conditional and the prior for λ 1 are both Gamma distributions (albeit with diﬀerent sets of parameters). This correspondence of distributions is not random, but arises because we used a "conjugate" prior distribution. That is, for certain pairs of priors and likelihoods, the posterior ends up having the same probability distribution as the prior (with updated parameters). GammaPoisson is one such pair of conjugacy, resulting in a Gamma posterior.
 
 The posterior conditional for $ \lambda_2 $ can be derived similarly:
 
-$$ \begin{align} \log p(\lambda_1 \vert n, \lambda_2, x_{1:N}) &=^+ \sum \limits_{i=n+1}^N (x_i \log \lambda_2 - \lambda_2) + (a-1)\log \lambda_2 - b \lambda_2 \\ &=^+ \log \Gamma \bigg( a + \sum \limits_{i=1}^n a+x_i, N-n+b \bigg) \tag{9} \end{align} $$
+$$ \begin{align} \log p(\lambda_1 \vert n, \lambda_2, x_{1:N}) &=^+ \sum \limits_{i=n+1}^N (x_i \log \lambda_2 - \lambda_2) + (a-1)\log \lambda_2 - b \lambda_2 \\ &=^+ \log \Gamma \bigg( a + \sum \limits_{i=1}^n a+x_i, N-n+b \bigg) \end{align} $$
 
 Finally, we derive the posterior conditional for n, the time step at which counts jump from a mean of $ \lambda_1 $  to a mean of $ \lambda_2 $ :
 
-$$ \begin{align} \log p(n \vert \lambda_1, \lambda_2, x_{1:N}) &= \sum \limits_{i=1}^n (x_i \log \lambda_1 - \lambda_1 - \log (x_i!)) + \sum \limits_{i=n+1}^N (x_i \log \lambda_2 - \lambda_2 - \log (x_i!)) \\ &=^+ \bigg( \sum \limits_{i=1}^n x_i \bigg) \log \lambda_1 -n \lambda_1+ \bigg( \sum \limits_{i=n+1}^N x_i \bigg) \log \lambda_2 - (N - n) \lambda_2 \tag{10} \end{align} $$
+$$ \begin{align} \log p(n \vert \lambda_1, \lambda_2, x_{1:N}) &= \sum \limits_{i=1}^n (x_i \log \lambda_1 - \lambda_1 - \log (x_i!)) + \sum \limits_{i=n+1}^N (x_i \log \lambda_2 - \lambda_2 - \log (x_i!)) \\ &=^+ \bigg( \sum \limits_{i=1}^n x_i \bigg) \log \lambda_1 -n \lambda_1+ \bigg( \sum \limits_{i=n+1}^N x_i \bigg) \log \lambda_2 - (N - n) \lambda_2 \end{align} $$
 
 Note that the conditional posterior for n is not of a known closed form. But we can easily obtain a multinomial distribution for n by computing $ p(n \vert \lambda_1, \lambda_1, x_{1:N} ) $ for $ n = 1, . . . , N $  which we can use to draw new samples.
 
