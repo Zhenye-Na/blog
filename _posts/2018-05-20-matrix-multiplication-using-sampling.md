@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Matrix multiplication using sampling"
+title: "Matrix Multiplication using random Sampling"
 date: 2018-04-17
 excerpt: "Algorithms for matrix problems like matrix multiplication, low-rank approximations, singular value decomposition, compressed representations of matrices, linear regression etc."
 tags: [Sampling, algorithm]
@@ -11,14 +11,14 @@ mathjax_autoNumber: true
 > *Here in this tutorial, we will be looking at matrix algorithms and to achieve errors that are small compared to the Frobenius norm of the matrix rather than compared to the total number of entries, we will perform non-uniform sampling.*
 
 ## Overview
-In practice， the input sometimes is so large, one would like to produce a much smaller approximation to it, or perform an approximate computation on it in low space. For instance, the input might be stored in a large slow memory and we would like a small “sketch” that can be stored in smaller fast memory and yet retains the important properties of the original input.
+In practice, the input sometimes is so large, one would like to produce a much smaller approximation to it, or perform an approximate computation on it in low space. For instance, the input might be stored in a large slow memory and we would like a small "sketch" that can be stored in smaller fast memory and yet retains the important properties of the original input.
 
 In fact, one can view a number of results from the chapter on machine learning in this way: we have a large population, and we want to take a small sample, perform some optimization on the sample, and then argue that the optimum solution on the sample will be approximately optimal over the whole population.
 
 
 ## Matrix Multiplication using Sampling
 
-Suppose $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix and the product $AB$ is desired. We show how to use sampling to get an approximate product faster than the traditional multiplication. Let $A(:, k)$ denote the k th column of $A$. $A(:, k)$ is a $m \times 1$ matrix. Let $B(k, :)$ be the $k^{th}$ row of $B$. $B(k, :)$ is a $1 \times n$ matrix. It is easy to see that
+Suppose $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix and the product $AB$ is desired. We show how to use sampling to get an approximate product faster than the traditional multiplication. Let $A(:, k)$ denote the k th column of $A$. $A(:, k)$ is a $m \times 1$ matrix. Let $B(k, :)$ be the $k^{th}$ row of $B$. $B(k, :)$ is a $1 \times n$ matrix. It is easy to see that:
 
 $$AB = \sum \limits_{k=1}^n A(:,k)B(k,:). $$
 
@@ -36,7 +36,7 @@ $$E(\|AB - X \|_F^2)$$
 
 This can be viewed as the variance of $X$, deﬁned as the sum of the variances of all its entries.
 
-$$ \begin{align} \text{Var}(X) &= \sum \limits_{i=1}^m \sum \limits_{j=1}^p \text{Var}(x_{ij}) \\ &= \sum \limits_{ij} E(x_{ij}^2) - E(x_{ij})^2 \\ &= \bigg( \sum \limits_{ij} \sum \limits_{k} p_k \frac{1}{p_k} a_{ik}^2 b_{kj}^2 \bigg) - \| AB \|^2_F       \end{align} $$
+$$ \begin{align} \text{Var}(X) &= \sum \limits_{i=1}^m \sum \limits_{j=1}^p \text{Var}(x_{ij}) \\ &= \sum \limits_{ij} E(x_{ij}^2) - E(x_{ij})^2 \\ &= \bigg( \sum \limits_{ij} \sum \limits_{k} p_k \frac{1}{p_k} a_{ik}^2 b_{kj}^2 \bigg) - \| AB \|^2_F. \end{align} $$
 
 We want to choose $p_k$ to minimize this quantity, and notice that we can ignore the $\| AB \|^2_F$ term since it doesn’t depend on the $p_k$ 's at all. We can now simplify by exchanging the order of summations to get
 
@@ -46,7 +46,7 @@ What is the best choice of $p_k$ to minimize this sum? It can be seen by calculu
 
 $$E(\|AB - X \|_F^2) = \text{Var}(X) \leq \| A \|_F^2 \sum \limits_k |B(k,:)|^2 = \|A\|_F^2 \|B\|_F^2.  $$
 
-To reduce the variance, we can do $s$ independent trials. Each trial $i$, $i = 1, 2, . . . , s$ yields a matrix $X_i$. We take $\frac{1}{s} \sum \limits_{i=1}^s X_i $ as our estimate of AB. Since the variance of a sum of independent random variables is the sum of variances, the variance of $\frac{1}{s} \sum \limits_{i=1}^s X_i $ is $\frac{1}{s} \text{Var}(X)$ and so is at most $\frac{1}{s} \|A\|_F^2 \|B\|_F^2. $ Let $k_1 , . . . , k_s $be the $k$'s chosen in each trial. Expanding this, gives:
+To reduce the variance, we can do $s$ independent trials. Each trial $i$, $i = 1, 2, . . . , s$ yields a matrix $X_i$. We take $\frac{1}{s} \sum \limits_{i=1}^s X_i $ as our estimate of $AB$. Since the variance of a sum of independent random variables is the sum of variances, the variance of $\frac{1}{s} \sum \limits_{i=1}^s X_i $ is $\frac{1}{s} \text{Var}(X)$ and so is at most $\frac{1}{s} \|A\|_F^2 \|B\|_F^2. $ Let $k_1 , . . . , k_s $ be the $k$'s chosen in each trial. Expanding this, gives:
 
 $$\frac{1}{s} \sum \limits_{i=1}^s X_i  = \frac{1}{s} \bigg( \frac{A (:, k_1) B (k_1 , :)}{p_{k1}} + \frac{A (:, k_2) B (k_2 , :)}{p_{k2}}  \dots \frac{A (:, k_s) B (k_s, :)}{p_{ks}} .  \bigg) $$
 
@@ -54,7 +54,7 @@ We will ﬁnd it convieneint to write this as the product of an $m \times s$ mat
 
 $$ \frac{A(:, k_1)}{\sqrt{sp_{k1}}}, \frac{A(:, k_1)}{\sqrt{sp_{k1}}}, \dots, \frac{A(:, k_s)}{\sqrt{sp_{ks}}}. $$
 
-Note that the scaling has a nice property, which the reader can verify:
+Note that the scaling has a nice property:
 
 $$E(CC^\intercal) = AA^\intercal .$$
 
@@ -66,7 +66,7 @@ It is obvious to prove that:
 
 $$E(R^\intercal R) = B^\intercal B.$$
 
-We see that $$\frac{1}{s} \sum \limits_{i=1}^s X_i  = CR $$. This is represented in Figure below:
+We see that $$\frac{1}{s} \sum \limits_{i=1}^s X_i  = CR. $$ This is represented in the figure below:
 
 ![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/matrixmul/sampling1.png?raw=true)
 
@@ -98,8 +98,7 @@ $$AB = CR$$
 
 
 
-*If you notice mistakes and errors in this post, please don’t hesitate to leave a comment and I would be super happy to correct them right away!*
-
+> *If you notice mistakes and errors in this post, please don't hesitate to leave a comment and I would be super happy to correct them right away!*
 
 
 [^1]: By taking derivatives, for any set of nonnegative numbers $c_k$, $\sum_k \frac{c_k}{p_k}​$ is minimized with $p_k​$ proportional to $\sqrt{c_k}​$.
