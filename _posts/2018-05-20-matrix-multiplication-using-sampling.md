@@ -4,7 +4,8 @@ title: "Matrix multiplication using sampling"
 date: 2018-04-17
 excerpt: "Algorithms for matrix problems like matrix multiplication, low-rank approximations, singular value decomposition, compressed representations of matrices, linear regression etc."
 tags: [Sampling, algorithm]
-comments: true
+mathjax: true
+mathjax_autoNumber: true
 ---
 
 > *Here in this tutorial, we will be looking at matrix algorithms and to achieve errors that are small compared to the Frobenius norm of the matrix rather than compared to the total number of entries, we will perform non-uniform sampling.*
@@ -101,5 +102,5 @@ $$AB = CR$$
 
 
 
-[^1]: By taking derivatives, for any set of nonnegative numbers $c_k$, $\sum_k \frac{c_k}{p_k}$ is minimized with $p_k$ proportional to $\sqrt{c_k}$.
+[^1]: By taking derivatives, for any set of nonnegative numbers $c_k$, $\sum_k \frac{c_k}{p_k}​$ is minimized with $p_k​$ proportional to $\sqrt{c_k}​$.
 
