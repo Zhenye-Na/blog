@@ -37,7 +37,7 @@ things are not likely to work well
 
 Below is the basic architecture of multilayer perceptron (Multilayer Neural Network):
 
-![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot1.png?raw=true)
+![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot1.png?raw=true | width=250)
 
 $y_i$ is large if the probability that the correct class is $i$ is high. $y^{(i)}$ encoded using `one-hot encoding`.
 
@@ -45,7 +45,7 @@ $y_i$ is large if the probability that the correct class is $i$ is high. $y^{(i)
 
 Sometimes we want to estimate the probability of $P( y = y' \vert x, \theta)$, $\theta$ are network parameters.
 
-![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot2.png?raw=true)
+![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot2.png?raw=true | width=250)
 
 $$ p_i = \frac{\exp y_i}{\sum_j \exp y_j}. $$
 
