@@ -19,11 +19,9 @@ Categorical data are variables that contain label values rather than numeric val
 ## Representation
 
 - Data: $(x^{(1)}, y^{(1)})$, $(x^{(2)}, y^{(2)})$, $\dots$, $(x^{(n)}, y^{(n)})$
-	- E.g. $y^{(i)} \in \{\text{"person"}, \text{"hamster"}, \text{"capybara"} \} $
+  - E.g. $y^{(i)} \in \{\text{"person"}, \text{"hamster"}, \text{"capybara"} \} $
 - Encode $y^{(i)} \in \{1, 2, 3 \} $
-	- Shouldn't be running something like linear regression, since
-"hamster" is not really the average of "person" and "capybara", so
-things are not likely to work well
+  - Shouldn't be running something like linear regression, since "hamster" is not really the average of "person" and "capybara", so things are not likely to work well.
 
 **Solution:** one-hot encoding
 * "person" => [1, 0, 0]
@@ -37,7 +35,7 @@ things are not likely to work well
 
 Below is the basic architecture of multilayer perceptron (Multilayer Neural Network):
 
-![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot1.png?raw=true | width=250)
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot1.png?raw=true" width="70%">
 
 $y_i$ is large if the probability that the correct class is $i$ is high. $y^{(i)}$ encoded using `one-hot encoding`.
 
@@ -45,7 +43,7 @@ $y_i$ is large if the probability that the correct class is $i$ is high. $y^{(i)
 
 Sometimes we want to estimate the probability of $P( y = y' \vert x, \theta)$, $\theta$ are network parameters.
 
-![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot2.png?raw=true | width=250)
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot2.png?raw=true" width="70%">
 
 $$ p_i = \frac{\exp y_i}{\sum_j \exp y_j}. $$
 

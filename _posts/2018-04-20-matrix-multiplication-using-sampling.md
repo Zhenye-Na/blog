@@ -42,7 +42,9 @@ We want to choose $p_k$ to minimize this quantity, and notice that we can ignore
 
 $$ \begin{align} \sum \limits_{ij} \sum \limits_{k} p_k \frac{1}{p_k} a_{ik}^2 b_{kj}^2 &= \sum \limits_k \frac{1}{p_k} \bigg( \sum \limits_k a_{ik}^2 \bigg) \bigg( \sum \limits_k b_{kj}^2 \bigg) \\&= \sum \limits_k \frac{1}{p_k} |A(:,k)|^2 |B(k,:)|^2. \end{align} $$
 
-What is the best choice of $p_k$ to minimize this sum? It can be seen by calculus[^1] that the minimizing $p_k$ are proportional to $|A(:,k)||B(k,:)|$. In the special case when $ B = A^\intercal $. pick columns of $A$ with probabilities proportional to the squared length of the columns. Even in the general case when $B$ is not $ A^\intercal $ , doing so simplifies the bounds. This sampling is called `length squared sampling`. If $p_k$ is proportional to $|A(:,k)|^2$, i.e, $p_k = \frac{|A(:,k)|^2}{\|A \|_F^2}$, then
+What is the best choice of $p_k$ to minimize this sum? It can be seen by calculus[^1] that the minimizing $p_k$ are proportional to $|A(:,k)||B(k,:)|$. In the special case when $ B = A^\intercal $, pick columns of $A$ with probabilities proportional to the squared length of the columns. Even in the general case when $B$ is not $ A^\intercal $ , doing so simplifies the bounds. 
+
+This sampling is called `length squared sampling`. If $p_k$ is proportional to $|A(:,k)|^2$, i.e, $p_k = \frac{|A(:,k)|^2}{\|A \|_F^2}$, then
 
 $$ E(\|AB - X \|_F^2) = \text{Var}(X) \leq \| A \|_F^2 \sum \limits_k |B(k,:)|^2 = \|A\|_F^2 \|B\|_F^2. $$
 
@@ -101,5 +103,5 @@ $$AB = CR$$
 > *If you notice mistakes and errors in this post, please don't hesitate to leave a comment and I would be super happy to correct them right away!*
 
 
-[^1]: By taking derivatives, for any set of nonnegative numbers $c_k$, $\sum_k \frac{c_k}{p_k}​$ is minimized with $p_k​$ proportional to $\sqrt{c_k}​$.
+[^1]: By taking derivatives, for any set of nonnegative numbers $c_k$, $\sum_k \frac{c_k}{p_k}$ is minimized with $p_k$ proportional to $\sqrt{c_k}$.
 
