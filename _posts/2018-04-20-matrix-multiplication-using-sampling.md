@@ -24,7 +24,7 @@ $$AB = \sum \limits_{k=1}^n A(:,k)B(k,:). $$
 
 Note that for each value of $k$, $A(:, k)$, $B(k, :)$ is an $m \times p$ matrix each element of which is a single product of elements of $A$ and $B$. An obvious use of sampling suggests itself. Sample some values for $k$ and compute $A(:,k)B(k,:)$ for the sampled k‘s and use their suitably scaled sum as the estimate of $AB$. It turns out that nonuniform sampling probabilities are useful. Define a random variable $z$ that takes on values in $\{1, 2, ..., n\}$. Let $p_k$ denote the probability that $z$ assumes the value $k$. We will solve for a good choice of probabilities later, but for now just consider the $p_k$ as nonnegative numbers that sum to one. Define an associated random matrix variable that has value
 
-$$X = \frac{1}{p_k} A(:,k)B(k,:) $$
+$$ X = \frac{1}{p_k} A(:,k)B(k,:) $$
 
 with probability $p_k$ . Let $E(X)$ denote the entry-wise expectation.
 
@@ -32,7 +32,7 @@ $$ \begin{align} E(X) &= \sum \limits_{k=1}^n \text{Prob}(z=k) \frac{1}{p_k} A(:
 
 This explains the scaling by $\frac{1}{p_k}$ in $X$. In particular, $X$ is a matrix-valued random variable each of whose components is correct in expectation. We will be interested in
 
-$$E(\|AB - X \|_F^2)$$
+$$ E(\|AB - X \|_F^2)$$
 
 This can be viewed as the variance of $X$, defined as the sum of the variances of all its entries.
 
@@ -42,7 +42,7 @@ We want to choose $p_k$ to minimize this quantity, and notice that we can ignore
 
 $$ \begin{align} \sum \limits_{ij} \sum \limits_{k} p_k \frac{1}{p_k} a_{ik}^2 b_{kj}^2 &= \sum \limits_k \frac{1}{p_k} \bigg( \sum \limits_k a_{ik}^2 \bigg) \bigg( \sum \limits_k b_{kj}^2 \bigg) \\&= \sum \limits_k \frac{1}{p_k} |A(:,k)|^2 |B(k,:)|^2. \end{align} $$
 
-What is the best choice of $p_k$ to minimize this sum? It can be seen by calculus[^1] that the minimizing $p_k$ are proportional to $|A(:,k)| |B(k,:)|$. In the important special case when $B = A^\intercal$. pick columns of $A$ with probabilities proportional to the squared length of the columns. Even in the general case when $B$ is not $A^\intercal$ , doing so simplifies the bounds. This sampling is called "length squared sampling". If $p_k$ is proportional to $|A(:,k)|^2$, i.e, $p_k = \frac{|A(:,k)|^2}{\|A \|_F^2}$, then
+What is the best choice of $p_k$ to minimize this sum? It can be seen by calculus[^1] that the minimizing $p_k$ are proportional to $|A(:,k)||B(k,:)|$. In the special case when $ B = A^\intercal $. pick columns of $A$ with probabilities proportional to the squared length of the columns. Even in the general case when $B$ is not $ A^\intercal $ , doing so simplifies the bounds. This sampling is called `length squared sampling`. If $p_k$ is proportional to $|A(:,k)|^2$, i.e, $p_k = \frac{|A(:,k)|^2}{\|A \|_F^2}$, then
 
 $$ E(\|AB - X \|_F^2) = \text{Var}(X) \leq \| A \|_F^2 \sum \limits_k |B(k,:)|^2 = \|A\|_F^2 \|B\|_F^2. $$
 
