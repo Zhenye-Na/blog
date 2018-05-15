@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Gibbs Sampling"
+title: "MCMC: Intro to Gibbs Sampling"
 key: 10006
 date: 2018-04-17
-excerpt: "Bayesian Inference: Gibbs Sampling"
+excerpt: "Gibbs sampling is a computational method to calculate distributions which are intractable by mathematical means"
 tags: [MCMC, Gibbs Sampling]
 mathjax: true
 mathjax_autoNumber: true
@@ -45,7 +45,7 @@ $$ \begin{align} \text{Gamma}(\lambda; a, b) &= \frac{1}{\Gamma(a)}b^a \lambda^{
 
 The initial mean $ \lambda_1$ jumps to a new value $ \lambda_2$ after a random time step $ n $. Thus the generative model is as follows:
 
-$$ \begin{align} n & \sim \text{Uniform}(1, 2, ..., N) \\ \lambda_i &\sim \text{Gamma(\lambda_i;a, b)} \\ x_i &\sim \begin{cases} \text{Poisson}(x_i ; \lambda_1), & \text{if}\ 1 \leq i \leq n \\ \text{Poisson}(x_i ; \lambda_2), & \text{if}\ n \leq i \leq N \end{cases} \end{align} $$
+$$ \begin{align} n & \sim \text{Uniform}(1, 2, ..., N) \\ \lambda_i &\sim \text{Gamm} a(\lambda_i; a, b) \\ x_i &\sim \begin{cases} \text{Poisson}(x_i ; \lambda_1), & \text{if}\ 1 \leq i \leq n \\ \text{Poisson}(x_i ; \lambda_2), & \text{if}\ n \leq i \leq N \end{cases} \end{align} $$
 
 The problem of inferring the posterior distribution over the latent variables $ n $, $ \lambda_1 $, $ \lambda_2 $ can be solved via Bayes theorem.
 
@@ -57,7 +57,7 @@ As **Algorithm 1** illustrates, we need the posterior conditionals for each of t
 
 A form of the full joint distribution is given on the right hand side of Equation 5. We start our derivation from there.
 
-$$ \begin{equation} p(x_{1:n} \vert \lambda_1)p(x_{n+1:N} \vert \lambda_2)p(\lambda_1)p(\lambda_2)p(n) \\ = \bigg(\prod_{i=1}^n p(x_i |\lambda_1)\bigg) \bigg(\prod_{i=n+1}^N p(x_i |\lambda_2)\bigg) p(\lambda_1)p(\lambda_2)p(n) \tag{6} \end{equation} $$
+$$ \begin{equation} p(x_{1:n} \vert \lambda_1)p(x_{n+1:N} \vert \lambda_2)p(\lambda_1)p(\lambda_2)p(n) \\ = \bigg(\prod \limits_{i=1}^n p(x_i |\lambda_1)\bigg) \bigg(\prod \limits_{i=n+1}^N p(x_i |\lambda_2)\bigg) p(\lambda_1)p(\lambda_2)p(n) \tag{6} \end{equation} $$
 
 
 Next we write the log of the full posterior by taking the logarithm of the right hand side of Equation 6 and plugging in Equations 1 ~ 4 wherever appropriate.
