@@ -22,7 +22,7 @@ Suppose $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix and the 
 
 $$AB = \sum \limits_{k=1}^n A(:,k)B(k,:). $$
 
-Note that for each value of $k$, $A(:, k)$, $B(k, :)$ is an $m \times p$ matrix each element of which is a single product of elements of $A$ and $B$. An obvious use of sampling suggests itself. Sample some values for $k$ and compute $A(:,k)B(k,:)$ for the sampled k‘s and use their suitably scaled sum as the estimate of $AB$. It turns out that nonuniform sampling probabilities are useful. Deﬁne a random variable $z$ that takes on values in $\{1, 2, ..., n\}$. Let $p_k$ denote the probability that $z$ assumes the value $k$. We will solve for a good choice of probabilities later, but for now just consider the $p_k$ as nonnegative numbers that sum to one. Define an associated random matrix variable that has value
+Note that for each value of $k$, $A(:, k)$, $B(k, :)$ is an $m \times p$ matrix each element of which is a single product of elements of $A$ and $B$. An obvious use of sampling suggests itself. Sample some values for $k$ and compute $A(:,k)B(k,:)$ for the sampled k‘s and use their suitably scaled sum as the estimate of $AB$. It turns out that nonuniform sampling probabilities are useful. Define a random variable $z$ that takes on values in $\{1, 2, ..., n\}$. Let $p_k$ denote the probability that $z$ assumes the value $k$. We will solve for a good choice of probabilities later, but for now just consider the $p_k$ as nonnegative numbers that sum to one. Define an associated random matrix variable that has value
 
 $$X = \frac{1}{p_k} A(:,k)B(k,:) $$
 
@@ -34,7 +34,7 @@ This explains the scaling by $\frac{1}{p_k}$ in $X$. In particular, $X$ is a mat
 
 $$E(\|AB - X \|_F^2)$$
 
-This can be viewed as the variance of $X$, deﬁned as the sum of the variances of all its entries.
+This can be viewed as the variance of $X$, defined as the sum of the variances of all its entries.
 
 $$ \begin{align} \text{Var}(X) &= \sum \limits_{i=1}^m \sum \limits_{j=1}^p \text{Var}(x_{ij}) \\ &= \sum \limits_{ij} E(x_{ij}^2) - E(x_{ij})^2 \\ &= \bigg( \sum \limits_{ij} \sum \limits_{k} p_k \frac{1}{p_k} a_{ik}^2 b_{kj}^2 \bigg) - \| AB \|^2_F. \end{align} $$
 
@@ -42,15 +42,15 @@ We want to choose $p_k$ to minimize this quantity, and notice that we can ignore
 
 $$ \begin{align} \sum \limits_{ij} \sum \limits_{k} p_k \frac{1}{p_k} a_{ik}^2 b_{kj}^2 &= \sum \limits_k \frac{1}{p_k} \bigg( \sum \limits_k a_{ik}^2 \bigg) \bigg( \sum \limits_k b_{kj}^2 \bigg) \\&= \sum \limits_k \frac{1}{p_k} |A(:,k)|^2 |B(k,:)|^2. \end{align} $$
 
-What is the best choice of $p_k$ to minimize this sum? It can be seen by calculus[^1] that the minimizing $p_k$ are proportional to $|A(:,k)| |B(k,:)|$. In the important special case when $B = A^\intercal$. pick columns of $A$ with probabilities proportional to the squared length of the columns. Even in the general case when $B$ is not $A^\intercal$ , doing so simpliﬁes the bounds. This sampling is called "length squared sampling". If $p_k$ is proportional to $|A(:,k)|^2$, i.e, $p_k = \frac{|A(:,k)|^2}{\|A \|_F^2}$, then
+What is the best choice of $p_k$ to minimize this sum? It can be seen by calculus[^1] that the minimizing $p_k$ are proportional to $|A(:,k)| |B(k,:)|$. In the important special case when $B = A^\intercal$. pick columns of $A$ with probabilities proportional to the squared length of the columns. Even in the general case when $B$ is not $A^\intercal$ , doing so simplifies the bounds. This sampling is called "length squared sampling". If $p_k$ is proportional to $|A(:,k)|^2$, i.e, $p_k = \frac{|A(:,k)|^2}{\|A \|_F^2}$, then
 
-$$E(\|AB - X \|_F^2) = \text{Var}(X) \leq \| A \|_F^2 \sum \limits_k |B(k,:)|^2 = \|A\|_F^2 \|B\|_F^2.  $$
+$$ E(\|AB - X \|_F^2) = \text{Var}(X) \leq \| A \|_F^2 \sum \limits_k |B(k,:)|^2 = \|A\|_F^2 \|B\|_F^2. $$
 
 To reduce the variance, we can do $s$ independent trials. Each trial $i$, $i = 1, 2, . . . , s$ yields a matrix $X_i$. We take $\frac{1}{s} \sum \limits_{i=1}^s X_i $ as our estimate of $AB$. Since the variance of a sum of independent random variables is the sum of variances, the variance of $\frac{1}{s} \sum \limits_{i=1}^s X_i $ is $\frac{1}{s} \text{Var}(X)$ and so is at most $\frac{1}{s} \|A\|_F^2 \|B\|_F^2. $ Let $k_1 , . . . , k_s $ be the $k$'s chosen in each trial. Expanding this, gives:
 
 $$\frac{1}{s} \sum \limits_{i=1}^s X_i  = \frac{1}{s} \bigg( \frac{A (:, k_1) B (k_1 , :)}{p_{k1}} + \frac{A (:, k_2) B (k_2 , :)}{p_{k2}}  \dots \frac{A (:, k_s) B (k_s, :)}{p_{ks}} .  \bigg) $$
 
-We will ﬁnd it convieneint to write this as the product of an $m \times s$ matrix with a $s \times p$ matrix as follows: Let $C$ be the $m \times s$ matrix consisting of the following columns which are scaled versions of the chosen columns of $A$:
+We will find it convieneint to write this as the product of an $m \times s$ matrix with a $s \times p$ matrix as follows: Let $C$ be the $m \times s$ matrix consisting of the following columns which are scaled versions of the chosen columns of $A$:
 
 $$ \frac{A(:, k_1)}{\sqrt{sp_{k1}}}, \frac{A(:, k_1)}{\sqrt{sp_{k1}}}, \dots, \frac{A(:, k_s)}{\sqrt{sp_{ks}}}. $$
 
@@ -58,7 +58,7 @@ Note that the scaling has a nice property:
 
 $$E(CC^\intercal) = AA^\intercal .$$
 
-Deﬁne $R$ to be the $s \times p$ matrix with the corresponding rows of $B$ similarly scaled, namely, $R$ has rows
+Define $R$ to be the $s \times p$ matrix with the corresponding rows of $B$ similarly scaled, namely, $R$ has rows
 
 $$ \frac{B(k_1,:)}{\sqrt{sp_{k1}}}, \frac{B(k_2,:)}{\sqrt{sp_{k2}}}, \dots, \frac{B(k_s,:)}{\sqrt{sp_{ks}}}. $$
 
