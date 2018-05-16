@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MCMC: Intro to Gibbs Sampling"
-date: 2018-04-17
+date: 2018-04-14
 excerpt: "Gibbs sampling is a computational method to calculate distributions which are intractable by mathematical means"
 tags: [MCMC, Gibbs Sampling]
 mathjax: true

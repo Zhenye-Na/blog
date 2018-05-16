@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introduction to Variational AutoEncoder"
-date: 2018-04-17
+date: 2018-05-18
 excerpt: "Understanding Variational Autoencoders (VAEs)"
 tags: [VAE, Deep Learning, Machine Learning]
 mathjax: true

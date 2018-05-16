@@ -2,7 +2,7 @@
 layout: post
 title: "Machine Learning Tutorial 1: Linear Regression"
 key: 10004
-date: 2018-02-05
+date: 2018-01-05
 excerpt: "Under the hood - Linear Regression in Machine Learning"
 tags: [Linear Regression, Deep Learning, Machine Learning]
 ---

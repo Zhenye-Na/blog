@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Viola Jones Face Detection"
-date:   2018-04-14
+date:   2018-05-10
 excerpt: "Viola Jones object detection framework is the first object detection framework to provide competitive object detection rates in real-time"
 tags: [Computer Vision, Face Detection, Viola Jones]
 mathjax: true

@@ -44,6 +44,8 @@ For more detailed information, please visit:
 
 Below is a video demo of the website in action!
 <br><br>
-<iframe width="650" height="350" src="//www.youtube.com/embed/a_5dKE140d0" frameborder="0"> </iframe>
+<iframe src="//www.youtube.com/embed/a_5dKE140d0" frameborder="0"> </iframe>
 <br><br>
 <a align="center" class="btn zoombtn" href="https://github.com/Zhenye-Na/mining-rig-assembly">See this project</a>
+
+ <!--width="800" height="600"-->

@@ -8,7 +8,7 @@ category: project
 tag: [PCA, KPCA, Python, Classification, Dimensionality Reduction]
 ---
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/projs-img/npca/npca.jpg?raw=true" align="center">
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/projs-img/npca/npca.jpg?raw=true" align="center">
 
 This is a course project of IE529 in 2017 Fall given by [Prof. Carolyn](https://sites.google.com/a/illinois.edu/carolyn-beck/). Our group members include Jvn Karthik, [Naman Shukla](https://namanuiuc.github.io/), Shubham Bansal and Ziyu Zhou.
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Metropolis-Hasting Algorithm"
-date: 2018-04-14
+date: 2018-02-12
 excerpt: "Introduction to Metropolis-Hasting Algorithm, a Markov chain Monte Carlo (MCMC) method for obtaining a sequence of random samples from a probability distribution for which direct sampling is difficult."
 tags: [MCMC]
 comments: true
@@ -37,7 +37,7 @@ for (i in 1:(N-1)) {
 
 Below is the sampling result of the implementation above. LHS is the sampling result from Metropolis-Hasting Algorithm and RHS is the groundtruth of distribution.
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/img/posts-img/mh-algo/MH.jpg?raw=true">
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/mh-algo/MH.jpg?raw=true">
 
 
 
