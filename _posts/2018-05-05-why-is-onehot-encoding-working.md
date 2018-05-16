@@ -14,7 +14,7 @@ mathjax_autoNumber: true
 ## Overview
 
 Categorical data are variables that contain label values rather than numeric values. The number of possible values is often limited to a fixed set. Categorical variables are often called nominal. Some categories may have a natural relationship to each other, such as a natural ordering.
-
+{: style="text-align: justify"}
 
 ## Representation
 
@@ -22,6 +22,7 @@ Categorical data are variables that contain label values rather than numeric val
   - E.g. $y^{(i)} \in \{\text{"person"}, \text{"hamster"}, \text{"capybara"} \} $
 - Encode $y^{(i)} \in \{1, 2, 3 \} $
   - Shouldn't be running something like linear regression, since "hamster" is not really the average of "person" and "capybara", so things are not likely to work well.
+{: style="text-align: justify"}
 
 **Solution:** one-hot encoding
 * "person" => [1, 0, 0]
@@ -35,7 +36,7 @@ Categorical data are variables that contain label values rather than numeric val
 
 Below is the basic architecture of multilayer perceptron (Multilayer Neural Network):
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot1.png?raw=true" width="70%">
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot1.png?raw=true" width="70%" class="center">
 
 $y_i$ is large if the probability that the correct class is $i$ is high. $y^{(i)}$ encoded using `one-hot encoding`.
 
@@ -43,7 +44,7 @@ $y_i$ is large if the probability that the correct class is $i$ is high. $y^{(i)
 
 Sometimes we want to estimate the probability of $P( y = y' \vert x, \theta)$, $\theta$ are network parameters.
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot2.png?raw=true" width="70%">
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/onehot/onehot2.png?raw=true" width="70%" class="center">
 
 $$ p_i = \frac{\exp y_i}{\sum_j \exp y_j}. $$
 
@@ -61,14 +62,15 @@ we could think it as a generalization of logistic regression.
 ## Softmax Cross-Entropy
 
 Cross entropy indicates the distance between what the model believes the output distribution should be, and what the original distribution really is. It is defined as
+{: style="text-align: justify"}
 
  $$ H(y,p) = - \sum_i y_i \log(p_i). $$
 
 Here we pay attention to  $\log (p_i)$ which is a vector of probabilities because $y_i$ is the groundtruth label which using one-hot-encoding, which will be tricky if we put it in the $\log$.
+{: style="text-align: justify"}
 
 Cross entropy measure is a widely used alternative of squared error. It is used when node activations can be understood as representing the probability that each hypothesis might be true, i.e. when the output is a probability distribution. Thus it is used as a loss function in neural networks which have softmax activations in the output layer.
-
-
+{: style="text-align: justify"}
 
 ## Implementation of One-Hot Encoding
 
@@ -123,35 +125,35 @@ def one_hot_bldg_type(bldg_type):
 
 - implementation of cross-entropy loss
 
-  ```python
-  def cross_entropy(X,y):
-      """cross entropy loss.
+```python
+def cross_entropy(X,y):
+    """cross entropy loss.
       
-      Args:
-      	X: the output from fully connected layer (num_examples x num_classes)
-      	y: is labels (num_examples x 1)
+    Args:
+        X: the output from fully connected layer (num_examples x num_classes)
+        y: is labels (num_examples x 1)
       
-      """
-      m = y.shape[0]
-      p = softmax(X)
-      log_likelihood = -np.log(p[range(m),y])
-      loss = np.sum(log_likelihood) / m
-      return loss
-  ```
+    """
+    m = y.shape[0]
+    p = softmax(X)
+    log_likelihood = -np.log(p[range(m),y])
+    loss = np.sum(log_likelihood) / m
+    return loss
+```
 
 - implementation of softmax
 
-  ```python
-  def softmax(X):
-      """softmax.
+```python
+def softmax(X):
+    """softmax.
       
-      Args:
-      	X: the output from fully connected layer
+    Args:
+        X: the output from fully connected layer
       
-      """
-      exps = np.exp(X - np.max(X))
-      return exps / np.sum(exps)
-  ```
+    """
+    exps = np.exp(X - np.max(X))
+    return exps / np.sum(exps)
+```
 
 
 
@@ -163,3 +165,10 @@ def one_hot_bldg_type(bldg_type):
 
 [1] Bendersky, E., 2016. [*The Softmax function and its derivative*](https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/)
 
+<style>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
