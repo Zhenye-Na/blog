@@ -38,27 +38,28 @@ This can be viewed as the variance of $X$, defined as the sum of the variances o
 
 $$ \begin{align} \text{Var}(X) &= \sum \limits_{i=1}^m \sum \limits_{j=1}^p \text{Var}(x_{ij}) \\ &= \sum \limits_{ij} E(x_{ij}^2) - E(x_{ij})^2 \\ &= \bigg( \sum \limits_{ij} \sum \limits_{k} p_k \frac{1}{p_k} a_{ik}^2 b_{kj}^2 \bigg) - \| AB \|^2_F. \end{align} $$
 
-We want to choose $p_k$ to minimize this quantity, and notice that we can ignore the $\| AB \|^2_F$ term since it doesn’t depend on the $p_k$ 's at all. We can now simplify by exchanging the order of summations to get
+We want to choose $p_k$ to minimize this quantity, and notice that we can ignore the $\| AB \|^2_F$ term since it doesn’t depend on the $p_k$'s at all. We can now simplify by exchanging the order of summations to get
 
-$$ \begin{align} \sum \limits_{ij} \sum \limits_{k} p_k \frac{1}{p_k} a_{ik}^2 b_{kj}^2 &= \sum \limits_k \frac{1}{p_k} \bigg( \sum \limits_k a_{ik}^2 \bigg) \bigg( \sum \limits_k b_{kj}^2 \bigg) \\&= \sum \limits_k \frac{1}{p_k} |A(:,k)|^2 |B(k,:)|^2. \end{align} $$
+$$ \begin{align} \sum \limits_{ij} \sum \limits_{k} p_k \frac{1}{p_k^2} a_{ik}^2 b_{kj}^2 &= \sum \limits_k \frac{1}{p_k} \bigg( \sum \limits_k a_{ik}^2 \bigg) \bigg( \sum \limits_k b_{kj}^2 \bigg) \\&= \sum \limits_k \frac{1}{p_k} |A(:,k)|^2 |B(k,:)|^2. \end{align} $$
 
-What is the best choice of $p_k$ to minimize this sum? It can be seen by calculus that the minimizing $p_k$ are proportional to $|A(:,k)||B(k,:)|$. In the special case when $ B = A^\intercal $, pick columns of $A$ with probabilities proportional to the squared length of the columns. Even in the general case when $B$ is not $ A^\intercal $ , doing so simplifies the bounds. 
+What is the best choice of $p_k$ to minimize this sum? It can be seen by calculus[^1] that the minimizing $p_k$ are proportional to $ \vert A(:,k) \vert \vert B(k,:) \vert $. In the special case when $ B = A^\intercal $, pick columns of $A$ with probabilities proportional to the squared length of the columns. Even in the general case when $B$ is not $ A^\intercal $ , doing so simplifies the bounds. 
 
-This sampling is called `length squared sampling`. If $p_k$ is proportional to $|A(:,k)|^2$, i.e, $p_k = \frac{|A(:,k)|^2}{\|A \|_F^2}$, then
+This sampling is called length squared sampling. If $p_k$ is proportional to $ \vert A(:,k) \vert ^2 $, i.e, $p_k = \frac{ \vert A(:,k) \vert ^2}{ \| A \|_F^2}$, then
 
-$$ E(\|AB - X \|_F^2) = \text{Var}(X) \leq \| A \|_F^2 \sum \limits_k |B(k,:)|^2 = \|A\|_F^2 \|B\|_F^2. $$
 
-To reduce the variance, we can do $s$ independent trials. Each trial $i$, $i = 1, 2, . . . , s$ yields a matrix $X_i$. We take $\frac{1}{s} \sum \limits_{i=1}^s X_i $ as our estimate of $AB$. Since the variance of a sum of independent random variables is the sum of variances, the variance of $\frac{1}{s} \sum \limits_{i=1}^s X_i $ is $\frac{1}{s} \text{Var}(X)$ and so is at most $\frac{1}{s} \|A\|_F^2 \|B\|_F^2. $ Let $k_1 , . . . , k_s $ be the $k$'s chosen in each trial. Expanding this, gives:
+$$ E(\|AB - X \|_F^2) = \text{Var}(X) \leq \| A \|_F^2 \sum \limits_k \vert B(k,:) \vert ^2 = \|A\|_F^2 \|B\|_F^2. $$
 
-$$\frac{1}{s} \sum \limits_{i=1}^s X_i  = \frac{1}{s} \bigg( \frac{A (:, k_1) B (k_1 , :)}{p_{k1}} + \frac{A (:, k_2) B (k_2 , :)}{p_{k2}}  \dots \frac{A (:, k_s) B (k_s, :)}{p_{ks}} .  \bigg) $$
+To reduce the variance, we can do $s$ independent trials. Each trial $i$, which $i = 1, 2, . . . , s$ yields a matrix $X_i$. We take $\frac{1}{s} \sum \limits_{i=1}^s X_i $ as our estimate of $AB$. Since the variance of a sum of independent random variables is the sum of variances, the variance of $\frac{1}{s} \sum \limits_{i=1}^s X_i $ is $\frac{1}{s} \text{Var}(X)$ and so is at most $\frac{1}{s} \|A\|_F^2 \|B\|_F^2. $ Let $k_1 , . . . , k_s $ be the $k$'s chosen in each trial. Expanding this, gives:
+
+$$ \frac{1}{s} \sum \limits_{i=1}^s X_i  = \frac{1}{s} \bigg( \frac{A (:, k_1) B (k_1 , :)}{p_{k1}} + \frac{A (:, k_2) B (k_2 , :)}{p_{k2}}  \dots \frac{A (:, k_s) B (k_s, :)}{p_{ks}} \bigg). $$
 
 We will find it convieneint to write this as the product of an $m \times s$ matrix with a $s \times p$ matrix as follows: Let $C$ be the $m \times s$ matrix consisting of the following columns which are scaled versions of the chosen columns of $A$:
 
-$$ \frac{A(:, k_1)}{\sqrt{sp_{k1}}}, \frac{A(:, k_1)}{\sqrt{sp_{k1}}}, \dots, \frac{A(:, k_s)}{\sqrt{sp_{ks}}}. $$
+$$ \frac{A(:, k_1)}{\sqrt{sp_{k1}}}, \frac{A(:, k_2)}{\sqrt{sp_{k2}}}, \dots, \frac{A(:, k_s)}{\sqrt{sp_{ks}}}. $$
 
 Note that the scaling has a nice property:
 
-$$E(CC^\intercal) = AA^\intercal .$$
+$$ E(CC^\intercal) = AA^\intercal. $$
 
 Define $R$ to be the $s \times p$ matrix with the corresponding rows of $B$ similarly scaled, namely, $R$ has rows
 
@@ -66,23 +67,25 @@ $$ \frac{B(k_1,:)}{\sqrt{sp_{k1}}}, \frac{B(k_2,:)}{\sqrt{sp_{k2}}}, \dots, \fra
 
 It is obvious to prove that:
 
-$$E(R^\intercal R) = B^\intercal B.$$
+$$ E(R^\intercal R) = B^\intercal B. $$
 
 We see that $$\frac{1}{s} \sum \limits_{i=1}^s X_i  = CR. $$ This is represented in the figure below:
 
-![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/matrixmul/sampling1.png?raw=true)
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/matrixmul/sampling1.png?raw=true" width="85%">
+
 
 ## Algorithm
 
-### `Vanilla three-look` matrix multiplication algorithm
+### Vanilla three-look matrix multiplication algorithm
 
 Given an arbitrary $m \times n$ matrix $A$ and an arbitrary $n \times p$ matrix $B$, compute, exactly or approximately, the product $AB$. As a starting point, the well-known three-loop algorithm to solve this problem is the following:
 
-![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/matrixmul/sampling2.png?raw=true)
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/matrixmul/sampling2.png?raw=true">
+
 
 The running time of this algorithm is $O(mnp)$ time, which is $O(n^3)$ time if $m = n = p$. Note in particular that this algorithm loops over all pairs of elements in the product matrix and computes that element as a dot product or inner product between the $i^{th}$ row of $A$ and the $j^{th}$ column of $B$.
 
-### The `BasicMatrixMultiplication` algorithm
+### BasicMatrixMultiplication algorithm
 
 Viewing matrix multiplication as the sum of outer products *suggests*, by analogy with the sum of numbers, that we should sample rank-1 components, to minimize their size, according to their size. Recall that, if we were summing numbers, that we could sample (and rescale — see below) according to any probability distribution, and in particular the uniform distribution, and obtain an unbiased estimator of the sum; but that if we want to minimize the variance of the estimator that we should sample (and rescale) according to the size or magnitude of the numbers. Well, the same is true in the case of matrices. Since the role of these probabilities will be important in what follows, we will leave then unspecified as input to this algorithm, and we will return below to what probabilities should or could be used in this algorithm.
 
@@ -90,18 +93,19 @@ Viewing matrix multiplication as the sum of outer products *suggests*, by analog
 
 Basically, what we want to show for this algorithm is that
 
-$$AB = CR$$
-
-## References
-
-[1] Michael Mahoney. (2013). [*Stat260/CS294: Randomized Algorithms for Matrices and Data, Lecture 2: Approximating Matrix Multiplication*](https://www.stat.berkeley.edu/~mmahoney/f13-stat260-cs294/Lectures/lecture02.pdf)
-
-[2] Avrim Blum, John Hopcroft, and Ravindran Kannan. (2018). *Foundations of Data Science*, *6.3.1 Matrix Multiplication using Sampling*
+$$ AB = CR $$
 
 
 
 > *If you notice mistakes and errors in this post, please don't hesitate to leave a comment and I would be super happy to correct them right away!*
 
 
-[^1]: By taking derivatives, for any set of nonnegative numbers $c_k$, $\sum_k \frac{c_k}{p_k}​$ is minimized with $p_k​$ proportional to $\sqrt{c_k}​$.
 
+## References
+
+[1] Michael Mahoney. (2013). [*"Stat260/CS294: Randomized Algorithms for Matrices and Data, Lecture 2: Approximating Matrix Multiplication"*](https://www.stat.berkeley.edu/~mmahoney/f13-stat260-cs294/Lectures/lecture02.pdf)
+
+[2] Avrim Blum, John Hopcroft, and Ravindran Kannan. (2018). *"Foundations of Data Science"*.
+
+
+[^1]: By taking derivatives, for any set of nonnegative numbers $c_k$, $\sum_k \frac{c_k}{p_k}$ is minimized with $p_k$ proportional to $\sqrt{c_k}$.

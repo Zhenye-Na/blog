@@ -2,13 +2,14 @@
 layout: post
 title: "Bloom Filters"
 date: 2018-05-15
-excerpt: "A hash function is any function that can be used to map data of arbitrary size to data of fixed size. The values returned by a hash function are called hash values, hash codes, digests, or simply hashes. One use is a data structure called a hash table, widely used in computer software for rapid data lookup."
-tags: [Hashing， Bloom Filters]
+excerpt: "Bloom filter is a space-efficient probabilistic data structure, conceived by Burton Howard Bloom in 1970, that is used to test whether an element is a member of a set."
+tags: [Hashing, Bloom Filters]
 mathjax: true
 mathjax_autoNumber: true
 ---
 
 > *A Bloom filter is a space-efficient probabilistic data structure, conceived by Burton Howard Bloom in 1970, that is used to test whether an element is a member of a set. In this post, I will introduce Bloom Filters in a mathematical way.*
+{: style="text-align: justify"}
 
 
 ## Overview
@@ -74,10 +75,3 @@ if $p \leq \frac{1}{1000}$, then $ \frac{n}{m} \approx 0.7 \log_2 (1/1000) \appr
     margin-right: auto;
 }
 </style>
-
-
-
-
-
-
-

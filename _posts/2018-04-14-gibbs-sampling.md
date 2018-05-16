@@ -1,15 +1,12 @@
 ---
 layout: post
 title: "MCMC: Intro to Gibbs Sampling"
-key: 10006
 date: 2018-04-17
 excerpt: "Gibbs sampling is a computational method to calculate distributions which are intractable by mathematical means"
 tags: [MCMC, Gibbs Sampling]
 mathjax: true
 mathjax_autoNumber: true
 ---
-
-
 
 > *Gibbs sampling is a computational method to calculate distributions which are intractable by mathematical means. The sampling is dependent (not pseudorandom) because the sampling at any iteration depends on the values in the previous iteration; however, the sampling procedure is known to converge on the desired posterior distribution. In this tutorial, I will cover Gibbs Sampling and implementation of it.*
 
@@ -23,7 +20,7 @@ $$ E[f(s)]_{\mathcal{P}} \approx \frac{1}{N} \sum \limits_{i=1}^{N}f(s^{(i)}) $$
 
 where $ \mathcal{P} $ is the posterior distribution of interest, $ f(s) $ is the desired expectation, and $ f(s^{(i)}) $ is the $ i^{th} $ simulated sample from $ \mathcal{P} $.
 
-How do we obtain samples from the posterior distribution? Gibbs sampling is one MCMC technique suitable for the task. The idea in Gibbs sampling is to generate posterior samples by sweeping through each variable (or block of variables) to sample from its conditional distribution with the remaining variables ﬁxed to their current values. For instance, consider the random variables $ X_1 $, $ X_2 $, and $ X_3 $. We start by setting these variables to their initial values $ x_1^{(0)} $, $ x_2^{(0)} $ , and $ x_3^{(0)} $ (often values sampled from a prior distribution q). At iteration $ i $, we sample $ x_i^{(1)} \sim p(X_1 = x_1 \vert X_2 = x_2^{(i−1)}, X_3 = x_3^{(i−1)} $, sample $ x_2 \sim p(X_2 = x_2 \vert X_1 = x_1^{(i)}, X_3 = x_3^{(i−1)} $, sample $ x_3 \sim p(X_3 = x_3 \vert X_1 = x_1^{(i)}, X_2 = x_2^{(i)} $. This process continues until “convergence” (the sample values have the same distribution as if they were sampled from the true posterior joint distribution). Algorithm 1 details a generic Gibbs sampler.
+How do we obtain samples from the posterior distribution? Gibbs sampling is one MCMC technique suitable for the task. The idea in Gibbs sampling is to generate posterior samples by sweeping through each variable (or block of variables) to sample from its conditional distribution with the remaining variables fixed to their current values. For instance, consider the random variables $ X_1 $, $ X_2 $, and $ X_3 $. We start by setting these variables to their initial values $ x_1^{(0)} $, $ x_2^{(0)} $ , and $ x_3^{(0)} $ (often values sampled from a prior distribution q). At iteration $ i $, we sample $ x_i^{(1)} \sim p(X_1 = x_1 \vert X_2 = x_2^{(i−1)}, X_3 = x_3^{(i−1)} $, sample $ x_2 \sim p(X_2 = x_2 \vert X_1 = x_1^{(i)}, X_3 = x_3^{(i−1)} $, sample $ x_3 \sim p(X_3 = x_3 \vert X_1 = x_1^{(i)}, X_2 = x_2^{(i)} $. This process continues until “convergence” (the sample values have the same distribution as if they were sampled from the true posterior joint distribution). Algorithm 1 details a generic Gibbs sampler.
 
 ![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/gibbsampling/gibbs1.png?raw=true)
 
@@ -34,6 +31,7 @@ A good way of learning about MCMC techniques is to study examples. In the rest o
 
 
 ## A change-point model
+
 Suppose that we observe a sequence of counts $x_1 $, $x_2 $, ... , $x_N $ where the average of the counts has some value for time steps 1 to n, and a diﬀerent value for time steps $ n + 1 $to $ N $. We model the counts at each time step $ i $ as a Poisson variable, which has the following density function:
 
 $$ \begin{align}  \text{Poisson}(x; \lambda) &= e^{-\lambda} \frac{\lambda ^{x}}{x!} \tag{1} \\ &= \exp (x \log \lambda − \lambda − \log(x!)) \end{align} $$
@@ -53,6 +51,7 @@ $$ p(\lambda_1, \lambda_2, n \vert x_{1:N}) \varpropto p(x_{1:n} \vert \lambda_1
 
 
 ## Conditional distributions
+
 As **Algorithm 1** illustrates, we need the posterior conditionals for each of the variables to perform Gibbs sampling. We start by deriving the full joint distribution. We then derive the posterior conditionals for each of the variables $ \lambda_1 $, $ \lambda_1 $, $ n $ using the full joint distribution.
 
 A form of the full joint distribution is given on the right hand side of Equation 5. We start our derivation from there.
@@ -74,7 +73,7 @@ The posterior conditional for $ \lambda_2 $ can be derived similarly:
 
 $$ \begin{align} \log p(\lambda_1 \vert n, \lambda_2, x_{1:N}) &=^+ \sum \limits_{i=n+1}^N (x_i \log \lambda_2 - \lambda_2) + (a-1)\log \lambda_2 - b \lambda_2 \\ &=^+ \log \Gamma \bigg( a + \sum \limits_{i=1}^n a+x_i, N-n+b \bigg) \end{align} $$
 
-Finally, we derive the posterior conditional for n, the time step at which counts jump from a mean of $ \lambda_1 $  to a mean of $ \lambda_2 $ :
+finally, we derive the posterior conditional for n, the time step at which counts jump from a mean of $ \lambda_1 $  to a mean of $ \lambda_2 $ :
 
 $$ \begin{align} \log p(n \vert \lambda_1, \lambda_2, x_{1:N}) &= \sum \limits_{i=1}^n (x_i \log \lambda_1 - \lambda_1 - \log (x_i!)) + \sum \limits_{i=n+1}^N (x_i \log \lambda_2 - \lambda_2 - \log (x_i!)) \\ &=^+ \bigg( \sum \limits_{i=1}^n x_i \bigg) \log \lambda_1 -n \lambda_1+ \bigg( \sum \limits_{i=n+1}^N x_i \bigg) \log \lambda_2 - (N - n) \lambda_2 \end{align} $$
 
@@ -335,7 +334,6 @@ int main (int argc, char* argv[])
 ![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/gibbsampling/gibbs2.png?raw=true)
 
 
-
 ## Summary
 
 Given a generative model for a set of random variables, we can summarize Gibbs sampling in two steps:
@@ -346,10 +344,8 @@ Given a generative model for a set of random variables, we can summarize Gibbs s
 We illustrated both of these steps in a change-point detection problem.
 
 
-
-
 ## References
-[1] Lynch, S. M. (2007). [*Introduction to Applied Bayesian Statistics and Estimation for Social Scientists*](https://www.springer.com/us/book/9780387712642). New York: Springer;
-[2] Taylan Cemgil’s [lecture slides](http://www.cmpe.boun.edu.tr/courses/cmpe58n/fall2009/) on Monte Carlo methods;
 
+[1] Lynch, S. M. (2007). [*Introduction to Applied Bayesian Statistics and Estimation for Social Scientists*](https://www.springer.com/us/book/9780387712642). New York: Springer;  
+[2] Taylan Cemgil’s [lecture slides](http://www.cmpe.boun.edu.tr/courses/cmpe58n/fall2009/) on Monte Carlo methods;  
 [3] Gilks, W. R., Richardson, S., & Spiegelhalter, D. J. (1996). [*Markov Chain Monte Carlo in Practice*](http://www.stat.columbia.edu/~gelman/research/published/kass5.pdf). London: Chapman and Hall.

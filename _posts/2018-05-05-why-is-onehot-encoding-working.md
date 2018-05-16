@@ -9,7 +9,7 @@ mathjax_autoNumber: true
 ---
 
 > *Often, machine learning tutorials will recommend or require that you prepare your data in speciﬁc ways before ﬁtting a machine learning model. One good example is to use a one-hot encoding on categorical data. In this post, you will discover the answer to these important questions and better understand data preparation in general in applied machine learning.*
-
+{: style="text-align: justify"}
 
 ## Overview
 
