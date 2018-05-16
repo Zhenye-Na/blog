@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Mining Rig Assembly"
-date:   2018-03-15
+date:   2018-03-28
 key: 10005
 excerpt: "This website lets you browse and select parts of your mining rigs, store your own rig setups, and estimate their performances."
 project: true
