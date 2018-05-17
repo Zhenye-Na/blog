@@ -201,7 +201,7 @@ $$ \mathbb{E}[\log p_\theta (x \vert z)] = \int_z q_\phi (z \vert x) \log p_\the
 
 What we deal with Reconstruction Loss is to sample from $q_\phi (z \vert x)$.
 
-$ \mathbb{E}[\log p_\theta (x \vert z)] \approx \frac{1}{N} \sum \limits_{i=1}^N \log p_\theta (x \vert z^i), $ where $z^i \sim \mathcal{N}(z; \mu_\phi (x), \sigma_phi (x))
+$ \mathbb{E}[\log p_\theta (x \vert z)] \approx \frac{1}{N} \sum \limits_{i=1}^N \log p_\theta (x \vert z^i)$, where $z^i \sim \mathcal{N}(z; \mu_\phi (x), \sigma_phi (x))$
 {: style="text-align: justify"}
 
 ### Reparametrization
@@ -219,7 +219,9 @@ $$ z \sim q_\phi (z \vert x) = \mathcal{N}(z; \mu_\phi (x), \sigma_\phi (x)) $$
 
 is equivalent to
 
-$ z = \mu_\phi (x) + \sigma_\phi (x) \cdots \epsilon $, where $ \epsilon \sim \mathcal{N} (0, 1)$
+$$ z = \mu_\phi (x) + \sigma_\phi (x) \cdots \epsilon, $$
+
+where $ \epsilon \sim \mathcal{N} (0, 1)$
 
 
 ### Flowchart
@@ -338,7 +340,7 @@ Recall what we mentioned in Reblablablabla section, we will use that in latent v
 
 More details for implementation can be found [here](https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.py).
 
-<!--<img src="https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.gif?raw=true" width="80%" class="center">-->
+<img src="https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.gif?raw=true" width="80%" class="center">
 
 
 
