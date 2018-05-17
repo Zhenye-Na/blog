@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Machine Learning Tutorial X: Variational AutoEncoders"
+title: "Machine Learning Tutorial Part 8: Variational AutoEncoders"
 date: 2018-05-18
 excerpt: "Understanding Variational Autoencoders (VAEs)"
 tags: [VAE, Deep Learning, Machine Learning]
@@ -8,7 +8,7 @@ mathjax: true
 mathjax_autoNumber: true
 ---
 
-> *Variational Autoencoders (VAEs) have emerged as one of the most popular approaches to unsupervised learning of complicated distributions. VAEs are appealing because they are built on top of standard function approximators (neural networks), and can be trained with stochastic gradient descent. VAEs have already shown promise in generating many kinds of complicated data. In this tutorial, I will introduce the intuitions behind VAEs, explains the mathematics behind them, and describes some empirical behavior.*
+> *Variational Autoencoders (VAEs) have emerged as one of the most popular approaches to unsupervised learning of complicated distributions. VAEs are appealing because they are built on top of standard function approximators (Neural Networks), and can be trained with Stochastic Gradient Descent (SGD). VAEs have already shown promise in generating many kinds of complicated data. In this tutorial, I will introduce the intuitions behind VAEs, explains the mathematics behind them, and experiments with MNIST dataset.*
 {: style="text-align: justify"}
 
 Goals of this Tutorial:
@@ -22,14 +22,15 @@ Goals of this Tutorial:
 Before we start examining VAEs closely, let us first review the metric used in VAE for quantifying the similarity between two probability distributions.
 {: style="text-align: justify"}
 
-(1) [KL (Kullback–Leibler) divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) which is closely related to relative entropy, information divergence, and information for discrimination, is a non-symmetric measure of the difference between two probability distributions $p(x)$ and $q(x)$. Specifically, the Kullback-Leibler (KL) divergence of $q(x)$ from $p(x)$, denoted $D_{KL}(p(x) \| q(x))$, is a measure of the information lost when $q(x)$ is used to approximate $p(x)$.
+[KL (Kullback–Leibler) divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) which is closely related to relative entropy, information divergence, and information for discrimination, is a non-symmetric measure of the difference between two probability distributions $p(x)$ and $q(x)$. Specifically, the Kullback-Leibler (KL) divergence of $q(x)$ from $p(x)$, denoted $D_{KL}(p(x) \| q(x))$, is a measure of the information lost when $q(x)$ is used to approximate $p(x)$.
 {: style="text-align: justify"}
 
 $$ D_{KL}(p \| q) = \int_x p(x) \log \frac{p(x)}{q(x)} dx $$
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/KL.png?raw=true" width="60%" class="center">
-
-Figure 1: Illustration of the Kullback–Leibler (KL) divergence for two normal distributions. The typical asymmetry for the Kullback–Leibler divergence is clearly visible. *(Image source: Wikipedia)*
+<figure>
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/KL.png?raw=true" width="60%" class="center">
+    <figcaption>Figure 1: Illustration of the Kullback–Leibler (KL) divergence for two normal distributions. The typical asymmetry for the Kullback–Leibler divergence is clearly visible. *(Image source: [Wikipedia: Kullback–Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence#/media/File:KL-Gauss-Example.png))*.</figcaption>
+</figure>
 {: style="text-align: justify"}
 
 $D_{KL}(p(x) \| q(x))$ achieves minimum (zero) if and only if $p(x) = q(x)$ everywhere.
@@ -102,14 +103,24 @@ Here, $f(z; \theta)$ has been replaced by a distribution $P(X \vert z; \theta)$,
 {: style="text-align: justify"}
 
 
-## Variational Autoencoders
+## Variational Auto-Encoders
 
+### Encoder
+
+
+
+
+### Decoder
+
+
+
+### Reparametrization
 
 
 
 ## Implementation
 
-Based on what we mentioned before, let us build a `VariationalAutoencoder ` class. We will use Tensorflow as the Deep Learning library for training.
+Based on what we mentioned before, let us build a `VariationalAutoencoder` class. We will use Tensorflow as the Deep Learning library for training.
 
 ```python
 class VariationalAutoencoder(object):
@@ -212,9 +223,9 @@ Reconstruction Loss
 
 ## Experimentation with MNIST Dataset
 
-More detailed information can be found [here](https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.py).
+More details for implementation can be found [here](https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.py).
 
-<!--<img src="https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.gif?raw=true" width="80%" class="center">-->
+<img src="https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.gif?raw=true" width="80%" class="center">
 
 
 
