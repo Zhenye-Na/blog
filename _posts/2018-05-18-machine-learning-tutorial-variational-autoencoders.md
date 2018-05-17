@@ -107,8 +107,8 @@ The mathematical basis of VAEs actually has relatively little to do with classic
 
 
 <figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/decoder2.png?raw=true" width="60%" class="center">
-    <figcaption>Figure 2: VAEs training process.</figcaption>
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/decoder2.png?raw=true" width="40%" class="center">
+    <figcaption><center>Figure 2: VAEs training process.</center></figcaption>
 </figure>
 
 
@@ -116,7 +116,7 @@ The mathematical basis of VAEs actually has relatively little to do with classic
 
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/decoder1.png?raw=true" width="50%" class="center">
-    <figcaption>Figure 3: Illustration of the structure of Decoder.</figcaption>
+    <figcaption><center>Figure 3: Illustration of the structure of Decoder.</center></figcaption>
 </figure>
 
 According to Manifold Hypothesis, real-world high dimensional data (such as images) lie on low-dimensional manifolds embedded in the high-dimensional space. If $x$ is a high dimensional vector, then data is concentrated around a low dimensional manifold. So we can represent our sample data using "latent variables".
@@ -147,7 +147,7 @@ Encoder is another Neural Network. Its input is a datapoint $x$, its output is a
 
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/encoder1.png?raw=true" width="50%" class="center">
-    <figcaption>Figure 4: Illustration of the structure of Encoder.</figcaption>
+    <figcaption><center>Figure 4: Illustration of the structure of Encoder.</center></figcaption>
 </figure>
 
 This is typically referred to as a "bottleneck" because the encoder must learn an efficient compression of the data into this *lower-dimensional space*. Let’s denote the encoder as
@@ -162,7 +162,7 @@ The current architecture of VAEs is as follows
 
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/archi.png?raw=true" width="80%" class="center">
-    <figcaption>Figure 5: Architecture of Variational Autoencoders.</figcaption>
+    <figcaption><center>Figure 5: Architecture of Variational Autoencoders.</center></figcaption>
 </figure>
 
 $\Diamond$ Pay attention to we model $\sigma_z^2$ in $\log$ space here, the reason why is to mmake sure $\sigma_z^2$ is always non-negative.
@@ -181,10 +181,10 @@ $\mathcal{L}$ is often referred to as Empirical Lower BOund or Evidence Lower BO
 
 So we can approximate it as:
 
-$$ \begin{align} \mathcal{L} (p_\theta, q_\phi) &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x \vert z) p(z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\&= \int_z q_\phi (z \vert x) \log \frac{p()z)}{q_\phi (z \vert x)} + \int_z q_\phi (z \vert x) \log p_\theta (x \vert z) \\&= -D_{KL} (q_\phi, p) + \mathcal{E}[\log p_\theta (x \vert z)] \end{align} $$
+$$ \begin{align} \mathcal{L} (p_\theta, q_\phi) &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x \vert z) p(z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\&= \int_z q_\phi (z \vert x) \log \frac{p()z)}{q_\phi (z \vert x)} + \int_z q_\phi (z \vert x) \log p_\theta (x \vert z) \\&= -D_{KL} (q_\phi, p) + \mathbb{E}[\log p_\theta (x \vert z)] \end{align} $$
 
-* Regularization Loss: $ -D_{KL} (q_\phi, p) $ with prior $p(z)$ $|rightarrow$ Gaussian
-* Reconstruction Loss: $ \mathcal{E}[\log p_\theta (x \vert z)] $
+* Regularization Loss: $ -D_{KL} (q_\phi, p) $ with prior $p(z)$ $rightarrow$ Gaussian
+* Reconstruction Loss: $ \mathbb{E}[\log p_\theta (x \vert z)] $
 
 #### Regularization Loss
 
@@ -197,11 +197,11 @@ $$ D_{KL} (q(z \vert x) \| p(z)) = \frac{1}{2} \cdots (\sigma_z^2 + \mu_z^2 - 1 
 
 #### Reconstruction Loss
 
-$$ \mathcal{E}[\log p_\theta (x \vert z)] = \int_z q_\phi (z \vert x) \log p_\theta (x \vert z) $$
+$$ \mathbb{E}[\log p_\theta (x \vert z)] = \int_z q_\phi (z \vert x) \log p_\theta (x \vert z) $$
 
 What we deal with Reconstruction Loss is to sample from $q_\phi (z \vert x)$.
 
-$ \mathcal{E}[\log p_\theta (x \vert z)] \approx \frac{1}{N} \sum \limits_{i=1}^N \log p_\theta (x \vert z^i), $ where $z^i \sim \mathcal{N}(z; \mu_\phi (x), \sigma_phi (x))
+$ \mathbb{E}[\log p_\theta (x \vert z)] \approx \frac{1}{N} \sum \limits_{i=1}^N \log p_\theta (x \vert z^i), $ where $z^i \sim \mathcal{N}(z; \mu_\phi (x), \sigma_phi (x))
 {: style="text-align: justify"}
 
 ### Reparametrization
@@ -228,7 +228,7 @@ Variational Autoencoder flowchart
 
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/flowchart.png?raw=true" width="80%" class="center">
-    <figcaption>Figure 6: Flowchart of Variational Autoencoders.</figcaption>
+    <figcaption><center>Figure 6: Flowchart of Variational Autoencoders.</center></figcaption>
 </figure>
 
 
