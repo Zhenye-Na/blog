@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to Variational AutoEncoder"
+title: "Machine Learning Tutorial X: Variational AutoEncoders"
 date: 2018-05-18
 excerpt: "Understanding Variational Autoencoders (VAEs)"
 tags: [VAE, Deep Learning, Machine Learning]
@@ -8,28 +8,32 @@ mathjax: true
 mathjax_autoNumber: true
 ---
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/AE_arch2.png?raw=true" width="80%" class="center">
-
 > *Variational Autoencoders (VAEs) have emerged as one of the most popular approaches to unsupervised learning of complicated distributions. VAEs are appealing because they are built on top of standard function approximators (neural networks), and can be trained with stochastic gradient descent. VAEs have already shown promise in generating many kinds of complicated data. In this tutorial, I will introduce the intuitions behind VAEs, explains the mathematics behind them, and describes some empirical behavior.*
 {: style="text-align: justify"}
 
-* Getting to know variational auto-encoders, a generative modeling technique.
+Goals of this Tutorial:
+
+* Getting to know Variational Autoencoders, a Generative modeling technique.
 * Understanding the reasons for approximations.
 {: style="text-align: justify"}
 
 ## Kullback–Leibler Divergence
 
 Before we start examining VAEs closely, let us first review the metric used in VAE for quantifying the similarity between two probability distributions.
+{: style="text-align: justify"}
 
 (1) [KL (Kullback–Leibler) divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) which is closely related to relative entropy, information divergence, and information for discrimination, is a non-symmetric measure of the difference between two probability distributions $p(x)$ and $q(x)$. Specifically, the Kullback-Leibler (KL) divergence of $q(x)$ from $p(x)$, denoted $D_{KL}(p(x) \| q(x))$, is a measure of the information lost when $q(x)$ is used to approximate $p(x)$.
+{: style="text-align: justify"}
 
 $$ D_{KL}(p \| q) = \int_x p(x) \log \frac{p(x)}{q(x)} dx $$
 
 <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/KL.png?raw=true" width="60%" class="center">
 
 Figure 1: Illustration of the Kullback–Leibler (KL) divergence for two normal distributions. The typical asymmetry for the Kullback–Leibler divergence is clearly visible. *(Image source: Wikipedia)*
+{: style="text-align: justify"}
 
 $D_{KL}(p(x) \| q(x))$ achieves minimum (zero) if and only if $p(x) = q(x)$ everywhere.
+{: style="text-align: justify"}
 
 > **Proof:**
 
@@ -39,6 +43,7 @@ $$ \begin{align} KL(p(x) \| q(x)) &= - \int p(x) \log \frac{q(x)}{p(x)} dx \\ &\
 ### KL-Divergence in Python
 
 `Scipy` apparently does implement this, with a naming scheme more related to the field of information theory. The function is ["scipy.stats.entropy"](http://scipy.github.io/devdocs/generated/scipy.stats.entropy.html):
+{: style="text-align: justify"}
 
 ```python
 scipy.stats.entropy(pk, qk=None, base=None)
@@ -48,6 +53,7 @@ scipy.stats.entropy(pk, qk=None, base=None)
 ## Generative models
 
 A Generative Model is a powerful way of learning any kind of data distribution using unsupervised learning and it has achieved tremendous success in just few years. All types of generative models aim at learning the *true data distribution* of the training set so as to generate new data points with some variations. But it is not always possible to learn the exact distribution of our data either implicitly or explicitly and so we try to model a distribution which is as similar as possible to the true data distribution. 
+{: style="text-align: justify"}
 
 There are several examples of Generative models, like:
 
@@ -71,24 +77,29 @@ given a data point $x$.
 
 * Fit mean and variance (= parameters $\theta$) of a distribution (e.g., Gaussian)
 * Fit parameters $\theta$ of a mixture distribution (e.g., mixture of Gaussian, k-means)
+{: style="text-align: justify"}
 
 
 ## Latent Variable Models
 
 More formally, a latent variable model (LVM) $p$ is a probability distribution over two sets of variables $x$, $z$:
+{: style="text-align: justify"}
 
 $$ p(x, z; \theta), $$
 
 where the $x$ variables are observed at learning time in a dataset $\mathcal{D}$ and the $z$ are never observed.
+{: style="text-align: justify"}
 
 The model may be either directed or undirected. There exist both discriminative and generative LVMs, although here we will focus on the latter (the key ideas hold for discriminative models as well).
+{: style="text-align: justify"}
 
 To make this notion precise mathematically, we are aiming maximize the probability of each $X$ in the training set under the entire generative process, according to:
+{: style="text-align: justify"}
 
 $$ P(X) = P(X \vert z; \theta)P(z)dz. $$
 
 Here, $f(z; \theta)$ has been replaced by a distribution $P(X \vert z; \theta)$, which allows us to make the dependence of $X$ on $z$ explicit by using the law of total probability. The intuition behind this framework—called "maximum likelihood" is that if the model is likely to produce training set samples, then it is also likely to produce similar samples, and unlikely to produce dissimilar ones. In VAEs, the choice of this output distribution is often **Gaussian**, i.e., $ P(X \vert z; \theta) = \mathcal{N}(X \vert f (z; \theta), \sigma^2 * I) $.
-
+{: style="text-align: justify"}
 
 
 ## Variational Autoencoders
