@@ -183,7 +183,7 @@ So we can approximate it as:
 
 $$ \begin{align} \mathcal{L} (p_\theta, q_\phi) &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x \vert z) p(z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\&= \int_z q_\phi (z \vert x) \log \frac{p()z)}{q_\phi (z \vert x)} + \int_z q_\phi (z \vert x) \log p_\theta (x \vert z) \\&= -D_{KL} (q_\phi, p) + \mathbb{E}[\log p_\theta (x \vert z)] \end{align} $$
 
-* Regularization Loss: $ -D_{KL} (q_\phi, p) $ with prior $p(z)$ $rightarrow$ Gaussian
+* Regularization Loss: $ -D_{KL} (q_\phi, p) $ with prior $p(z)$ (Gaussian)
 * Reconstruction Loss: $ \mathbb{E}[\log p_\theta (x \vert z)] $
 
 #### Regularization Loss
@@ -193,7 +193,7 @@ $$ -D_{KL} (q_\phi, p) = \int_z q_\phi (z \vert x) \log \frac{p()z)}{q_\phi (z \
 * $ p(z) = \mathcal{N} (z; 0, 1). $
 * $ q_\phi (z \vert x) $ is a Gaussian with mean $ \mu_\phi (x) $, variance $ \sigma^2_\phi (x) $
 
-$$ D_{KL} (q(z \vert x) \| p(z)) = \frac{1}{2} \cdots (\sigma_z^2 + \mu_z^2 - 1 \log(\sigma_z^2)) $$
+$$ D_{KL} (q(z \vert x) \| p(z)) = \frac{1}{2} \cdot (\sigma_z^2 + \mu_z^2 - 1 \log(\sigma_z^2)) $$
 
 #### Reconstruction Loss
 
@@ -219,7 +219,7 @@ $$ z \sim q_\phi (z \vert x) = \mathcal{N}(z; \mu_\phi (x), \sigma_\phi (x)) $$
 
 is equivalent to
 
-$$ z = \mu_\phi (x) + \sigma_\phi (x) \cdots \epsilon, $$
+$$ z = \mu_\phi (x) + \sigma_\phi (x) \cdot \epsilon, $$
 
 where $ \epsilon \sim \mathcal{N} (0, 1)$
 
@@ -340,7 +340,7 @@ Recall what we mentioned in Reblablablabla section, we will use that in latent v
 
 More details for implementation can be found [here](https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.py).
 
-<img src="https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.gif?raw=true" width="80%" class="center">
+<img src="https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.gif?raw=true" width="60%" class="center">
 
 
 
