@@ -2,10 +2,16 @@
 layout: page
 title: Site Log
 picture-frame: shadow
-
 comment: false
 ---
 
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/octocat.jpg?raw=true" width="20%" class="center">
+
+## 2018.05.12
+- TRansfer Jekyll Theme from [Moon](https://taylantatli.github.io/Moon/) to [TeXt](https://github.com/kitian616/jekyll-TeXt-theme/)
+- Page alignment
+- Add new homepage, more professional, without verbose motions.
+- Keep writing post everyday!
 
 ## 2018.04.12
 - **Transfer** Jekyll Theme from [Minima](https://jekyll.github.io/minima/) to [Moon](https://taylantatli.github.io/Moon/) (Everything Changed!)
@@ -35,3 +41,12 @@ comment: false
 ## 2018.03.23
 - Add a portfolio page
 - Update `_config.yml`
+
+
+<style>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
