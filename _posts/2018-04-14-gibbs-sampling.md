@@ -327,8 +327,6 @@ int main (int argc, char* argv[])
 }
 ```
 
-
-
 ### Comparison with Ground Truth Distribution
 
 ![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/gibbsampling/gibbs2.png?raw=true)
@@ -342,6 +340,9 @@ Given a generative model for a set of random variables, we can summarize Gibbs s
 - Step 2: Simulate samples from the posterior joint distribution based on the posterior conditionals (Algorithm 1).
 
 We illustrated both of these steps in a change-point detection problem.
+
+
+> *If you notice mistakes and errors in this post, please don't hesitate to leave a comment and I would be super happy to correct them right away!*
 
 
 ## References

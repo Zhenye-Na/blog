@@ -4,7 +4,7 @@ title: "Machine Learning Tutorial 1: Linear Regression"
 key: 10004
 date: 2018-01-05
 excerpt: "Under the hood - Linear Regression in Machine Learning"
-tags: [Linear Regression, Deep Learning, Machine Learning]
+tags: [Linear Regression, Machine Learning]
 ---
 
 
@@ -40,4 +40,15 @@ Linear Regression is a statistical method that allows us to summarize, study and
 
 
 ### Loss minimization
+
+
+
+
+
+
+
+> *If you notice mistakes and errors in this post, please don't hesitate to leave a comment and I would be super happy to correct them right away!*
+
+
+## Referneces
 

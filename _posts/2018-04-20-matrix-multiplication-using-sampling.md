@@ -103,9 +103,8 @@ $$ AB = CR $$
 
 ## References
 
-[1] Michael Mahoney. (2013). [*"Stat260/CS294: Randomized Algorithms for Matrices and Data, Lecture 2: Approximating Matrix Multiplication"*](https://www.stat.berkeley.edu/~mmahoney/f13-stat260-cs294/Lectures/lecture02.pdf)
-
-[2] Avrim Blum, John Hopcroft, and Ravindran Kannan. (2018). *"Foundations of Data Science"*.
+[1] Michael Mahoney. [*"Stat260/CS294: Randomized Algorithms for Matrices and Data, Lecture 2: Approximating Matrix Multiplication"*](https://www.stat.berkeley.edu/~mmahoney/f13-stat260-cs294/Lectures/lecture02.pdf). (2013).  
+[2] Avrim Blum, John Hopcroft, and Ravindran Kannan. *"Foundations of Data Science"*. (2018).
 
 
 [^1]: By taking derivatives, for any set of nonnegative numbers $c_k$, $\sum_k \frac{c_k}{p_k}$ is minimized with $p_k$ proportional to $\sqrt{c_k}$.

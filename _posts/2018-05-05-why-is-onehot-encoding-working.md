@@ -155,14 +155,12 @@ def softmax(X):
 ```
 
 
-
 >  *If you notice mistakes and errors in this post, please don’t hesitate to leave a comment and I would be super happy to correct them right away!*
-
 
 
 ## References
 
-[1] Bendersky, E., 2016. [*The Softmax function and its derivative*](https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/)
+[1] Eli Bendersky. [*The Softmax function and its derivative*](https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/). (2016).
 
 <style>
 .center {

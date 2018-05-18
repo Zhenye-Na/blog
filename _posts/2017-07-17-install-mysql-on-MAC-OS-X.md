@@ -22,11 +22,13 @@ Most webservers and website packages will include a MySQL installation as part o
 
 ## Download MySQL
 
-The first step is to download MySQL server on your Mac. 
+The first step is to download `MySQL` server on your Mac. 
 
 Go to the [MySQL web site](https://dev.mysql.com/downloads/mysql/) and select the version that matches your version of Mac OS. Select the `DMG archive` version which I recommend. Open the installer and follow the installation steps.
 
 **Warning!** Because Oracle has changed the MySQL installer and the default parameters of the MySQL server in newer versions the following steps may no longer work. These steps were tested with MySQL server version 5.7.18 for macos10.12 in 2017 and I hoped this still worked fine with latest version. If not, feel free to leave a comment and I will update this post ASAP.
+{:.warning}
+
 
 ```bash
 $ mysql --version
@@ -46,7 +48,6 @@ Pay attention to the password in notification center. If you do not save the pro
 
 <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/mysql-installation/mysql4.jpg?raw=true" class="pics" /> 
 
-* * *
 
 ## MySQL Configuration
 
@@ -86,9 +87,8 @@ Pay attention to the password in notification center. If you do not save the pro
 	
 - This is it! Now you have `MySQL` installed and secured on your Mac.
 
-> *If you notice mistakes and errors in this post, don’t hesitate to gice a comment and I would be super happy to correct them right away!*
+> *If you notice mistakes and errors in this post, don't hesitate to leave a comment and I would be super happy to correct them right away!*
 
-> Thanks! :)
 
 
 <style>
