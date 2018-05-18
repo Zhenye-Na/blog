@@ -188,7 +188,7 @@ $$ \begin{align} \mathcal{L} (p_\theta, q_\phi) &= \int_z q_\phi (z \vert x) \lo
 
 #### Regularization Loss
 
-$$ -D_{KL} (q_\phi, p) = \int_z q_\phi (z \vert x) \log \frac{p()z)}{q_\phi (z \vert x)} $$
+$$ -D_{KL} (q_\phi, p) = \int_z q_\phi (z \vert x) \log \frac{p(z)}{q_\phi (z \vert x)} $$
 
 * $ p(z) = \mathcal{N} (z; 0, 1). $
 * $ q_\phi (z \vert x) $ is a Gaussian with mean $ \mu_\phi (x) $, variance $ \sigma^2_\phi (x) $

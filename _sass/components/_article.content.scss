@@ -27,6 +27,7 @@
       }
     }
   }
+  p { text-align: justify }
   h1,
   h2 {
     @include split-line(bottom);

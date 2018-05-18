@@ -9,12 +9,12 @@ mathjax_autoNumber: true
 ---
 
 > *Often, machine learning tutorials will recommend or require that you prepare your data in speciﬁc ways before ﬁtting a machine learning model. One good example is to use a one-hot encoding on categorical data. In this post, you will discover the answer to these important questions and better understand data preparation in general in applied machine learning.*
-{: style="text-align: justify"}
+
 
 ## Overview
 
 Categorical data are variables that contain label values rather than numeric values. The number of possible values is often limited to a fixed set. Categorical variables are often called nominal. Some categories may have a natural relationship to each other, such as a natural ordering.
-{: style="text-align: justify"}
+
 
 ## Representation
 
@@ -22,7 +22,7 @@ Categorical data are variables that contain label values rather than numeric val
   - E.g. $y^{(i)} \in \{\text{"person"}, \text{"hamster"}, \text{"capybara"} \} $
 - Encode $y^{(i)} \in \{1, 2, 3 \} $
   - Shouldn't be running something like linear regression, since "hamster" is not really the average of "person" and "capybara", so things are not likely to work well.
-{: style="text-align: justify"}
+
 
 **Solution:** one-hot encoding
 * "person" => [1, 0, 0]
@@ -62,15 +62,14 @@ we could think it as a generalization of logistic regression.
 ## Softmax Cross-Entropy
 
 Cross entropy indicates the distance between what the model believes the output distribution should be, and what the original distribution really is. It is defined as
-{: style="text-align: justify"}
 
- $$ H(y,p) = - \sum_i y_i \log(p_i). $$
+$$ H(y,p) = - \sum_i y_i \log(p_i). $$
 
 Here we pay attention to  $\log (p_i)$ which is a vector of probabilities because $y_i$ is the groundtruth label which using one-hot-encoding, which will be tricky if we put it in the $\log$.
 {: style="text-align: justify"}
 
 Cross entropy measure is a widely used alternative of squared error. It is used when node activations can be understood as representing the probability that each hypothesis might be true, i.e. when the output is a probability distribution. Thus it is used as a loss function in neural networks which have softmax activations in the output layer.
-{: style="text-align: justify"}
+
 
 ## Implementation of One-Hot Encoding
 

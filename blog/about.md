@@ -35,7 +35,6 @@ I also playing [Garageband](https://www.apple.com/ios/garageband/) when I have s
 Among so many football clubs, I love [Chelsea](http://www.chelseafc.com/) the best and [Eden Hazard](https://en.wikipedia.org/wiki/Eden_Hazard) is my favorite football star. This is the [overall season statistics summary](http://www.chelseafc.com/teams/first-team/eden-hazard.html) of Eden Hazard in Chelsea.
 {: style="text-align: justify"}
 
-* * *
 
 <style>
 <!--img.center {
