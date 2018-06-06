@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An Analysis of Deep Neural Network Models for Practical Applications"
+title: "An Analysis of Deep Neural Network Models"
 date: 2018-06-06
 excerpt: "Since the emergence of Deep Neural Networks (DNNs) as a prominent technique in the ﬁeld of computer vision, the ImageNet classification challenge has played a major role in advancing the state-of-the-art."
 tags: [Deep Learning, Computer Vision]
@@ -22,24 +22,24 @@ mathjax_autoNumber: true
 
 ### AlexNet
 
-> [*Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton"ImageNet Classification with Deep Convolutional Neural Networks"*](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+> [*Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton. "ImageNet Classification with Deep Convolutional Neural Networks"*](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
 
 ### ZFNet
 
-> [*Matthew D. Zeiler, Rob Fergus"Visualizing and Understanding
+> [*Matthew D. Zeiler, Rob Fergus. "Visualizing and Understanding
 Convolutional Networks"*](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf)
 
 
 ### VGGNet
 
-> [*Karen Simonyan, Andrew Zisserman"Very Deep Convolutional Networks for Large-Scale Image Recognition"arXiv preprint arXiv:1409.1556*](https://arxiv.org/pdf/1409.1556.pdf)
+> [*Karen Simonyan, Andrew Zisserman. "Very Deep Convolutional Networks for Large-Scale Image Recognition"arXiv preprint arXiv:1409.1556*](https://arxiv.org/pdf/1409.1556.pdf)
 
 
 
 ### GoogleNet
 
-> [*Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich"Going Deeper with Convolutions" arXiv preprint arXiv:1409.4842*](https://arxiv.org/pdf/1409.4842.pdf)
+> [*Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich. "Going Deeper with Convolutions" arXiv preprint arXiv:1409.4842*](https://arxiv.org/pdf/1409.4842.pdf)
 
 
 
@@ -118,7 +118,7 @@ feedforward fashion
 [1] Alfredo Canziani, Adam Paszke, Eugenio Culurciello. [*"An Analysis of Deep Neural Network Models for Practical Applications"*](https://arxiv.org/pdf/1605.07678.pdf). arXiv preprint arXiv:1605.07678 (2016).  
 [2] Fei-Fei Li, Justin Johnson, Serena Yeung. [*"Lecture Slides of CS231n: Convolutional Neural Networks for Visual Recognition"*](http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture9.pdf). (2017).  
 [3] Svetlana Lazebnik. [*"Lecture Slides of CS543: Computer Vision"*](http://slazebni.cs.illinois.edu/spring18/lec21_cnn.pdf). (2018).  
-[4] Siddharth Das's post on Medium. [*"CNNs Architectures: LeNet, AlexNet, VGG, GoogLeNet, ResNet and more..."*](https://medium.com/@siddharthdas_32104/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5). (2017).
+[4] Siddharth Das's post on Medium. [*"CNNs Architectures: LeNet, AlexNet, VGG, GoogLeNet, ResNet and more ..."*](https://medium.com/@siddharthdas_32104/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5). (2017).
 
 
 <style>
