@@ -48,7 +48,7 @@ section.doc-section {
 }
 
 header > h1, section > h1 {
-    color: #f94f54; #27A822;
+    color: #f94f54; /*#27A822;*/
 }
 
 header > h1 {

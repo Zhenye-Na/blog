@@ -44,8 +44,17 @@
 		content: '';
 		content: none; }
 	table {
-		border-collapse: collapse;
-		border-spacing: 0; }
+	    /*font-family: arial, sans-serif;*/
+	    border-collapse: collapse;
+	    width: 50%;
+	}
+
+	td, th {
+	    border: 0px solid #dddddd;
+	    text-align: left;
+	    padding: 2px;
+	    height: 5px;
+	}
 
 
 /* #Basic Styles
@@ -74,7 +83,7 @@
 	h6 { font-size: 14px; line-height: 21px; }
 	.subheader { color: #777; }
 
-	p { margin: 0 0 20px 0; }
+	p { margin: 0 0 15px 0; }
 	p img { margin: 0; }
 	p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
@@ -83,7 +92,7 @@
 	small { font-size: 80%; }
 
 /*	Blockquotes  */
-	blockquote, blockquote p { font-size: 17px; line-height: 24px; color: #777; font-style: italic; }
+	blockquote, blockquote p { font-size: 15px; line-height: 20px; color: #777; font-style: italic; margin:8px;}
 	blockquote { margin: 0 0 20px; padding: 9px 20px 0 19px; border-left: 1px solid #ddd; }
 	blockquote cite { display: block; font-size: 12px; color: #555; }
 	blockquote cite:before { content: "\2014 \0020"; }
