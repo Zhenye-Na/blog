@@ -32,7 +32,7 @@ paths:
   base: /blog
   home: /
   all:  /blog/all.html
-  # rss:  /feed.xml
+  rss:  /feed.xml
 
 ## GitHub repository (if the site is hosted by GitHub) ##
 repository: zhenye-na/zhenye-na.github.io
