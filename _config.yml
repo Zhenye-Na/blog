@@ -15,6 +15,7 @@
 url:  #the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl: /
 title: Zhenye Na
+name: Zhenye Na
 description: > #this means to ignore newlines until "nav_lists:"
     UIUC Graduate Student in ISE | Google-Oriented-Programming
 
@@ -106,3 +107,4 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jemoji
+

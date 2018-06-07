@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ site.title }}</title>
+    <meta name="description" content="{{ site.name }}'s Résumé">
+    <meta name="author" content="{{ site.name }} @{{ site.twitter }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="{{ site.baseurl }}static/css/base.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}static/css/skeleton.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}static/css/layout.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="./favicon.ico">
+    <!-- <link rel="apple-touch-icon" href="static/img/me-icon-57.png"> -->
+    <!-- <link rel="apple-touch-icon" sizes="72x72" href="static/img/me-icon-72.png"> -->
+    <!-- <link rel="apple-touch-icon" sizes="114x114" href="static/img/me-icon-114.png"> -->
+</head>
+
+<body>
+<div class="container">
+    <div class="three columns">
+        <nav>
+        <h3 id="me" style="text-align:center;">
+            <img src="assets/images/avatar/avatar.jpg" class="avatar" />
+            {{ site.name }}
+        </h3>
+        <ul>
+        <li><a href="/blog/">
+          <span style="color:#f94f54">Blog</span>
+        </a></li>
+        <li><a href="#me">About me</a></li>
+        <!-- <li><a href="#work">Work</a></li> -->
+        <!-- <li><a href="#patent">Patent</a></li> -->
+        <li><a href="#education">Education</a></li>
+        <li><a href="#courses">Coursework</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <!-- <li><a href="#publications">Publications</a></li> -->
+        <li><a href="#hobby">Hobbies</a></li>
+        <li><a href="https://github.com/Zhenye-Na" target="_blank"><span style="color:#f94f54">Github</span></a></li>
+        <li><a href="https://www.linkedin.com/in/zhenyena/" target="_blank"><span style="color:#f94f54">LinkedIn</span></a></li>
+        <li><a href="./resume.pdf" target="_blank"><span style="color:#f94f54">Resume</span></a></li>
+        </ul>
+        <nav>
+    </div>
+    <div class="thirteen columns clearfix">
+
+        {{ content }}
+
+    <footer class="thirteen columns">
+        <p>© All rights reserved. Powered by <a href="http://jekyllrb.com/">Jekyll</a> and
+            <a href="https://www.github.com/jekyller/vitae">vitae</a> with ♥</p>
+    </footer>
+    </div>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{{ site.ga_tracking_id }}', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
