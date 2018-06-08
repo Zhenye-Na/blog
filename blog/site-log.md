@@ -7,6 +7,10 @@ comment: false
 
 <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/octocat.jpg?raw=true" width="20%" class="center">
 
+## 2018.06.07
+- Changed homepage to `Skeleton` with theme [vitae](https://github.com/jekyller/vitae)
+
+
 ## 2018.05.20
 - Add homepage (homepage style © [Lilian Weng](http://lilianweng.github.io/)).
 
