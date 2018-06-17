@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Counting bits set, bitCount"
-date: 2018-06-017
+date: 2018-06-17
 excerpt: "CSAPP3e Self-Study Datalab"
 tags: [bitwise, CSAPP]
 ---
