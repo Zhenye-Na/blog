@@ -2,10 +2,8 @@
 layout: post
 title: "Counting bits set, bitCount"
 date: 2018-06-017
-excerpt: "CS:APP3e: Self-Study Datalab problem"
+excerpt: "CSAPP3e Self-Study Datalab"
 tags: [bitwise, CSAPP]
-mathjax: true
-mathjax_autoNumber: true
 ---
 
 ## Counting bits set, in parallel
@@ -23,7 +21,7 @@ c = ((c >> S[3]) + c) & B[3];
 c = ((c >> S[4]) + c) & B[4];
 ```
 
-The B array, expressed as binary, is:
+The `B` array, expressed as binary, is:
 
 ```c
 B[0] = 0x55555555 = 01010101 01010101 01010101 01010101
@@ -33,10 +31,9 @@ B[3] = 0x00FF00FF = 00000000 11111111 00000000 11111111
 B[4] = 0x0000FFFF = 00000000 00000000 11111111 11111111
 ```
 
+We can adjust the method for larger integer sizes by continuing with the patterns for the *_Binary Magic Numbers_*, `B` and `S`. If there are `k` bits, then we need the arrays `S` and `B` to be `ceil(lg(k))` elements long, and we must compute the same number of expressions for c as S or B are long. For a 32-bit `v`, 16 operations are used.
 
-We can adjust the method for larger integer sizes by continuing with the patterns for the Binary Magic Numbers, B and S. If there are k bits, then we need the arrays S and B to be ceil(lg(k)) elements long, and we must compute the same number of expressions for c as S or B are long. For a 32-bit v, 16 operations are used.
-
-The best method for counting bits in a 32-bit integer v is the following:
+The best method for counting bits in a 32-bit integer `v` is the following:
 
 ```c
 v = v - ((v >> 1) & 0x55555555);                    // reuse input as temporary
@@ -44,7 +41,7 @@ v = (v & 0x33333333) + ((v >> 2) & 0x33333333);     // temp
 c = ((v + (v >> 4) & 0xF0F0F0F) * 0x1010101) >> 24; // count
 ```
 
-The best bit counting method takes only 12 operations, which is the same as the lookup-table method, but avoids the memory and potential cache misses of a table. It is a hybrid between the purely parallel method above and the earlier methods using multiplies (in the section on counting bits with 64-bit instructions), though it doesn't use 64-bit instructions. The counts of bits set in the bytes is done in parallel, and the sum total of the bits set in the bytes is computed by multiplying by 0x1010101 and shifting right 24 bits.
+The best bit counting method takes only 12 operations, which is the same as the lookup-table method, but avoids the memory and potential cache misses of a table. It is a hybrid between the purely parallel method above and the earlier methods using multiplies (in the section on counting bits with 64-bit instructions), though it doesn't use 64-bit instructions. The counts of bits set in the bytes is done in parallel, and the sum total of the bits set in the bytes is computed by multiplying by `0x1010101` and shifting right 24 bits.
 
 A generalization of the best bit counting method to integers of bit-widths upto 128 (parameterized by type T) is this:
 
