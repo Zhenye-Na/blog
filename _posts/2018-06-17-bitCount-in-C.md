@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Counting bits set, "bitCount""
+title: "Counting bits set, bitCount"
 date: 2018-06-017
 excerpt: "CS:APP3e: Self-Study Datalab problem"
 tags: [bitwise, CSAPP]
