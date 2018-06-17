@@ -31,7 +31,7 @@ B[3] = 0x00FF00FF = 00000000 11111111 00000000 11111111
 B[4] = 0x0000FFFF = 00000000 00000000 11111111 11111111
 ```
 
-We can adjust the method for larger integer sizes by continuing with the patterns for the *_Binary Magic Numbers_*, `B` and `S`. If there are `k` bits, then we need the arrays `S` and `B` to be `ceil(lg(k))` elements long, and we must compute the same number of expressions for c as S or B are long. For a 32-bit `v`, 16 operations are used.
+We can adjust the method for larger integer sizes by continuing with the patterns for the ***Binary Magic Numbers***, `B` and `S`. If there are `k` bits, then we need the arrays `S` and `B` to be `ceil(lg(k))` elements long, and we must compute the same number of expressions for c as S or B are long. For a 32-bit `v`, 16 operations are used.
 
 The best method for counting bits in a 32-bit integer `v` is the following:
 
