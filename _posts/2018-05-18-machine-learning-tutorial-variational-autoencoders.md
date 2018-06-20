@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Machine Learning Tutorial Part 8: Variational Autoencoders"
+title: "Introduction to Variational Autoencoders"
 date: 2018-05-18
 excerpt: "Understanding Variational Autoencoders (VAEs)"
 tags: [VAE, Deep Learning, Machine Learning]
