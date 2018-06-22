@@ -8,23 +8,23 @@ tags: [CSAPP, Exceptional Control Flow]
 
 # Exceptional Control Flow
 
-_Exceptional Control Flow_ exists at all levels of a computer system. It contains:
+Exceptional Control Flow exists at all levels of a computer system. It contains:
 
 **Low level mechanisms**
 
-1. *_Exceptions_*
+1. *Exceptions*
     - Change in control flow in response to a system event (i.e., change in system state).
     - Implemented using combina;on of hardware and OS software.
 
 **Higher level mechanisms**
 
-2. *_Process context switch_* 
+2. *Process context switch* 
     - Implemented by OS software and hardware timer.
 
-3. *_Signals_*
+3. *Signals*
     - Implemented by OS software. 
 
-4. *_Nonlocal jumps_*: `setjmp()` and `longjmp()`
+4. *Nonlocal jumps*: `setjmp()` and `longjmp()`
     - Implemented by `C` runtime library
 
 
@@ -36,14 +36,14 @@ An exception is a transfer of control to the OS kernel in response to some event
 > **Examples of events**: *Divide by 0, arithmetic overflow, page fault, I/O request completes, typing `Ctrl-C`*
 
 <figure>
-    <img src="../assets/images/posts-img/ecf/ecf1.png" width="70%" class="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf1.png?raw=true" width="70%" class="center">
     <figcaption>Figure 1: Exceptions. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
 
 ### Asynchronous Exceptions (Interrupts)
 
-Caused by events _*external to the processor*_
+Caused by events *external to the processor*
 
 - Indicated by setting the processor's interrupt pin 
 - Handler returns to "next" instruction
@@ -61,7 +61,7 @@ Examples:
 
 ### Synchronous Exceptions
 
-Caused by events that _*occur as a result of executing an instruction*_:
+Caused by events that *occur as a result of executing an instruction*:
 
 - **Traps**
     - Intentional
@@ -114,13 +114,13 @@ Each process is a logical control flow.
 ### Context Switching
 
 - Processes are managed by a shared chunk of memory-­resident OS code called the ***kernel***
-    - Important: *_the kernel is not a separate process, but rather runs as part of some existing process._*
+    - Important: *the kernel is not a separate process, but rather runs as part of some existing process.*
 
 - Control flow passes from one process to another via a **context switch**
 
 
 <figure>
-    <img src="../assets/images/posts-img/ecf/ecf2.png" width="70%" class="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf2.png?raw=true" width="70%" class="center">
     <figcaption>Figure 2: Context Switching. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
@@ -149,13 +149,13 @@ if ((pid = fork()) < 0) {
 A process is in one of three states:
 
 - **Running**
-    - Process is either _executing_, or _waiting to be executed_ and will _eventually be scheduled_ (i.e., chosen to execute) by the kernel
+    - Process is either *executing*, or *waiting to be executed* and will *eventually be scheduled* (i.e., chosen to execute) by the kernel
 
 - **Stopped**
-    - Process execution is _suspended_ and _will not be scheduled_ until further _notice_
+    - Process execution is *suspended* and *will not be scheduled until* further *notice*
 
 - **Terminated**
-    - Process is _stopped permanently_
+    - Process is *stopped permanently*
 
 
 
@@ -165,12 +165,12 @@ Parent process creates a new running child process by calling `fork`
 
 `int fork(void)`
 
-- Returns `0` to the _child process_, child's `PID` to _parent process_
+- Returns `0` to the *child process*, child's `PID` to *parent process*
 - Child is almost identical to parent:
     - Child get an identical (but separate) copy of the parent's virtual address space
     - Child gets identical copies of the parent's open file descriptors 
     - Child has a diﬀerent PID than the parent
-- `fork` is interesting (and often confusing) because it is _*called once but returns twice*_
+- `fork` is interesting (and often confusing) because it is *called once but returns twice*
 
 
 ### Terminating Processes
@@ -187,7 +187,7 @@ Process becomes terminated for one of three reasons:
 - Convention: *normal return status is `0`, nonzero on error* 
 - Another way to explicitly set the exit status is to return an integer value from the main routine
 
-`exit` is _*called once but never returns*_.
+`exit` is *called once but never returns*.
 
 
 ## Modeling `fork` with Process Graphs
@@ -200,7 +200,7 @@ A process graph is a useful tool for capturing the partial ordering of statement
 - printf vertices can be labeled with output 
 - Each graph begins with a vertex with no inedges
 
-Any _*topological sort*_ of the graph corresponds to a feasible total ordering.
+Any *topological sort* of the graph corresponds to a feasible total ordering.
 
 - Total ordering of vertices where all edges point from left to right
 
