@@ -12,19 +12,19 @@ Exceptional Control Flow exists at all levels of a computer system. It contains:
 
 **Low level mechanisms**
 
-1. *Exceptions*
+1. **Exceptions**
     - Change in control flow in response to a system event (i.e., change in system state).
     - Implemented using combina;on of hardware and OS software.
 
 **Higher level mechanisms**
 
-2. *Process context switch* 
+2. **Process context switch**
     - Implemented by OS software and hardware timer.
 
-3. *Signals*
+3. **Signals**
     - Implemented by OS software. 
 
-4. *Nonlocal jumps*: `setjmp()` and `longjmp()`
+4. **Nonlocal jumps**: `setjmp()` and `longjmp()`
     - Implemented by `C` runtime library
 
 
@@ -37,7 +37,7 @@ An exception is a transfer of control to the OS kernel in response to some event
 
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf1.png?raw=true" width="70%" class="center">
-    <figcaption>Figure 1: Exceptions. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
+    <figcaption class="center">Figure 1: Exceptions. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
 
@@ -121,7 +121,7 @@ Each process is a logical control flow.
 
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf2.png?raw=true" width="70%" class="center">
-    <figcaption>Figure 2: Context Switching. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
+    <figcaption class="center">Figure 2: Context Switching. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
 
@@ -206,8 +206,8 @@ Any *topological sort* of the graph corresponds to a feasible total ordering.
 
 
 <figure>
-    <img src="../assets/images/posts-img/ecf/ecf3.png" width="70%" class="center">
-    <figcaption>Figure 3: Process Graph. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf3.png?raw=true" width="70%" class="center">
+    <figcaption class="center">Figure 3: Process Graph. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
 
@@ -227,14 +227,12 @@ Reaping
 
 What if parent doesn't reap?
 
-- If any parent terminates without reaping a child, then the orphaned child will be reaped by `init` process (pid == 1) 
+- If any parent terminates without reaping a child, then the orphaned child will be reaped by `init` process (`pid == 1`) 
 - So, only need explicit reaping in long-running processes
     - e.g., shells and servers
 
 
-
-
-## `wait`: Synchronizing with Children
+## Synchronizing with Children: `wait`
 
 Parent reaps a child by calling the `wait` function
 
@@ -249,7 +247,7 @@ If `child_status != NULL`, then the integer it points to will be set to a value 
 
 
 
-## `execve`: Loading and Running Programs
+## Loading and Running Programs: `execve`
 
 `int execve(char *filename, char *argv[], char *envp[])`
 
