@@ -53,7 +53,7 @@ Suppose the variable `x` of type int and at address `0x100` has a hexadecimal va
 </div>
 
 
-### 2.1.4 Representing Strings
+### Representing Strings
 
 A string in C is encoded by an array of characters terminated by the `null` (having value O) character. Each character is represented by some standard encoding, with the most common being the ASCII character code. Thus, if we run our routine show _bytes with arguments "12345" and 6 (to include the terminating character), we get the result `3132 33 34 35 00`
 
@@ -61,7 +61,7 @@ A string in C is encoded by an array of characters terminated by the `null` (hav
 
 
 
-### 2.1.6 Introduction to Boolean Algebra
+### Introduction to Boolean Algebra
 
 <div style="text-align:center">
   <img src ="http://engineeronadisk.com/book_analysis/images/boolean9.gif" width="60%" />
@@ -70,17 +70,17 @@ A string in C is encoded by an array of characters terminated by the `null` (hav
 </div>
 
 
-### 2.1.7 Bit-Level Operations in C
+### Bit-Level Operations in C
 
 C supports bitwise Boolean operations. In fact, the symbols we have used for the Boolean operations are exactly those used by C: `|` for `OR`, `&` for `AND`, `~` for `NOT`, and `^` for `EXCLUSIVE-OR`.
 
 
-### 2.1.8 Logical Operations in C
+### Logical Operations in C
 
 C also provides a set of *logical operators* `||`, `&&`, and `!`, which correspond to the `OR`, `AND`, and `NOT` operations of logic.
 
 
-### 2.1.9  Shift Operations in C
+### Shift Operations in C
 
 In contrast to C, Java has a precise definition of how right shifts should be performed. The expression `x >> k` shifts x arithmetically by k positions, while `x >>> k` shifts it logically.
 
