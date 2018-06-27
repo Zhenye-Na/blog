@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Counting bits set, bitCount"
-date: 2018-06-17
-excerpt: "CSAPP3e Self-Study Datalab"
+title: "Representing and Manipulating Information"
+date: 2018-06-12
+excerpt: "Reading Notes of CSAPP3e Chapter 2: Representing and Manipulating Information"
 tags: [CSAPP, Computer Systems]
 ---
 
