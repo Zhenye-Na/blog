@@ -22,10 +22,10 @@ tags: [CSAPP, Exceptional Control Flow]
 SRAM stores each bit in a *bistable* memory cell.
 
 
-<!--<figure>
+<figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/mh/mh1.png?raw=true" width="70%" class="center">
     <figcaption class="center">Figure 1: Inverted Pendulum. like an SRAM cell the pendulum has only two stable configurations, or states. from left to right: Stable left, Unstable and Stable right (Image Source: <a href="https://www.amazon.com/Computer-Systems-Programmers-Perspective-3rd/dp/013409266X" target="_blank"><em>Computer Systems: A Programmer's Perspective (3rd Edition)</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 
 Due to its bistable nature, an SRAM memory cell will retain its value indefinitely.
@@ -59,10 +59,10 @@ DRAM chips are packaged in *memory modules* that plug into expansions slots on t
 DRAM 0 stores the first (lower-order) byte.
 
 
-<!--<figure>
+<figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/mh/mh2.png?raw=true" width="70%" class="center">
     <figcaption class="center">Figure 2: Reading contents of a memory module. (Image Source: <a href="https://www.amazon.com/Computer-Systems-Programmers-Perspective-3rd/dp/013409266X" target="_blank"><em>Computer Systems: A Programmer's Perspective (3rd Edition)</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 
 ### Nonvolatile Memory
@@ -86,10 +86,10 @@ Data flows back and forth between the processorand the DRAM main memory over sha
 A *bus* is a collection of parallel wires that carry address, data, and control signals.
 
 
-<!--<figure>
+<figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/mh/mh3.jpeg?raw=true" width="70%" class="center">
     <figcaption class="center">Figure 3: Example bus structure. (Image Source: <a href="https://www.amazon.com/Computer-Systems-Programmers-Perspective-3rd/dp/013409266X" target="_blank"><em>Computer Systems: A Programmer's Perspective (3rd Edition)</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 
 - *I/O bridge* includes memory controller
@@ -112,10 +112,10 @@ A *bus* is a collection of parallel wires that carry address, data, and control 
 - Gaps store formatting bits that identify sectors.
 
 
-<!--<figure>
+<figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/mh/mh4.jpeg?raw=true" width="70%" class="center">
     <figcaption class="center">Figure 4: Disk geometry. (Image Source: <a href="https://www.amazon.com/Computer-Systems-Programmers-Perspective-3rd/dp/013409266X" target="_blank"><em>Computer Systems: A Programmer's Perspective (3rd Edition)</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 
 
