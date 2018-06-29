@@ -79,6 +79,12 @@ Caused by events that *occur as a result of executing an instruction*:
     - Aborts current program
 
 
+<figure>
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf4.jpg?raw=true" class="center">
+    <figcaption class="center">Figure 2: Exception handling. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
+</figure>
+
+
 ## Processes
 
 **A process is an instance of a running program.**
@@ -121,7 +127,7 @@ Each process is a logical control flow.
 
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf2.png?raw=true" width="70%" class="center">
-    <figcaption class="center">Figure 2: Context Switching. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
+    <figcaption class="center">Figure 3: Context Switching. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
 
@@ -207,7 +213,7 @@ Any *topological sort* of the graph corresponds to a feasible total ordering.
 
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf3.png?raw=true" width="70%" class="center">
-    <figcaption class="center">Figure 3: Process Graph. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
+    <figcaption class="center">Figure 4: Process Graph. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
 
