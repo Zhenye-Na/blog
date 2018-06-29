@@ -81,7 +81,12 @@ Caused by events that *occur as a result of executing an instruction*:
 
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf4.jpg?raw=true" class="center">
-    <figcaption class="center">Figure 2: Exception handling. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
+    <figcaption class="center">Figure 2.1: Exception handling. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
+</figure>
+
+<figure>
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/ecf/ecf5.png?raw=true" class="center">
+    <figcaption class="center">Figure 2.2: Exception handling. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
 
