@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Exceptional Control Flow in Computer Systems, Part 1"
+title: "Exceptional Control Flow in Computer Systems"
 date: 2018-06-21
 excerpt: "Notes of CSAPP3e Exceptional Control Flow"
-tags: [CSAPP, Exceptional Control Flow]
+tags: [Computer Systems, Exceptional Control Flow]
 ---
 
 # Exceptional Control Flow

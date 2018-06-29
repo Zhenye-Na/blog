@@ -3,7 +3,7 @@ layout: post
 title: "Introduction to Memory Hierarchy, Part 2"
 date: 2018-06-27
 excerpt: "Reading Notes of CSAPP3e Chapter 6: The Memory Hierarchy"
-tags: [CSAPP, Memory Hierarchy, Computer Systems]
+tags: [Memory Hierarchy, Computer Systems]
 ---
 
 # The Memory Hierarchy
