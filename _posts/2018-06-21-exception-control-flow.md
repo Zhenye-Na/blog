@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Exceptional Control Flow in Computer Systems"
+title: "Exceptional Control Flow in Computer Systems, Part 1"
 date: 2018-06-21
-excerpt: "Notes of CSAPP3e Exceptional Control Flow"
-tags: [Computer Systems, Exceptional Control Flow]
+excerpt: "Notes of CSAPP3e Chapter 8: Exceptional Control Flow"
+tags: [Computer Systems]
 ---
 
 # Exceptional Control Flow
@@ -106,6 +106,82 @@ Process provides each program with ***two key abstractions***:
 - **Private address space**
     - Each program seems to have exclusive use of main memory
     - Provided by kernel mechanism called *virtual memory*
+
+### Four basic States 
+
+- **Running** 
+    - Executing instructions on the CPU 
+    - Number bounded by number of CPU cores 
+- **Runnable** 
+    - Waiting to be running 
+- **Blocked** 
+    - Waiting for an event, maybe input from `STDIN`
+    - Not runnable 
+- **Zombie**  
+    - Terminated, not yet reaped 
+
+
+### Four basic process control functions
+
+- `fork()`
+- `exec()`  
+    - And other variants such as `execve()`
+- `exit()`
+- `wait()
+    - And variants like `waitpid()`
+
+
+##### int fork(void) 
+
+- creates a new process (child process) that is identical to the calling process (parent process) 
+- OS creates an exact duplicate of parent's state: 
+    - Virtual address space (memory), including heap and stack 
+    - Registers, except for the return value (%eax/%rax) 
+    - File descriptors but files are shared 
+- Result -> Equal but separate state 
+
+> Fork is interesting (and often confusing) because it is **called once** but **returns twice**
+
+> returns **0** to the **child process**  
+> returns **child's pid (process id)** to the **parent process**
+
+
+##### int exec() 
+
+- Replaces the current process's state and context 
+    - But keeps PID, open files, and signal context 
+- Provides a way to load and run another program 
+    - Replaces the current running memory image with that of new 
+program 
+    - Set up stack with arguments and environment variables 
+    - Start execution at the entry point  
+- Never returns on successful execution 
+- The newly loaded program's perspective: as if the previous 
+program has not been run before 
+- More useful variant is `int execve()`
+
+
+##### void exit(int status)
+
+- Normally return with status 0 (other numbers indicate an error) 
+- Terminates the current process 
+- OS frees resources such as heap memory and open file descriptors 
+and so on… 
+- Reduce to a zombie state  
+    - Must wait to be reaped by the parent process (or the init
+    process if the parent died) 
+    - Signal is sent to the parent process notifying of death 
+    - Reaper can inspect the exit status 
+
+
+##### int wait(int *child_status)
+
+- suspends current process until one of its children terminates 
+- return value is the pid of the child process that terminated 
+    - When wait returns a pid > 0, child process has been reaped 
+    - All child resources freed 
+- if `child_status != NULL`, then the object it points to will be set to  a status indicating why the child process terminated 
+- More useful variant is `int waitpid()` 
 
 
 ### Concurrent Processes
