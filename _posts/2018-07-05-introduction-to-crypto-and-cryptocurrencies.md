@@ -6,16 +6,16 @@ excerpt: "Week 1: Bitcoin and Cryptocurrency Technologies, Princeton University"
 tags: [Bitcoin and Cryptocurrency]
 ---
 
-> In this series of tutorials, I will talk a little bit more about Crypto and Cryptocurrencies based on the course from Priceton University. Let's get statrted.
+> *In this series of tutorials, I will talk a little bit more about Crypto and Cryptocurrencies based on the course from Priceton University. Let's get statrted.*
 
-This post is looooong reading!
+**This post is looooong reading!**
 {:.warning}
 
 
 # Introduction to Crypto and Cryptocurrencies
 
 <figure>
-    <img src="https://cdn-images-1.medium.com/max/800/0*W3LI86Xp8u_JEGfc.jpg" class="center">
+    <img src="https://cdn-images-1.medium.com/max/800/0*W3LI86Xp8u_JEGfc.jpg" width=60% class="center">
     <figcaption class="center">Image Source: <a href="http://www.thelowdownblog.com/2018/05/why-blockchain-is-hard.html" target="_blank"><em>Why Blockchain Is Hard</em></a></figcaption>
 </figure>
 
