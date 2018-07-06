@@ -35,11 +35,11 @@ Every process starts with 3 open file descriptors that can be accessed macros li
 
 We define a mapping from the virtual address used by the process to the actual physical address of the data in memory.
 
-<!--
+
 <figure>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Virtual_address_space_and_physical_address_space_relationship.svg/300px-Virtual_address_space_and_physical_address_space_relationship.svg.png" width="70%" class="center">
     <figcaption class="center">figure 1: Virtual Memory. (Image Source: <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Virtual_address_space_and_physical_address_space_relationship.svg/300px-Virtual_address_space_and_physical_address_space_relationship.svg.png" target="_blank"><em>Wikipedia</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 
 ### Page table
@@ -79,11 +79,11 @@ We define a mapping from the virtual address used by the process to the actual p
 - Since the **virtual offset (VPO)** and **physical offset (PPO)** are the same, the offset doesn't need to be translated.
 
 
-<!--
+
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vm/vm1.png?raw=true" width="70%" class="center">
     <figcaption class="center">figure 2: VM Address Translation. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 
 ## VM Address Translation with TLB
@@ -99,11 +99,11 @@ Solution:
 - To look up a virtual address in the TLB, split up the VPN (not the whole virtual address) into a TLB index and a TLB tag.
 
 
-<!--
+
 <figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vm/vm2.png?raw=true" width="70%" class="center">
     <figcaption class="center">figure 2: VM Address Translation. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 
 ## Address TranslaCon in Real Life
@@ -112,11 +112,11 @@ Solution:
 - Use first part of the VPN to get to the right directory and then the next part to get the PPN 
 - K-level page table divides VPN into k parts
 
-<!--
+
 <figure>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Page_table_actions.svg/440px-Page_table_actions.svg.png" width="70%" class="center">
     <figcaption class="center">figure 2: Address Translation in Real life. (Image Source: <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Page_table_actions.svg/440px-Page_table_actions.svg.png" target="_blank"><em>Wikipedia</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 
 ## References
