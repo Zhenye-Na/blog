@@ -3,7 +3,7 @@ layout: post
 title: "Introduction to Crypto and Cryptocurrencies"
 date: 2018-07-05
 excerpt: "Week 1: Bitcoin and Cryptocurrency Technologies, Princeton University"
-tags: [Computer Systems]
+tags: [Bitcoin and Cryptocurrency]
 ---
 
 # Introduction to Crypto and Cryptocurrencies
@@ -13,7 +13,7 @@ tags: [Computer Systems]
 ### Hash function:
 
 - takes any string as input
-- fixed-size output (we’ll use 256 bits)
+- fixed-size output (we'll use 256 bits because it is the size of bitcoin)
 - efficiently computable
 
 ### Security properties:
@@ -24,6 +24,12 @@ tags: [Computer Systems]
 
 
 #### property 1: Collision-free
+
+Nobody can find x and y such that x != y and H(x)=H(y)
+
+
+
+
 
 
 ## References
