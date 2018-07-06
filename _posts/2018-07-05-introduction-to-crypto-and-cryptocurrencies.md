@@ -15,7 +15,7 @@ tags: [Bitcoin and Cryptocurrency]
 # Introduction to Crypto and Cryptocurrencies
 
 <figure>
-    <img src="https://cdn-images-1.medium.com/max/800/0*W3LI86Xp8u_JEGfc.jpg" width=60% class="center">
+    <img src="https://cdn-images-1.medium.com/max/800/0*W3LI86Xp8u_JEGfc.jpg" width="60%" class="center">
     <figcaption class="center">Image Source: <a href="http://www.thelowdownblog.com/2018/05/why-blockchain-is-hard.html" target="_blank"><em>Why Blockchain Is Hard</em></a></figcaption>
 </figure>
 
