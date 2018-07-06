@@ -6,12 +6,18 @@ excerpt: "Week 1: Bitcoin and Cryptocurrency Technologies, Princeton University"
 tags: [Bitcoin and Cryptocurrency]
 ---
 
+> In this series of tutorials, I will talk a little bit more about Crypto and Cryptocurrencies based on the course from Priceton University. Let's get statrted.
+
+This post is looooong reading!
+{:.warning}
+
+
 # Introduction to Crypto and Cryptocurrencies
 
-<!--<figure>
+<figure>
     <img src="https://cdn-images-1.medium.com/max/800/0*W3LI86Xp8u_JEGfc.jpg" class="center">
     <figcaption class="center">Image Source: <a href="http://www.thelowdownblog.com/2018/05/why-blockchain-is-hard.html" target="_blank"><em>Why Blockchain Is Hard</em></a></figcaption>
-</figure>-->
+</figure>
 
 
 ## Cryptographic Hash Functions
@@ -87,22 +93,21 @@ Try to find a "solution" `x` such that $\text{H(id | x)} \in \text{Y}$.
 Property 3 implies that no solving strategy is much better than trying random values of x.
 
 
-<!--<figure>
+<figure>
     <img src="https://i.stack.imgur.com/29Ts2.png" class="center">
     <figcaption class="center">Figure 1: SHA-256 hash function. (Image Source: <a href="https://bitcoin.stackexchange.com/questions/41411/mining-for-nil-transaction-blocks-only-gaming-the-incentive-scheme-by-rogue-mi/41412" target="_blank"><em>Bitcoin StackExchange</em></a>)</figcaption>
-</figure>-->
-
+</figure>
 
 
 ## Hash Pointers and Data Structures
 
 ### Hash Pointers
 
-<!--<figure>
+<figure>
     <img src="https://qph.fs.quoracdn.net/main-qimg-152139fabba52dee181adc79d581d143.webp
 " class="center">
     <figcaption class="center">Figure 2: Hash Pointers. (Image Source: <a href="https://www.quora.com/What-is-the-coolest-data-structure-What-makes-it-so-cool" target="_blank"><em>What is the coolest data structure? What makes it so cool?</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 hash pointer is:
 
@@ -113,11 +118,11 @@ hash pointer is:
 ### Linked List implementation of Block Chain
 
 
-<!--<figure>
+<figure>
     <img src="https://qph.fs.quoracdn.net/main-qimg-75c5b83ba56f0deff282a64b60f1962a
 " class="center">
     <figcaption class="center">Figure 3: Block Chain - Linked List. (Image Source: <a href="https://www.quora.com/What-is-the-coolest-data-structure-What-makes-it-so-cool" target="_blank"><em>What is the coolest data structure? What makes it so cool?</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 The magic of a block chain is that it offers **tamper-detection**. If someone tries to change some data in one of the nodes, then the hash value changes too and is no longer consistent with the hash_value reported in the hash pointer.
 
@@ -127,10 +132,10 @@ The best known application of block chain is Bitcoin, a cryptocurrency in which 
 
 ### Merkle Tree implementation of Block Chain
 
-<!--<figure>
+<figure>
     <img src="https://qph.fs.quoracdn.net/main-qimg-98b377aaaf58095fa8434c16b74c1d90.webp" class="center">
     <figcaption class="center">Figure 4: Block Chain - Merkle Tree. (Image Source: <a href="https://www.quora.com/What-is-the-coolest-data-structure-What-makes-it-so-cool" target="_blank"><em>What is the coolest data structure? What makes it so cool?</em></a>)</figcaption>
-</figure>-->
+</figure>
 
 Like the block chain, the Merkle Tree is tamper resistant because of its reliance on hash pointers. An end user only needs to store the final hash pointer at the root.
 
@@ -141,8 +146,58 @@ The Merkle tree has numerous applications including git revision control, Bitcoi
 
 ## Digital Signatures
 
+**Signatures**
+
+- Only you can sign, but anyone can verify
+- Signature is tied to a particular document (can't be cut-and-pasted to another doc)
 
 
+- "valid signatures verify"
+    - verify(pk, message, sign(sk, message)) == true
+- "can't forge signatures"
+    - adversary who:
+    - knows pk gets to see signatures on messages of his choice can't produce a verifiable signature on another message
+
+
+### API for digital signatures
+
+- `(sk, pk) := generateKeys(keysize)`
+    - `sk`: secret signing key, which you use for makin gyour signaures
+    - `pk`: public verification key, which is given to anyone , can be used to verify your signature when others see it
+- `sig := sign(sk, message)`
+    - message: where you put your signatures on
+- `isValid := verify(pk, message, sig)`
+    - return value `isValid` is boolean
+
+The first two can be randomized algorithms
+
+
+## Public Keys as Identities
+
+### Useful trick: public key == an identity
+
+if you see `sig` such that `verify(pk, msg, sig)==true`, think of it as `pk` says, "[msg]".
+
+to "speak for" pk, you must know matching secret key `sk`
+
+
+### How to make a new identity
+
+create a new, random key-pair (sk, pk)
+
+- `pk` is the public "name" you can use 
+    - usually better to use `Hash(pk)`
+- `sk` lets you "speak for" the identity
+
+you control the identity, because only you know sk if `pk` "looks random", nobody needs to know who you are
+
+
+### Decentralized identity management
+
+- Anybody can make a new identity at any time
+    - make as many as you want!
+- no central point of coordination
+- These **identities** are called "**addresses**" in Bitcoin.
 
 
 ## References
