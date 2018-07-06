@@ -37,7 +37,7 @@ We define a mapping from the virtual address used by the process to the actual p
 
 
 <figure>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Virtual_address_space_and_physical_address_space_relationship.svg/300px-Virtual_address_space_and_physical_address_space_relationship.svg.png" width="70%" class="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Virtual_address_space_and_physical_address_space_relationship.svg/300px-Virtual_address_space_and_physical_address_space_relationship.svg.png" width="50%" class="center">
     <figcaption class="center">figure 1: Virtual Memory. (Image Source: <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Virtual_address_space_and_physical_address_space_relationship.svg/300px-Virtual_address_space_and_physical_address_space_relationship.svg.png" target="_blank"><em>Wikipedia</em></a>)</figcaption>
 </figure>
 
@@ -81,7 +81,7 @@ We define a mapping from the virtual address used by the process to the actual p
 
 
 <figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vm/vm1.png?raw=true" width="70%" class="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vm/vm1.png?raw=true" width="80%" class="center">
     <figcaption class="center">figure 2: VM Address Translation. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
@@ -101,7 +101,7 @@ Solution:
 
 
 <figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vm/vm2.png?raw=true" width="70%" class="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vm/vm2.png?raw=true" width="60%" class="center">
     <figcaption class="center">figure 2: VM Address Translation. (Image Source: <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html" target="_blank"><em>15-213: Intro to Computer Systems lecture slides</em></a>)</figcaption>
 </figure>
 
