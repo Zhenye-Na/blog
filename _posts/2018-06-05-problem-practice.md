@@ -2,7 +2,7 @@
 layout: post
 title: "Online-Judge problems practice"
 date: 2018-06-05
-modify_date: 2018-07-10
+modify_date: 2018-07-11
 excerpt: "LeetCode/LintCode problems practice. 💪"
 tags: [LeetCode/LintCode]
 mathjax: true
@@ -103,41 +103,38 @@ mathjax_autoNumber: true
 - [x] 614. Binary Tree Longest Consecutive Sequence II
 - [ ] 619. Binary Tree Longest Consecutive Sequence III
 - [x] 88. Lowest Common Ancestor of a Binary Tree
-
-- [ ] 376. Binary Tree Path Sum
+- [x] 376. Binary Tree Path Sum
 - [ ] 246. Binary Tree Path Sum II
 - [ ] 472. Binary Tree Path Sum III
 - [ ] 863. Binary Tree Path Sum IV
-
-
-
-- [ ] 95. Validate Binary Search Tree
-- [ ] 378. Convert Binary Search Tree to Doubly Linked List
-
-- [ ] 85. Insert Node in a Binary Search Tree
-- [ ] 11. Search Range in Binary Search Tree
-- [ ] 448. Inorder Successor in BST
-- [ ] 86. Binary Search Tree Iterator
-- [ ] 87. Remove Node in Binary Search Tree
-
-
-
-- [ ] 191. Maximum Product Subarray
-- [ ] 437. Copy Books
-
 
 **SQL Exercises**
 
 - [x] Movie theatres
 
 
+### Jul 10, 2018
+
+**LintCode:**  Binary Tree `&&` Divide Conquer `&&` Breadth-First-Search
+
+- [ ] 69. Binary Tree Level Order Traversal
+- [ ] 70. Binary Tree Level Order Traversal II
+- [ ] 95. Validate Binary Search Tree
+- [ ] 378. Convert Binary Search Tree to Doubly Linked List
+- [ ] 85. Insert Node in a Binary Search Tree
+- [ ] 11. Search Range in Binary Search Tree
+- [ ] 448. Inorder Successor in BST
+- [ ] 86. Binary Search Tree Iterator
+- [ ] 87. Remove Node in Binary Search Tree
+- [ ] 191. Maximum Product Subarray
+- [ ] 437. Copy Books
 
 
+**SQL Exercises**
 
-
-
-
-
+- [x] Pieces and providers
+- [x] Scientists
+- [x] Planet Express
 
 
 
