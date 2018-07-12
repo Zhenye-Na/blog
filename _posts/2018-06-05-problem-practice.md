@@ -5,8 +5,6 @@ date: 2018-06-05
 modify_date: 2018-07-11
 excerpt: "LeetCode/LintCode problems practice. 💪"
 tags: [LeetCode/LintCode]
-mathjax: true
-mathjax_autoNumber: true
 ---
 
 > *Keep record of Online-judge problem practice*. 💪
@@ -113,12 +111,27 @@ mathjax_autoNumber: true
 - [x] Movie theatres
 
 
-### Jul 10, 2018
+### Jul 11, 2018
 
-**LintCode:**  Binary Tree `&&` Divide Conquer `&&` Breadth-First-Search
+**LintCode:**  Breadth-First-Search
 
-- [ ] 69. Binary Tree Level Order Traversal
-- [ ] 70. Binary Tree Level Order Traversal II
+- [x] 69. Binary Tree Level Order Traversal
+- [x] 70. Binary Tree Level Order Traversal II
+- [x] 433. Number of Islands
+- [x] 7. Serialize and Deserialize Binary Tree
+- [x] 127. Topological Sorting
+- [x] 615. Course Schedule
+- [ ] 616. Course Schedule II
+- [ ] 242. Convert Binary Tree to Linked Lists by Depth
+- [ ] 71. Binary Tree Zigzag Level Order Traversal
+- [ ] 178. Graph Valid Tree
+- [ ] 137. Clone Graph
+- [ ] 618. Search Graph Nodes
+- [ ] 605. Sequence Reconstruction
+- [ ] 598. Zombie in Matrix
+- [ ] 611. Knight Shortest Path
+- [ ] 573. Build Post Office II
+- [ ] **分割线**
 - [ ] 95. Validate Binary Search Tree
 - [ ] 378. Convert Binary Search Tree to Doubly Linked List
 - [ ] 85. Insert Node in a Binary Search Tree
@@ -135,6 +148,12 @@ mathjax_autoNumber: true
 - [x] Pieces and providers
 - [x] Scientists
 - [x] Planet Express
+
+
+### Jul 12, 2018
+
+**LintCode:**  Breadth-First-Search `&&` Depth-First-Search
+
 
 
 
