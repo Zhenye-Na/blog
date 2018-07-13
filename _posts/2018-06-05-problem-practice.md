@@ -21,6 +21,36 @@ tags: [LeetCode/LintCode]
 - [x] 366. Fibonacci
 
 
+### Jun 12, 2018
+
+**LeetCode:** Database
+
+- [x] Big Countries
+
+
+### Jun 14, 2018
+
+**LeetCode:** Database
+
+- [x] Swap Salary
+- [x] Not Boring Movies
+- [x] Duplicate Emails
+- [x] Combine Two Tables
+
+
+### Jun 15, 2018
+
+**LeetCode:** Database
+
+- [x] Employees Earning More Than Their Managers
+- [x] Classes More Than 5 Students
+- [x] Customers Who Never Order
+- [x] Rising Temperature
+- [x] Delete Duplicate Emails
+- [x] Second Highest Salary
+- [x] Exchange Seats
+
+
 ### Jun 16, 2018
 
 **LintCode:** Naive
@@ -33,6 +63,13 @@ tags: [LeetCode/LintCode]
 - [x] 484. Swap Two Integers in Array
 - [x] 632. Binary Tree Maximum Node
 - [x] 763. Hex Conversion
+
+
+### Jun 18, 2018
+
+- [x] Consecutive Numbers	
+- [x] Department Highest Salary
+- [x] Rank Scores	
 
 
 ### Jul 7, 2018
@@ -121,26 +158,6 @@ tags: [LeetCode/LintCode]
 - [x] 7. Serialize and Deserialize Binary Tree
 - [x] 127. Topological Sorting
 - [x] 615. Course Schedule
-- [ ] 616. Course Schedule II
-- [ ] 242. Convert Binary Tree to Linked Lists by Depth
-- [ ] 71. Binary Tree Zigzag Level Order Traversal
-- [ ] 178. Graph Valid Tree
-- [ ] 137. Clone Graph
-- [ ] 618. Search Graph Nodes
-- [ ] 605. Sequence Reconstruction
-- [ ] 598. Zombie in Matrix
-- [ ] 611. Knight Shortest Path
-- [ ] 573. Build Post Office II
-- [ ] **分割线**
-- [ ] 95. Validate Binary Search Tree
-- [ ] 378. Convert Binary Search Tree to Doubly Linked List
-- [ ] 85. Insert Node in a Binary Search Tree
-- [ ] 11. Search Range in Binary Search Tree
-- [ ] 448. Inorder Successor in BST
-- [ ] 86. Binary Search Tree Iterator
-- [ ] 87. Remove Node in Binary Search Tree
-- [ ] 191. Maximum Product Subarray
-- [ ] 437. Copy Books
 
 
 **SQL Exercises**
@@ -154,6 +171,12 @@ tags: [LeetCode/LintCode]
 
 **LintCode:**  Breadth-First-Search `&&` Depth-First-Search
 
+- [x] 616. Course Schedule II
+- [x] 242. Convert Binary Tree to Linked Lists by Depth
+- [x] 71. Binary Tree Zigzag Level Order Traversal
+- [x] 178. Graph Valid Tree
+- [x] 137. Clone Graph
+- [x] 618. Search Graph Nodes
 
 
 
@@ -180,5 +203,51 @@ tags: [LeetCode/LintCode]
 
 
 
+
+
+
+
+* * *
+
+**Unfinished Assignments - TODO List**
+
+**Dynamic Programming**
+
+- [ ] 191. Maximum Product Subarray
+
+**Binary Search**
+
+- [ ] 437. Copy Books
+
+**Binary Tree `&&` Divide Conquer**
+
+- [ ] 95. Validate Binary Search Tree
+- [ ] 378. Convert Binary Search Tree to Doubly Linked List
+- [ ] 85. Insert Node in a Binary Search Tree
+- [ ] 11. Search Range in Binary Search Tree
+- [ ] 448. Inorder Successor in BST
+- [ ] 86. Binary Search Tree Iterator
+- [ ] 87. Remove Node in Binary Search Tree
+
+**BFS**
+
+- [ ] 696. Course Schedule III
+- [ ] 605. Sequence Reconstruction
+- [ ] 598. Zombie in Matrix
+- [ ] 611. Knight Shortest Path
+- [ ] 573. Build Post Office II
+
+**DFS**
+
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+
+* * *
 
 gg
