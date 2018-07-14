@@ -2,7 +2,7 @@
 layout: post
 title: "Online-Judge problems practice"
 date: 2018-06-05
-modify_date: 2018-07-11
+modify_date: 2018-07-13
 excerpt: "LeetCode/LintCode problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -67,6 +67,8 @@ tags: [LeetCode/LintCode]
 
 ### Jun 18, 2018
 
+**LeetCode:** Database
+
 - [x] Consecutive Numbers	
 - [x] Department Highest Salary
 - [x] Rank Scores	
@@ -86,7 +88,7 @@ tags: [LeetCode/LintCode]
 - [x] 183. Wood Cut
 - [x] 669. Coin Change
 
-**LeetCode:**
+**LeetCode:** Binary Search
 
 - [x] 69. Sqrt(x)
 - [x] 33. Search in Rotated Sorted Array
@@ -169,7 +171,7 @@ tags: [LeetCode/LintCode]
 
 ### Jul 12, 2018
 
-**LintCode:**  Breadth-First-Search `&&` Depth-First-Search
+**LintCode:**  Breadth-First-Search
 
 - [x] 616. Course Schedule II
 - [x] 242. Convert Binary Tree to Linked Lists by Depth
@@ -179,14 +181,14 @@ tags: [LeetCode/LintCode]
 - [x] 618. Search Graph Nodes
 
 
+### Jul 13, 2018
 
+**LintCode:**  Breadth-First-Search `&&` Depth-First-Search
 
-
-
-
-
-
-
+- [x] 598. Zombie in Matrix
+- [x] 611. Knight Shortest Path
+- [x] 605. Sequence Reconstruction
+- [ ] 573. Build Post Office II
 
 
 
@@ -232,10 +234,8 @@ tags: [LeetCode/LintCode]
 **BFS**
 
 - [ ] 696. Course Schedule III
-- [ ] 605. Sequence Reconstruction
-- [ ] 598. Zombie in Matrix
-- [ ] 611. Knight Shortest Path
-- [ ] 573. Build Post Office II
+- [ ] 120. Word Ladder
+- [ ] 431. Connected Component in Undirected Graph
 
 **DFS**
 
