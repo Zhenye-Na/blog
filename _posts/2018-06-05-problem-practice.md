@@ -2,7 +2,7 @@
 layout: post
 title: "Online-Judge problems practice"
 date: 2018-06-05
-modify_date: 2018-07-13
+modify_date: 2018-07-15
 excerpt: "LeetCode/LintCode problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -183,7 +183,7 @@ tags: [LeetCode/LintCode]
 
 ### Jul 13, 2018
 
-**LintCode:**  Breadth-First-Search `&&` Depth-First-Search
+**LintCode:**  Breadth-First-Search
 
 - [x] 598. Zombie in Matrix
 - [x] 611. Knight Shortest Path
@@ -191,12 +191,25 @@ tags: [LeetCode/LintCode]
 - [ ] 573. Build Post Office II
 
 
+### Jul 14, 2018
+
+**LintCode:**  Depth-First-Search
+
+- [ ] 40. Implement Queue by Two Stacks
 
 
+### Jul 15, 2018
 
+**LintCode:**  Depth-First-Search
 
-
-
+- [x] 135. Combination Sum
+- [ ] 153. Combination Sum II
+- [ ] 564. Combination Sum IV
+- [x] 15. Permutations
+- [x] 16. Permutations II
+- [ ] N Queens
+- [ ] Word Ladder
+- [ ] Word Ladder II
 
 
 
@@ -220,6 +233,7 @@ tags: [LeetCode/LintCode]
 **Binary Search**
 
 - [ ] 437. Copy Books
+- [ ] 160. Find Minimum in Rotated Sorted Array II
 
 **Binary Tree `&&` Divide Conquer**
 
@@ -239,14 +253,14 @@ tags: [LeetCode/LintCode]
 
 **DFS**
 
+- [ ] Palindrome Partitioning
+- [ ] Expression Expand
 - [ ] 
 - [ ] 
 - [ ] 
 - [ ] 
 - [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+
 
 * * *
 
