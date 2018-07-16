@@ -203,11 +203,11 @@ tags: [LeetCode/LintCode]
 **LintCode:**  Depth-First-Search
 
 - [x] 135. Combination Sum
-- [ ] 153. Combination Sum II
+- [x] 153. Combination Sum II
 - [ ] 564. Combination Sum IV
 - [x] 15. Permutations
 - [x] 16. Permutations II
-- [ ] N Queens
+- [ ] 33. N Queens
 - [ ] Word Ladder
 - [ ] Word Ladder II
 
