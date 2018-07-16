@@ -2,7 +2,7 @@
 layout: post
 title: "Online-Judge problems practice"
 date: 2018-06-05
-modify_date: 2018-07-15
+modify_date: 2018-07-16
 excerpt: "LeetCode/LintCode problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -205,16 +205,18 @@ tags: [LeetCode/LintCode]
 - [x] 135. Combination Sum
 - [x] 153. Combination Sum II
 - [ ] 564. Combination Sum IV
+- [x] 136. Palindrome Partitioning
 - [x] 15. Permutations
 - [x] 16. Permutations II
-- [ ] 33. N Queens
-- [ ] Word Ladder
-- [ ] Word Ladder II
+- [x] 33. N Queens
 
 
+### Jul 16, 2018
 
+**LintCode:**  Depth-First-Search
 
-
+- [ ] 120. Word Ladder
+- [ ] 121. Word Ladder II
 
 
 
@@ -262,6 +264,5 @@ tags: [LeetCode/LintCode]
 - [ ] 
 
 
-* * *
 
 gg
