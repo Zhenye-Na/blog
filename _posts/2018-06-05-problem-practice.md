@@ -161,7 +161,6 @@ tags: [LeetCode/LintCode]
 - [x] 127. Topological Sorting
 - [x] 615. Course Schedule
 
-
 **SQL Exercises**
 
 - [x] Pieces and providers
@@ -215,8 +214,7 @@ tags: [LeetCode/LintCode]
 
 **LintCode:**  Depth-First-Search
 
-- [ ] 120. Word Ladder
-- [ ] 121. Word Ladder II
+
 
 
 
@@ -228,40 +226,84 @@ tags: [LeetCode/LintCode]
 
 **Unfinished Assignments - TODO List**
 
-**Dynamic Programming**
+**1. Dynamic Programming**
 
 - [ ] 191. Maximum Product Subarray
 
-**Binary Search**
+**2. Binary Search**
 
 - [ ] 437. Copy Books
 - [ ] 160. Find Minimum in Rotated Sorted Array II
 
-**Binary Tree `&&` Divide Conquer**
+**3. Binary Tree `&&` Divide Conquer**
 
 - [ ] 95. Validate Binary Search Tree
 - [ ] 378. Convert Binary Search Tree to Doubly Linked List
 - [ ] 85. Insert Node in a Binary Search Tree
 - [ ] 11. Search Range in Binary Search Tree
 - [ ] 448. Inorder Successor in BST
-- [ ] 86. Binary Search Tree Iterator
 - [ ] 87. Remove Node in Binary Search Tree
 
-**BFS**
+**4. BFS**
 
 - [ ] 696. Course Schedule III
 - [ ] 120. Word Ladder
 - [ ] 431. Connected Component in Undirected Graph
 
-**DFS**
+**5. DFS**
 
-- [ ] Palindrome Partitioning
-- [ ] Expression Expand
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] 86. Binary Search Tree Iterator
+- [ ] 120. Word Ladder
+- [ ] 121. Word Ladder II
+- [ ] 52. Next Permutation
+- [ ] 190. Next Permutation II
+
+**6. LinkedList & Array**
+
+- [ ] 450. Reverse Nodes in k-Group
+- [ ] 102. Linked List Cycle
+- [ ] 103. Linked List Cycle II
+- [ ] 380. Intersection of Two Linked Lists
+- [ ] 98. Sort List
+- [ ] 106. Convert Sorted List to Binary Search Tree
+- [ ] 372. Delete Node in a Linked List
+- [ ] 378. Convert Binary Search Tree to Doubly Linked List
+- [ ] 41. Maximum Subarray
+- [ ] 604. Window Sum
+- [ ] 138. Subarray Sum
+- [ ] 139. Subarray Sum Closest
+- [ ] 6. Merge Two Sorted Arrays
+- [ ] 64. Merge Sorted Array
+- [ ] 547. Intersection of Two Arrays
+- [ ] 65. Median of two Sorted Arrays
+- [ ] 80. Median
+- [ ] 5. Kth Largest Element
+
+    **与 dummy node 有关的练习：**
+
+- [ ] 96. Partition List
+- [ ] 165. Merge Two Sorted Lists
+- [ ] 35. Reverse Linked List
+- [ ] 36. Reverse Linked List II
+- [ ] 511. Swap Two Nodes in Linked List
+- [ ] 99. Reorder List
+- [ ] 170. Rotate List
+
+    **高频题：**
+
+- [ ] 105. Copy List with Random Pointer
+
+
+**7. Two Pointers**
+
+
+**8. Data Structure**
+
+- [ ] 575. Decode String
+- [ ] 528. Flatten Nested List Iterator
+
+
+**9. Dynamic Programming**
 
 
 
