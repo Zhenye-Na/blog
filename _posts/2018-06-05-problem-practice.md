@@ -2,12 +2,12 @@
 layout: post
 title: "Online-Judge problems practice"
 date: 2018-06-05
-modify_date: 2018-07-16
+modify_date: 2018-07-17
 excerpt: "LeetCode/LintCode problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
 
-> *Keep record of Online-judge problem practice*. 💪
+> *Keep record of Online-Judge problem practice*. 💪
 
 ## LintCode / LeetCode problems practice
 
@@ -187,7 +187,6 @@ tags: [LeetCode/LintCode]
 - [x] 598. Zombie in Matrix
 - [x] 611. Knight Shortest Path
 - [x] 605. Sequence Reconstruction
-- [ ] 573. Build Post Office II
 
 
 ### Jul 14, 2018
@@ -212,14 +211,20 @@ tags: [LeetCode/LintCode]
 
 ### Jul 16, 2018
 
-**LintCode:**  Depth-First-Search
+**LintCode:**  Linked List & Array
+
+- [x] 35. Reverse Linked List
+- [x] 102. Linked List Cycle
+- [ ] 103. Linked List Cycle II
 
 
+### Jul 17, 2018
 
+**LintCode:**  Linked List & Array
 
-
-
-
+- [x] 380. Intersection of Two Linked Lists
+- [x] 36. Reverse Linked List II
+- [x] 41. Maximum Subarray
 
 
 * * *
@@ -230,10 +235,12 @@ tags: [LeetCode/LintCode]
 
 - [ ] 191. Maximum Product Subarray
 
+
 **2. Binary Search**
 
 - [ ] 437. Copy Books
 - [ ] 160. Find Minimum in Rotated Sorted Array II
+
 
 **3. Binary Tree `&&` Divide Conquer**
 
@@ -244,11 +251,14 @@ tags: [LeetCode/LintCode]
 - [ ] 448. Inorder Successor in BST
 - [ ] 87. Remove Node in Binary Search Tree
 
+
 **4. BFS**
 
+- [ ] 573. Build Post Office II
 - [ ] 696. Course Schedule III
 - [ ] 120. Word Ladder
 - [ ] 431. Connected Component in Undirected Graph
+
 
 **5. DFS**
 
@@ -258,17 +268,17 @@ tags: [LeetCode/LintCode]
 - [ ] 52. Next Permutation
 - [ ] 190. Next Permutation II
 
+
 **6. LinkedList & Array**
 
 - [ ] 450. Reverse Nodes in k-Group
-- [ ] 102. Linked List Cycle
-- [ ] 103. Linked List Cycle II
-- [ ] 380. Intersection of Two Linked Lists
 - [ ] 98. Sort List
 - [ ] 106. Convert Sorted List to Binary Search Tree
 - [ ] 372. Delete Node in a Linked List
 - [ ] 378. Convert Binary Search Tree to Doubly Linked List
-- [ ] 41. Maximum Subarray
+
+    **Array:**
+
 - [ ] 604. Window Sum
 - [ ] 138. Subarray Sum
 - [ ] 139. Subarray Sum Closest
@@ -283,8 +293,6 @@ tags: [LeetCode/LintCode]
 
 - [ ] 96. Partition List
 - [ ] 165. Merge Two Sorted Lists
-- [ ] 35. Reverse Linked List
-- [ ] 36. Reverse Linked List II
 - [ ] 511. Swap Two Nodes in Linked List
 - [ ] 99. Reorder List
 - [ ] 170. Rotate List
@@ -295,6 +303,27 @@ tags: [LeetCode/LintCode]
 
 
 **7. Two Pointers**
+
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
 
 
 **8. Data Structure**
