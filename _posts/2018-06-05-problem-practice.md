@@ -223,8 +223,26 @@ tags: [LeetCode/LintCode]
 **LintCode:**  Linked List & Array
 
 - [x] 380. Intersection of Two Linked Lists
-- [x] 36. Reverse Linked List II
+- [x] 36. Reverse Linked List II (dummy node)
 - [x] 41. Maximum Subarray
+- [x] 6. Merge Two Sorted Arrays
+
+
+### Jul 18, 2018
+
+**LintCode:**  Linked List & Array
+
+- [x] 450. Reverse Nodes in k-Group
+- [x] 105. Copy List with Random Pointer ==[高频题]==
+- [x] 604. Window Sum
+- [x] 138. Subarray Sum
+- [x] 139. Subarray Sum Closest
+- [x] 372. Delete Node in a Linked List
+- [x] 547. Intersection of Two Arrays
+- [ ] ==65. Median of two Sorted Arrays==
+
+
+
 
 
 * * *
@@ -271,46 +289,23 @@ tags: [LeetCode/LintCode]
 
 **6. LinkedList & Array**
 
-- [ ] 450. Reverse Nodes in k-Group
-- [ ] 98. Sort List
+- [ ] 98. Sort List ==[Merge Sort & Quick Sort]==
 - [ ] 106. Convert Sorted List to Binary Search Tree
-- [ ] 372. Delete Node in a Linked List
 - [ ] 378. Convert Binary Search Tree to Doubly Linked List
-
-    **Array:**
-
-- [ ] 604. Window Sum
-- [ ] 138. Subarray Sum
-- [ ] 139. Subarray Sum Closest
-- [ ] 6. Merge Two Sorted Arrays
+    - **Array:**
 - [ ] 64. Merge Sorted Array
-- [ ] 547. Intersection of Two Arrays
-- [ ] 65. Median of two Sorted Arrays
 - [ ] 80. Median
 - [ ] 5. Kth Largest Element
-
-    **与 dummy node 有关的练习：**
-
+    - **与 dummy node 有关的练习：**
 - [ ] 96. Partition List
 - [ ] 165. Merge Two Sorted Lists
 - [ ] 511. Swap Two Nodes in Linked List
 - [ ] 99. Reorder List
 - [ ] 170. Rotate List
 
-    **高频题：**
-
-- [ ] 105. Copy List with Random Pointer
-
 
 **7. Two Pointers**
 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
 - [ ] 
 - [ ] 
 - [ ] 
