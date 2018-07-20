@@ -2,7 +2,7 @@
 layout: post
 title: "Online-Judge problems practice"
 date: 2018-06-05
-modify_date: 2018-07-17
+modify_date: 2018-07-19
 excerpt: "LeetCode/LintCode problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -239,8 +239,23 @@ tags: [LeetCode/LintCode]
 - [x] 139. Subarray Sum Closest
 - [x] 372. Delete Node in a Linked List
 - [x] 547. Intersection of Two Arrays
-- [ ] ==65. Median of two Sorted Arrays==
+- [x] 65. **Median of two Sorted Arrays**
 
+
+### Jul 19, 2018
+
+**LintCode:**  Two Pointers
+
+- [ ] 539. Move Zeroes
+- [ ] 521. Remove Duplicate Numbers in Array
+- [ ] 415. Valid Palindrome
+- [x] **31. Partition Array**
+- [ ] 373. Partition Array by Odd and Even
+- [ ] 144. Interleaving Positive and Negative Numbers
+- [ ] 49. Sort Letters by Case
+- [x] 608. Two Sum II - Input array is sorted
+- [ ] 609. Two Sum - Less than or equal to target
+- [ ] 443. Two Sum - Greater than target
 
 
 
@@ -306,14 +321,17 @@ tags: [LeetCode/LintCode]
 
 **7. Two Pointers**
 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] 461. Kth Smallest Numbers in Unsorted Array
+- [ ] 148. Sort Colors
+- [ ] 143. Sort Colors II
+- [ ] **56. Two Sum**
+- [ ] 607. Two Sum III - Data structure design
+- [ ] 587. Two Sum - Unique pairs
+- [ ] 610. Two Sum - Difference equals to target
+- [ ] 57. 3-Sum
+- [ ] 59. 3-Sum Closest
+- [ ] 58. 4Sum
+- [ ] 8. Rotate String
 - [ ] 
 - [ ] 
 - [ ] 
