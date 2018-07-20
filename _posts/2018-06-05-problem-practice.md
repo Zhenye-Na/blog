@@ -105,9 +105,9 @@ tags: [LeetCode/LintCode]
 
 **LintCode:** Binary Tree `&&` Divide Conquer
 
-- [x] 66. Binary Tree Preorder Traversal
-- [x] 67. Binary Tree Inorder Traversal
-- [x] 68. Binary Tree Postorder Traversal
+- [x] **66. Binary Tree Preorder Traversal**
+- [x] **67. Binary Tree Inorder Traversal**
+- [x] **68. Binary Tree Postorder Traversal**
 - [x] 97. Maximum Depth of Binary Tree
 - [x] 480. Binary Tree Paths
 - [x] 93. Balanced Binary Tree
@@ -154,8 +154,8 @@ tags: [LeetCode/LintCode]
 
 **LintCode:**  Breadth-First-Search
 
-- [x] 69. Binary Tree Level Order Traversal
-- [x] 70. Binary Tree Level Order Traversal II
+- [x] **69. Binary Tree Level Order Traversal**
+- [x] **70. Binary Tree Level Order Traversal II**
 - [x] 433. Number of Islands
 - [x] 7. Serialize and Deserialize Binary Tree
 - [x] 127. Topological Sorting
@@ -246,19 +246,22 @@ tags: [LeetCode/LintCode]
 
 **LintCode:**  Two Pointers
 
-- [ ] 539. Move Zeroes
-- [ ] 521. Remove Duplicate Numbers in Array
-- [ ] 415. Valid Palindrome
+- [x] 539. Move Zeroes
+- [x] 521. Remove Duplicate Numbers in Array
+- [x] 415. Valid Palindrome
 - [x] **31. Partition Array**
+
+
+### Jul 20, 2018
+
+**LintCode:**  Two Pointers
+
+- [ ] 608. Two Sum II - Input array is sorted
 - [ ] 373. Partition Array by Odd and Even
 - [ ] 144. Interleaving Positive and Negative Numbers
 - [ ] 49. Sort Letters by Case
-- [x] 608. Two Sum II - Input array is sorted
 - [ ] 609. Two Sum - Less than or equal to target
 - [ ] 443. Two Sum - Greater than target
-
-
-
 
 * * *
 
