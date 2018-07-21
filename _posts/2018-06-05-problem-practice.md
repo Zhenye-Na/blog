@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Online-Judge problems practice"
+title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
 modify_date: 2018-07-19
-excerpt: "LeetCode/LintCode problems practice. 💪"
+excerpt: "LeetCode/LintCode problems practice logs. 💪"
 tags: [LeetCode/LintCode]
 ---
 
-> *Keep record of Online-Judge problem practice*. 💪
+> *Keep record of Online-Judge problems practice*. 💪
 
 ## LintCode / LeetCode problems practice
 
@@ -250,18 +250,32 @@ tags: [LeetCode/LintCode]
 - [x] 521. Remove Duplicate Numbers in Array
 - [x] 415. Valid Palindrome
 - [x] **31. Partition Array**
+- [x] 608. Two Sum II - Input array is sorted
 
 
 ### Jul 20, 2018
 
 **LintCode:**  Two Pointers
 
-- [ ] 608. Two Sum II - Input array is sorted
-- [ ] 373. Partition Array by Odd and Even
-- [ ] 144. Interleaving Positive and Negative Numbers
-- [ ] 49. Sort Letters by Case
-- [ ] 609. Two Sum - Less than or equal to target
-- [ ] 443. Two Sum - Greater than target
+- [x] 373. Partition Array by Odd and Even
+- [x] 144. Interleaving Positive and Negative Numbers
+- [x] 49. Sort Letters by Case
+- [x] 609. Two Sum - Less than or equal to target
+- [x] 443. Two Sum - Greater than target
+- [x] 8. Rotate String
+
+
+### Jul 21, 2018
+
+**LintCode:**  Two Pointers
+
+- [ ] 461. Kth Smallest Numbers in Unsorted Array
+- [ ] 148. Sort Colors
+- [ ] 143. Sort Colors II
+
+
+
+
 
 * * *
 
@@ -307,7 +321,7 @@ tags: [LeetCode/LintCode]
 
 **6. LinkedList & Array**
 
-- [ ] 98. Sort List ==[Merge Sort & Quick Sort]==
+- [ ] 98. Sort List **[Merge Sort & Quick Sort]**
 - [ ] 106. Convert Sorted List to Binary Search Tree
 - [ ] 378. Convert Binary Search Tree to Doubly Linked List
     - **Array:**
@@ -324,9 +338,6 @@ tags: [LeetCode/LintCode]
 
 **7. Two Pointers**
 
-- [ ] 461. Kth Smallest Numbers in Unsorted Array
-- [ ] 148. Sort Colors
-- [ ] 143. Sort Colors II
 - [ ] **56. Two Sum**
 - [ ] 607. Two Sum III - Data structure design
 - [ ] 587. Two Sum - Unique pairs
@@ -334,7 +345,6 @@ tags: [LeetCode/LintCode]
 - [ ] 57. 3-Sum
 - [ ] 59. 3-Sum Closest
 - [ ] 58. 4Sum
-- [ ] 8. Rotate String
 - [ ] 
 - [ ] 
 - [ ] 
@@ -352,4 +362,4 @@ tags: [LeetCode/LintCode]
 
 
 
-gg
+> *My own solutions to LintCode Online-Judge problems practice*. 💪
