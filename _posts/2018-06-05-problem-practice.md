@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-07-19
+modify_date: 2018-07-21
 excerpt: "LeetCode/LintCode problems practice logs. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -233,7 +233,7 @@ tags: [LeetCode/LintCode]
 **LintCode:**  Linked List & Array
 
 - [x] 450. Reverse Nodes in k-Group
-- [x] 105. Copy List with Random Pointer ==[高频题]==
+- [x] 105. Copy List with Random Pointer **[高频题]**
 - [x] 604. Window Sum
 - [x] 138. Subarray Sum
 - [x] 139. Subarray Sum Closest
@@ -267,14 +267,28 @@ tags: [LeetCode/LintCode]
 
 ### Jul 21, 2018
 
-**LintCode:**  Two Pointers
+**LintCode:**  Two Pointers `&&` Quick Select
 
-- [ ] 461. Kth Smallest Numbers in Unsorted Array
-- [ ] 148. Sort Colors
-- [ ] 143. Sort Colors II
+- [x] 461. Kth Smallest Numbers in Unsorted Array
+- [x] 148. Sort Colors
+- [x] 143. Sort Colors II
 
 
+### Jul 24, 2018
 
+**LintCode:**
+
+- [x] 764. Calculate Circumference And Area
+
+
+### Jul 25, 2018
+
+**LintCode:** Two Pointers
+
+- [ ] **56. Two Sum**
+- [ ] 607. Two Sum III - Data structure design
+- [ ] 587. Two Sum - Unique pairs
+- [ ] 610. Two Sum - Difference equals to target
 
 
 * * *
@@ -338,18 +352,9 @@ tags: [LeetCode/LintCode]
 
 **7. Two Pointers**
 
-- [ ] **56. Two Sum**
-- [ ] 607. Two Sum III - Data structure design
-- [ ] 587. Two Sum - Unique pairs
-- [ ] 610. Two Sum - Difference equals to target
 - [ ] 57. 3-Sum
 - [ ] 59. 3-Sum Closest
 - [ ] 58. 4Sum
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
 
 
 **8. Data Structure**
@@ -362,4 +367,5 @@ tags: [LeetCode/LintCode]
 
 
 
-> *My own solutions to LintCode Online-Judge problems practice*. 💪
+> *My own solutions to LintCode Online-Judge problems practice*. 💪  
+> *I am currently working on keeping all the problems I have solved in Gitbook, stay tuned~*
