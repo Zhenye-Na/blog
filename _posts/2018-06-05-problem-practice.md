@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-07-21
+modify_date: 2018-07-27
 excerpt: "LeetCode/LintCode problems practice logs. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -281,7 +281,7 @@ tags: [LeetCode/LintCode]
 - [x] 764. Calculate Circumference And Area
 
 
-### Jul 25, 2018
+### Jul 27, 2018
 
 **LintCode:** Two Pointers
 
