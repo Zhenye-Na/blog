@@ -205,8 +205,9 @@ Now that SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key w
 If everything works fine, it will looks like this screenshot.
 
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/heroku-deploy/1.jpeg?raw=true" width=80% align="middle">
+<!--<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/heroku-deploy/1.jpeg?raw=true" width=80% align="middle">-->
 
+![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/heroku-deploy/1.jpeg?raw=true)
 
 * * *
 
