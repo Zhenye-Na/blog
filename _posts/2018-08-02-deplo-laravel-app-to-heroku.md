@@ -16,7 +16,7 @@ tags: [Laravel, Heroku]
 
 ## Prerequisite
 
-- Php and Laravel knowledge
+- Php and Laravel knowledge (really? 🤓)
 - Heroku user account
 - Heroku CLI
 - Git
@@ -24,9 +24,9 @@ tags: [Laravel, Heroku]
 
 ## Creating a Laravel application
 
-> **Here I assumed you are developing or have accomplished development of a Laravel APP and would like to deploy via [Heroku](https://www.heroku.com/) to make it online.**
+> **I assumed you are developing or have accomplished development of a Laravel APP and would like to deploy via [Heroku](https://www.heroku.com/) to make it online.**
 
-So just `cd` to your project folder
+So just `cd` to your project folder.
 
 ### Initializing a Git repository
 
@@ -34,9 +34,6 @@ It’s now time to initialize a Git repository and commit the current state:
 
 ```sh
 $ git init
-Initialized empty Git repository in ~/your_laravel_app/.git/
-$ git add .
-$ git commit -m "Initial Commit"
 ```
 
 
@@ -57,7 +54,7 @@ $ echo web: vendor/bin/heroku-php-apache2 public/ > Procfile
 $ heroku create [: your_app_name: ]
 ```
 
-Replace `[: your_app_name: ]` with the name of your app or leave it blank, Heroku will generate random name for this app.
+Replace `[: your_app_name: ]` with the name of your app or leave it blank, Heroku will generate random name for your app.
 
 
 ### Setting a Laravel encryption key
@@ -81,7 +78,7 @@ Instead of manually replacing the `[: :]` placeholder in the command above, you 
 
 ### Pushing to Heroku
 
-Go to the Heroku dashboard for you app -> Settings, you can find `Heroku Git URL` => `https://git.heroku.com/yourappname.git`. Copy it and run
+Go to the Heroku dashboard for you app -> Settings, you can find `Heroku Git URL => https://git.heroku.com/yourappname.git`. Copy it and run
 
 ```sh
 $ git remote add heroku [: https://git.heroku.com/yourappname.git :]
@@ -165,7 +162,7 @@ return [
 
 ### Pushing to Heroku
 
-Go to the Heroku dashboard for you app -> Settings, you can find `Heroku Git URL` => `https://git.heroku.com/yourappname.git`. Copy it and run
+Go to the Heroku dashboard for you app -> Settings, you can find `Heroku Git URL => https://git.heroku.com/yourappname.git`. Copy it and run
 
 ```sh
 $ git remote add heroku [: https://git.heroku.com/yourappname.git :]
@@ -199,10 +196,10 @@ $ heroku run php artisan migrate
 
 > **From [Connor Leech's post](https://dev.to/connor11528/deploy-a-laravel-5-app-to-heroku)**:
 
-> There is a common error many people experience (outlined above) 
-Now that SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes. Fortunately, Eric Barnes has a solution outlined [in this post](https://laravel-news.com/laravel-5-4-key-too-long-error).
+> *There is a common error many people experience (outlined above) 
+Now that SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes. Fortunately, Eric Barnes has a solution outlined [in this post](https://laravel-news.com/laravel-5-4-key-too-long-error)*.
 
-If everything works fine, it will looks like this screenshot.
+If everything works fine on your machine, it will looks something similar to the screenshot below.
 
 
 <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/heroku-deploy/1.jpeg?raw=true" width="80%" align="middle">
@@ -213,12 +210,12 @@ If everything works fine, it will looks like this screenshot.
 **Aside**: 
 
 1. [Elusoji Sodeeq](https://medium.com/@sdkcodes) has made a great post and script which supports set all your Heroku Config Vars from your `.env` file once.  Check out the post [here](https://medium.com/@sdkcodes/the-easiest-way-to-set-config-vars-in-heroku-43eb3e911cac) or check out the [repo](https://github.com/sdkcodes/heroku-config) directly.
-2. For SSL/HTTPS stuff, check out [Connor Leech](https://medium.com/@connorleech)'s post: thorough guide on setting up HTTPS through SSL certificates for a custom domain on [Medium](https://medium.com/@connorleech/https-ssl-on-heroku-with-google-domains-as-dns-provider-c55c438556c6)
+2. For SSL/HTTPS stuff, check out [Connor Leech](https://medium.com/@connorleech)'s post: thorough guide on setting up HTTPS through SSL certificates for a custom domain on [Medium](https://medium.com/@connorleech/https-ssl-on-heroku-with-google-domains-as-dns-provider-c55c438556c6).
 
 
 
 ## References
 
-[1] Connor Leech, [Deploy a Laravel 5 app to Heroku](https://dev.to/connor11528/deploy-a-laravel-5-app-to-heroku)  
-[2] Elusoji Sodeeq, [How to Deploy A Laravel App to Heroku](https://medium.com/@sdkcodes/how-to-deploy-a-laravel-app-to-heroku-24b5cb33fbe)  
-[3] Heroku Dev Center, [Getting Started with Laravel on Heroku](https://devcenter.heroku.com/articles/getting-started-with-laravel)
+[1] Connor Leech, [*"Deploy a Laravel 5 app to Heroku"*](https://dev.to/connor11528/deploy-a-laravel-5-app-to-heroku)  
+[2] Elusoji Sodeeq, [*"How to Deploy A Laravel App to Heroku"*](https://medium.com/@sdkcodes/how-to-deploy-a-laravel-app-to-heroku-24b5cb33fbe)  
+[3] Heroku Dev Center, [*"Getting Started with Laravel on Heroku"*](https://devcenter.heroku.com/articles/getting-started-with-laravel)
