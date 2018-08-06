@@ -189,12 +189,6 @@ tags: [LeetCode/LintCode]
 - [x] 605. Sequence Reconstruction
 
 
-### Jul 14, 2018
-
-**LintCode:**  Depth-First-Search
-
-- [ ] 40. Implement Queue by Two Stacks
-
 
 ### Jul 15, 2018
 
@@ -284,6 +278,16 @@ tags: [LeetCode/LintCode]
 > **这两天搬家耽搁了，下个月补回来！！！**
 
 
+### Aug 5, 2018
+
+**LintCode:**  Data Structure
+
+- [ ] 575. Decode String
+- [ ] 528. Flatten Nested List Iterator
+- [ ] 494. Implement Stack by Two Queues
+- [ ] 40. Implement Queue by Two Stacks
+
+
 ### Aug 1, 2018
 
 **LintCode:** Two Pointers
@@ -362,8 +366,6 @@ tags: [LeetCode/LintCode]
 
 **8. Data Structure**
 
-- [ ] 575. Decode String
-- [ ] 528. Flatten Nested List Iterator
 
 
 **9. Dynamic Programming**
