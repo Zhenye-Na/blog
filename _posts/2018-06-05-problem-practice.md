@@ -278,24 +278,11 @@ tags: [LeetCode/LintCode]
 > **这两天搬家耽搁了，下个月补回来！！！**
 
 
-### Aug 5, 2018
+### Aug 6, 2018
 
-**LintCode:**  Data Structure
+**LintCode:** Data Structure
 
-- [ ] 575. Decode String
-- [ ] 528. Flatten Nested List Iterator
-- [ ] 494. Implement Stack by Two Queues
-- [ ] 40. Implement Queue by Two Stacks
-
-
-### Aug 1, 2018
-
-**LintCode:** Two Pointers
-
-- [ ] **56. Two Sum**
-- [ ] 607. Two Sum III - Data structure design
-- [ ] 587. Two Sum - Unique pairs
-- [ ] 610. Two Sum - Difference equals to target
+- [ ] 517. Ugly Number
 
 
 * * *
@@ -359,6 +346,10 @@ tags: [LeetCode/LintCode]
 
 **7. Two Pointers**
 
+- [ ] **56. Two Sum**
+- [ ] 607. Two Sum III - Data structure design
+- [ ] 587. Two Sum - Unique pairs
+- [ ] 610. Two Sum - Difference equals to target
 - [ ] 57. 3-Sum
 - [ ] 59. 3-Sum Closest
 - [ ] 58. 4Sum
@@ -366,6 +357,44 @@ tags: [LeetCode/LintCode]
 
 **8. Data Structure**
 
+**Stack**
+{:.info}
+
+- [ ] 575. Decode String
+- [ ] 528. Flatten Nested List Iterator
+- [ ] 494. Implement Stack by Two Queues
+- [ ] 40. Implement Queue by Two Stacks
+    - **Iterator 相关题**
+- [ ] 86. Binary Search Tree Iterator
+- [ ] 540. Zigzag Iterator
+- [ ] 541. Zigzag Iterator II
+- [ ] 601. Flatten 2D Vector
+
+**Hash**
+{:.info}
+
+- [ ] 129. Rehashing
+- [ ] **134. LRU Cache**
+- [ ] 138. Subarray Sum
+- [ ] 105. Copy List with Random Pointer
+- [ ] 171. Anagrams
+- [ ] 124. Longest Consecutive Sequence
+
+**Heap**
+{:.info}
+
+- [ ] 130. Heapify
+- [ ] 4. Ugly Number II
+- [ ] 544. *Top k Largest Numbers*
+- [ ] 545. Top k Largest Numbers II
+- [ ] 612. K Closest Points
+- [ ] 613. High Five
+- [ ] 104. Merge K Sorted Lists
+- [ ] 486. Merge K Sorted Arrays
+- [ ] 81. Find Median from Data Stream
+- [ ] 401. Kth Smallest Number in Sorted Matrix
+- [ ] **131. The Skyline Problem**
+- [ ] 471. Top K Frequent Words
 
 
 **9. Dynamic Programming**
