@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-07-27
+modify_date: 2018-08-06
 excerpt: "LeetCode/LintCode problems practice logs. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -275,14 +275,14 @@ tags: [LeetCode/LintCode]
 - [x] 764. Calculate Circumference And Area
 
 
-> **这两天搬家耽搁了，下个月补回来！！！**
+> **这两天搬家耽搁了，下个月补回来！！！∠(ᐛ」∠)＿**
 
 
 ### Aug 6, 2018
 
-**LintCode:** Data Structure
+**LintCode:** Data Structure `&&` Dynamic Programming
 
-- [ ] 517. Ugly Number
+- [x] 517. Ugly Number
 
 
 * * *
@@ -387,8 +387,8 @@ tags: [LeetCode/LintCode]
 - [ ] 4. Ugly Number II
 - [ ] 544. *Top k Largest Numbers*
 - [ ] 545. Top k Largest Numbers II
-- [ ] 612. K Closest Points
-- [ ] 613. High Five
+- [ ] 612. K Closest Points [**L, A, F**]
+- [ ] 613. High Five [**A**]
 - [ ] 104. Merge K Sorted Lists
 - [ ] 486. Merge K Sorted Arrays
 - [ ] 81. Find Median from Data Stream
@@ -399,6 +399,8 @@ tags: [LeetCode/LintCode]
 
 **9. Dynamic Programming**
 
+- [ ] 109. Triangle
+- [ ] 
 
 
 > *My own solutions to LintCode Online-Judge problems practice*. 💪  
