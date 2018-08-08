@@ -302,6 +302,18 @@ Related Problems:
 - [ ] 156. Merge Intervals
 
 
+### Aug 7, 2018
+
+**LintCode:** Tag: Binary Search
+
+- [x] 548. Intersection of Two Arrays II
+- [x] 61. Search for a Range **Binary Search integrates First Position and Last Position together**
+- [x] 76. Longest Increasing Subsequence **Dynamic Programming `||` Binary Search**
+- [x] 160. Find Minimum in Rotated Sorted Array II **Binary Search `&&` Two Pointers**
+
+
+
+
 
 
 * * *
