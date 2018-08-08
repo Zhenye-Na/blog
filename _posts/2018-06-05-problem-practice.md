@@ -285,6 +285,25 @@ tags: [LeetCode/LintCode]
 - [x] 517. Ugly Number
 
 
+### Aug 7, 2018
+
+**LintCode:** Tag: Basic Implementation
+
+- [x] 30. Insert Interval
+- [x] 55. Compare Strings
+- [x] 9. Fizz Buzz
+- [x] 170. Rotate List
+- [x] 13. Implement strStr()
+- [x] 78. Longest Common Prefix
+
+
+Related Problems:
+
+- [ ] 156. Merge Intervals
+
+
+
+
 * * *
 
 **Unfinished Assignments - TODO List**
