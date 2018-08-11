@@ -323,6 +323,20 @@ tags: [LeetCode/LintCode]
 - [x] 79. Longest Common Substring **Dynamic Programming**
 
 
+### Aug 10, 2018
+
+**LintCode:** Ladder - Integer Array
+
+- [x] 100. Remove Duplicates from Sorted Array
+- [x] 101. Remove Duplicates from Sorted Array II
+- [x] 172. Remove Element
+- [x] 50. Product of Array Exclude Itself
+- [x] 189. First Missing Positive
+- [x] 54. String to Integer (atoi)
+
+**LeetCode:** Database
+
+- [x] 577.Employee Bonus
 
 
 
