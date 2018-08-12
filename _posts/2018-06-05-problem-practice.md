@@ -329,6 +329,7 @@ tags: [LeetCode/LintCode]
 
 - [x] 100. Remove Duplicates from Sorted Array
 - [x] 101. Remove Duplicates from Sorted Array II
+- [x] 6. Merge Two Sorted Arrays
 - [x] 172. Remove Element
 - [x] 50. Product of Array Exclude Itself
 - [x] 189. First Missing Positive
@@ -336,7 +337,15 @@ tags: [LeetCode/LintCode]
 
 **LeetCode:** Database
 
-- [x] 577.Employee Bonus
+- [x] 577. Employee Bonus
+
+
+### Aug 10, 2018
+
+**LintCode:** Ladder - Integer Array
+
+- [x] 64. Merge Sorted Array
+- [x] 56. Two Sum
 
 
 
