@@ -340,12 +340,23 @@ tags: [LeetCode/LintCode]
 - [x] 577. Employee Bonus
 
 
-### Aug 10, 2018
+### Aug 11, 2018
 
 **LintCode:** Ladder - Integer Array
 
 - [x] 64. Merge Sorted Array
 - [x] 56. Two Sum
+
+
+### Aug 11, 2018
+
+**LintCode:** Ladder - Integer Array
+
+- [x] 57. 3Sum
+- [x] 59. 3Sum Closest
+- [x] 31. Partition Array
+- [x] 139. Subarray Sum Closest
+- [x] 58. 4Sum
 
 
 
