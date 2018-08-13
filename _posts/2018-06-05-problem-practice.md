@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-08-09
+modify_date: 2018-08-12
 excerpt: "LeetCode/LintCode problems practice logs. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -348,7 +348,7 @@ tags: [LeetCode/LintCode]
 - [x] 56. Two Sum
 
 
-### Aug 11, 2018
+### Aug 12, 2018
 
 **LintCode:** Ladder - Integer Array
 
@@ -358,7 +358,7 @@ tags: [LeetCode/LintCode]
 - [x] 139. Subarray Sum Closest
 - [x] 58. 4Sum
 
-
+> 从今天开始改用 `Python` 刷题啦~
 
 * * *
 
