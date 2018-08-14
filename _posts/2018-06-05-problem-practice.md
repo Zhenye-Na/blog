@@ -2,12 +2,15 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-08-12
+modify_date: 2018-08-13
 excerpt: "LeetCode/LintCode problems practice logs. 💪"
 tags: [LeetCode/LintCode]
 ---
 
-> *Keep record of Online-Judge problems practice*. 💪
+> *Keep record of Online-Judge problems practice*. 💪  
+> *You can find* `Java` / `Python` *solution implementations and problems analysis in [this Github repo](https://github.com/Zhenye-Na/LxxxCode)*
+
+
 
 ## LintCode / LeetCode problems practice
 
@@ -358,7 +361,35 @@ tags: [LeetCode/LintCode]
 - [x] 139. Subarray Sum Closest
 - [x] 58. 4Sum
 
-> 从今天开始改用 `Python` 刷题啦~
+> 从明天开始改用 `Python` 刷题啦~
+
+
+### Aug 13, 2018
+
+> Deplyed a Demo Marketplace [here](https://demo-mkplc.herokuapp.com/). Formal edition will be released soon ~
+
+**LintCode:** Ladder - Binary Search
+
+- [x] 141. Sqrt(x)
+- [x] 60. Search Insert Position
+- [x] 28. Search a 2D Matrix
+- [x] 38. Search a 2D Matrix II **O(m+n) 的解法**
+- [x] 14. First Position of Target
+
+
+Ladder - Binary Search
+
+- [ ] 159. Find Minimum in Rotated Sorted Array
+- [ ] 75. Find Peak Element
+- [ ] 74. First Bad Version
+- [ ] 62. Search in Rotated Sorted Array
+- [ ] 61. Search for a Range
+- [ ] 183. Wood Cut
+- [ ] 160. Find Minimum in Rotated Sorted Array II
+- [ ] 63. Search in Rotated Sorted Array II
+
+
+
 
 * * *
 
