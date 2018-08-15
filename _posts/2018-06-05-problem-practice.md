@@ -356,12 +356,12 @@ tags: [LeetCode/LintCode]
 **LintCode:** Ladder - Integer Array
 
 - [x] 57. 3Sum
+- [x] 58. 4Sum
 - [x] 59. 3Sum Closest
 - [x] 31. Partition Array
 - [x] 139. Subarray Sum Closest
-- [x] 58. 4Sum
 
-> 从明天开始改用 `Python` 刷题啦~
+> 从明天开始改用 `Python` 刷题啦 ~
 
 
 ### Aug 13, 2018
@@ -388,8 +388,8 @@ tags: [LeetCode/LintCode]
 - [x] 62. Search in Rotated Sorted Array
 - [x] 63. Search in Rotated Sorted Array II **Follow up Question**
 - [x] 160. Find Minimum in Rotated Sorted Array II
-- [ ] 183. Wood Cut
-- [ ] 437. Copy Books
+- [x] 183. Wood Cut
+- [x] 437. Copy Books
 
 
 
