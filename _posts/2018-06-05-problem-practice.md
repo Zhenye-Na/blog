@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-08-13
+modify_date: 2018-08-14
 excerpt: "LeetCode/LintCode problems practice logs. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -366,7 +366,7 @@ tags: [LeetCode/LintCode]
 
 ### Aug 13, 2018
 
-> Deplyed a Demo Marketplace [here](https://demo-mkplc.herokuapp.com/). Formal edition will be released soon ~
+> Deplyed a Demo Marketplace [**here**](https://demo-mkplc.herokuapp.com/). Formal edition will be released soon ~
 
 **LintCode:** Ladder - Binary Search
 
@@ -377,17 +377,19 @@ tags: [LeetCode/LintCode]
 - [x] 14. First Position of Target
 
 
-Ladder - Binary Search
+### Aug 14, 2018
 
-- [ ] 159. Find Minimum in Rotated Sorted Array
-- [ ] 75. Find Peak Element
-- [ ] 74. First Bad Version
-- [ ] 62. Search in Rotated Sorted Array
-- [ ] 61. Search for a Range
+**LintCode:** Ladder - Binary Search
+
+- [x] 159. Find Minimum in Rotated Sorted Array
+- [x] 75. Find Peak Element
+- [x] 74. First Bad Version
+- [x] 61. Search for a Range
+- [x] 62. Search in Rotated Sorted Array
+- [x] 63. Search in Rotated Sorted Array II **Follow up Question**
+- [x] 160. Find Minimum in Rotated Sorted Array II
 - [ ] 183. Wood Cut
-- [ ] 160. Find Minimum in Rotated Sorted Array II
-- [ ] 63. Search in Rotated Sorted Array II
-
+- [ ] 437. Copy Books
 
 
 
