@@ -392,6 +392,19 @@ tags: [LeetCode/LintCode]
 - [x] 437. Copy Books
 
 
+### Aug 15, 2018
+
+**LintCode:** Ladder - Bit Manipulation
+
+- [x] 1314. Power of Two
+- [x] 142. O(1) Check Power of 2
+- [x] 181. Flip Bits
+- [x] 179. Update Bits
+- [x] 82. Single Number
+- [x] 83. Single Number II
+- [ ] 84. Single Number III
+
+
 
 * * *
 
