@@ -3,14 +3,15 @@ layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
 modify_date: 2018-08-14
-excerpt: "LeetCode/LintCode problems practice logs. 💪"
+excerpt: "My own solutions to LintCode Online-Judge problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
 
-> *Keep record of Online-Judge problems practice*. 💪  
-> *You can find* `Java` / `Python` *solution implementations and problems analysis in [this Github repo](https://github.com/Zhenye-Na/LxxxCode)*
-
-
+> *Keep record of Online-Judge problems practice*. 💪
+> 
+> *You can find Java / Python solution implementations and problems analysis in [this Github repo](https://github.com/Zhenye-Na/LxxxCode)* 
+> 
+> *I am currently working on keeping all the problems I have solved deployed in Gitbook, stay tuned*. 🤓
 
 ## LintCode / LeetCode problems practice
 
@@ -373,7 +374,7 @@ tags: [LeetCode/LintCode]
 - [x] 141. Sqrt(x)
 - [x] 60. Search Insert Position
 - [x] 28. Search a 2D Matrix
-- [x] 38. Search a 2D Matrix II **O(m+n) 的解法**
+- [x] 38. Search a 2D Matrix II (**O(m+n) 的解法**)
 - [x] 14. First Position of Target
 
 
@@ -386,7 +387,7 @@ tags: [LeetCode/LintCode]
 - [x] 74. First Bad Version
 - [x] 61. Search for a Range
 - [x] 62. Search in Rotated Sorted Array
-- [x] 63. Search in Rotated Sorted Array II **Follow up Question**
+- [x] 63. Search in Rotated Sorted Array II (**Follow up Question**)
 - [x] 160. Find Minimum in Rotated Sorted Array II
 - [x] 183. Wood Cut
 - [x] 437. Copy Books
@@ -394,7 +395,7 @@ tags: [LeetCode/LintCode]
 
 ### Aug 15, 2018
 
-**LintCode:** Ladder - Bit Manipulation
+**LintCode:** Ladder - Math & Bit Manipulation
 
 - [x] 1314. Power of Two
 - [x] 142. O(1) Check Power of 2
@@ -405,8 +406,27 @@ tags: [LeetCode/LintCode]
 - [ ] 84. Single Number III
 
 
+### Aug 16, 2018
 
-* * *
+**LintCode:** Ladder - Math & Bit Manipulation
 
-> *My own solutions to LintCode Online-Judge problems practice*. 💪  
-> *I am currently working on keeping all the problems I have solved deployed in Gitbook, stay tuned*. 🤓
+- [x] 2. Trailing Zeros (**Math**)
+- [x] 163. Unique Binary Search Trees (**N^th Catalan Numbers**)
+- [x] **164. Unique Binary Search Trees II** (**DFS**)
+- [x] 140. Fast Power (**Math + Divide & Conquer**)
+- [x] 423. Valid Parentheses (**Stack**)
+- [x] 427. Generate Parentheses (**Backtracking**)
+- [x] 428. Pow(x, n) (**Math + Divide & Conquer**)
+
+
+### Aug 17, 2018
+
+**LintCode:** Ladder - Greedy
+
+- [x] 82. Single Number
+- [x] 46. Majority Element
+- [x] 116. Jump Game (Dynamic Programming `||` **Greedy Algorithm**)
+- [x] 180. Binary Representation
+- [x] 763. Hex Conversion
+
+
