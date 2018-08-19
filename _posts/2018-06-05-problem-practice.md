@@ -403,7 +403,6 @@ tags: [LeetCode/LintCode]
 - [x] 179. Update Bits
 - [x] 82. Single Number
 - [x] 83. Single Number II
-- [ ] 84. Single Number III
 
 
 ### Aug 16, 2018
@@ -430,3 +429,17 @@ tags: [LeetCode/LintCode]
 - [x] 763. Hex Conversion
 
 
+### Aug 18, 2018
+
+**LintCode:** Review
+
+- [x] 138. Subarray Sum (Prefix Sum)
+- [x] **56. Two Sum** (**O(n)** `||` **O(n logn)**) [LintCode 题目描述是真的渣...]
+- [x] 189. First Missing Positive (**读懂题意就行**)
+- [x] 46. Majority Element (**Misra-Gries Family of Algorithms - MAJORITY problem** O(n) time and O(1) space)
+- [x] 47. Majority Element II
+- [x] 48. Majority Element III
+- [x] 84. Single Number III (**Bit Manipulation** 找到数字 A 和数字 B 中不相同的一位，并将该位设置为 1，其他位设置为 0)
+
+
+今天正好周末 LeetCode 有 Contest，尝试了一下，真的是膜各位大佬了。第一题刚刚读懂过了一会，就有大佬过了已经。。。。佩服佩服
