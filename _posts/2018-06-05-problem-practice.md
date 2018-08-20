@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-08-14
+modify_date: 2018-08-19
 excerpt: "My own solutions to LintCode Online-Judge problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
