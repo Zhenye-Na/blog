@@ -443,3 +443,20 @@ tags: [LeetCode/LintCode]
 
 
 今天正好周末 LeetCode 有 Contest，尝试了一下，真的是膜各位大佬了。第一题刚刚读懂过了一会，就有大佬过了已经。。。。佩服佩服
+
+
+### Aug 18, 2018
+
+**LintCode:** Binary Tree Traversal + Review
+
+- [x] 66. Binary Tree Preorder Traversal (**Stack `||` Traverse `||` Divide & Conquer**)
+- [x] 67. Binary Tree Inorder Traversal (**Stack `||` Traverse `||` Divide & Conquer**)
+- [x] 68. Binary Tree Postorder Traversal (**One Stack `||` Two Stacks `||` Traverse `||` Divide & Conquer**)
+- [x] 69. Binary Tree Level Order Traversal (**BFS + Queue `||` DFS**)
+
+
+- [ ] 70. Binary Tree Level Order Traversal II
+- [ ] 71. Binary Tree Zigzag Level Order Traversal
+- [ ] 85. Insert Node in a Binary Search Tree
+- [ ] 900. Closest Binary Search Tree Value
+- [ ] 661. Convert BST to Greater Tree
