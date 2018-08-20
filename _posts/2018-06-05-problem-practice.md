@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-08-19
+modify_date: 2018-08-20
 excerpt: "My own solutions to LintCode Online-Judge problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -445,9 +445,9 @@ tags: [LeetCode/LintCode]
 今天正好周末 LeetCode 有 Contest，尝试了一下，真的是膜各位大佬了。第一题刚刚读懂过了一会，就有大佬过了已经。。。。佩服佩服
 
 
-### Aug 18, 2018
+### Aug 19, 2018
 
-**LintCode:** Binary Tree Traversal + Review
+**LintCode:** **Review** - Binary Tree Traversal
 
 - [x] 66. Binary Tree Preorder Traversal (**Stack `||` Traverse `||` Divide & Conquer**)
 - [x] 67. Binary Tree Inorder Traversal (**Stack `||` Traverse `||` Divide & Conquer**)
@@ -455,8 +455,13 @@ tags: [LeetCode/LintCode]
 - [x] 69. Binary Tree Level Order Traversal (**BFS + Queue `||` DFS**)
 
 
-- [ ] 70. Binary Tree Level Order Traversal II
-- [ ] 71. Binary Tree Zigzag Level Order Traversal
-- [ ] 85. Insert Node in a Binary Search Tree
-- [ ] 900. Closest Binary Search Tree Value
+### Aug 20, 2018
+
+**LintCode:** **Review** - Binary Tree Traversal + Binary Search Tree
+
+- [x] 70. Binary Tree Level Order Traversal II
+- [x] 71. Binary Tree Zigzag Level Order Traversal
+- [x] 85. Insert Node in a Binary Search Tree
+- [x] 900. Closest Binary Search Tree Value
+
 - [ ] 661. Convert BST to Greater Tree
