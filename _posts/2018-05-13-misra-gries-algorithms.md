@@ -2,6 +2,7 @@
 layout: post
 title: "Misra-Gries Family of Algorithms"
 date: 2018-05-13
+modify_date: 2018-08-19
 excerpt: "Misra-Gries Family of Algorithms deals with massive data problems where the input data is too large to be stored in random access memory - one solution to the MAJORITY and FREQUENT Problem"
 tags: [MCMC]
 comments: true
@@ -25,11 +26,50 @@ Let us look at the **MAJORITY** problem first. We have two variables that we sto
 Every time an element $a_i = j$ of the data-stream is observed, if the key is empty we set the value of the key to $j$, and we initialize the count to $1$. If the key is not empty, and equal to $j$, we increment the count by $1$. If the key is not empty, and not equal to $j$, we decrement the count by $1$ – if the count becomes zero as a result of this decrementing, we set the key to null-entity. It is not hard to see that if there is a majority-element, it will be the value of the key.
 
 
+#### Exercise
+
+There is a problem which is MAJORITY problem, on LinCode which can be solved by Misra-Gries Family of Algorithms. You can find it here! [LintCode 46. Majority Element](https://www.lintcode.com/problem/majority-element/description)
+
+Here is the problem description:
+
+- **Description**
+    - Given an array of integers, the majority number is the number that occurs **more than half of the size of the array**. Find it.
+    - You may assume that the array is non-empty and the majority number always exist in the array.
+- **Example**
+    - Given `[1, 1, 1, 1, 2, 2, 2]`, return `1`
+- **Challenge**
+    - `O(n)` time and `O(1)` extra space
+
+If you read the description carefully, you can find this is exactly what the MAJORITY problem is. So according to the algorithm, we can write the solution below.
+
+```python
+class Solution:
+    """
+    @param: nums: a list of integers
+    @return: find a  majority number
+    """
+    def majorityNumber(self, nums):
+        # write your code here
+        key, count = None, 0
+        for num in nums:
+            if key is None:
+                key, count = num, 1
+            else:
+                if key == num:
+                    count += 1
+                else:
+                    count -= 1
+
+            if count == 0:
+                key = None
+
+        return key
+```
+
 
 ### FREQUENT problem
 
 For the **FREQUENT** problem, we have $k − 1$ keys, with associated counts. The keys are initialized to null-entities, their counts being zero. Every time an element of $a_i = j$ of the data-stream is observed, and if $j$ is one of the keys, we increment is counter by $1$. If $j$ is not one of the keys, and there is an null-entity key, we set it equal to $j$ with a count of $1$. If $j$ is not one of the keys, and there is no null-entity keys, we decrement the count of all counters. If any counter is zero as a result of this decrementing, we set its key to be a null-entity.
-
 
 
 ## Approximate solution to a variation of the FREQUENT problem
