@@ -463,5 +463,4 @@ tags: [LeetCode/LintCode]
 - [x] 71. Binary Tree Zigzag Level Order Traversal
 - [x] 85. Insert Node in a Binary Search Tree
 - [x] 900. Closest Binary Search Tree Value
-
-- [ ] 661. Convert BST to Greater Tree
+- [x] 661. Convert BST to Greater Tree
