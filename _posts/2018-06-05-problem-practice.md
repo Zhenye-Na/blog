@@ -464,3 +464,6 @@ tags: [LeetCode/LintCode]
 - [x] 85. Insert Node in a Binary Search Tree
 - [x] 900. Closest Binary Search Tree Value
 - [x] 661. Convert BST to Greater Tree
+
+**LintCode:** Ladder - Greedy
+
