@@ -519,6 +519,6 @@ class Solution(object):
 
 
 ## 参考
-1. [二分查找学习札记](http://www.cppblog.com/converse/archive/2009/10/05/97905.aspx) | 作者: 那谁
-2. [Search in Rotated Sorted Array 配图](http://redirect.viglink.com/?format=go&jsonp=vglnk_15348223956231555&key=a1aa544c3b328def412653f9fc432107&libId=jl2torlg0101x1cs000DAjnsijj44&loc=http%3A%2F%2Fwww.1point3acres.com%2Fbbs%2Fthread-432793-1-1.html&v=1&out=http%3A%2F%2Ffisherlei.blogspot.com%2F2013%2F01%2Fleetcode-search-in-rotated-sorted-array.html&ref=http%3A%2F%2Fwww.1point3acres.com%2Fbbs%2Fforum-84-1.html&title=Binary%20Search%E7%9A%84%E6%80%BB%E7%BB%93%E5%B8%96%E3%80%90%E4%B8%80%E4%BA%A9%E4%B8%89%E5%88%86%E5%9C%B0%E8%AE%BA%E5%9D%9B%E5%88%B7%E9%A2%98%E7%89%88%E3%80%91%20-&txt=http%3A%2F%2Ffisherlei.blogspot.com%2F20%20...%20d-sorted-array.html) | 作者: 水中的鱼
-3. [[二分/排序/搜索] Binary Search的总结帖](http://www.1point3acres.com/bbs/thread-432793-1-1.html) | 作者: junior147147
+1. [二分查找学习札记](http://www.cppblog.com/converse/archive/2009/10/05/97905.aspx) 作者: 那谁
+2. [Search in Rotated Sorted Array 配图](http://redirect.viglink.com/?format=go&jsonp=vglnk_15348223956231555&key=a1aa544c3b328def412653f9fc432107&libId=jl2torlg0101x1cs000DAjnsijj44&loc=http%3A%2F%2Fwww.1point3acres.com%2Fbbs%2Fthread-432793-1-1.html&v=1&out=http%3A%2F%2Ffisherlei.blogspot.com%2F2013%2F01%2Fleetcode-search-in-rotated-sorted-array.html&ref=http%3A%2F%2Fwww.1point3acres.com%2Fbbs%2Fforum-84-1.html&title=Binary%20Search%E7%9A%84%E6%80%BB%E7%BB%93%E5%B8%96%E3%80%90%E4%B8%80%E4%BA%A9%E4%B8%89%E5%88%86%E5%9C%B0%E8%AE%BA%E5%9D%9B%E5%88%B7%E9%A2%98%E7%89%88%E3%80%91%20-&txt=http%3A%2F%2Ffisherlei.blogspot.com%2F20%20...%20d-sorted-array.html) 作者: 水中的鱼
+3. [[二分/排序/搜索] Binary Search的总结帖](http://www.1point3acres.com/bbs/thread-432793-1-1.html) 作者: junior147147
