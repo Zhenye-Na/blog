@@ -6,6 +6,8 @@ excerpt: "BInary Search Algorithm"
 tags: [Algorithms, Binary Search]
 ---
 
+> 本人的 LintCode [**题解**](https://github.com/Zhenye-Na/LxxxCode) 以及 [**分析**](https://lintcode-solutions.gitbook.io/project/)
+
 # Binary Search | LintCode/LeetCode 总结
 
 - 本总结参考/复制/修改了很多综合帖的内容，全部参考文档会赋予文章底部。
