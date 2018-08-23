@@ -8,17 +8,23 @@ tags: [Algorithms, Fenwick Tree, Binary Indexed Tree]
 
 # Fenwick Tree or Binary Indexed Tree
 
+Related problem in LeetCode:
+
+- 307. Range Sum Query - Mutable
+- 315. Count of Smaller Numbers after Self
+
 
 ### Youtube Video by Tushar Roy
 
 <iframe width="768" height="432" src="https://www.youtube.com/embed/CWDQJGaN1gY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-#### Time/Space Complexity of different operations
+#### Complexity Analysis
 
 * Space: `O(n)`
-* Search: `O(logn)`
-* Update: `O(logn)`
-* Create: `O(n logn)`
+* Time:
+    * Search: `O(logn)`
+    * Update: `O(logn)`
+    * Create: `O(n logn)`
 
 #### How to get Parent?
 
@@ -26,11 +32,52 @@ tags: [Algorithms, Fenwick Tree, Binary Indexed Tree]
 2. AND "`&`" with original number
 3. Add it to original number
 
+update tree:
+
+```java
+while (i <= n) {
+    i += lowbit(i);
+    // update tree
+    ...
+}
+```
+
+where `lowbit()` is a function which you can extract the lower bit from an integer:
+
+```java
+-x = ~x + 1
+
+lowbit(x) = x & (-x)
+```
+
+For example:
+
+```java
+x = 5                  = 0110
+-x = ~x + 1 = 1001 + 1 = 1010
+lowbit(x)              = 0010
+```
+
+so add it back to original number `0010 + 0110 = 1000 = 8`, `8` will be the parent of `5`
+
+
 #### How to get Next?
 
 1. 2's complement
 2. AND "`&`" with original number
 3. Add it to original number
+
+
+query tree:
+
+```java
+while (i > 0) {
+    i -= lowbit(i);
+    // update tree
+    ...
+}
+```
+
 
 ### Binary Indexed Tree or Fenwick Tree \[GeeksforGeeks\]
 
@@ -72,7 +119,8 @@ getSum(index): Returns sum of arr[0..index]
 3) Return sum.
 ```
 
-![The above diagram demonstrates working of getSum\(\).](https://www.geeksforgeeks.org/wp-content/uploads/BITSum.png)
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/BITSum.png" width="70%">
+
 
 1. Node at index `0` is a **dummy node**.
 2. A node at index `y` is parent of a node at index `x`, **iff `y` can be obtained by removing last set bit from binary representation of `x`**.
@@ -91,7 +139,8 @@ update(index, val): Updates BIT for operation arr[index] += val
       the last set bit from index, i.e., index = index + (index & (-index))
 ```
 
-![](https://www.geeksforgeeks.org/wp-content/uploads/BITUpdate12.png)
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/BITUpdate12.png" width="70%">
+
 
 The update process needs to make sure that all BITree nodes that have `arr[i]` as part of the section they cover must be updated. We get all such nodes of BITree by repeatedly adding the decimal number corresponding to the last set bit.
 
@@ -235,6 +284,11 @@ Used to implement the arithmetic coding algorithm. Development of operations it 
 [Count inversions in an array \| Set 3 \(Using BIT\)](https://www.geeksforgeeks.org/count-inversions-array-set-3-using-bit/)  
 [Two Dimensional Binary Indexed Tree or Fenwick Tree](https://www.geeksforgeeks.org/two-dimensional-binary-indexed-tree-or-fenwick-tree/)  
 [Counting Triangles in a Rectangular space using BIT](https://www.geeksforgeeks.org/counting-triangles-in-a-rectangular-space-using-2d-bit/)
+
+### Implementation by HuaHua
+
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/bitree/bitree1.png?raw=true" width="90%">
+
 
 ### Summary
 
