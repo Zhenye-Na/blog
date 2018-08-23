@@ -30,6 +30,7 @@ For more detailed information, please visit:
 
 
 ## Advanced Functions
+
 1. Calculate payback period of the mining rig investment
 	- This function is the core of this application. It allows the users to plan their investments without having to monitor every little aspect of the market at all time. It is especially useful, and convenient to have in the current situation because of how rapidly the prices are changing. This function is advanced because it requires additional data from GPU such as hash rate and power consumption. Also, it update ETH price and component price in the database automatically and send email notiﬁcation to user if they subscribe the set they created.
 
