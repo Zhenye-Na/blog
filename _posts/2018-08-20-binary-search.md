@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Binary Search | LintCode/LeetCode 总结帖"
+title: "Binary Search | LintCode/LeetCode Summary"
 date: 2018-08-20
-excerpt: "BInary Search Algorithm"
-tags: [Algorithms, Binary Search]
+excerpt: "Binary Search Algorithm"
+tags: [Algorithms, Binary Search, LeetCode/LintCode]
 ---
 
 > 本人的 LintCode [**题解**](https://github.com/Zhenye-Na/LxxxCode) 以及 [**分析**](https://lintcode-solutions.gitbook.io/project/)
