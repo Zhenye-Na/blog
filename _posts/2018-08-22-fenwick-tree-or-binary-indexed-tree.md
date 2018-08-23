@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fenwick Tree or Binary Indexed Tree (树状数组)"
+title: "Fenwick Tree or Binary Indexed Tree"
 date: 2018-08-22
 excerpt: "Fenwick Tree or Binary Indexed Tree"
 tags: [Algorithms, Fenwick Tree, Binary Indexed Tree]
@@ -287,7 +287,35 @@ Used to implement the arithmetic coding algorithm. Development of operations it 
 
 ### Implementation by HuaHua
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/bitree/bitree1.png?raw=true" width="90%">
+
+```cpp
+class FenwickTree {
+public:
+    FenwickTree(int n): sums_(n + 1, 0) {}
+
+    void update(int i, int delta) {
+        while (i < sums_.size()) {
+            sums_[i] += delta;
+            i += lowbit(i);
+        }
+    }
+
+    int query(int i) const {
+        int sum = 0;
+        while (i > 0) {
+            sum += sums_[i];
+            i -= lowbit(i);
+        }
+        return sum;
+    }
+
+private:
+    static inline int lowbit(int x) { return x & (-x); }
+    vector<int> sums_;
+
+};
+```
+
 
 
 ### Summary
