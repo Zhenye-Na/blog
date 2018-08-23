@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-08-20
+modify_date: 2018-08-22
 excerpt: "My own solutions to LintCode Online-Judge problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -465,5 +465,37 @@ tags: [LeetCode/LintCode]
 - [x] 900. Closest Binary Search Tree Value
 - [x] 661. Convert BST to Greater Tree
 
-**LintCode:** Ladder - Greedy
 
+### Aug 21, 2018
+
+**LintCode:** **Review** - Binary Tree `&&` Divide Conquer
+
+- [x] 93. Balanced Binary Tree
+- [x] 97. Maximum Depth of Binary Tree
+- [x] 662. Guess Number Higher or Lower
+- [x] 453. Flatten Binary Tree to Linked List
+- [x] 480. Binary Tree Paths
+
+
+### Aug 22, 2018
+
+**LintCode:**
+
+- [x] 596. Minimum Subtree (隐藏题)
+- [x] 988. Arranging Coins (**Binary Search** + **Arithmetic Sequence**)
+- [x] 1219. Heaters (**Binary Search**)
+- [x] 840. Range Sum Query - Mutable (**Fenwick Tree / Binary Indexed Tree**)
+
+
+### Aug 23, 2018
+
+**LintCode:**
+
+- [ ] 595. Binary Tree Longest Consecutive Sequence
+- [ ] 614. Binary Tree Longest Consecutive Sequence II
+- [ ] 619. Binary Tree Longest Consecutive Sequence III
+- [ ] 88. Lowest Common Ancestor of a Binary Tree
+- [ ] 376. Binary Tree Path Sum
+- [ ] 246. Binary Tree Path Sum II
+- [ ] 472. Binary Tree Path Sum III
+- [ ] 863. Binary Tree Path Sum IV
