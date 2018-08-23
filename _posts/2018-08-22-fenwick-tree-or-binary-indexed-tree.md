@@ -10,8 +10,8 @@ tags: [Algorithms, Fenwick Tree, Binary Indexed Tree]
 
 Related problem in LeetCode:
 
-- 307. Range Sum Query - Mutable
-- 315. Count of Smaller Numbers after Self
+- [307.] Range Sum Query - Mutable
+- [315.] Count of Smaller Numbers after Self
 
 
 ### Youtube Video by Tushar Roy
