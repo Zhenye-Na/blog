@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-08-22
+modify_date: 2018-08-23
 excerpt: "My own solutions to LintCode Online-Judge problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -142,12 +142,8 @@ tags: [LeetCode/LintCode]
 
 - [x] 595. Binary Tree Longest Consecutive Sequence
 - [x] 614. Binary Tree Longest Consecutive Sequence II
-- [ ] 619. Binary Tree Longest Consecutive Sequence III
 - [x] 88. Lowest Common Ancestor of a Binary Tree
 - [x] 376. Binary Tree Path Sum
-- [ ] 246. Binary Tree Path Sum II
-- [ ] 472. Binary Tree Path Sum III
-- [ ] 863. Binary Tree Path Sum IV
 
 **SQL Exercises**
 
@@ -200,7 +196,6 @@ tags: [LeetCode/LintCode]
 
 - [x] 135. Combination Sum
 - [x] 153. Combination Sum II
-- [ ] 564. Combination Sum IV
 - [x] 136. Palindrome Partitioning
 - [x] 15. Permutations
 - [x] 16. Permutations II
@@ -213,7 +208,6 @@ tags: [LeetCode/LintCode]
 
 - [x] 35. Reverse Linked List
 - [x] 102. Linked List Cycle
-- [ ] 103. Linked List Cycle II
 
 
 ### Jul 17, 2018
@@ -491,7 +485,18 @@ tags: [LeetCode/LintCode]
 
 **LintCode:**
 
-- [ ] 595. Binary Tree Longest Consecutive Sequence
+- [x] 595. Binary Tree Longest Consecutive Sequence
+
+
+### Aug 24, 2018
+
+**LintCode:**
+
+- [x] 117. Jump Game II
+- [x] 187. Gas Station
+
+
+
 - [ ] 614. Binary Tree Longest Consecutive Sequence II
 - [ ] 619. Binary Tree Longest Consecutive Sequence III
 - [ ] 88. Lowest Common Ancestor of a Binary Tree
