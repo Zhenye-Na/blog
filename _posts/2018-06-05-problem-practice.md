@@ -490,12 +490,22 @@ tags: [LeetCode/LintCode]
 
 ### Aug 24, 2018
 
-**LintCode:**
+**LintCode:** Greedy
 
 - [x] 117. Jump Game II
 - [x] 187. Gas Station
 
 
+### Aug 25, 2018
+
+**LintCode:**
+
+- [x] 51. Previous Permutation
+- [x] 52. Next Permutation
+- [x] 182. Delete Digits
+- [x] 184. Largest Number
+
+***
 
 - [ ] 614. Binary Tree Longest Consecutive Sequence II
 - [ ] 619. Binary Tree Longest Consecutive Sequence III
