@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-08-23
+modify_date: 2018-08-26
 excerpt: "My own solutions to LintCode Online-Judge problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -504,6 +504,31 @@ tags: [LeetCode/LintCode]
 - [x] 52. Next Permutation
 - [x] 182. Delete Digits
 - [x] 184. Largest Number
+
+
+### Aug 26, 2018
+
+**LintCode:** Ladder - Linked List
+
+- [x] 35. Reverse Linked List
+- [x] 96. Partition List
+- [x] 112. Remove Duplicates from Sorted List
+- [x] 165. Merge Two Sorted Lists
+- [x] 174. Remove Nth Node From End of List
+- [x] 105. Copy List with Random Pointer
+- [x] 170. Rotate List
+
+
+### Aug 27, 2018
+
+**LintCode:**
+
+- [x] 669. Coin Change | DP
+- [x] 158. Valid Anagram | Sorting
+- [x] 415. Valid Palindrome | Recursion
+
+
+
 
 ***
 
