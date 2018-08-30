@@ -529,7 +529,6 @@ tags: [LeetCode/LintCode]
 
 
 
-
 ***
 
 - [ ] 614. Binary Tree Longest Consecutive Sequence II
