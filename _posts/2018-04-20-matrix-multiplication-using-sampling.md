@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Matrix Multiplication using random Sampling"
+title: "Matrix Multiplication using Random Sampling"
 date: 2018-04-20
 excerpt: "Algorithms for matrix problems like matrix multiplication, low-rank approximations, singular value decomposition, compressed representations of matrices, linear regression etc."
 tags: [Sampling, Algorithm]
@@ -20,7 +20,7 @@ In fact, one can view a number of results from the chapter on machine learning i
 
 Suppose $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix and the product $AB$ is desired. We show how to use sampling to get an approximate product faster than the traditional multiplication. Let $A(:, k)$ denote the k th column of $A$. $A(:, k)$ is a $m \times 1$ matrix. Let $B(k, :)$ be the $k^{th}$ row of $B$. $B(k, :)$ is a $1 \times n$ matrix. It is easy to see that:
 
-$$AB = \sum \limits_{k=1}^n A(:,k)B(k,:). $$
+$$ AB = \sum \limits_{k=1}^n A(:,k)B(k,:). $$
 
 Note that for each value of $k$, $A(:, k)$, $B(k, :)$ is an $m \times p$ matrix each element of which is a single product of elements of $A$ and $B$. An obvious use of sampling suggests itself. Sample some values for $k$ and compute $A(:,k)B(k,:)$ for the sampled k‘s and use their suitably scaled sum as the estimate of $AB$. It turns out that nonuniform sampling probabilities are useful. Define a random variable $z$ that takes on values in $\{1, 2, ..., n\}$. Let $p_k$ denote the probability that $z$ assumes the value $k$. We will solve for a good choice of probabilities later, but for now just consider the $p_k$ as nonnegative numbers that sum to one. Define an associated random matrix variable that has value
 
