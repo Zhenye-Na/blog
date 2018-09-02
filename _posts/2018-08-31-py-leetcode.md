@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Backtracking"
+title: "Python刷题的奇技淫巧"
 date: 2018-08-29
-excerpt: "Backtracking && Recursion"
+excerpt: "Python刷题的奇技淫巧 - 转载自一亩三分地论坛"
 tags: [Algorithms, Backtracking]
 ---
 
