@@ -433,10 +433,7 @@ tags: [LeetCode/LintCode]
 - [x] 46. Majority Element (**Misra-Gries Family of Algorithms - MAJORITY problem** O(n) time and O(1) space)
 - [x] 47. Majority Element II
 - [x] 48. Majority Element III
-- [x] 84. Single Number III (**Bit Manipulation** 找到数字 A 和数字 B 中不相同的一位，并将该位设置为 1，其他位设置为 0)
-
-
-今天正好周末 LeetCode 有 Contest，尝试了一下，真的是膜各位大佬了。第一题刚刚读懂过了一会，就有大佬过了已经。。。。佩服佩服
+- [x] 84. Single Number III (**Bit Manipulation** 找到数字 A 和数字 B 中不相同的一位，并将该位设置为 `1`，其他位设置为 `0`)
 
 
 ### Aug 19, 2018
@@ -528,6 +525,16 @@ tags: [LeetCode/LintCode]
 - [x] 415. Valid Palindrome | Recursion
 
 
+### Sep 2, 2018
+
+**LintCode:**
+
+- [x] 213. String Compression
+- [x] 464. Sort Integers II
+- [x] 130. Heapify
+- [x] 209. First Unique Character in a String
+- [x] 213. String Compression
+- [x] 111. Climbing Stairs
 
 ***
 
