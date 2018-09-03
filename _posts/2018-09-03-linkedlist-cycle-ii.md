@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Iterating through two lists in parallel using zip()"
+title: "Linked List Cycle & Linked List Cycle II 单链表中的环"
 date: 2018-09-03
-excerpt: "Iterating through two lists in parallel using zip"
+excerpt: "Linked List Cycle & Linked List Cycle II"
 tags: [Python]
 ---
 
