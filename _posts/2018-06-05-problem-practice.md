@@ -536,6 +536,19 @@ tags: [LeetCode/LintCode]
 - [x] 213. String Compression
 - [x] 111. Climbing Stairs
 
+
+### Sep 3, 2018
+
+**LintCode:**
+
+- [x] 166. Nth to Last Node in List
+- [x] 167. Add Two Numbers
+- [x] 113. Remove Duplicates from Sorted List II
+- [x] 464. Sort Integers II | Merge Sort `&&` Quick Sort `&&` Heap Sort
+- [x] 36. Reverse Linked List II
+- [x] 98. Sort List
+- [x] 103. Linked List Cycle II
+
 ***
 
 - [ ] 614. Binary Tree Longest Consecutive Sequence II
