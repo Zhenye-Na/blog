@@ -48,7 +48,7 @@ Follow up: Can you solve it without using extra space?
 
 首先我们看下面这张图：
 
-![](https://images0.cnblogs.com/blog/354747/201311/05171805-64db9f059a1641e7afaf3dd8223c4fe7.jpg)
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/llc/llc.jpg?raw=true" width="80%">
 
 设：链表头是X，环的第一个节点是Y，`slow` 和 `fast` 第一次的交点是Z。各段的长度分别是 `a` ,`b` , `c`，如图所示。环的长度是L。`slow` 和 `fast` 的速度分别是` qs` ,`qf`。
 
