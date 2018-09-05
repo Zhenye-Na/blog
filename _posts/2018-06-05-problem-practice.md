@@ -2,7 +2,7 @@
 layout: post
 title: "LintCode Online-Judge problems practice 📓"
 date: 2018-06-05
-modify_date: 2018-08-26
+modify_date: 2018-09-03
 excerpt: "My own solutions to LintCode Online-Judge problems practice. 💪"
 tags: [LeetCode/LintCode]
 ---
@@ -539,7 +539,7 @@ tags: [LeetCode/LintCode]
 
 ### Sep 3, 2018
 
-**LintCode:**
+**LintCode:** Linked List
 
 - [x] 166. Nth to Last Node in List
 - [x] 167. Add Two Numbers
@@ -549,8 +549,23 @@ tags: [LeetCode/LintCode]
 - [x] 98. Sort List
 - [x] 103. Linked List Cycle II
 
+
+### Sep 4, 2018
+
+**LintCode:** Binary Tree
+
+- 复习 4 种 traversal 的各种写法
+- [x] 106. Convert Sorted List to Binary Search Tree
+- [x] 11. Search Range in Binary Search Tree
+- [x] 155. Minimum Depth of Binary Tree | Recursion
+- [x] 97. Maximum Depth of Binary Tree  | Recursion
+- [x] 163. Unique Binary Search Trees
+- [x] 11. Search Range in Binary Search Tree
+
+
 ***
 
+- [1565. Modern Ludo I](https://www.lintcode.com/problem/modern-ludo-i/description)
 - [ ] 614. Binary Tree Longest Consecutive Sequence II
 - [ ] 619. Binary Tree Longest Consecutive Sequence III
 - [ ] 88. Lowest Common Ancestor of a Binary Tree
