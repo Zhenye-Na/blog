@@ -563,13 +563,13 @@ tags: [LeetCode/LintCode]
 - [x] 11. Search Range in Binary Search Tree
 
 
+### Sep 5, 2018
+
+**LintCode:** Binary Tree
+
+- [x] 95. Validate Binary Search Tree
+
+
 ***
 
 - [1565. Modern Ludo I](https://www.lintcode.com/problem/modern-ludo-i/description)
-- [ ] 614. Binary Tree Longest Consecutive Sequence II
-- [ ] 619. Binary Tree Longest Consecutive Sequence III
-- [ ] 88. Lowest Common Ancestor of a Binary Tree
-- [ ] 376. Binary Tree Path Sum
-- [ ] 246. Binary Tree Path Sum II
-- [ ] 472. Binary Tree Path Sum III
-- [ ] 863. Binary Tree Path Sum IV
