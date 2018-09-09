@@ -74,13 +74,13 @@ The outputs from a randomly initialized neuron has a variance that grows with th
 The sketch of the derivation is as follows: Consider the inner product $ s = \sum_i^n w_i x_i $ between the weights $ w $ and input $ x $, which gives the raw activation of a neuron before the non-linearity. We can examine the variance of $ s $:
 
 
-<!--$$ \begin{align}
+$$ \begin{align}
 \text{Var}(s) &= \text{Var}(\sum_i^n w_ix_i) \\\\
 &= \sum_i^n \text{Var}(w_ix_i) \\\\
 &= \sum_i^n [E(w_i)]^2\text{Var}(x_i) + E[(x_i)]^2\text{Var}(w_i) + \text{Var}(x_i)\text{Var}(w_i) \\\\
 &= \sum_i^n \text{Var}(x_i)\text{Var}(w_i) \\\\
 &= \left( n \text{Var}(w) \right) \text{Var}(x)
-\end{align} $$-->
+\end{align} $$
 
 
 where in the first 2 steps we have used properties of variance. In third step we assumed zero mean inputs and weights, so $ E[x_i] = E[w_i] = 0 $. Note that this is not generally the case: For example ReLU units will have a positive mean. In the last step we assumed that all $ w_i $, $ x_i $ are identically distributed. From this derivation we can see that if we want s to have the same variance as all of its inputs $ x $, then during initialization we should make sure that the variance of every weight $ w $ is $ 1/n $. And since $ \text{Var}(aX) = a^2\text{Var}(X) $ for a random variable $ X $ and a scalar $ a $, this implies that we should draw from unit gaussian and then scale it by $ a = \sqrt{1/n} $, to make its variance $ 1/n $. This gives the initialization `w = np.random.randn(n) / sqrt(n)`.
@@ -100,7 +100,7 @@ Then we'll define our key functions.
 
 #### Sigmoid
 
-<img src="http://mathworld.wolfram.com/images/eps-gif/SigmoidFunction_701.gif">
+<img src="http://mathworld.wolfram.com/images/eps-gif/SigmoidFunction_701.gif" class="center">
 
 
 The sigmoid function gives an 'S' shaped curve. This curve has a finite limit of:
@@ -108,7 +108,7 @@ The sigmoid function gives an 'S' shaped curve. This curve has a finite limit of
 - '0' as $ x $ approaches $ - \infty $
 - '1' as $ x $ approaches $ + \infty $
 
-<!--$$ y = \frac{1}{1 + \exp(-x)} $$-->
+$$ y = \frac{1}{1 + \exp(-x)} $$
 
 The output of **sigmoid function** when `x=0` is $ 0.5 $
 
@@ -131,12 +131,12 @@ def sigmoid(z):
 
 We use is cross-entropy loss in this example.
 
-<!--$$ L(y, \hat{y}) = -y \log(\hat{y}) - (1-y) \log(1-\hat{y}). $$-->
+$$ L(y, \hat{y}) = -y \log(\hat{y}) - (1-y) \log(1-\hat{y}). $$
 
 
 After averaging over a training set of $ m $ examples we will have the following:
 
-<!--$$ L(Y, \hat{Y}) = -\frac{1}{m} \sum_{i=1}^m \left( y^{(i)} \log(\hat{y}^{(i)}) + (1-y^{(i)}) \log(1-\hat{y}^{(i)}) \right). $$-->
+$$ L(Y, \hat{Y}) = -\frac{1}{m} \sum_{i=1}^m \left( y^{(i)} \log(\hat{y}^{(i)}) + (1-y^{(i)}) \log(1-\hat{y}^{(i)}) \right). $$
 
 ```python
 def compute_loss(Y, Y_hat):
@@ -201,29 +201,29 @@ For backpropagation, we'll need to know how $L$ changes with respect to each com
 
 In order to perform classiﬁcation, a softmax layer is added to the neural network. The objective function is the negative log-likelihood (commonly also called the cross-entropy error):
 
-<!--$$ \begin{align}
+$$ \begin{align}
   z &= w^T x + b,\newline
   \hat{y} &= \sigma(z),\newline
   L(y, \hat{y}) &= -y \log(\hat{y}) - (1-y) \log(1-\hat{y}).
-  \end{align} $$-->
+  \end{align} $$
 
 And what exactly the back propagation is actually chain rules. So if you are familiar with Calculus, you will see:
 
-<!--$$ \frac{\partial L}{\partial w_j} = \frac{\partial L}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial z} \frac{\partial z}{\partial w_j}. $$-->
+$$ \frac{\partial L}{\partial w_j} = \frac{\partial L}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial z} \frac{\partial z}{\partial w_j}. $$
 
 Looking at $ \frac{\partial L}{\partial \hat{y}} $ first:
 
-<!--$$ \begin{align}
+$$ \begin{align}
     \frac{\partial L}{\partial \hat{y}} &= \frac{\partial}{\partial \hat{y}} \left( -y \log(\hat{y}) - (1-y) \log(1-\hat{y}) \right)\newline
       &= -y \frac{\partial}{\partial \hat{y}} \log(\hat{y}) - (1-y) \frac{\partial}{\partial \hat{y}} \log(1-\hat{y})\newline
       &= \frac{-y}{\hat{y}} + \frac{(1-y) }{1 - \hat{y}}\newline
       &= \frac{\hat{y} - y}{\hat{y}(1 - \hat{y})}.
-  \end{align} $$-->
+  \end{align} $$
 
 
 Then followed by the chain rule, we can get:
 
-<!--$$ \begin{align}
+$$ \begin{align}
     \frac{\partial}{\partial z} \sigma(z) &= \frac{\partial}{\partial z} \left( \frac{1}{1 + e^{-z}} \right)\newline
       &= - \frac{1}{(1 + e^{-z})^2} \frac{\partial}{\partial z} \left( 1 + e^{-z} \right)\newline
       &= \frac{e^{-z}}{(1 + e^{-z})^2}\newline
@@ -232,12 +232,12 @@ Then followed by the chain rule, we can get:
       &= \sigma(z) \left( 1 - \frac{1}{1 + e^{-z}} \right)\newline
       &= \sigma(z) \left( 1 - \sigma(z) \right)\newline
       &= \hat{y} (1-\hat{y}).
-  \end{align} $$-->
+  \end{align} $$
 
 
 Collecting our results, the stochastic gradient descent algorithm for updating $\theta$ is:
 
-<!--<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/cs598/nn-from-scratch/nn.png?raw=true" width="80%">-->
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/cs598/nn-from-scratch/nn.png?raw=true" width="80%" class="center">
 
 > For more detailed calculation of Back Propagation, you can find my previous assignment related to Back Propagation of CS446: Machine Learning at UIUC [here](https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment6/latex_student/HW6.pdf)
 
@@ -358,14 +358,39 @@ for i in range(opt.epochs):
 ```
 
 ## Results
-pass
 
+After training for 50 epochs on the entire MNIST dataset, we reach $ 98\% $ precision, $ 98\% $ recall and $ 98\% $ f1-score!
 
+```
+             precision    recall  f1-score   support
 
-> Full source code will be [here](https://github.com/Zhenye-Na/cs598/tree/master/assignments/mp1) after Fall 2018 semester
+          0       0.99      0.98      0.98       997
+          1       0.99      0.99      0.99      1138
+          2       0.98      0.98      0.98      1032
+          3       0.98      0.97      0.97      1019
+          4       0.98      0.98      0.98       984
+          5       0.97      0.98      0.97       883
+          6       0.98      0.98      0.98       953
+          7       0.97      0.98      0.98      1017
+          8       0.98      0.98      0.98       974
+          9       0.96      0.97      0.97      1003
+
+avg / total       0.98      0.98      0.98     10000
+```
+
 
 ## References
 
-[1] Stanford CS231n: Convolutional Neural Networks for Visual Recognition  [*"Lecture Notes: Setting up the data and the model"*](http://cs231n.github.io/neural-networks-2/)  
+[1] Stanford CS231n: Convolutional Neural Networks for Visual Recognition, [*"Lecture Notes: Setting up the data and the model"*](http://cs231n.github.io/neural-networks-2/)  
 [2] Quora, [*"What is the sigmoid function, and what is its use in machine learning's neural networks? How about the sigmoid derivative function?"*](https://www.quora.com/What-is-the-sigmoid-function-and-what-is-its-use-in-machine-learnings-neural-networks-How-about-the-sigmoid-derivative-function) 
-[3]
+[3] Jonathan Weisberg, [*"Building a Neural Network from Scratch: Part 2"*](http://jonathanweisberg.org/post/A%20Neural%20Network%20from%20Scratch%20-%20Part%202/)
+
+
+
+<style>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
