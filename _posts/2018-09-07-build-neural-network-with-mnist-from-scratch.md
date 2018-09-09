@@ -11,8 +11,7 @@ mathjax_autoNumber: true
 > In this post, I will introduce how to implement a Neural Network from scratch with Numpy and training on MNIST dataset. 
 > 
 > *This is originally HW1 of CS598: Deep Learning at UIUC.*
-> 
-> *Notice: I will not make my repo "public" until the 2018 Fall semester ends.*
+
 
 
 # Build Neural Network from scratch with Numpy on MNIST Dataset
