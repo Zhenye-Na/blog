@@ -382,7 +382,7 @@ avg / total       0.98      0.98      0.98     10000
 ## References
 
 [1] Stanford CS231n: Convolutional Neural Networks for Visual Recognition, [*"Lecture Notes: Setting up the data and the model"*](http://cs231n.github.io/neural-networks-2/)  
-[2] Quora, [*"What is the sigmoid function, and what is its use in machine learning's neural networks? How about the sigmoid derivative function?"*](https://www.quora.com/What-is-the-sigmoid-function-and-what-is-its-use-in-machine-learnings-neural-networks-How-about-the-sigmoid-derivative-function) 
+[2] Quora, [*"What is the sigmoid function, and what is its use in machine learning's neural networks? How about the sigmoid derivative function?"*](https://www.quora.com/What-is-the-sigmoid-function-and-what-is-its-use-in-machine-learnings-neural-networks-How-about-the-sigmoid-derivative-function)  
 [3] Jonathan Weisberg, [*"Building a Neural Network from Scratch: Part 2"*](http://jonathanweisberg.org/post/A%20Neural%20Network%20from%20Scratch%20-%20Part%202/)
 
 
