@@ -10,19 +10,23 @@ mathjax_autoNumber: true
 
 > In this post, I will introduce how to implement a Neural Network from scratch with Numpy and training on MNIST dataset. 
 > 
+> Long read and Heavy mathematical notations
+>
 > *This is originally HW1 of CS598: Deep Learning at UIUC.*
+>
+> If you have no access to the dataset or the full source code right now. Please be patient, I will make my repo "public" as soon as 2018 Fall semester ends. ^_^
 
 
 
 # Build Neural Network from scratch with Numpy on MNIST Dataset
 
-In this post, when we're done we'll be able to achieve 98% precision on the MNIST dataset. We will use **mini-batch Gradient Descent**. We will also use another way to initialize our network's weights.
+In this post, when we're done we'll be able to achieve $ 98\% $ precision on the MNIST dataset. We will use **mini-batch Gradient Descent** to train and we will use another way to initialize our network's weights.
 
 ## Implementation
 
 ### Prepare MNIST dataset
 
-First, we need prepare out dataset. In this examle, it will be the [MNIST dataset](https://github.com/Zhenye-Na/cs598/blob/master/assignments/mp1/MNISTdata.hdf5). We need One-hot encode the labels of MNIST dataset. If you are not familiar with one-hot encoding, there is another post concerning this topic and can be found [here](https://zhenye-na.github.io/2018/05/05/why-is-onehot-encoding-working.html).
+First, we need prepare out dataset. In this examle, it will be the [MNIST dataset](https://github.com/Zhenye-Na/cs598/blob/master/assignments/mp1/MNISTdata.hdf5). We need One-hot encode the labels of MNIST dataset. If you are not familiar with **one-hot encoding**, there is another post concerning this topic and can be found [here](https://zhenye-na.github.io/2018/05/05/why-is-onehot-encoding-working.html).
 
 ```python
 # load MNIST data
@@ -62,13 +66,13 @@ X_train, Y_train = X_train[:, shuffle_index], Y_train[:, shuffle_index]
 
 ### Weight Initialization
 
-After preparing and cleaning out MNIST dataset, let us dive in the weights initialization in a smarter way!
+After preparing the MNIST dataset, let us dive in the weights initialization in a smarter way!
 
 **TL;DR**
 
 #### Calibrating the variances with `1/sqrt(n)`
 
-The outputs from a randomly initialized neuron has a variance that grows with the number of inputs. It turns out that we can normalize the variance of each neuron's output to 1 by scaling its weight vector by the square root of its **fan-in** (i.e. its number of inputs). That is, the recommended heuristic is to initialize each neuron's weight vector as: `w = np.random.randn(n) / sqrt(n)`, where `n` is the number of its inputs. This ensures that all neurons in the network initially have approximately the same output distribution and empirically improves the rate of convergence.
+The outputs from a randomly initialized neuron has a variance that grows with the number of inputs. It turns out that we can normalize the variance of each neuron's output to $ 1 $ by scaling its weight vector by the square root of its **fan-in** (i.e. its number of inputs). That is, the recommended heuristic is to initialize each neuron's weight vector as: `w = np.random.randn(n) / sqrt(n)`, where $ n $ is the number of its inputs. This ensures that all neurons in the network initially have approximately the same output distribution and empirically improves the rate of convergence.
 
 The sketch of the derivation is as follows: Consider the inner product $ s = \sum_i^n w_i x_i $ between the weights $ w $ and input $ x $, which gives the raw activation of a neuron before the non-linearity. We can examine the variance of $ s $:
 
@@ -95,7 +99,7 @@ params = {"W1": np.random.randn(opt.n_h, opt.n_x) * np.sqrt(1. / opt.n_x),
 
 ### Neural Network
 
-Then we'll define our key functions.
+Then let's define our key functions.
 
 #### Sigmoid
 
@@ -109,9 +113,9 @@ The sigmoid function gives an 'S' shaped curve. This curve has a finite limit of
 
 $$ y = \frac{1}{1 + \exp(-x)} $$
 
-The output of **sigmoid function** when `x=0` is $ 0.5 $
+The output of **sigmoid function** when $ x=0 $ is $ 0.5 $
 
-Thus, if the output is more than 0.5 , we can classify the outcome as `1` (or YES) and if it is less than 0.5 , we can classify it as `0` (or NO) .
+Thus, if the output is more than $0.5$ , we can classify the outcome as $1$ (or YES) and if it is less than $0.5$ , we can classify it as $0$ (or NO) .
 
 
 ```python
@@ -128,14 +132,16 @@ def sigmoid(z):
 
 ### Loss function
 
-We use is cross-entropy loss in this example.
+What we use in this example is **cross-entropy loss**.
 
 $$ L(y, \hat{y}) = -y \log(\hat{y}) - (1-y) \log(1-\hat{y}). $$
 
 
-After averaging over a training set of $ m $ examples we will have the following:
+After averaging over a training set of $ m $ examples, we will have the following:
 
 $$ L(Y, \hat{Y}) = -\frac{1}{m} \sum_{i=1}^m \left( y^{(i)} \log(\hat{y}^{(i)}) + (1-y^{(i)}) \log(1-\hat{y}^{(i)}) \right). $$
+
+So the implementation will be easy if you understand the mathematical notation above.
 
 ```python
 def compute_loss(Y, Y_hat):
@@ -152,7 +158,7 @@ def compute_loss(Y, Y_hat):
 
 ### Train step
 
-Notice that in the process we introduce three dictionaries: `params`, `cache`, and `grads`. These is pretty convenient for storing and accessing those parameters and make it easy to read.
+Notice that at this phase, we introduce three dictionaries: `params`, `cache`, and `grads` which corresponding hold the parameters of `weights and biases`, `activations` and `gradients`. These is pretty convenient for storing and accessing those parameters and make it easy to read.
 
 #### Feed Forward
 
@@ -161,6 +167,9 @@ The forward pass on a single example $x$ executes the following computation on e
 $$ \hat{y} = \sigma(w^T x + b). $$
 
 where $\sigma(z)$ is the `sigmoid()` we defined above.
+
+> Aside: In particular, rectiﬁed linear units (ReLU) have proven very successful for multi-layer neural networks. You would better use ReLU as the activation function of the hidden layers.
+
 
 ```python
 def feed_forward(X, params):
@@ -193,12 +202,12 @@ def feed_forward(X, params):
 
 #### Back Propagation
 
-> Aside: There is an amazing course offered by Stanford (Stanford CS231n) and [this](https://www.youtube.com/watch?v=d14TUNcbn1k&index=4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv) lecture is mainly talking about *Back Propagation*. If you prefer to video rather than dull mathematical formulas. Go for it!
+> Aside: There is an amazing course offered by Stanford ([Stanford CS231n](http://cs231n.stanford.edu/)) and [this](https://www.youtube.com/watch?v=d14TUNcbn1k&index=4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv) lecture is mainly talking about *Back Propagation*. If you prefer to video rather than dull mathematical formulas. Go for it!
 
-For backpropagation, we'll need to know how $L$ changes with respect to each component $w_j$ of $w$. That is, we must compute each $\partial L / \partial w_j$.
+For backpropagation, we'll need to know how $L$ changes with respect to each component $w_j$ of $w$. That is, we must compute each $ \frac{\partial L}{\partial w_j} $.
 
 
-In order to perform classiﬁcation, a softmax layer is added to the neural network. The objective function is the negative log-likelihood (commonly also called the cross-entropy error):
+In order to perform classification, a softmax layer is added to the neural network. The objective function is the negative log-likelihood (commonly also called the cross-entropy error):
 
 $$ \begin{align}
   z &= w^T x + b,\newline
@@ -206,11 +215,11 @@ $$ \begin{align}
   L(y, \hat{y}) &= -y \log(\hat{y}) - (1-y) \log(1-\hat{y}).
   \end{align} $$
 
-And what exactly the back propagation is actually chain rules. So if you are familiar with Calculus, you will see:
+And back propagation is actually a fancy name of **chain rules**. So if you are familiar with Calculus, you will see:
 
 $$ \frac{\partial L}{\partial w_j} = \frac{\partial L}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial z} \frac{\partial z}{\partial w_j}. $$
 
-Looking at $ \frac{\partial L}{\partial \hat{y}} $ first:
+Let us focusing on $ \frac{\partial L}{\partial \hat{y}} $ first:
 
 $$ \begin{align}
     \frac{\partial L}{\partial \hat{y}} &= \frac{\partial}{\partial \hat{y}} \left( -y \log(\hat{y}) - (1-y) \log(1-\hat{y}) \right)\newline
@@ -234,11 +243,11 @@ $$ \begin{align}
   \end{align} $$
 
 
-Collecting our results, the stochastic gradient descent algorithm for updating $\theta$ is:
+Collecting our results, the Stochastic Gradient Descent algorithm for updating $\theta$ is:
 
 <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/cs598/nn-from-scratch/nn.png?raw=true" width="80%" class="center">
 
-> For more detailed calculation of Back Propagation, you can find my previous assignment related to Back Propagation of CS446: Machine Learning at UIUC [here](https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment6/latex_student/HW6.pdf)
+> For more detailed calculation of Back Propagation, you can find my previous assignment solution related to Back Propagation of CS446: Machine Learning at UIUC [here](https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment6/latex_student/HW6.pdf)
 
 
 ```python
@@ -273,7 +282,7 @@ def back_propagate(X, Y, params, cache, m_batch):
     return grads
 ```
 
-### Training process
+### Training
 
 #### Hyper-parameters settings
 
