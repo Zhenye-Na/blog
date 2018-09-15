@@ -570,6 +570,20 @@ tags: [LeetCode/LintCode]
 - [x] 95. Validate Binary Search Tree
 
 
+### Sep 12, 2018
+
+**LintCode:**
+
+- [x] 1231. Minimum Moves to Equal Array Elements
+- [x] 491. Palindrome Number
+- [x] 627. Longest Palindrome
+- [x] 414. Divide Two Integers
+- [x] 72. Construct Binary Tree from Inorder and Postorder Traversal
+- [x] 73. Construct Binary Tree from Preorder and Inorder Traversal
+
+
+
+
 ***
 
 - [1565. Modern Ludo I](https://www.lintcode.com/problem/modern-ludo-i/description)
