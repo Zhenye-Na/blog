@@ -582,12 +582,19 @@ tags: [LeetCode/LintCode]
 - [x] 73. Construct Binary Tree from Preorder and Inorder Traversal
 
 
-### Sep 18, 2018
+### Sep 19, 2018
 
 **LintCode:**
 
+- [x] 363. Trapping Rain Water
 
 
+### Sep 21, 2018
+
+**LintCode:**
+
+- [x] 152. Combinations
+- [x] 1617. Array Maximum Difference
 
 ***
 
