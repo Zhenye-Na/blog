@@ -119,7 +119,7 @@ Naively, for doing our convolutional operation we loop over each image, over eac
 Suppose we have a single image of size $1 \times 1 \times 4 \times 4$ and a single filter $ 1 \times 1 \times 2 \times 2$ and are using $S=1$ and $P=1$. After padding the shape of our image is $1 \times 1 \times 6 \times 6$.
 
 
-<!--$$ \begin{align}
+$$ \begin{align}
 X_{pad} = 
 \begin{bmatrix}
 0 & 0 & 0 & 0 & 0 & 0\\
@@ -130,13 +130,13 @@ X_{pad} =
 0 & 0 & 0 & 0 & 0 & 0\\
 \end{bmatrix}
 _{6\times 6}
-\end{align} $$-->
+\end{align} $$
 
 
 Now we have $4−2/1+1=5$ locations along both width and height, so $25$ possible locations to do our convolution. Locations for top edges are
 
 
-<!--$$ \begin{align}
+$$ \begin{align}
 X_0 =
 \begin{bmatrix}
 0&0\\
@@ -161,7 +161,7 @@ X_3 =
 3&0\\
 \end{bmatrix}
 _{2\times 2}
-\end{align} $$-->
+\end{align} $$
 
 
 
@@ -169,7 +169,7 @@ For all the 25 locations we have a $1\times 2 \times 2$ filter, which we stretch
 
 
 
-<!--$$ \begin{align}
+$$ \begin{align}
 X_{col} = 
 \begin{bmatrix}
 0&0&0&0&0&0&0&1&2&3&0&4&5&6&7&0&8&9&10&11&0&12&13&14&15\\
@@ -179,7 +179,6 @@ X_{col} =
 \end{bmatrix}
 _{4\times 25}
 \end{align} $$
--->
 
 
 
@@ -188,9 +187,8 @@ _{4\times 25}
 We know the output error for the current layer $\partial out$ which in our case is $\frac{\partial C}{\partial Z^l_{ij}}$ as our layer is only computing pre non linearity output $Z$ . We need to find the gradient $\frac{\partial C}{\partial W_{ab}^{l}}$ for each weight .
 
 
-<!--$$ \frac{\partial C}{\partial W_{ab}^{l}} = \sum_{i=0}^{N-m}\sum_{j=0}^{N-m} \frac {\partial C}{\partial Z_{ij^{l}}} \times \frac {\partial Z_{ij}^{l}}{\partial W_{ab^{l}}} \\
+$$ \frac{\partial C}{\partial W_{ab}^{l}} = \sum_{i=0}^{N-m}\sum_{j=0}^{N-m} \frac {\partial C}{\partial Z_{ij^{l}}} \times \frac {\partial Z_{ij}^{l}}{\partial W_{ab^{l}}} \\
  = \sum_{i=0}^{N-m}\sum_{j=0}^{N-m} \frac {\partial C}{\partial Z_{ij^{l}}} \times a^{l-1}_{(i+a)(j+b)} $$
--->
 
 
 Notice that $\frac {\partial Z_{ij}^{l}}{\partial W_{ab^{l}}} = a^{l-1}_{(i+a)(j+b)}$ is from the forward propagation above, where $a^{l-1}$ is the output of the previous layer and input to our current layer.
