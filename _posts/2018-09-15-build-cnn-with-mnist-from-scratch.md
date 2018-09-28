@@ -79,7 +79,13 @@ opt = parser.parse_args()
 ```
 
 
+### Convolution
 
+
+#### Forward pass
+
+
+#### Back propagation
 
 
 
