@@ -177,7 +177,7 @@ if opt.is_gpu:
 
 ### Train the network
 
-```
+```python
 for epoch in range(start_epoch, opt.epochs + start_epoch):
 
     running_loss = 0.0
