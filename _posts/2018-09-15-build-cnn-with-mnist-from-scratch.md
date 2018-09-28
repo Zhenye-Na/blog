@@ -242,16 +242,58 @@ dX = col2im_indices(dX_col,X.shape,h_filter,w_filter,padding,stride)
 ```
 
 
+## Result
 
+- Training on the training set and test on the test set. **TOO LONG; DON'T TRAIN**
 
+```
+$ python3 main.py
+>>> Loading MNIST dataset...
+>>> Initialize CNN model ...
+>>> Initialize GradientDescentOptimizer ...
+>>> Training ...
+Epoch 1, Loss = 0.3750636379095156, Training Accuracy = 0.919921875, Test Accuracy = 0.9125
+Epoch 2, Loss = 0.29913643022969166, Training Accuracy = 0.939208984375, Test Accuracy = 0.9291
+Epoch 3, Loss = 0.2527279605662752, Training Accuracy = 0.94892578125, Test Accuracy = 0.9399
+Epoch 4, Loss = 0.22204486470272256, Training Accuracy = 0.956884765625, Test Accuracy = 0.9464
+Epoch 5, Loss = 0.2001383231241144, Training Accuracy = 0.962939453125, Test Accuracy = 0.9512
+Epoch 6, Loss = 0.18345520699312062, Training Accuracy = 0.96748046875, Test Accuracy = 0.9558
+Epoch 7, Loss = 0.17019392574737657, Training Accuracy = 0.97216796875, Test Accuracy = 0.9597
+Epoch 8, Loss = 0.15917675647133092, Training Accuracy = 0.97529296875, Test Accuracy = 0.9625
+Epoch 9, Loss = 0.14982814345416942, Training Accuracy = 0.977880859375, Test Accuracy = 0.965
+Epoch 10, Loss = 0.14170302471904664, Training Accuracy = 0.979833984375, Test Accuracy = 0.9671
+Epoch 11, Loss = 0.13462468812527298, Training Accuracy = 0.981494140625, Test Accuracy = 0.9688
+Epoch 12, Loss = 0.12839314428416979, Training Accuracy = 0.98330078125, Test Accuracy = 0.9698
+Epoch 13, Loss = 0.12289111045373491, Training Accuracy = 0.984521484375, Test Accuracy = 0.9708
+Epoch 14, Loss = 0.11800070400124218, Training Accuracy = 0.985400390625, Test Accuracy = 0.9716
+Epoch 15, Loss = 0.11359983408841255, Training Accuracy = 0.986376953125, Test Accuracy = 0.9721
+Epoch 16, Loss = 0.10962886962096986, Training Accuracy = 0.987255859375, Test Accuracy = 0.9729
+Epoch 17, Loss = 0.10600090646720707, Training Accuracy = 0.9880859375, Test Accuracy = 0.9738
+Epoch 18, Loss = 0.10266772207479348, Training Accuracy = 0.988720703125, Test Accuracy = 0.9744
+Epoch 19, Loss = 0.09957830487935751, Training Accuracy = 0.989453125, Test Accuracy = 0.9748
+Epoch 20, Loss = 0.09669153367229687, Training Accuracy = 0.989990234375, Test Accuracy = 0.9754
+Epoch 21, Loss = 0.0939771968847808, Training Accuracy = 0.990673828125, Test Accuracy = 0.9757
+Epoch 22, Loss = 0.09140489178262742, Training Accuracy = 0.990966796875, Test Accuracy = 0.976
+Epoch 23, Loss = 0.08894719924826124, Training Accuracy = 0.991748046875, Test Accuracy = 0.9766
+Epoch 24, Loss = 0.0865887475084566, Training Accuracy = 0.99228515625, Test Accuracy = 0.9769
+Epoch 25, Loss = 0.0844930027634586, Training Accuracy = 0.99263453985, Test Accuracy = 0.9771
 
-
-
-
-
-
-
-
+// Training time is too long, so I abort the training process
+^CTraceback (most recent call last):
+  File "main.py", line 101, in <module>
+    optim.minimize()
+  File "/Users/macbookpro/Desktop/cs598/assignments/mp2/src/optim.py", line 71, in minimize
+    loss, grads = self.nnet.train_step(X_mini, y_mini)
+  File "/Users/macbookpro/Desktop/cs598/assignments/mp2/src/cnn.py", line 133, in train_step
+    grads = self.backward(dout)
+  File "/Users/macbookpro/Desktop/cs598/assignments/mp2/src/cnn.py", line 110, in backward
+    dout, grad = layer.backward(dout)
+  File "/Users/macbookpro/Desktop/cs598/assignments/mp2/src/layers.py", line 76, in backward
+    self.w_filter, self.padding, self.stride)
+  File "/Users/macbookpro/Desktop/cs598/assignments/mp2/src/utils.py", line 126, in col2im_indices
+    np.add.at(x_padded, (slice(None), k, i, j), cols_reshaped)
+KeyboardInterrupt
+```
 
 
 
