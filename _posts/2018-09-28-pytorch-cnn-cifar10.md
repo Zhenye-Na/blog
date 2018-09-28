@@ -23,7 +23,7 @@ The dataset is divided into five training batches and one test batch, each with 
 Here are the classes in the dataset, as well as 10 random images from each:
 
 
-<img src="https://pytorch.org/tutorials/_images/cifar10.png">
+<img src="https://pytorch.org/tutorials/_images/cifar10.png" class="center">
 
 
 ## Trainig an Image Classifier in Pytorch
