@@ -242,6 +242,9 @@ dX = col2im_indices(dX_col,X.shape,h_filter,w_filter,padding,stride)
 
 ## Result
 
+> You can find source code [here](https://github.com/Zhenye-Na/cs598/tree/master/assignments/mp2).
+
+
 - Training on the training set and test on the test set. **TOO LONG; DON'T TRAIN**
 
 ```
