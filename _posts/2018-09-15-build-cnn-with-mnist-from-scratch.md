@@ -18,7 +18,38 @@ mathjax_autoNumber: true
 
 # Build Convolutional Neural Network from scratch with Numpy on MNIST Dataset
 
-In this post, when we're done we'll be able to achieve $ 97.7\% $ precision on the **MNIST dataset**. We will use **mini-batch Gradient Descent** to train and we will use another way to initialize our network's weights.
+In this post, when we're done we'll be able to achieve $ 97.7\% $ accuracy on the **MNIST dataset**. We will use **mini-batch Gradient Descent** to train.
+
+## Convolutional Neural Networks (CNNs / ConvNets)
+
+Convolutional Neural Networks are very similar to ordinary Neural Networks: they are made up of neurons that have **learnable weights and biases**. Each neuron receives some inputs, performs a dot product and optionally follows it with a non-linearity. The whole network still expresses a single differentiable score function: from the raw image pixels on one end to class scores at the other. And they still have a loss function (e.g. SVM/Softmax) on the last (fully-connected) layer and all the tips/tricks we developed for learning regular Neural Networks still apply.
+
+So what does change? ConvNet architectures make the explicit assumption that the **inputs are images**, which allows us to encode certain properties into the architecture. **These then make the forward function more efficient to implement and vastly reduce the amount of parameters in the network**.
+
+
+| ![](http://cs231n.github.io/assets/nn1/neural_net2.jpeg) 	| ![](http://cs231n.github.io/assets/cnn/cnn.jpeg) 	|
+|:--------------------------------------------------------:	|:------------------------------------------------:	|
+
+
+> Left: A regular 3-layer Neural Network. Right: A ConvNet arranges its neurons in three dimensions (width, height, depth), as visualized in one of the layers. Every layer of a ConvNet transforms the 3D input volume to a 3D output volume of neuron activations. In this example, the red input layer holds the image, so its width and height would be the dimensions of the image, and the depth would be 3 (Red, Green, Blue channels).
+
+
+- The convolutional layer takes an input volume of:
+    - Number of input $N$
+    - The depth of input $C$
+    - Height of the input $H$
+    - Width of the input $W$
+- These hyperparameters control the size of output volume:
+    - Number of filters $K$
+    - Spatial Extent $F$
+    - Stride length $S$
+    - Zero Padding $P$
+- The spatial size of output is given by 
+    - $(H-F+2P)/S+1 \times (W-F+2P)/S+1 $
+
+
+**Note:** When $S=1$, $P=(F−1)/2$ preserves the input volume size.
+
 
 
 ## Implementation
