@@ -3,7 +3,7 @@ layout: post
 title: "Deep Learning with Pytorch on CIFAR10 Dataset"
 date: 2018-09-28
 excerpt: "Deep Learning with Pytorch on CIFAR10 Dataset"
-tags: [Machine Learning, Deep Learning]
+tags: [Machine Learning, Deep Learning, Python]
 mathjax: true
 mathjax_autoNumber: true
 ---

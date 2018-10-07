@@ -3,7 +3,7 @@ layout: post
 title: "Intersection over Union (IoU) for Object Detection"
 date: 2018-05-22
 excerpt: "Intersection over Union is an evaluation metric used to measure the accuracy of an object detector "
-tags: [IoU, Object Detection]
+tags: [Computer Vision, Object Detection]
 mathjax: true
 mathjax_autoNumber: true
 ---

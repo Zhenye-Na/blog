@@ -3,7 +3,7 @@ layout: post
 title: "Matrix Multiplication using Random Sampling"
 date: 2018-04-20
 excerpt: "Algorithms for matrix problems like matrix multiplication, low-rank approximations, singular value decomposition, compressed representations of matrices, linear regression etc."
-tags: [Sampling, Algorithm]
+tags: [Algorithms]
 mathjax: true
 mathjax_autoNumber: true
 ---
