@@ -39,7 +39,7 @@ At the front-end, queries can be rewritten using a variety of techniques (review
 
 ### Basic SimRank algorithm
 
-For a node $v$ in a directed graph, we denote by $I(v)$ and $O(v)$ the set of in-neighbors and out-neighbors of $v$, respectively. Individual in-neighbors are denoted as $I_{i}(v)$, for $1\leq i\leq |I(v)|$, and individual out-neighbors are denoted as $O_{i}(v)$, for $1\leq i\leq |O(v)|$.
+For a node $v$ in a directed graph, we denote by $I(v)$ and $O(v)$ the set of in-neighbors and out-neighbors of $v$, respectively. Individual in-neighbors are denoted as $I_{i}(v)$, for \\( 1\leq i\leq |I(v)| \\), and individual out-neighbors are denoted as $O_{i}(v)$, for $1\leq i\leq |O(v)|$.
 
 Let us denote the similarity between objects $a$ and $b$ by $s(a,b)\in [0,1]$. Following the earlier motivation, a recursive equation is written for $s(a,b)$. If $a=b$ then $s(a,b)$ is defined to be $1$. Otherwise,
 
@@ -62,7 +62,7 @@ If $q = q'$, we deﬁne $s(q, q') = 1$ and analogously if $\alpha = \alpha'$ we 
 
 ### Matrix representation of SimRank
 
-Let $\mathbf{S}$  be the similarity matrix whose entry $[\mathbf {S}]_{a,b}$ denotes the similarity score $s(a,b)$, and $\mathbf{A}$  be the column normalized adjacency matrix whose entry $[\mathbf {A}]_{a,b}={\tfrac {1}{|{\mathcal{I}}(b)|}}$ if there is an edge from $a$ to $b$, and $0$ otherwise. Then, in matrix notations, SimRank can be formulated as
+Let $\mathbf{S}$  be the similarity matrix whose entry $[\mathbf {S}]_{a,b}$ denotes the similarity score $s(a,b)$, and $\mathbf{A}$  be the column normalized adjacency matrix whose entry \\( [\mathbf {A}]_{a,b}={\tfrac {1}{|{\mathcal{I}}(b)|}} \\)  if there is an edge from $a$ to $b$, and $0$ otherwise. Then, in matrix notations, SimRank can be formulated as
 
 $${\mathbf{S} } = \max \{C\cdot (\mathbf{A}^{T} \cdot {\mathbf{S}} \cdot {\mathbf{A}}),{\mathbf{I}}\},$$
 
@@ -76,7 +76,7 @@ Consider a bipartite graph $G = (V_1 , V_2 , E)$ and two nodes $a, b \in V_1$. W
 
 ### geometric evidence scores
 
-<!--$$\text{evidence}(a, b) = \sum^{|E(a) \cap E(b)|}_{i=1} \frac{1}{2^i}$$-->
+$$\text{evidence}(a, b) = \sum^{|E(a) \cap E(b)|}_{i=1} \frac{1}{2^i}$$
 
 The intuition behind choosing such a function is as follows. We want the evidence score $\text{evidence}(a, b)$ to be an increasing function of the common neighbors between $a$ and $b$. In addition we want the evidence scores to get closer to one as the common neighbors increase.
 
@@ -84,7 +84,7 @@ The intuition behind choosing such a function is as follows. We want the evidenc
 
 Thus, another reasonable choice would be the following:
 
-$$\text{evidence}(a, b) = \Big(1 - e^{-|E(a) \cap E(b)|}\Big)$$
+$$\text{evidence}(a, b) = \Big(1 - e^{-|E(a) \cap E(b)|} \Big)$$
 
 
 ## Partial Sums Memoization
