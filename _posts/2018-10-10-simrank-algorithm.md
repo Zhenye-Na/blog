@@ -15,14 +15,14 @@ mathjax_autoNumber: true
 In sponsored search, paid advertisements (ads) relevant to a user's query are shown above or along-side traditional web search results. The placement of these ads is in general related to a ranking score which is a function of the semantic relevance to the query and the advertiser's bid.
 
 <p align="center">
-    <img src="../assets/images/posts-img/simrank/fig1.png" width="50%">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/fig1.png?raw=true" width="50%">
 </p>
 
 
 Ideally, a sponsored search system would appear as in Figure 1. The system has access to a database of available ads and a set of bids. Conceptually, each bid consists of a query $q$, an ad $\alpha$, and a price $p$. With such a bid, the bidder offers to pay if the ad $\alpha$ is both displayed and clicked when a user issues query $q$. For many queries, there are not enough direct bids, so the sponsored search system attempts to find other ads that may be of interest to the user who submitted the query. Even though there is no direct bid, if the user clicks on one of these ads, the search engine will make some money (and the advertiser will receive a customer). The challenge is then to find ads related to incoming queries that may yield user click throughs.
 
 <p align="center">
-    <img src="../assets/images/posts-img/simrank/fig2.png" width="60%">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/fig2.png?raw=true" width="60%">
 </p>
 
 For a variety of practical and historical reasons, the sponsored search system is often split into two components, as shown in Figure 2. A front-end takes an input query $q$ and produces a list of re-writes, i.e., of other queries that are "similar" to $q$. For example, for query "camera", the queries "digital camera" and "photography" may be useful because the user may also be interested in ads for those related queries. The query "battery" may also be useful because users that want a camera may also be in the market for a spare battery. The query and its rewrites are then considered by the back-end, which displays ads that have bids for the query or its rewrites. The split approach reduces the complexity of the back-end, which has to deal with rapidly changing bids. The work of finding relevant ads, indirectly through related queries, is off-loaded to the front-end.
@@ -37,10 +37,9 @@ At the front-end, queries can be rewritten using a variety of techniques (review
 
 
 
-
 ### Basic SimRank algorithm
 
-For a node $v$ in a directed graph, we denote by $I(v)$ and $O(v)$ the set of in-neighbors and out-neighbors of $v$, respectively. Individual in-neighbors are denoted as $I_{i}(v)$, for $1\leq i\leq \left|I(v)\right|$, and individual out-neighbors are denoted as $O_{i}(v)$, for $1\leq i\leq \left|O(v)\right|$.
+For a node $v$ in a directed graph, we denote by $I(v)$ and $O(v)$ the set of in-neighbors and out-neighbors of $v$, respectively. Individual in-neighbors are denoted as $I_{i}(v)$, for $1\leq i\leq |I(v)|$, and individual out-neighbors are denoted as $O_{i}(v)$, for $1\leq i\leq |O(v)|$.
 
 Let us denote the similarity between objects $a$ and $b$ by $s(a,b)\in [0,1]$. Following the earlier motivation, a recursive equation is written for $s(a,b)$. If $a=b$ then $s(a,b)$ is defined to be $1$. Otherwise,
 
@@ -59,16 +58,15 @@ $$s(\alpha, \alpha') = \frac{C_1}{N(\alpha)N(\alpha')} \sum_{i \in E(q)} \sum_{j
 
 where $C_2$ is a constant between $0$ and $1$.
 
-
 If $q = q'$, we deﬁne $s(q, q') = 1$ and analogously if $\alpha = \alpha'$ we define $s(\alpha, \alpha') = 1$. Neglecting $C_1$ and $C_2$, equation 4.1 says that the similarity between queries $q$ and $q'$ is the average similarity between the ads that were clicked on for $q$ and $q'$. Similarly, equation 4.2 says that the similarity between ads $\alpha$ and $\alpha'$ is the average similarity between the queries that triggered clicks on $\alpha$ and $\alpha'$.
 
 ### Matrix representation of SimRank
 
-Let $\mathbf {S}$  be the similarity matrix whose entry $[\mathbf {S} ]_{a,b}$ denotes the similarity score $s(a,b)$, and $\mathbf {A}$  be the column normalized adjacency matrix whose entry $[\mathbf {A} ]_{a,b}={\tfrac {1}{|{\mathcal {I}}(b)|}}$ if there is an edge from $a$ to $b$, and $0$ otherwise. Then, in matrix notations, SimRank can be formulated as
+Let $\mathbf{S}$  be the similarity matrix whose entry $[\mathbf {S}]_{a,b}$ denotes the similarity score $s(a,b)$, and $\mathbf{A}$  be the column normalized adjacency matrix whose entry $[\mathbf {A}]_{a,b}={\tfrac {1}{|{\mathcal{I}}(b)|}}$ if there is an edge from $a$ to $b$, and $0$ otherwise. Then, in matrix notations, SimRank can be formulated as
 
-$${\mathbf {S} }=\max\{C\cdot (\mathbf {A} ^{T}\cdot {\mathbf {S} }\cdot {\mathbf {A} }),{\mathbf {I} }\},$$
+$${\mathbf{S} } = \max \{C\cdot (\mathbf{A}^{T} \cdot {\mathbf{S}} \cdot {\mathbf{A}}),{\mathbf{I}}\},$$
 
-where $\mathbf {I}$  is an identity matrix.
+where $\mathbf{I}$  is an identity matrix.
 
 
 
