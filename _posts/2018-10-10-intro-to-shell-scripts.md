@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to Shell script in 15 minutes"
+title: "Learn Shell script in 15 minutes"
 date: 2018-10-10
 excerpt: "A shell script is a computer program designed to be run by the Unix shell, a command-line interpreter. The various dialects of shell scripts are considered to be scripting languages. Typical operations performed by shell scripts include file manipulation, program execution, and printing text. A script which sets up the environment, runs the program, and does any necessary cleanup, logging, etc. is called a wrapper."
 tags: [Shell Scripts]
@@ -9,7 +9,7 @@ mathjax_autoNumber: true
 ---
 
 > A shell script is a computer program designed to be run by the Unix shell, a command-line interpreter. The various dialects of shell scripts are considered to be scripting languages. Typical operations performed by shell scripts include file manipulation, program execution, and printing text. A script which sets up the environment, runs the program, and does any necessary cleanup, logging, etc. is called a wrapper.
-> In this tutorial, I will try to help you understand some of the basics of shell script programming (aka shell scripting). You can find all source codes [here]().
+> In this tutorial, I will try to help you understand some of the basics of shell script programming (aka shell scripting). You can find all source codes [here](https://github.com/Zhenye-Na/sh-tutorial).
 
 # Learn Shell script in 15 minutes
 
