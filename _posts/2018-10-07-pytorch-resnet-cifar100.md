@@ -375,7 +375,7 @@ Iteration: 70 | Loss: 0.16828414216181453 | Training accuracy: 95.162% | Test ac
 ## References
 
 [1] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun. [*"Deep Residual Learning for Image Recognition"*](https://arxiv.org/abs/1512.03385). arXiv:1512.03385  
-[2] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun. [*"Identity Mappings in Deep Residual Networks"*](https://arxiv.org/abs/1603.05027). arXiv:1603.05027
+[2] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun. [*"Identity Mappings in Deep Residual Networks"*](https://arxiv.org/abs/1603.05027). arXiv:1603.05027  
 [3] Pytorch torchvision.models [https://pytorch.org/docs/stable/torchvision/models.html](https://pytorch.org/docs/stable/torchvision/models.html)  
 [4] Source code for [*torchvision.models.resnet*](https://pytorch.org/docs/0.4.0/_modules/torchvision/models/resnet.html)  
 
