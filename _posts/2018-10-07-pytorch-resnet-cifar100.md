@@ -96,10 +96,10 @@ We can denote each layer by $f(x)$. In a standard network $y = f(x)$. However, i
 
 ### ResNet Architecture
 
-<!--<figure>
+<figure>
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/resnet/explain.png?raw=true" width="80%" class="center">
     <figcaption>Figure 3: ResNet architecture in my own implementation.</figcaption>
-</figure>-->
+</figure>
 
 The figure above is the architecture I used in my own imlementation of ResNet. I have reached $62 \sim 63\%$ accuracy on CIFAR100 test set after training for 70 epochs.
 
@@ -138,7 +138,7 @@ transform_test = transforms.Compose([
 
 ### ResNet model
 
-Note: I have used different architecture in the ResNet. Please pay attention when you wanna use this pieces of codes.
+**Note**: I have used different architecture in the ResNet. Please pay attention when you wanna use this pieces of codes.
 
 #### Basic Block Class
 
