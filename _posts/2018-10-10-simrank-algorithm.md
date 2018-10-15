@@ -43,16 +43,17 @@ At the front-end, queries can be rewritten using a variety of techniques (review
 For a node $v$ in a directed graph, we denote by $I(v)$ and $O(v)$ the set of in-neighbors and out-neighbors of $v$, respectively. Individual in-neighbors are denoted as $I_{i}(v)$, for 
 
 <figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/f1.png?raw=true" width="60%" class="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/f1.png?raw=true" width="20%" class="center">
 </figure>
 
 , and individual out-neighbors are denoted as $O_{i}(v)$, for 
 
 <figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/f2.png?raw=true" width="60%" class="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/f2.png?raw=true" width="20%" class="center">
 </figure>
 
 .
+
 
 Let us denote the similarity between objects $a$ and $b$ by $s(a,b)\in [0,1]$. Following the earlier motivation, a recursive equation is written for $s(a,b)$. If $a=b$ then $s(a,b)$ is defined to be $1$. Otherwise,
 
@@ -79,7 +80,7 @@ Let $\mathbf{S}$  be the similarity matrix whose entry $[\mathbf {S}]_{a,b}$ den
 
 
 <figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/f3.png?raw=true" width="60%" class="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/f3.png?raw=true" width="20%" class="center">
 </figure>
 
 
