@@ -14,16 +14,17 @@ mathjax_autoNumber: true
 
 In sponsored search, paid advertisements (ads) relevant to a user's query are shown above or along-side traditional web search results. The placement of these ads is in general related to a ranking score which is a function of the semantic relevance to the query and the advertiser's bid.
 
-<p align="center">
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/fig1.png?raw=true" width="50%">
-</p>
+
+<figure>
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/fig1.png?raw=true" width="60%" class="center">
+</figure>
 
 
 Ideally, a sponsored search system would appear as in Figure 1. The system has access to a database of available ads and a set of bids. Conceptually, each bid consists of a query $q$, an ad $\alpha$, and a price $p$. With such a bid, the bidder offers to pay if the ad $\alpha$ is both displayed and clicked when a user issues query $q$. For many queries, there are not enough direct bids, so the sponsored search system attempts to find other ads that may be of interest to the user who submitted the query. Even though there is no direct bid, if the user clicks on one of these ads, the search engine will make some money (and the advertiser will receive a customer). The challenge is then to find ads related to incoming queries that may yield user click throughs.
 
-<p align="center">
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/fig2.png?raw=true" width="60%">
-</p>
+<figure>
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/simrank/fig2.png?raw=true" width="60%" class="center">
+</figure>
 
 For a variety of practical and historical reasons, the sponsored search system is often split into two components, as shown in Figure 2. A front-end takes an input query $q$ and produces a list of re-writes, i.e., of other queries that are "similar" to $q$. For example, for query "camera", the queries "digital camera" and "photography" may be useful because the user may also be interested in ads for those related queries. The query "battery" may also be useful because users that want a camera may also be in the market for a spare battery. The query and its rewrites are then considered by the back-end, which displays ads that have bids for the query or its rewrites. The split approach reduces the complexity of the back-end, which has to deal with rapidly changing bids. The work of finding relevant ads, indirectly through related queries, is off-loaded to the front-end.
 
@@ -114,3 +115,12 @@ Consequently, the results of $\text{Partial}_{I(a)}^{s_{k}}(j)$, $\forall j\in I
 [1] David Easley and Jon Kleinberg, [*"Networks, Crowds, and Markets: Reasoning about a Highly Connected World - Chapter 14.2"*](https://github.com/Zhenye-Na/cs498HS4/blob/master/hw1/networks-book-ch14.pdf)  
 [2] HITS algorithm from wiki, [*"HITS algorithm"*](https://en.wikipedia.org/wiki/HITS_algorithm#Algorithm)  
 [3] Weiren Yu, Xuemin Lin, Wenjie Zhang [*"Towards Efficient SimRank Computation over Large Networks"*](https://www.doc.ic.ac.uk/~wyu1/ppt/oral/icde13.pdf)
+
+
+<style>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
