@@ -26,7 +26,7 @@ Here are the classes in the dataset, as well as 10 random images from each:
 <img src="https://pytorch.org/tutorials/_images/cifar10.png" class="center">
 
 
-## Trainig an Image Classifier in Pytorch
+## Training an Image Classifier in Pytorch
 
 We will do the following steps in order:
 
@@ -70,13 +70,15 @@ transform_test = transforms.Compose([
 The next step is to load dataset
 
 ```python
-trainset    = torchvision.datasets.CIFAR10(root=opt.dataroot, train=True, download=True, transform=transform_train)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=opt.batch_size_train, shuffle=True, num_workers=2)
+trainset = torchvision.datasets.CIFAR10(
+    root=opt.dataroot, train=True, download=True, transform=transform_train)
+trainloader = torch.utils.data.DataLoader(
+    trainset, batch_size=opt.batch_size_train, shuffle=True, num_workers=2)
 
-testset     = torchvision.datasets.CIFAR10(root=opt.dataroot, train=False, download=True, transform=transform_test)
-testloader  = torch.utils.data.DataLoader(testset, batch_size=opt.batch_size_test, shuffle=False, num_workers=2)
-
-classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+testset = torchvision.datasets.CIFAR10(
+    root=opt.dataroot, train=False, download=True, transform=transform_test)
+testloader = torch.utils.data.DataLoader(
+    testset, batch_size=opt.batch_size_test, shuffle=False, num_workers=2)
 ```
 
 
@@ -235,7 +237,7 @@ for epoch in range(start_epoch, opt.epochs + start_epoch):
 print('==> Finished Training ...')
 ```
 
-## Result
+## Loss, training accuracy and test accuracy
 
 ```
 $ python3 main.py
