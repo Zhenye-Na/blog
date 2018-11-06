@@ -24,9 +24,9 @@ These algorithms minimize or maximize a Loss function $E(x)$ using its Gradient 
 Second-order methods use the second order derivative which is also called Hessian to minimize or maximize the Loss function.The Hessian is a Matrix of Second Order Partial Derivatives. Since the second derivative is costly to compute, the second order is not used much .The second order derivative tells us whether the first derivative is increasing or decreasing which hints at the function’s curvature.Second Order Derivative provide us with a quadratic surface which touches the curvature of the Error Surface.
 
 
-Some Advantages of Second Order Optimization over First Order —
+Some Advantages of Second Order Optimization over First Order:
 Although the Second Order Derivative may be a bit costly to find and calculate, but the advantage of a Second order Optimization Technique is that is does not neglect or ignore the curvature of Surface.Secondly, in terms of Step-wise Performance they are better.
-
+{:.info}
 
 
 
@@ -35,6 +35,29 @@ Now The First Order Optimization techniques are easy to compute and less time co
 Second Order Techniques are faster only when the Second Order Derivative is known otherwise, these methods are always slower and costly to compute in terms of both time and memory.
 
 
+
+## Gradient Descent
+
+## Stochastic gradient descent
+
+## mini-batch gradient descent
+
+
+## Gradient Descent with Momentum
+
+## Adam
+
+
+
+## RMSprop
+
+$$ \begin{align} r_i &\leftarrow \rho r_i + (1 - \rho) g_i^2 \\
+\Delta \theta_i &= - \frac{\epsilon}{\sqrt{\delta + r_i}} g_i \\
+\theta_i &\leftarrow \theta_i + \Delta \theta_i \end{align} $$
+
+$\theta_i$ is the $i_{\text{th}}$ parameter.
+
+## AdaGrad
 
 
 
