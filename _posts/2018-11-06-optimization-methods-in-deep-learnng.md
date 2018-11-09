@@ -25,6 +25,8 @@ These algorithms minimize or maximize a Loss function $E(x)$ using its **Gradien
 
 Second-order methods use the second order derivative which is also called **Hessian** to minimize or maximize the Loss function. The Hessian is a Matrix of Second Order Partial Derivatives. Since the second derivative is costly to compute, the second order is not used much. The second order derivative tells us whether the first derivative is increasing or decreasing which hints at the function's curvature. Second Order Derivative provide us with a quadratic surface which touches the curvature of the **Error Surface**.
 
+$$ x \leftarrow x - [H f(x)]^{-1} \nabla f(x) $$
+
 
 Some Advantages of Second Order Optimization over First Order:  
 Although the Second Order Derivative may be a bit costly to find and calculate, but the advantage of a Second order Optimization Technique is that is **does not neglect or ignore the curvature of Surface**. Secondly, **in terms of Step-wise Performance they are better**.
@@ -61,6 +63,17 @@ where $\theta_i$ is the $i_{\text{th}}$ parameter.
 
 ### RMSprop
 
+RMSprop is a very effective, but currently unpublished adaptive learning rate method. Amusingly, everyone who uses this method in their work currently cites [slide 29 of Lecture 6](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf) of Geoff Hinton's Coursera class. The RMSProp update adjusts the Adagrad method in a very simple way in an attempt to reduce its aggressive, monotonically decreasing learning rate. In particular, it uses a moving average of squared gradients instead, giving:
+
+```python
+cache = decay_rate * cache + (1 - decay_rate) * dx ** 2
+x += - learning_rate * dx / (np.sqrt(cache) + eps)
+```
+
+Here, `decay_rate` is a hyperparameter and typical values are `[0.9, 0.99, 0.999]`. Notice that the `x +=` update is identical to Adagrad, but the `cache` variable is a "leaky". Hence, RMSProp still modulates the learning rate of each weight based on the magnitudes of its gradients, which has a beneficial equalizing effect, but unlike Adagrad the updates do not get monotonically smaller.
+
+Mathematical representation is given by:
+
 $$ \begin{align} r_i &\leftarrow \rho r_i + (1 - \rho) g_i^2 \\
 \Delta \theta_i &= - \frac{\epsilon}{\sqrt{\delta + r_i}} g_i \\
 \theta_i &\leftarrow \theta_i + \Delta \theta_i \end{align} $$
@@ -77,6 +90,17 @@ $$ \begin{align} r_i &\leftarrow \rho r_i + (1 - \rho) g \odot g  \\
 where $\sqrt{\cdot}$ is applied element-wise.
 
 ### AdaGrad
+
+an adaptive learning rate method originally proposed by [Duchi et al.](http://jmlr.org/papers/v12/duchi11a.html)
+
+```python
+# Assume the gradient dx and parameter vector x
+cache += dx ** 2
+x += - learning_rate * dx / (np.sqrt(cache) + eps)
+```
+Notice that the variable `cache` has size equal to the size of the gradient, and keeps track of per-parameter sum of squared gradients. This is then used to normalize the parameter update step, element-wise. Notice that the weights that receive high gradients will have their effective learning rate reduced, while weights that receive small or infrequent updates will have their effective learning rate increased. Amusingly, the square root operation turns out to be very important and without it the algorithm performs much worse. The smoothing term `eps` (usually set somewhere in range from 1e-4 to 1e-8) avoids division by zero. A downside of Adagrad is that in case of Deep Learning, the monotonic learning rate usually proves too aggressive and stops learning too early.
+
+Mathematical representation is given by:
 
 $$ \begin{align} r_i &\leftarrow r_i + g_i^2 \\
 \Delta \theta_i &= - \frac{\epsilon}{\delta + \sqrt{r_i}} g_i \\
