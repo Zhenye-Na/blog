@@ -17,7 +17,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
 \documentclass{resume} % Use the custom resume.cls style
@@ -36,7 +36,7 @@
 \begin{document}
 
 %----------------------------------------------------------------------------------------
-%	OBJECTIVE
+%   OBJECTIVE
 %----------------------------------------------------------------------------------------
 
 % \begin{rSection}{OBJECTIVE}
@@ -50,7 +50,7 @@
 % \textbf{Objective}: Actively seeking Software Development Engineer opportunity since 2018 Fall\\
 % \\
 %----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
+%   EDUCATION SECTION
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Education}
 
@@ -77,18 +77,28 @@ Bachelor of Engineering, Harbor, Waterway and Coastal Engineering, GPA: 3.67/4.0
 
 
 %----------------------------------------------------------------------------------------
-%	PROJECTS SECTION
+%   PROJECTS SECTION
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{SELECTED PROJECTS}
 
+%------------------------------------------------
 
-% \begin{rSubsection}{Video analysis of Bilibili using Scrapy and Pyspark}{Aug. 2018 - present}{\url{github-repo-here}}{}
+\begin{rSubsection}{Flappy Bird hack using Deep Reinforcement Learning (OpenCV, PyTorch)}{Nov. 2018 - Present}{\url{https://github.com/drl-dql/atari-game}}{}
+\item Implement Double DQN model with PyTorch in OpenAI Gym environment
+\item Apply DNN with convolution layer to train agent with preprocessed screen input of Flappy Bird game
+\item Train Deep Reinforcement Learning model in NCSA Blue Waters supercomputers by distributed training
+\item Generalize the train-ed agent in Flappy Bird to other atari games in OpenAI Gym environment
+\end{rSubsection}
 
-% \item Analyzed user preferences and popular trend of video topic, commentary subtitles on videos using Pyspark and Scrapy
-% \item Performed data visualization using D3.js
 
-% \end{rSubsection}
+%------------------------------------------------
+
+\begin{rSubsection}{Image Similarity using Deep Ranking (Python, PyTorch)}{Sep. 2018 - Nov. 2018}{\url{https://github.com/Zhenye-Na/image-similarity-using-deep-ranking}}{}
+\item Implemented Deep Ranking Triplet Network model in PyTorch by using pre-trained ResNet-101 model on ImageNet dataset
+\item Integrated with image query API for interactive image similarity searching and displaying
+\item Proved that Multi-scale Network model could be replaced by a simple ResNet-101 and still reached impressive 55\% test accuracy in only 20 epochs
+\end{rSubsection}
 
 %------------------------------------------------
 
@@ -101,17 +111,17 @@ Bachelor of Engineering, Harbor, Waterway and Coastal Engineering, GPA: 3.67/4.0
 
 %------------------------------------------------
 
-\begin{rSubsection}{Full Stack Web Application: mini Quora}{Jul. 2018 - Aug. 2018}{\url{https://qac.herokuapp.com/}}{}
-\item Developed a Q\&A Community Web Application using AngularJS for front-end, Laravel and MySQL for back-end
-\item Designed database schema and maintained database in MySQL using Laravel Migration mechanism
-\item Integrated features such as upvote/downvote, user following and questions suggestion into the application
-\end{rSubsection} 
+% \begin{rSubsection}{Full Stack Web Application: mini Quora}{Jul. 2018 - Aug. 2018}{\url{https://qac.herokuapp.com/}}{}
+% \item Developed a Q\&A Community Web Application using AngularJS for front-end, Laravel and MySQL for back-end
+% \item Designed database schema and maintained database in MySQL using Laravel Migration mechanism
+% \item Integrated features such as upvote/downvote, user following and questions suggestion into the application
+% \end{rSubsection}
 
 %------------------------------------------------
 
-\begin{rSubsection}{MAMP based Online Store: Mining Rig Assembly}{Mar. 2018 - May 2018}{\url{http://rigassembly.web.engr.illinois.edu/}}{}
+\begin{rSubsection}{MAMP based Online Store: Mining Rig Assembly (Bootstrap, MariaDB)}{Mar. 2018 - May 2018}{\url{http://rigassembly.web.engr.illinois.edu/}}{}
 \item Conceptualized an MAMP based eCommerce application for conveniently browsing, storing rig setups 
-\item Implemented using Bootstrap for front-end, MySQL for back-end, FushionCharts for data visualization
+\item Implemented on-line store using Bootstrap for front-end, MariaDB for back-end, FushionCharts for data visualization
 % \item Worked on implementing 3rd-party API integrations with Amazon and Newegg data.
 % \item Designed and maintained database in MariaDB with data crawled from Amazon using Java.
 \item Designed and maintained database in MariaDB by 3rd-party API integrating Amazon and Newegg
@@ -120,24 +130,19 @@ Bachelor of Engineering, Harbor, Waterway and Coastal Engineering, GPA: 3.67/4.0
 \end{rSubsection}
 
 %------------------------------------------------
-% \begin{rSubsection}{Classical Music Generation with Machine Learning}{Apr. 2018 - May 2018}{This project will be \textbf{updated/deleted} in the next version}{}
-% \item Preprocessed classical music into MIDI files in Python packages
-% \item Implemented GAN with LSTM layers as generative model for creating classical music in Tensorflow framework
-% \item Improved generated music result by using RBM with Gibbs Sampling
-% \end{rSubsection}
 
-\begin{rSubsection}{Shortest Path Prediction with GCN}{Nov. 2017 - Dec. 2017}{Team Leader}{}
-\item Innovated Graph Convolution Network and Deep Neural Network separately for Shortest Path Prediction
-\item Created Data Visualization of Dataset such as Similarity Matrix, Heat Map and predicted Shortest Path visualization
-\item Preprocessed Airlines Delay dataset to Partition Graph and implemented models in Tensorflow
-\item Resulted in 75\% prediction accuracy in GCN model v.s. 34\% accuracy in DNN model
-\end{rSubsection}
+% \begin{rSubsection}{Shortest Path Prediction with GCN}{Nov. 2017 - Dec. 2017}{Team Leader}{}
+% \item Innovated Graph Convolution Network and Deep Neural Network separately for Shortest Path Prediction
+% \item Created Data Visualization of Dataset such as Similarity Matrix, Heat Map and predicted Shortest Path visualization
+% \item Preprocessed Airlines Delay dataset to Partition Graph and implemented models in Tensorflow
+% \item Resulted in 75\% prediction accuracy in GCN model v.s. 34\% accuracy in DNN model
+% \end{rSubsection}
 
 
 \end{rSection} 
 
 %----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE SECTION
+%   WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 \begin{rSection}{WORKING EXPERIENCE} \itemsep -3pt  
 
@@ -147,7 +152,7 @@ Bachelor of Engineering, Harbor, Waterway and Coastal Engineering, GPA: 3.67/4.0
 
 \begin{rSubsection}{Data Analyst Intern}{Sept. 2016 - Nov. 2016}{Dalian Highway Construction Group}{Dalian, China}
 \item Evaluated highway maintenance cost based on factors like traffic weight, bridge/tunnel ratio and so forth
-\item Adapted Linear and Nonlinear Regression model in SPSS and the residual between predicted cost and ground-truth is within 10\%
+\item Adapted Linear and Nonlinear Regression model in SPSS and the model error is within 10\%
 \item Created data visualization in Excel for Cost Manager by using VBA
 \item Optimized road maintenance cost by 20\% based on the appraisal factor model
 % \item The final plan I participated in drawing successfully saved cost of road maintenance by 20\%.
@@ -158,14 +163,14 @@ Bachelor of Engineering, Harbor, Waterway and Coastal Engineering, GPA: 3.67/4.0
 
 
 %----------------------------------------------------------------------------------------
-%	TECHNICAL SKILL SECTION
+%   TECHNICAL SKILL SECTION
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{TECHNICAL SKILLS}
 
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{5ex}} l }
 Languages & Python, Java, C/C++, Go, MATLAB, SQL, Shell scripting, JavaScript, Julia\\
-Frameworks & Tensorflow, Pytorch, Express.js, Node.js, REST\\ % Hadoop, Spark, Laravel, Tensorflow.js, D3.js, REST
+Frameworks & Tensorflow, Pytorch, Node.js, REST\\ % Hadoop, Spark, Laravel, Tensorflow.js, D3.js, REST
 Tools & MySQL, MongoDB, MariaDB, Hadoop, Spark
 \end{tabular}
 
