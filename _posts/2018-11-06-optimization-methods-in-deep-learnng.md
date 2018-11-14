@@ -118,10 +118,10 @@ More specifically,
 
 <div class="row">
   <div class="column">
-    <img src="http://cs231n.github.io/assets/nn3/opt1.gif" alt="opt1" style="width:100%">
+    <img src="https://cs231n.github.io/assets/nn3/opt1.gif" alt="opt1" style="width:100%">
   </div>
   <div class="column">
-    <img src="http://cs231n.github.io/assets/nn3/opt2.gif" alt="opt2" style="width:100%">
+    <img src="https://cs231n.github.io/assets/nn3/opt2.gif" alt="opt2" style="width:100%">
   </div>
 </div>
 
