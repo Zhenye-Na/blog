@@ -52,14 +52,13 @@ $$ \begin{bmatrix}
 ### Vertical Edge Detection
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week1/vertical_edge_detection.png">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/vertical_edge_detection.png?raw=true">
 </p>
-
 
 ### Horizontal Edge Detection
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week1/horizontal_edge_detection.png">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/horizontal_edge_detection.png?raw=true">
 </p>
 
 
@@ -122,7 +121,7 @@ $$ \begin{bmatrix}
 ### Padding
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week1/padding.png">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/padding.png?raw=true" >
 </p>
 
 When we perform convolution on the oringinal image:
@@ -149,7 +148,7 @@ $f$ (kernel size / filter size) is usally odd.
 ## Strided convolution
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week1/strided_convolution.png">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/strided_convolution.png?raw=true" />
 </p>
 
 
@@ -218,7 +217,7 @@ $$ \bigg( \Bigl\lfloor \frac{d^{l-1}_y - k_y^l + 2P}{s} + 1 \Bigr\rfloor \bigg) 
 ### Convolution on RGB image
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week1/conv_on_rgb.png">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/conv_on_rgb.png?raw=true">
 </p>
 
 `6x6x3` image convolve with `3x3x3` filter giving `4x4x1` output.
@@ -226,7 +225,7 @@ $$ \bigg( \Bigl\lfloor \frac{d^{l-1}_y - k_y^l + 2P}{s} + 1 \Bigr\rfloor \bigg) 
 ### Multiple filters
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week1/multifilters.png">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/multifilters.png?raw=true">
 </p>
 
 
