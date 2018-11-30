@@ -75,7 +75,7 @@ for key, value in sorted(marvel.iteritems(), key=lambda (k,v): (v,k)):
 
 **Results**:
 
-```
+```python
 >>> marvel = {'Wolverine':12,
 ...           'Spider-Man':23,
 ...           'Thor':34,
