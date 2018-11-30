@@ -86,9 +86,9 @@ One by One convolution was first introduced in this paper titled [Network in Net
 
 ## Inception Network
 
-<p align="center">
-  <img src="https://cdn-images-1.medium.com/max/1600/0*CJZdXZULMr_on1Ao.jpg" />
-</p>
+<div class="center">
+  <img src="https://cdn-images-1.medium.com/max/1600/0*CJZdXZULMr_on1Ao.jpg"/>
+</div>
 
 ### Bottleneck layer
 
@@ -128,9 +128,9 @@ If you have a lot lot lot of data, then you should use the existed models (pre-t
 
 ### Color Shifting
 
-<p align="center">
+<div class="center">
   <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week2/color_shifting.png?raw=true" class="center"/>
-</p>
+</div>
 
 
 > Advanced: PCA color augmentation
