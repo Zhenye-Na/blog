@@ -2,6 +2,7 @@
 layout: post
 title: "Intersection over Union (IoU) for Object Detection"
 date: 2018-05-22
+modify_date: 2018-11-30
 excerpt: "Intersection over Union is an evaluation metric used to measure the accuracy of an object detector "
 tags: [Computer Vision, Object Detection]
 mathjax: true
@@ -70,6 +71,14 @@ def bb_intersection_over_union(boxA, boxB):
     # return the intersection over union value
     return iou
 ```
+
+
+## IoU in Deep Learning course by Andrew Ng
+
+<figure>
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/iou/iou2.png?raw=true" class="center">
+</figure>
+
 
 
 ## Quiz
