@@ -4,7 +4,7 @@ title: "Week 2 lecture note of Coursera - Convolutional Neural Networks from dee
 date: 2018-12-02
 modify_date: 2018-12-02
 excerpt: "Deep convolutional models: case studies"
-tags: [Python, Data Structures]
+tags: [Deep Learning, Convolutional Neural Networks]
 mathjax: true
 mathjax_autoNumber: true
 ---
