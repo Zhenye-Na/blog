@@ -19,7 +19,7 @@ mathjax_autoNumber: true
 ### Classification with Localization
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week3/classification_with_localization.png" />
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/classification_with_localization.png?raw=true" />
 </p>
 
 
@@ -27,7 +27,7 @@ mathjax_autoNumber: true
 ### Defining the target label y
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week3/target_label_y.png" />
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/target_label_y.png?raw=true" />
 </p>
 
 Loss function is defined as follows:
@@ -44,7 +44,7 @@ $$
 ## Landmark Detection
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week3/landmark_detection.png" />
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/landmark_detection.png?raw=true" />
 </p>
 
 
@@ -64,7 +64,7 @@ $$
 ### Turning FC layers to Convolutional layers
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week3/fc_to_conv.png" />
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/fc_to_conv.png?raw=true" />
 </p>
 
 
@@ -91,7 +91,7 @@ Each grid cell predicts a fixed number of boundary boxes. In this example, the y
 ## Intersection over Union
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week3/iou.png" />
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/iou.png" />
 </p>
 
 
@@ -123,7 +123,7 @@ $$ \text{IoU} = \frac{\text{Area of Overlap}}{\text{Area of Union}} $$
 
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week3/nonmax_suppresion.png" />
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/nonmax_suppresion.png?raw=true" />
 </p>
 
 ### Python implementation from Pyimageserach.com
@@ -306,7 +306,7 @@ Finally, we return the set of picked bounding boxes (the ones that were not supp
 ### Anchor Box Algorithm
 
 <p align="center">
-  <img src="../assets/images/posts-img/deeplearningspecialization/4_cnn/week3/anchor_box.png" />
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/anchor_box.png?raw=true" />
 </p>
 
 
@@ -361,9 +361,6 @@ Now we have class scores for each bounding box(Tensor dimension=20*1). Now let u
 <figure>
     <img src="https://cdn-images-1.medium.com/max/1600/1*Rq3UyhpF47NTdCyEzYC7vg.png" class="center">
 </figure>
-
-
-
 
 
 Now we will use Non-max supression algorithm to set score to zero for redundant boxes.
