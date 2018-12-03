@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Week 2 lecture note of Coursera - Convolutional Neural Networks from deeplearning.ai"
-date: 2018-12-02
-modify_date: 2018-12-02
+date: 2018-12-01
+modify_date: 2018-12-01
 excerpt: "Deep convolutional models: case studies"
 tags: [Deep Learning, Convolutional Neural Networks]
 mathjax: true
