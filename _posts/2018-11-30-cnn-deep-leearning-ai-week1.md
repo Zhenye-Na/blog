@@ -3,7 +3,7 @@ layout: post
 title: "Week 1 lecture note of Coursera - Convolutional Neural Networks from deeplearning.ai"
 date: 2018-11-30
 modify_date: 2018-11-30
-excerpt: "Course 4 of Deep Learning Specialization from deeplearning.ai"
+excerpt: "Foundations of Convolutional Neural Networks"
 tags: [Deep Learning, Convolutional Neural Networks]
 mathjax: true
 mathjax_autoNumber: true
