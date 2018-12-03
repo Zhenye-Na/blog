@@ -91,7 +91,7 @@ Each grid cell predicts a fixed number of boundary boxes. In this example, the y
 ## Intersection over Union
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/iou.png" />
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/iou.png?raw=true" />
 </p>
 
 
