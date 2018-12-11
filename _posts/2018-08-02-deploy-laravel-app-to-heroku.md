@@ -33,7 +33,7 @@ So just `cd` to your project folder.
 It’s now time to initialize a Git repository and commit the current state:
 
 ```sh
-$ git init
+git init
 ```
 
 
@@ -45,13 +45,13 @@ To deploy your application to Heroku, you must first create a `Procfile`, which 
 ### Creating a Procfile
 
 ```sh
-$ echo web: vendor/bin/heroku-php-apache2 public/ > Procfile
+echo web: vendor/bin/heroku-php-apache2 public/ > Procfile
 ```
 
 ### Creating a new application on Heroku
 
 ```sh
-$ heroku create [: your_app_name: ]
+heroku create [: your_app_name: ]
 ```
 
 Replace `[: your_app_name: ]` with the name of your app or leave it blank, Heroku will generate random name for your app.
@@ -68,7 +68,7 @@ Copy the **APP_KEY** from your `.env` file, then go to the Heroku dashboard for 
 You can simply set environment variables using the `heroku config` command, so run a `heroku config:set` as the last step before deploying your app for the first time:
 
 ```sh
-$ heroku config:set APP_KEY=[: :]
+heroku config:set APP_KEY=[: :]
 ```
 
 Instead of manually replacing the `[: :]` placeholder in the command above, you can also run
@@ -81,17 +81,15 @@ Instead of manually replacing the `[: :]` placeholder in the command above, you 
 Go to the Heroku dashboard for you app -> Settings, you can find `Heroku Git URL => https://git.heroku.com/yourappname.git`. Copy it and run
 
 ```sh
-$ git remote add heroku [: https://git.heroku.com/yourappname.git :]
+git remote add heroku [: https://git.heroku.com/yourappname.git :]
 ```
 
 Then you can push your codes to Heroku
 
 ```sh
-$ git add .
-
-$ git commit -m ":tada:"
-
-$ git push heroku master
+git add .
+git commit -m ":tada:"
+git push heroku master
 ```
 
 Cong! You have already deploy your first Heroku App online!
@@ -106,13 +104,13 @@ If you are using `MySQL` in your app please follow the instructions below
 ### Add a PHP buildpack
 
 ```sh
-$ heroku buildpacks:set https://github.com/heroku/heroku-buildpack-php
+heroku buildpacks:set https://github.com/heroku/heroku-buildpack-php
 ```
 
 ### Add MySQL add-ons
 
 ```sh
-$ heroku addons:add cleardb
+heroku addons:add cleardb
 ```
 
 You may need add your credit card info first to install this add-on.
@@ -120,7 +118,7 @@ You may need add your credit card info first to install this add-on.
 
 
 ```sh
-$ heroku config | grep CLEARDB_DATABASE_URL
+heroku config | grep CLEARDB_DATABASE_URL
 ```
 
 This creates a config variable called `CLEARDB_DATABASE_URL`. Add `CLEARDB_DATABASE_URL` to our `.env` file.
@@ -165,17 +163,15 @@ return [
 Go to the Heroku dashboard for you app -> Settings, you can find `Heroku Git URL => https://git.heroku.com/yourappname.git`. Copy it and run
 
 ```sh
-$ git remote add heroku [: https://git.heroku.com/yourappname.git :]
+git remote add heroku [: https://git.heroku.com/yourappname.git :]
 ```
 
 Then you can push your codes to Heroku
 
 ```sh
-$ git add .
-
-$ git commit -m ":tada:"
-
-$ git push heroku master
+git add .
+git commit -m ":tada:"
+git push heroku master
 ```
 
 Cong! You have already deploy your first Heroku App online!
@@ -187,11 +183,9 @@ Cong! You have already deploy your first Heroku App online!
 In order to get our database set up without issue try these commands.
 
 ```sh
-$ heroku run php artisan migrate
-
-$ heroku run php artisan migrate:reset
-
-$ heroku run php artisan migrate
+heroku run php artisan migrate
+heroku run php artisan migrate:reset
+heroku run php artisan migrate
 ```
 
 > **From [Connor Leech's post](https://dev.to/connor11528/deploy-a-laravel-5-app-to-heroku)**:
