@@ -95,11 +95,11 @@ For unsinged data, right shifts must be logical.
 Mostly using logical shift when singed data.
 
 
-> Shifting by k, for large values of k
+> Shifting by $k$, for large values of $k$
 > 
-> For a type consisting of w bits, what shohld be the effect of shifting by some value $k \geq w$ ? 
+> For a type consisting of $w$ bits, what shohld be the effect of shifting by some value $k \geq w$ ? 
 > 
-> The shift amount is computed as k mod w.
+> The shift amount is computed as $k$ mod $w$.
 
 ## References
   
