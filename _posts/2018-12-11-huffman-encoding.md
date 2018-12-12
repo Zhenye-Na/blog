@@ -205,7 +205,7 @@ Notice that in our Huffman tree, the more frequent a character is, the closer it
 
 ## Implementation of Huffman Encoding
 
-This snippet of codes is grabbed from [Huffman Coding | Greedy Algo-3](https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/) by [Aashish Barnwal](https://www.facebook.com/barnwal.aashish).
+This snippet of codes is grabbed from [Huffman Coding Greedy Algo-3](https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/) by [Aashish Barnwal](https://www.facebook.com/barnwal.aashish).
 
 
 ```cpp
