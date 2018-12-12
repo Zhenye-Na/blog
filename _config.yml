@@ -69,6 +69,8 @@ ga_tracking_id: UA-116457928-1 #Google analytics id for the site
 #   app_class: 
 
 mathjax: true
+mermaid: true
+chart: true
 
 ## Paginate ##
 paginate: 7
