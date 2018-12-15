@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "The Huffman Encoding algorithm"
-date: 2018-12-09
-modify_date: 2018-12-09
+date: 2018-12-11
+modify_date: 2018-12-15
 excerpt: "Introduction to Huffman Encoding algorithm"
 tags: [Algorithms]
 mermaid: true
@@ -24,23 +24,26 @@ The process of finding and/or using such a code proceeds by means of Huffman cod
 
 ## Overview
 
-The video below is Huffman Encoding section of CS225 Online Series taught by Chase Geige. It is strongly recommended that you watch the video to understand the motivation for why we're talking about Huffman Encoding as well as how the algorithm works. If you are interested in seeing a step-by-step execution of the Huffman Tree algorithms, please watch it:
+The video below is grabbed from "Huffman Encoding section of CS225 Online Series" taught by Chase Geige. It is *strongly* recommended that you watch the video to understand the motivation for why we're talking about Huffman Encoding as well as how the algorithm works. If you are interested in seeing a step-by-step execution of the Huffman Tree algorithms, please watch it:
 
 
 <!--<iframe width="652" height="451" src="https://www.youtube.com/embed/fWk6Y8Rd6bs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
 
-In a nutshell, Huffman encoding takes in a text input and generates a binary code (a string of 0's and 1's) that represents that text.
+In a nutshell, Huffman encoding takes in a *text input* and generates a *binary code (a string of 0's and 1's) that represents that text*.
 {:.info}
+
 
 ## Building the Huffman tree
 
-Input is array of unique characters along with their frequency of occurrences and output is Huffman Tree.
+The input to build a Huffman Tree is an array of unique characters along with their frequency of occurrences and output is Huffman Tree.
 
-1. Create a leaf node for each unique character and build a min heap of all leaf nodes (Min Heap is used as a priority queue. The value of frequency field is used to compare two nodes in min heap. Initially, the least frequent character is at root)
-2. Extract two nodes with the minimum frequency from the min heap.
-3. Create a new internal node with frequency equal to the sum of the two nodes frequencies. Make the first extracted node as its left child and the other extracted node as its right child. Add this node to the min heap.
-4. Repeat steps #2 and #3 until the heap contains only one node. The remaining node is the root node and the tree is complete.
+The process is as follows:
+
+1. Create leaf nodes for unique character and create two queues. One is called "Single Queue" which contains single characters and another is called "Merged Queue", which contains the combinations of characters.
+2. Extract two nodes with the minimum frequency in "Single Queue" and "Merge Queue" if not empty.
+3. Create a new internal node with frequency equal to the sum of the two nodes frequencies. Make the first extracted node as its left child and the other extracted node as its right child. Add this node to the "Merge Queue".
+4. Repeat until "Merge Queue" contains only one node. The remaining node is the root node and the tree is complete.
 
 
 > Let's understand the algorithm with this example: "feed me more food"
@@ -109,6 +112,8 @@ SINGLE: e : 4
 MERGED: rd : 3 | fm : 4 | o+SPACE : 6
 ```
 
+* * *
+
 ```mermaid
 graph TD;
     K(rde:7) --> L(e:4);
@@ -130,6 +135,9 @@ SINGLE:
 
 MERGED: fm : 4 | o+SPACE : 6 | rde: 7
 ```
+
+* * *
+
 
 ```mermaid
 graph TD;
@@ -156,6 +164,7 @@ SINGLE:
 MERGED: rde: 7 | fmo+SPACE: 10
 ```
 
+* * *
 
 ```mermaid
 graph TD;
@@ -191,7 +200,7 @@ MERGED: rdefmo+SPACE: 17
 
 Now that we built our Huffman tree, its time to see how to encode our original message "feed me more food" into binary code.
 
-**Step 1**: Label the branches of the Huffman tree with a '0' or '1'. BE CONSISTENT: in this example we chose to label all left branches with '0' and all right branches with '1'.
+**Step 1**: Label the branches of the Huffman tree with a '0' or '1'. **BE CONSISTENT: in this example we chose to label all left branches with '0' and all right branches with '1'**.
 
 **Step 2**: Taking one character at a time from our message, traverse the Huffman tree to find the leaf node for that character. The binary code for the character is the string of 0's and 1's in the path from the root to the leaf node for that character. For example: 'f' has the binary code: `100`
 
@@ -210,8 +219,8 @@ This snippet of codes is grabbed from [Huffman Coding Greedy Algo-3](https://www
 
 ```cpp
 // C++ program for Huffman Coding 
-#include < bits/stdc++.h >
-    using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 // A Huffman tree node 
 struct MinHeapNode {
