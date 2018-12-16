@@ -42,16 +42,8 @@ Notice that when we compute $85 % 7$, it happened that the "slot" is taken up by
 | Remove/Find 	|   $O(n)$   	| $O(n/N)$ 	|
 
 
-There is a metric called **Load Factor**
-
-$$
-\alpha = \frac{n}{N}
-$$.
-
-where $n$ stands for the number of elements in the dataset, $N$
- stands for the number of elements in the array.
-
-We can tune the parameter $N$, to increase $N$, running time of finding/removing will be decreased.
+There is a metric called **Load Factor** $\alpha = \frac{n}{N}$, where $n$ stands for the number of elements in the dataset, $N$
+ stands for the number of elements in the array. We can tune the parameter $N$, to increase $N$, running time of finding/removing will be decreased.
 
 
 
@@ -77,7 +69,7 @@ We can tune the parameter $N$, to increase $N$, running time of finding/removing
 
 Open Addressing (which is also called Probe-based Hashing), is another method for handling collisions. In Open Addressing, all elements are stored in the hash table itself. So at any point, size of the table must be greater than or equal to the total number of keys.
 
-> When a new key collides, find next empty slot, and put it there.
+> **When a new key collides, find next empty slot, and put it there**.
 
 
 - `Insert(k)`: Keep probing until an empty slot is found. Once an empty slot is found, insert k.
@@ -124,7 +116,7 @@ If (hash(x) + 2*2) % S is also full, then we try (hash(x) + 3*3) % S
 
 ### Double Hashing
 
-We use another hash function hash2(x) and look for i*hash2(x) slot in i’th rotation.
+We use another hash function `hash2(x)` and look for `i * hash2(x)` slot in i'th rotation.
 
 ```
 let hash(x) be the slot index computed using hash function.  
@@ -140,7 +132,7 @@ If (hash(x) + 2*hash2(x)) % S is also full, then we try (hash(x) + 3*hash2(x)) %
 ### Comparison
 
 |  	| Seperate Chaining 	| Open Addressing 	|
-|:--:	|:-------------------------------------------------------------------------------------------------------:	|:--------------------------------------------------------------------------------------------:	|
+|----	|---------------------------------------------------------------------------------------------------------	|----------------------------------------------------------------------------------------------	|
 | 1. 	| Chaining is Simpler to implement. 	| Open Addressing requires more computation. 	|
 | 2. 	| In chaining, Hash table never fills up, we can always add more elements to chain. 	| In open addressing, table may become full. 	|
 | 3. 	| Chaining is Less sensitive to the hash function or load factors. 	| Open addressing requires extra care for to avoid clustering and load factor. 	|
@@ -148,6 +140,7 @@ If (hash(x) + 2*hash2(x)) % S is also full, then we try (hash(x) + 3*hash2(x)) %
 | 5. 	| Cache performance of chaining is not good as keys are stored using linked list. 	| Open addressing provides better cache performance as everything is stored in the same table. 	|
 | 6. 	| Wastage of Space (Some Parts of hash table in chaining are never used). 	| In Open addressing, a slot can be used even if an input doesn’t map to it. 	|
 | 7. 	| Chaining uses extra space for links. 	| No links in Open addressing 	|
+
 
 
 ### Running Time Analysis
