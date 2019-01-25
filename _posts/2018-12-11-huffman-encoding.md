@@ -27,7 +27,7 @@ The process of finding and/or using such a code proceeds by means of Huffman cod
 The video below is grabbed from "Huffman Encoding section of CS225 Online Series" taught by Chase Geige. It is *strongly* recommended that you watch the video to understand the motivation for why we're talking about Huffman Encoding as well as how the algorithm works. If you are interested in seeing a step-by-step execution of the Huffman Tree algorithms, please watch it:
 
 
-<!--<iframe width="652" height="451" src="https://www.youtube.com/embed/fWk6Y8Rd6bs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<iframe width="652" height="451" src="https://www.youtube.com/embed/fWk6Y8Rd6bs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 In a nutshell, Huffman encoding takes in a *text input* and generates a *binary code (a string of 0's and 1's) that represents that text*.
