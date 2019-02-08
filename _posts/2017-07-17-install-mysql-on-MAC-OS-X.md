@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Install MySQL on Mac OS X"
-key: 10001
 date: 2017-07-17 
 excerpt: "Tutorial: How to install MySQL on Mac OS X"
 tags: [MySQL, Mac OS X]
@@ -75,7 +74,7 @@ Pay attention to the password in notification center. If you do not save the pro
 - Use this piece of code and the password appeared in notification center to log in.
 
 	```bash
-	mysql -uroot -p
+	mysql -u root -p
 	```
 - If you successfully log in using `Terminal`, you can use this piece of code to reset/change your password.
 	

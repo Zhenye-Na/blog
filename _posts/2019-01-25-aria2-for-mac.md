@@ -84,3 +84,6 @@ mathjax_autoNumber: true
     margin-right: auto;
 }
 </style>
+
+
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0 Safari/601.3.9
