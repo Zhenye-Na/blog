@@ -2,7 +2,7 @@
 layout: post
 title: "Tutorial for Kaggle competition using Google Colab"
 date: 2019-02-16
-modify_date: 2019-01-25
+modify_date: 2019-02-16
 excerpt: "Using Google Colab for Kaggle competition"
 tags: [Machine Learning, Deep Learning, Data Science, Kaggle]
 mermaid: true
