@@ -5,7 +5,9 @@ picture-frame: shadow
 comment: false
 ---
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/octocat.jpg?raw=true" width="20%" class="center">
+<p align="center">
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/octocat.jpg?raw=true" width="20%">
+</p>
 
 ## 2018.06.07
 - Changed homepage to `Skeleton` with theme [vitae](https://github.com/jekyller/vitae)
@@ -47,12 +49,3 @@ comment: false
 ## 2018.03.23
 - Add a portfolio page.
 - Update `_config.yml`.
-
-
-<style>
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-</style>
