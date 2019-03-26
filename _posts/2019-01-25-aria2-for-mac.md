@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Aria2 for Mac 配置教程"
 date: 2019-01-25
 modify_date: 2019-01-25
