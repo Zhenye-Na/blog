@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: post
 title: "The Huffman Encoding algorithm"
 date: 2018-12-11
 modify_date: 2018-12-15
