@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Tutorial for Kaggle competition using Google Colab"
 date: 2019-02-16
 modify_date: 2019-02-16
