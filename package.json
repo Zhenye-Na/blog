@@ -1,37 +1,43 @@
 {
-  "name": "personal-site",
-  "version": "2.0.0",
-  "description": "My Personal Website, powered by jekyll-TeXt-theme",
+  "name": "jekyll-text-theme",
+  "version": "2.2.4",
+  "description": "A super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.",
   "scripts": {
     "build": "bundle exec jekyll build",
     "serve": "bundle exec jekyll serve -H 0.0.0.0",
-    "dev": "bundle exec jekyll serve -H 0.0.0.0 -t",
-    "production": "JEKYLL_ENV=production bundle exec jekyll serve -H 0.0.0.0 -t",
-    "favicon": "gulp favicon",
-    "icons": "gulp icons",
-    "artwork": "gulp artwork",
-    "merge": "sh bin/merge.sh",
-    "cm-merge": "git commit -m 'chore: merge to Text Theme'",
-    "cm-post": "git commit -m 'feat: publish new post'"
+    "default": "bundle exec jekyll serve -H 0.0.0.0 -t",
+    "dev": "bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.dev.yml",
+    "demo-dev": "bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.yml",
+    "demo-beta": "JEKYLL_ENV=beta bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.yml",
+    "demo-production": "JEKYLL_ENV=production bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.yml",
+    "eslint": "eslint \"_includes/**/*.js\"",
+    "eslint-fix": "eslint \"_includes/**/*.js\" --fix",
+    "stylelint": "stylelint --syntax scss \"_sass/**/*.scss\"",
+    "stylelint-fix": "stylelint --syntax scss \"_sass/**/*.scss\" --fix",
+    "gem-build": "rm -fv jekyll-text-theme-*.gem && gem build jekyll-text-theme.gemspec",
+    "gem-push": "gem push jekyll-text-theme-*.gem"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kitian616/kitian616.github.io.git"
+    "url": "git+https://github.com/kitian616/jekyll-TeXt-theme.git"
   },
   "keywords": [
     "jekyll",
-    "jekyll-site"
+    "jekyll-theme",
+    "jekyll-template"
   ],
   "author": "Tian Qi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kitian616/issues"
+    "url": "https://github.com/kitian616/jekyll-TeXt-theme/issues"
   },
-  "homepage": "https://github.com/kitian616#readme",
+  "homepage": "https://github.com/kitian616/jekyll-TeXt-theme",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-svg2png": "^2.0.2",
-    "gulp-to-ico": "^1.0.0"
+    "eslint": "^5.4.0",
+    "stylelint": "^9.5.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^1.0.0",
+    "stylelint-scss": "^3.3.0"
   }
 }
