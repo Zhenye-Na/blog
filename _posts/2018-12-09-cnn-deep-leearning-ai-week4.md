@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: post
 title: "Week 4 lecture note of Coursera - Convolutional Neural Networks from deeplearning.ai"
 date: 2018-12-09
 modify_date: 2018-12-09

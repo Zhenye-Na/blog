@@ -1,21 +1,7 @@
 @mixin block-elements {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  hr,
-  blockquote,
-  figure,
-  pre,
-  .highlighter-rouge,
-  ul,
-  ol,
-  dl,
-  table,
-  .footnotes {
+  h1, h2, h3, h4, h5, h6, p,
+  hr, blockquote, figure, pre, .highlighter-rouge,
+  ul, ol, dl, table, .footnotes {
     @content;
   }
 }
@@ -28,8 +14,7 @@
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /**
@@ -37,17 +22,26 @@
  **/
 
 html {
+  height: 100%;
   font-size: map-get($base, font-size-root);
   -webkit-text-size-adjust: 100%; /* 1 */
-  @media print {
-    font-size: map-get($base, font-size-root-sm);
-  }
 }
 
 body {
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+@include block-elements() {
+  margin: map-get($base, vertical-space) 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
   font: map-get($base, font-weight) #{map-get($base, font-size)}/#{map-get($base, line-height)} map-get($base, font-family);
+  color: $text-color;
+  background-color: $background-color;
   ::-moz-selection {
     background: $select-color;
   }
@@ -57,11 +51,6 @@ body {
   ::selection {
     background: $select-color;
   }
-}
-
-@include block-elements() {
-  padding: 0;
-  margin: map-get($spacers, 2) 0;
 }
 
 input, textarea, select, button {
@@ -82,81 +71,94 @@ strong {
 h1 {
   font-size: map-get($base, font-size-h1);
   color: $text-color-d;
-  @include media-breakpoint-down(md) {
-    font-size: map-get($base, font-size-h1-sm);
+  @include media-breakpoint-down(s) {
+    font-size: map-get($base, font-size-h1-small);
   }
 }
 
 h2 {
   font-size: map-get($base, font-size-h2);
   color: $text-color-d;
-  @include media-breakpoint-down(md) {
-    font-size: map-get($base, font-size-h2-sm);
+  @include media-breakpoint-down(s) {
+    font-size: map-get($base, font-size-h2-small);
   }
 }
 
 h3 {
   font-size: map-get($base, font-size-h3);
   color: $text-color-d;
-  @include media-breakpoint-down(md) {
-    font-size: map-get($base, font-size-h3-sm);
+  @include media-breakpoint-down(s) {
+    font-size: map-get($base, font-size-h3-small);
   }
 }
 
 h4 {
   font-size: map-get($base, font-size-h4);
   color: $text-color;
-  @include media-breakpoint-down(md) {
-    font-size: map-get($base, font-size-h4-sm);
+  @include media-breakpoint-down(s) {
+    font-size: map-get($base, font-size-h4-small);
   }
 }
 
 h5 {
   font-size: map-get($base, font-size-h5);
   color: $text-color;
-  @include media-breakpoint-down(md) {
-    font-size: map-get($base, font-size-h5-sm);
-  }
 }
 
 h6 {
   font-size: map-get($base, font-size-h6);
   color: $text-color-l;
-  @include media-breakpoint-down(md) {
-    font-size: map-get($base, font-size-h6-sm);
-  }
 }
 
 a {
   font-weight: map-get($base, font-weight-bold);
-  @include link-colors($main-color-1);
+  @include link-normal() {
+    text-decoration: none;
+  }
+  .not-touch & {
+    @include link-hover() {
+      text-decoration: underline;
+    }
+  }
+  @include link-active() {
+    text-decoration: underline;
+  }
+  @include link-text-colors($main-color-1);
+  @include link-animation();
 }
 
 pre, code {
-  font-family: map-get($base, font-family-code);
+  font-family: map-get($base, code-font-family);
 }
 
 code {
-  font-size: map-get($base, font-size-xs);
-  line-height: map-get($base, line-height-sm);
+  font-size: map-get($base, font-size-tiny);
+  line-height: map-get($base, line-height-small);
 }
 
-figure > img {
+figure>img {
   display: block;
 }
 
 figcaption {
-  font-size: map-get($base, font-size-sm);
+  font-size: map-get($base, font-size-sub);
+}
+
+.icon {
+  display: block;
+  >svg {
+    display: block;
+  }
 }
 
 button {
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
   padding: 0;
   margin: 0;
-  font-size: map-get($spacers, 3);
-  cursor: pointer;
-  background-color: transparent;
   border-width: 0;
-  outline: none;
 }
 
 input {
@@ -166,9 +168,4 @@ input {
   &:focus {
     outline: none;
   }
-}
-
-// mermaid
-.mermaidTooltip {
-  display: none;
 }
