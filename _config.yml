@@ -14,10 +14,10 @@
 ## Base settings ##
 url:  #the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl: /
-title: Zhenye Na
+title: Zhenye's Blog
 name: Zhenye Na
 description: > #this means to ignore newlines until "nav_lists:"
-    UIUC Graduate Student in ISE | Google-Oriented-Programming
+    一杯茶, 一包烟, 一行代码写一天
 
 nav_lists:
   - titles:
@@ -63,17 +63,17 @@ disqus:
 ga_tracking_id: UA-116457928-1 #Google analytics id for the site
 
 ## Reading quantity (LeanCloud) ##
-# leancloud:
-#   app_id: 
-#   app_key: 
-#   app_class: 
+leancloud:
+  app_id: VFD0k5SFS5TPAjLSFuAMXDJR-gzGzoHsz
+  app_key: 8BeEbvaTUCInO6NY8gOzRRwT
+  app_class: MyBlog
 
 mathjax: true
 mermaid: true
 chart: true
 
 ## Paginate ##
-paginate: 7
+paginate: 8
 paginate_path: /blog/page:num
 
 ## Post excerpts ##
