@@ -1,0 +1,8 @@
+# jemdoc: menu{MENU}{supervised.html}, showsource
+
+= Supervised Learning cheatsheet
+
+== MathJax Example
+
+In this modified version of +jemdoc+, a LaTeX equation block can be typed in as
+
