@@ -16,51 +16,50 @@ titles:
   ko      : &KO       소개
   ko-KR   : *KO
 key: page-about
+comment: false
 ---
 
-![TeXt Theme](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/TeXt-home.jpg)
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/avatar/avatar.jpg?raw=true" class="avatar" vspace="50" />
+<br>
+<div align="center">
+<img src="http://ghchart.rshah.org/f94f54/Zhenye-Na" alt="Zhenye-Na's Blue Github Chart" />
+<br><br>
+</div>
+ 
 
-TeXt is a super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc. Similar to iOS 11 style, it has large and prominent titles, round buttons and cards.
+## Welcome!
 
-```javascript
-(() => console.log('Hello, World!'))();
-```
+I am Zhenye Na, a Master candidate in Department of Industrial and Enterprise Systems Engineering [(ISE)](https://ise.illinois.edu/) at University of Illinois at Urbana-Champaign [(UIUC)](http://illinois.edu/). I am majoring in Advanced Analytics and my concentration is in Computational Science & Engeering. I am currently advised by [Prof. Justin A. Sirignano](http://jasirign.github.io/) for my graduate study.
+<!--{: style="text-align: justify"}-->
 
-## Features
+I am interested in research related to Machine Learning, Deep Learning and Computer Vision. I am also interested in Audio Analysis, Speech, Image Processing and other Data Science related fields.
 
-- Responsive
-- Semantic HTML
-- Skins
-- Highlight Theme
-- Internationalization
-- Search
-- Table of contents
-- Authors
-- Additional styles (alert, tag, image, icon, button, grid, etc)
-- Extensions (audios, videos, slides, demos)
-- Markdown enhancements ([MathJax](https://www.mathjax.org/), [mermaid](https://mermaidjs.github.io/), [chartjs](http://www.chartjs.org/))
-- Sharing ([AddToAny](https://www.addtoany.com/), [AddThis](https://www.addthis.com/))
-- Comments ([Disqus](https://disqus.com/), [Gitalk](https://gitalk.github.io/), [Valine](https://valine.js.org/en/))
-- Pageview ([LeanCloud](https://leancloud.cn/))
-- Analytics ([Google Analytics](https://analytics.google.com/analytics/web/))
-- RSS ([jekyll-feed](https://github.com/jekyll/jekyll-feed))
+I received my B.E. in Harbor, Waterway and Coastal Engineering from Dalian University of Technology [(DUT)](http://en.dlut.edu.cn/).
 
-## Skins
+<!--{: style="text-align: justify"}-->
 
-TeXt has 6 built-in skins, you can also set up your own skin.
+<!--* * *
 
-| `default` | `dark` | `forest` |
-| --- |  --- | --- |
-| ![Default](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_default.jpg) | ![Dark](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_dark.jpg) | ![Forest](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_forest.jpg) |
+I love playing football (not American football, LOL), it makes so relaxing, the most important is I can have a good sleep without weird dreams after that, LOL. I sometimes play PES on my laptop (wish me I have no more dues, LOL)! Please contact me if you wanna join!
+{: style="text-align: justify"}
 
-| `ocean` | `chocolate` | `orange` |
-| --- |  --- | --- |
-| ![Ocean](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_ocean.jpg) | ![Chocolate](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_chocolate.jpg) | ![Orange](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_orange.jpg) |
+I also playing [Garageband](https://www.apple.com/ios/garageband/) when I have spare time. I have played [Erhu](https://en.wikipedia.org/wiki/Erhu) for 5 years (Erhu is a traditional Chinese instrument and it is also supported by Garageband in the latest release - [Garageband Erhu](https://support.apple.com/kb/PH24855?viewlocale=en_HK&locale=en_HK)).
+{: style="text-align: justify"}
 
-### Highlight Theme
+Among so many football clubs, I love [Chelsea](http://www.chelseafc.com/) the best and [Eden Hazard](https://en.wikipedia.org/wiki/Eden_Hazard) is my favorite football star. This is the [overall season statistics summary](http://www.chelseafc.com/teams/first-team/eden-hazard.html) of Eden Hazard in Chelsea.
+{: style="text-align: justify"}-->
 
-TeXt use [Tomorrow](https://github.com/chriskempson/tomorrow-theme) as the highlight theme.
 
-| `tomorrow` | `tomorrow-night` | `tomorrow-night-eighties` | `tomorrow-night-blue` | `tomorrow-night-bright` |
-| --- |  --- | --- | --- |  --- |
-| ![Tomorrow](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow.png) | ![Tomorrow Night](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night.png) | ![Tomorrow Night Eighties](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-eighties.png) | ![Tomorrow Night Blue](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-blue.png) | ![Tomorrow Night Bright](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-bright.png) |
+<style>
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+img.avatar {
+    border-radius: 50%;
+    display: block;
+    margin: 30px auto;
+    width: 150px;
+}
+</style>
