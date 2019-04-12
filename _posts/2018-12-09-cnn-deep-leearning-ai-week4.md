@@ -2,9 +2,9 @@
 layout: article
 title: "Week 4 lecture note of Coursera - Convolutional Neural Networks from deeplearning.ai"
 date: 2018-12-09
-modify_date: 2018-12-09
+modify_date: 2019-04-12
 excerpt: "Special applications: Face recognition & Neural style transfer"
-tags: [Deep Learning, Convolutional Neural Networks]
+tags: [Deep Learning, Convolutional Neural Networks, Face recognition, Neural style transfer]
 mathjax: true
 mathjax_autoNumber: true
 pageview: true
@@ -44,11 +44,12 @@ if $d(\text{img1}, \text{img2}) \leq \tau$, where $\tau$ is a threshold paramete
 
 Siamese networks are a special type of neural network architecture. Instead of a model learning to *classify* its inputs, the neural networks learns to *differentiate* between two inputs. **It learns the similarity between them.**
 
-<figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/network.png?raw=true" class="center">
-</figure>
+<div align="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/network.png?raw=true">
+</div>
 
-Parameters of NN define an encoding $f(x^{(i)})$
+
+Parameters of NN define an encoding $f(x^{(i)})​$
 
 Learn parameters so that:
 
@@ -59,9 +60,10 @@ Learn parameters so that:
 
 A Siamese networks consists of two identical neural networks, each taking one of the two input images. The last layers of the two networks are then fed to a contrastive loss function , which calculates the similarity between the two images. I have made an illustration to help explain this architecture.
 
-<figure>
-    <img src="https://cdn-images-1.medium.com/max/1200/1*XzVUiq-3lYFtZEW3XfmKqg.jpeg" width="40%" class="center">
-</figure>
+<div align="center">
+    <img src="https://cdn-images-1.medium.com/max/1200/1*XzVUiq-3lYFtZEW3XfmKqg.jpeg" width="40%" >
+</div>
+
 
 There are two sister networks, which are identical neural networks, with the exact same weights.
 
@@ -72,9 +74,10 @@ Each image in the image pair is fed to one of these networks. The networks are o
 
 ### Learning objective
 
-<figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/learning_objective.png?raw=true" class="center">
-</figure>
+<div align="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/learning_objective.png?raw=true">
+</div>
+
 
 
 ### Loss function
@@ -101,9 +104,10 @@ $g$ is the gap parameter that regularizes the gap between the distance of two im
 
 ## Face Verification and Binary Classification
 
-<figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/face_verification.png?raw=true" class="center">
-</figure>
+<div align="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/face_verification.png?raw=true" >
+</div>
+
 
 
 ## Neural Style Transfer
@@ -111,19 +115,19 @@ $g$ is the gap parameter that regularizes the gap between the distance of two im
 
 ### Neural style transfer cost function
 
-> We use $C$ to denote **content image**, the image will be "style transfered", $S$ to denote style image and $G$ to denote **generated image**
+We use $C$ to denote **content image**, the image will be "style transfered", $S$ to denote **style image** and $G$ to denote **generated image**
 
-Cost function is defined using a content cost function and style cost function
+Cost function is defined using a **content cost function** and **style cost function**
 
-$$ J(G) = \alpha J_{\text{content}}(C, G) + \beta J_{\text{content}}(S, G) $$
+$$ J(G) = \alpha J_{\text{content}}(C, G) + \beta J_{\text{style}}(S, G) ​$$
 
 
 #### Content cost function
 
+<div align="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/content_cost_function.png?raw=true" >
+</div>
 
-<figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/content_cost_function.png?raw=true" class="center">
-</figure>
 
 $$ J_{\text{content}}(C,G) =  \frac{1}{4 \times n_H \times n_W \times n_C}\sum _{ \text{all entries}} (a^{(C)} - a^{(G)})^2\tag{1} $$
 
@@ -146,10 +150,4 @@ where $G^{(S)}$ and $G^{(G)}$ are respectively the Gram matrices of the "style" 
 [1] Harshvardhan Gupta, [One Shot Learning with Siamese Networks in PyTorch](https://hackernoon.com/one-shot-learning-with-siamese-networks-in-pytorch-8ddaab10340e)
 
 
-<style>
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-</style>
+
