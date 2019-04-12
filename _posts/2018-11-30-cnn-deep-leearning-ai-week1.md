@@ -3,7 +3,7 @@ layout: article
 pageview: true
 title: "Week 1 lecture note of Coursera - Convolutional Neural Networks from deeplearning.ai"
 date: 2018-11-30
-modify_date: 2018-11-30
+modify_date: 2019-04-12
 excerpt: "Foundations of Convolutional Neural Networks"
 tags: [Deep Learning, Convolutional Neural Networks]
 mathjax: true
@@ -37,8 +37,9 @@ $$ \begin{bmatrix}
 we define **convolution** $(*)$ operation like image below
 
 <p align="center">
-  <img src="https://cdn-images-1.medium.com/max/1600/1*Fw-ehcNBR9byHtho-Rxbtw.gif" width="60%"/>
+  <img src="https://cdn-images-1.medium.com/max/1600/1*Fw-ehcNBR9byHtho-Rxbtw.gif" width="30%"/>
 </p>
+
 
 After perform convolution, we will get a result:
 
@@ -53,14 +54,16 @@ $$ \begin{bmatrix}
 ### Vertical Edge Detection
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/vertical_edge_detection.png?raw=true">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/vertical_edge_detection.png?raw=true" width="80%">
 </p>
+
 
 ### Horizontal Edge Detection
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/horizontal_edge_detection.png?raw=true">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/horizontal_edge_detection.png?raw=true" width="80%">
 </p>
+
 
 
 ### Sobel operator
@@ -122,17 +125,18 @@ $$ \begin{bmatrix}
 ### Padding
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/padding.png?raw=true" >
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/padding.png?raw=true" width="80%">
 </p>
+
 
 When we perform convolution on the oringinal image:
 
 the green pixel was only used once, however, the red pixel was used much more frequently than the green pixel at the corner. It means that **we are throwing much information near the edge of the image and shrinking the output image**
 
-
 <p align="center">
-  <img src="http://bangqu.com/attached/20170928071529_355.gif" width="60%"/>
+  <img src="http://bangqu.com/attached/20170928071529_355.gif" width="30%"/>
 </p>
+
 
 ### Valid and Same convolutions
 
@@ -149,8 +153,9 @@ $f$ (kernel size / filter size) is usally odd.
 ## Strided convolution
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/strided_convolution.png?raw=true" />
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/strided_convolution.png?raw=true" width="80%">
 </p>
+
 
 
 Denote stride using $s$, then result of image with size $n \times n$ with convolution using filter size $f$, padding $p$:
@@ -218,39 +223,41 @@ $$ \bigg( \Bigl\lfloor \frac{d^{l-1}_y - k_y^l + 2P}{s} + 1 \Bigr\rfloor \bigg) 
 ### Convolution on RGB image
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/conv_on_rgb.png?raw=true">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/conv_on_rgb.png?raw=true" width="80%">
 </p>
+
 
 `6x6x3` image convolve with `3x3x3` filter giving `4x4x1` output.
 
 ### Multiple filters
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/multifilters.png?raw=true">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week1/multifilters.png?raw=true" width="80%">
 </p>
+
 
 
 ## Pooling Layer
 
-It is common to periodically insert a Pooling layer in-between successive Conv layers in a ConvNet architecture. Its function is to **progressively reduce the spatial size of the representation to reduce the amount of parameters and computation in the network, and hence to also control overfitting**. The Pooling Layer operates independently on every depth slice of the input and resizes it spatially, using the `MAX` operation. The most common form is a pooling layer with filters of size $2 \times 2$ applied with a stride of $2$ downsamples every depth slice in the input by $2$ along both width and height, discarding $75\%$ of the activations. Every `MAX` operation would in this case be taking a max over $4$ numbers (little $2 \times 2$ region in some depth slice). The depth dimension remains unchanged. More generally, the pooling layer:
+It is common to periodically insert a Pooling layer in-between successive Conv layers in a ConvNet architecture. Its function is to **progressively reduce the spatial size of the representation to reduce the amount of parameters and computation in the network, and hence to also control overfitting**. The Pooling Layer operates independently on every depth slice of the input and resizes it spatially, using the $\max$ operation. The most common form is a pooling layer with filters of size $2 \times 2$ applied with a stride of $2$ downsamples every depth slice in the input by $2$ along both width and height, discarding $75\%$ of the activations. Every $\max$ operation would in this case be taking a max over $4$ numbers (little $2 \times 2$ region in some depth slice). The depth dimension remains unchanged. More generally, the pooling layer:
 
-- Accepts a volume of size $W_1×H_1×D_1$
+- Accepts a volume of size $W_1 \times H_1 \times D_1$
     - Requires two hyperparameters:
         - their spatial extent $F$,
         - the stride $S$,
-    - Produces a volume of size W2×H2×D2 where:
+    - Produces a volume of size $W_2 \times H_2 \times D_2$ where:
         - $ W_2 = (W_1−F)/S+1 $
         - $ H_2 = (H_1−F)/S+1 $
         - $ D_2 = D_1 $
 - Introduces zero parameters since it computes a fixed function of the input
 - For Pooling layers, it is not common to pad the input using zero-padding.
 
-It is worth noting that there are only two commonly seen variations of the max pooling layer found in practice: A pooling layer with $ F=3,S=2 $ (also called overlapping pooling), and more commonly $ F=2,S=2 $. Pooling sizes with larger receptive fields are too destructive.
+It is worth noting that there are only two commonly seen variations of the max pooling layer found in practice: A pooling layer with $ F=3, S=2 $ (also called overlapping pooling), and more commonly $ F=2, S=2 $. Pooling sizes with larger receptive fields are too destructive.
 
 **General pooling**. In addition to max pooling, the pooling units can also perform other functions, such as **average pooling** or even **L2-norm pooling**. Average pooling was often used historically but has recently fallen out of favor compared to the max pooling operation, which has been shown to work better in practice.
 
 
-## Why convolutions
+## Why convolutions?
 
 - **Parameter sharing**:  A feature detector (such as vertical edge detector) that is useful in one part of the image is probably useful in another part of the image.
 - **Sparsity of connections**: In each layer, each output value depends only on a small number of inputs.
