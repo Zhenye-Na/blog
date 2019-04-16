@@ -11,7 +11,6 @@ mathjax_autoNumber: true
 ---
 
 
-
 > *A Support Vector Machine (SVM) is a very powerful and versatile Machine Learning model, capable of performing linear or nonlinear classification, regression, and even outlier detection. It is one of the most popular models in Machine Learning, and anyone interested in Machine Learning should have it in their toolbox. SVMs are particularly well suited for classification of complex but small- or medium-sized datasets. In this tutorial, I will explain the core concepts of SVMs, how to use them, and how they work.*
 
 
@@ -60,14 +59,14 @@ We assume the training set is linearly separable and we would like to find the m
 
 
 <div align="center">
-  <img src="../assets/images/posts-img/intro2svm/original1.png" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original1.png?raw=true" width="50%">
 </div><br>
 
 
 $\| w \| = 1$ ensures that the functional margin equals to geometric margin, but this constraint is "non-convex". The problem is transformed to be as follows:
 
 <div align="center">
-  <img src="../assets/images/posts-img/intro2svm/original2.png" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original2.png?raw=true" width="50%">
 </div><br>
 
 
@@ -75,7 +74,7 @@ Then we scale the factor of $w$ and $b$ to make $\hat{\gamma} = 1$. Note that ma
 
 
 <div align="center">
-  <img src="../assets/images/posts-img/intro2svm/original3.png" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original3.png?raw=true" width="50%">
 </div><br>
 
 
@@ -87,7 +86,7 @@ Its solution gives us **optimal margin classifier** and it is a quadratic progra
 According to Largrange duality we re-write the constaints as
 
 <div align="center">
-  <img src="../assets/images/posts-img/intro2svm/primal.png" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/primal.png?raw=true" width="50%">
 </div><br>
 
 
@@ -207,7 +206,7 @@ The SMO (sequential mimimal optimization) algorithm gives an efficient way to **
 ### Parameter $C$ in softmargin SVM
 
 <div align="center">
-  <img src="./assets/regularized.png" width="40%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/regularized.png?raw=true" width="50%">
 </div><br>
 
 
