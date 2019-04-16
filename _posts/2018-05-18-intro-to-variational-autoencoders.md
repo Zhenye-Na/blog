@@ -3,8 +3,9 @@ layout: article
 pageview: true
 title: "Introduction to Variational Autoencoders"
 date: 2018-05-18
+modify_date: 2019-04-15
 excerpt: "Understanding Variational Autoencoders (VAEs)"
-tags: [VAE, Deep Learning, Machine Learning]
+tags: [Deep Learning, Machine Learning, Generative models]
 mathjax: true
 mathjax_autoNumber: true
 ---
@@ -89,9 +90,9 @@ where the $x$ variables are observed at learning time in a dataset $\mathcal{D}$
 The model may be either directed or undirected. There exist both discriminative and generative LVMs, although here we will focus on the latter (the key ideas hold for discriminative models as well). To make this notion precise mathematically, we are aiming maximize the probability of each $X$ in the training set under the entire generative process, according to:
 
 
-$$ P(X) = P(X \vert z; \theta)P(z)dz. $$
+$$ P(X) = P(X \vert z; \theta)P(z)dz. ​$$
 
-Here, $f(z; \theta)$ has been replaced by a distribution $P(X \vert z; \theta)$, which allows us to make the dependence of $X$ on $z$ explicit by using the law of total probability. The intuition behind this framework—called "maximum likelihood" is that if the model is likely to produce training set samples, then it is also likely to produce similar samples, and unlikely to produce dissimilar ones. In VAEs, the choice of this output distribution is often Gaussian, i.e., $ P(X \vert z; \theta) = \mathcal{N}(X \vert f (z; \theta), \sigma^2 * I) $.
+Here, $f(z; \theta)​$ has been replaced by a distribution $P(X \vert z; \theta)​$, which allows us to make the dependence of $X​$ on $z​$ explicit by using the law of total probability. The intuition behind this framework—called "maximum likelihood" is that if the model is likely to produce training set samples, then it is also likely to produce similar samples, and unlikely to produce dissimilar ones. In VAEs, the choice of this output distribution is often Gaussian, i.e., $ P(X \vert z; \theta) = \mathcal{N}(X \vert f (z; \theta), \sigma^2 * I) ​$.
 
 
 
@@ -101,20 +102,22 @@ The mathematical basis of VAEs actually has relatively little to do with classic
 
 
 
-<figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/decoder2.png?raw=true" width="40%" class="center">
-    <figcaption><center>Figure 2: VAEs training process.</center></figcaption>
-</figure>
+<div align="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/decoder2.png?raw=true" width="40%">
+    <p>Figure 2: VAEs training process.</p>
+</div>
+
 
 
 ### Decoder
 
-<figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/decoder1.png?raw=true" width="50%" class="center">
-    <figcaption><center>Figure 3: Illustration of the structure of Decoder.</center></figcaption>
-</figure>
+<div align="center">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/decoder1.png?raw=true" width="50%" >
+  <p>Figure 3: Illustration of the structure of Decoder.</p>
+</div>
 
-According to Manifold Hypothesis, real-world high dimensional data (such as images) lie on low-dimensional manifolds embedded in the high-dimensional space. If $x$ is a high dimensional vector, then data is concentrated around a low dimensional manifold. So we can represent our sample data using "latent variables".
+
+According to Manifold Hypothesis, real-world high dimensional data (such as images) lie on low-dimensional manifolds embedded in the high-dimensional space. If $x​$ is a high dimensional vector, then data is concentrated around a low dimensional manifold. So we can represent our sample data using "latent variables".
 
 
 
@@ -139,11 +142,11 @@ We can easily compute $p_\theta (x \vert z)$ and $p(z)$. However, $\int_\hat{z} 
 
 Encoder is another Neural Network. Its input is a datapoint $x$, its output is a laten variables $z$, and it has weights and biases $\phi$.
 
+<div align="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/encoder1.png?raw=true" width="50%" >
+    <p>Figure 4: Illustration of the structure of Encoder.</p>
+</div>
 
-<figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/encoder1.png?raw=true" width="50%" class="center">
-    <figcaption><center>Figure 4: Illustration of the structure of Encoder.</center></figcaption>
-</figure>
 
 This is typically referred to as a "bottleneck" because the encoder must learn an efficient compression of the data into this *lower-dimensional space*. Let’s denote the encoder as
 
@@ -155,10 +158,11 @@ $$ q_\phi (z \vert x) = \mathcal{N}(z; \mu_\phi (x), \sigma_\phi (x)). $$
 
 The current architecture of VAEs is as follows
 
-<figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/archi.png?raw=true" width="80%" class="center">
-    <figcaption><center>Figure 5: Architecture of Variational Autoencoders.</center></figcaption>
-</figure>
+<div align="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/archi.png?raw=true" width="80%" >
+    <p>Figure 5: Architecture of Variational Autoencoders.</p>
+</div>
+
 
 $\Diamond$ Pay attention to we model $\sigma_z^2$ in $\log$ space here, the reason why is to mmake sure $\sigma_z^2$ is always non-negative.
 
@@ -176,9 +180,9 @@ $\mathcal{L}$ is often referred to as Empirical Lower BOund or Evidence Lower BO
 
 So we can approximate it as:
 
-$$ \begin{align} \mathcal{L} (p_\theta, q_\phi) &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x \vert z) p(z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\&= \int_z q_\phi (z \vert x) \log \frac{p()z)}{q_\phi (z \vert x)} + \int_z q_\phi (z \vert x) \log p_\theta (x \vert z) \\&= -D_{KL} (q_\phi, p) + \mathbb{E}[\log p_\theta (x \vert z)] \end{align} $$
+$$ \begin{align} \mathcal{L} (p_\theta, q_\phi) &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x \vert z) p(z)}{q_\phi (z \vert x)} \\ &= \int_z q_\phi (z \vert x) \log \frac{p_\theta (x, z)}{q_\phi (z \vert x)} \\&= \int_z q_\phi (z \vert x) \log \frac{p(z)}{q_\phi (z \vert x)} + \int_z q_\phi (z \vert x) \log p_\theta (x \vert z) \\&= -D_{KL} (q_\phi, p) + \mathbb{E}[\log p_\theta (x \vert z)] \end{align} $$
 
-* Regularization Loss: $ -D_{KL} (q_\phi, p) $ with prior $p(z)$ (Gaussian)
+* Regularization Loss: $ -D_{KL} (q_\phi, p) ​$ with prior $p(z)​$ (Gaussian)
 * Reconstruction Loss: $ \mathbb{E}[\log p_\theta (x \vert z)] $
 
 #### Regularization Loss
@@ -194,7 +198,7 @@ $$ D_{KL} (q(z \vert x) \| p(z)) = \frac{1}{2} \cdot (\sigma_z^2 + \mu_z^2 - 1 \
 
 $$ \mathbb{E}[\log p_\theta (x \vert z)] = \int_z q_\phi (z \vert x) \log p_\theta (x \vert z) $$
 
-What we deal with Reconstruction Loss is to sample from $q_\phi (z \vert x)$.
+What we deal with Reconstruction Loss is to sample from $q_\phi (z \vert x)​$.
 
 $ \mathbb{E}[\log p_\theta (x \vert z)] \approx \frac{1}{N} \sum \limits_{i=1}^N \log p_\theta (x \vert z^i)$, where $z^i \sim \mathcal{N}(z; \mu_\phi (x), \sigma_phi (x))$
 
@@ -203,11 +207,14 @@ $ \mathbb{E}[\log p_\theta (x \vert z)] \approx \frac{1}{N} \sum \limits_{i=1}^N
 
 Where are we now? We have figured out the architecture for both Encoder and Decoder. However, how do we optimize or how do we perform backpropogation? 
 
+<div align="center">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/archi2.png?raw=true" width="80%">
+</div>
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/archi2.png?raw=true" width="80%" class="center">
 
 
-We can easily backpropgation through Decoder. However, how to take derivatives with respect to the parameters of a stochastic variable. If we are given $z$ that is drawn from a distribution $q_\theta (z \vert x)$, and we want to take derivatives of a function of $z$ with respect to $\theta$, how do we do that?
+
+We can easily backpropgation through Decoder. However, how to take derivatives with respect to the parameters of a stochastic variable. If we are given $z​$ that is drawn from a distribution $q_\theta (z \vert x)​$, and we want to take derivatives of a function of $z​$ with respect to $\theta​$, how do we do that?
 
 
 $$ z \sim q_\phi (z \vert x) = \mathcal{N}(z; \mu_\phi (x), \sigma_\phi (x)) $$
@@ -223,10 +230,11 @@ where $ \epsilon \sim \mathcal{N} (0, 1)$
 
 Variational Autoencoder flowchart
 
-<figure>
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/flowchart.png?raw=true" width="80%" class="center">
-    <figcaption><center>Figure 6: Flowchart of Variational Autoencoders.</center></figcaption>
-</figure>
+<div align="center">
+    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/flowchart.png?raw=true" width="70%" >
+    <p>Figure 6: Flowchart of Variational Autoencoders.</p>
+</div>
+
 
 
 ## Implementation
@@ -350,7 +358,7 @@ More details for implementation can be found [here](https://github.com/Zhenye-Na
 
 
 ## References
-  
+
 [1] Diederik P Kingma, Max Welling. [*"Auto-Encoding Variational Bayes"*](https://arxiv.org/pdf/1312.6114.pdf). arXiv preprint arXiv:1312.6114 (2013).  
 [2] Carl Doersch. [*"Tutorial on Variational Autoencoders"*](https://arxiv.org/pdf/1606.05908.pdf). arXiv preprint arXiv:1606.05908 (2016).  
 [3] A. G. Schwing, M. Telgarsky. *"L22: Variational Auto-Encoders"*. Lecture Slides of CS446, UIUC. (2018).  
@@ -359,12 +367,3 @@ More details for implementation can be found [here](https://github.com/Zhenye-Na
 [6] Course notes for CS228: Probabilistic Graphical Models. [*"Learning in latent variable models"*](https://ermongroup.github.io/cs228-notes/learning/latent/)  
 [7] Jaan Altosaar. [*"Tutorial - What is a variational autoencoder?"*](https://jaan.io/what-is-variational-autoencoder-vae-tutorial/).  
 [8] Irhum Shafkat. [*"Intuitively Understanding Variational Autoencoders"*](https://towardsdatascience.com/intuitively-understanding-variational-autoencoders-1bfe67eb5daf). (2018).
-
-
-<style>
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-</style>
