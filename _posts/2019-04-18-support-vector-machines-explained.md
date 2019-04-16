@@ -68,9 +68,7 @@ $\| w \| = 1$ ensures that the functional margin equals to geometric margin, but
 
 $$
 \begin{align*}
-
-\max \limits_{\hat{\gamma}, w, b} \quad & \frac{\hat{\gamma}}{|w|} \ \textrm{s.t.} \quad & y^{(i)} (w^T x^{(i)} + b) \geq \hat{\gamma}, \quad i = 1, \dots, m
-
+\max \limits_{\hat{\gamma}, w, b} \quad & \frac{\hat{\gamma}}{|w|} \ \textrm{s.t.} \quad & y^{(i)} (w^T x^{(i)} + b) \geq \hat{\gamma}, \quad i = 1, \dots, m \\
 \end{align*}
 $$
 
@@ -93,10 +91,8 @@ According to Largrange duality we re-write the constaints as
 
 $$
 \begin{align*}
-
 \min \limits_{\gamma, w, b} \quad & \frac{1}{2} \|w\|^2 \\
-\textrm{s.t.} \quad & 1 - y^{(i)} (w^T x^{(i)} + b) \leq 0, \quad i = 1, \dots, m
-
+\textrm{s.t.} \quad & 1 - y^{(i)} (w^T x^{(i)} + b) \leq 0, \quad i = 1, \dots, m \\
 \end{align*}
 $$
 
