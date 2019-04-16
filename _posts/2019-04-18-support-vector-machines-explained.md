@@ -58,43 +58,37 @@ $$
 
 We assume the training set is linearly separable and we would like to find the maximum margin classifier. We pose the following optimization problem:
 
-$$
-\begin{align*}
-\max \limits_{\gamma, w, b} \quad & \gamma \ \textrm{s.t.} \quad & y^{(i)} (w^T x^{(i)} + b) \geq \gamma, \quad i = 1, \dots, m \ & |w| = 1 \\
-\end{align*}
-$$
+
+<div align="center">
+  <img src="../assets/images/posts-img/intro2svm/original1.png" width="50%">
+</div><br>
+
 
 $\| w \| = 1$ ensures that the functional margin equals to geometric margin, but this constraint is "non-convex". The problem is transformed to be as follows:
 
-$$
-\begin{align*}
-\max \limits_{\hat{\gamma}, w, b} \quad & \frac{\hat{\gamma}}{|w|} \ \textrm{s.t.} \quad & y^{(i)} (w^T x^{(i)} + b) \geq \hat{\gamma}, \quad i = 1, \dots, m \\
-\end{align*}
-$$
+<div align="center">
+  <img src="../assets/images/posts-img/intro2svm/original2.png" width="50%">
+</div><br>
+
 
 Then we scale the factor of $w$ and $b$ to make $\hat{\gamma} = 1$. Note that maximize $\hat{\gamma} / \|w\| = 1/\|w\|$ is the same thing as minimize the $\|w\|^2$. We have the following optimization problem:
 
-$$
-\begin{align*}
 
-\min \limits_{\gamma, w, b} \quad & \frac{1}{2} |w|^2 \ \textrm{s.t.} \quad & y^{(i)} (w^T x^{(i)} + b) \geq 1, \quad i = 1, \dots, m
+<div align="center">
+  <img src="../assets/images/posts-img/intro2svm/original3.png" width="50%">
+</div><br>
 
-\end{align*}
-$$
 
-Its solution gives us optimal margin classifier and it is a quadratic programming (QP) problem which can be solved using and QP solver.
+Its solution gives us **optimal margin classifier** and it is a quadratic programming (QP) problem which can be solved using and QP solver.
 
 
 ## Optimal margin classifiers
 
 According to Largrange duality we re-write the constaints as
 
-$$
-\begin{align*}
-\min \limits_{\gamma, w, b} \quad & \frac{1}{2} \|w\|^2 \\
-\textrm{s.t.} \quad & 1 - y^{(i)} (w^T x^{(i)} + b) \leq 0, \quad i = 1, \dots, m \\
-\end{align*}
-$$
+<div align="center">
+  <img src="../assets/images/posts-img/intro2svm/primal.png" width="50%">
+</div><br>
 
 
 where
