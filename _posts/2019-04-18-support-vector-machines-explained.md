@@ -59,14 +59,14 @@ We assume the training set is linearly separable and we would like to find the m
 
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original1.png?raw=true" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original1.png?raw=true" width="40%">
 </div><br>
 
 
 $\| w \| = 1$ ensures that the functional margin equals to geometric margin, but this constraint is "non-convex". The problem is transformed to be as follows:
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original2.png?raw=true" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original2.png?raw=true" width="40%">
 </div><br>
 
 
@@ -74,7 +74,7 @@ Then we scale the factor of $w$ and $b$ to make $\hat{\gamma} = 1$. Note that ma
 
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original3.png?raw=true" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original3.png?raw=true" width="40%">
 </div><br>
 
 
@@ -86,7 +86,7 @@ Its solution gives us **optimal margin classifier** and it is a quadratic progra
 According to Largrange duality we re-write the constaints as
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/primal.png?raw=true" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/primal.png?raw=true" width="40%">
 </div><br>
 
 
@@ -101,7 +101,7 @@ $$
 From KKT dual complementarily condition, we have $\alpha_i > 0$ only for the training examples with contraints $g_i(w) = 0$, where functional margin equals to $1$.
 
 <div align="center">
-  <img src="../assets/images/posts-img/intro2svm/margin.png" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/margin.png?raw=true" width="40%">
   <p>Support Vectors. Image source <a href="http://svm.michalhaltuf.cz/support-vector-machines/">Michal's blog of "Support vector machines"</a></p>
 </div><br>
 
@@ -206,7 +206,7 @@ The SMO (sequential mimimal optimization) algorithm gives an efficient way to **
 ### Parameter $C$ in softmargin SVM
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/regularized.png?raw=true" width="50%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/regularized.png?raw=true" width="40%">
 </div><br>
 
 
