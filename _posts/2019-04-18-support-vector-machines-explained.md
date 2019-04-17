@@ -308,3 +308,5 @@ The procedure of bias-variance tradeoff analysis can be as follows:
 - [1] Andrew Ng, Stanford CS229: Machine Learning
 - [2]
 - [3]
+- [4] Chih-Wei Hsu, Chih-Chung Chang and Chih-Jen Lin, [A Practical Guide to Support Vector Classification](https://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf)
+- [5] Stack Exachange, [When using SVMs, why do I need to scale the features?](https://stats.stackexchange.com/questions/154224/when-using-svms-why-do-i-need-to-scale-the-features)
