@@ -82,9 +82,6 @@ The $\beta_i$'s are called **Lagrange multipliers**. The next step is to take th
 
 As we said before, optimization can be viewed as **primal** problem as well as **dual** problem. Let us define the **primal** optimization problem:
 
-<div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/primal-problem.png?raw=true" width="40%">
-</div><br>
 
 $$
 \begin{aligned} \min_{w} \quad & f(w) \\ \textrm{s.t.} \quad & g_{i}(w) \leq 0, \quad i=1, \dots, k \\ & h_{i}(w)=0, \quad i=1, \dots, l. \end{aligned}
@@ -162,7 +159,7 @@ If some $w^{\*}$, $\alpha^{\*}$, $\beta^{\*}$ satisfy KKT conditions, then it is
 
 #### KKT dual complementarity condition
 
-$$\alpha_{i}^{*} g_{i} (w^{*}) &= 0, \quad i=1, \ldots, k.$$
+$$\alpha_{i}^{*} g_{i}(w^{*}) = 0, \quad i=1, \ldots, k.$$
 
 This equation is called KKT dual complementarity condition which is very useful when:
 
@@ -193,7 +190,7 @@ Let's now talk ablout geometric margin.
 
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/geometric-margins.png?raw=true" width="70%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/geometric-margins.png?raw=true" width="50%">
   <p>Geometric margin. Image resource: Andrew Ng's lecture notes on SVM</p>
 </div><br>
 
@@ -236,10 +233,6 @@ Its solution gives us **optimal margin classifier** and it is a quadratic progra
 ## Optimal margin classifiers
 
 According to Largrange duality we re-write the constaints as
-
-<div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/primal.png?raw=true" width="40%">
-</div><br>
 
 $$\begin{aligned} \min_{\gamma, w, b} \quad & \frac{1}{2}\|w\|^{2} \\ \text { s.t. } \quad & 1-y^{(i)} (w^{T} x^{(i)}+b ) \leq 0, \quad i=1, \ldots, m \end{aligned}$$
 
@@ -324,15 +317,25 @@ In the preceding section, we successfully give the optimal value of $w$ in terms
 
 $$\begin{aligned} w^{T} x+b &=\left(\sum_{i=1}^{m} \alpha_{i} y^{(i)} x^{(i)}\right)^{T} x+b \\ &=\sum_{i=1}^{m} \alpha_{i} y^{(i)}\left\langle x^{(i)}, x\right\rangle+ b \end{aligned}$$
 
+This is very useful as we noticed that there is a inner product part in the formula above. Given a feature mapping $\phi$, we define the **kernel** $K$ to be defined as:
 
+$$K(x,z)=\phi(x)^T\phi(z)$$
+
+We could also define a Kernel matrix $K_{i j}=K\left(x^{(i)}, x^{(j)}\right)$. if $K$ is a valid Kernel, then $K_{i j}=K\left(x^{(i)}, x^{(j)}\right)=\phi\left(x^{(i)}\right)^{T} \phi\left(x^{(j)}\right)=\phi\left(x^{(j)}\right)^{T} \phi\left(x^{(i)}\right)=K\left(x^{(j)}, x^{(i)}\right)=K_{j i}$. Hence $K$ must be symmetric.
+
+Letting $\phi_{k}(x)$ denote the $k$-th coordinate of the vector $\phi(x)$, we find that for **any** vector $z$, we have
+
+$$
+\begin{aligned} z^{T} K z &=\sum_{i} \sum_{j} z_{i} K_{i j} z_{j} \\ &=\sum_{i} \sum_{j} z_{i} \phi\left(x^{(i)}\right)^{T} \phi\left(x^{(j)}\right) z_{j} \\ &=\sum_{i} \sum_{j} \sum_{i} \sum_{k} \phi_{k}\left(x^{(i)}\right) \phi_{k}\left(x^{(j)}\right) z_{j} \\ &=\sum_{k} \sum_{i} \sum_{j} z_{i} \phi_{k}\left(x^{(i)}\right) \phi_{k}\left(x^{(j)}\right) z_{j} \\ &=\sum_{k}\left(\sum_{i} z_{i} \phi_{k}\left(x^{(i)}\right)\right)^{2} \\ & \geq 0 \end{aligned}
+$$
+
+Since $z$ was arbitrary, this shows that $K$ is positive semi-deﬁnite ($K \geq 0$).
 
 ### Mercer Theorem
 
-$$
+$
 \begin{array}{l}{\text { Theorem (Mercer). Let } K : \mathbb{R}^{n} \times \mathbb{R}^{n} \mapsto \mathbb{R} \text { be given. Then for } K} \\ {\text { to be a valid (Mercer) kernel, it is necessary and sufficient that for any }} \\ {\left\{x^{(1)}, \ldots, x^{(m)}\right\},(m<\infty), \text { the corresponding kernel matrix is symmetric }} \\ {\text { positive semi-definite. }}\end{array}
-$$
-
-
+$
 
 
 ## Regularization and non-linear separable case
@@ -464,6 +467,9 @@ $$
 \end{aligned}
 $$
 
+**Hinge loss** ― The hinge loss is used in the setting of SVMs and is defined as follows:
+
+$$L(z,y)=[1-yz]_+=\max(0,1-yz)$$
 
 ## Interview Questions
 
