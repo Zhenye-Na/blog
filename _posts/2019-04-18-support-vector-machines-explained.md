@@ -1,3 +1,4 @@
+---
 layout: article
 title: "Support Vector Machines Explained"
 date: 2019-04-18
@@ -7,7 +8,7 @@ tags: [Machine Learning, Supervised Learning, Support Vector Machines]
 pageview: true
 mathjax: true
 mathjax_autoNumber: true
-
+---
 
 # Support Vector Machines Explained
 
@@ -19,7 +20,6 @@ A Support Vector Machine (SVM) is a very powerful and versatile Machine Learning
   - [Functional margin]()
   - [Geometric margin]()
 - [haha]()
-- 
 
 
 
@@ -79,21 +79,21 @@ The image on the RHS is a case of linearly separable, which is possible to separ
 
 
 
-####Lagrangian 
+#### Lagrangian 
 
 Optimization problems may be viewed from either of two perspectives, the **primal problem** or the **dual problem**.
 
 Consider a optimzation problem as follows:
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/optimization-problem.gif?raw=true" width="40%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/optimization-problem.gif?raw=true" width="35%">
 </div><br>
 
 
 Then we define the **Lagrangian** of the preceding problem as:
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/lagrangian.png?raw=true" width="40%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/lagrangian.png?raw=true" width="35%">
 </div><br>
 
 
@@ -122,55 +122,48 @@ Here, the $\alpha_i$'s and $\beta_i$ 's are the Lagrange multipliers.
 We use $\mathcal{P}$ to stand for "primal". If $w$ violates any of the constraints, then we could derive that
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/theta-primal.png?raw=true" width="40%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/theta-primal.png?raw=true" width="45%">
 </div><br>
 
-$$
 
 $$
+\begin{aligned} \theta_{\mathcal{P}}(w) &=\max _{\alpha, \beta : \alpha_{i} \geq 0} f(w)+\sum_{i=1}^{k} \alpha_{i} g_{i}(w)+\sum_{i=1}^{l} \beta_{i} h_{i}(w) \\ &=\infty \end{aligned}
+$$
+
 
 The $\theta_{\mathcal{P}}$ takes the same value as the objective if $w$ satisfies our primal constraints.
 
 
 $$
-\min_{w} \theta_{\mathcal{P}}(w) = \min_w \max \limits_{\alpha, \beta: \alpga_i \geq 0} \mathcal{L}(w, \alpha, \beta).
+\min_{w} \theta_{\mathcal{P}}(w) = \min_w \max \limits_{\alpha, \beta: \alpha_i \geq 0} \mathcal{L}(w, \alpha, \beta).
 $$
 
 
 We use $p^*$ to stand for the **value** of the primal problem, which means that $p^* = \min_{w} \theta_{\mathcal{P}}(w)$.
 
 
-
 Like we defined $\mathcal{P}$ subscript as primal problem before, we use $\mathcal{D}$ subscript standing for "dual" problem.
 
 
 $$
-\max \limits_{\alpha, \beta: \alpga_i \geq 0} \theta_{\mathcal{D}}(\alpha, \beta) = \max \limits_{\alpha, \beta: \alpga_i \geq 0} \min_w \mathcal{L}(w, \alpha, \beta)
+\max \limits_{\alpha, \beta: \alpha_i \geq 0} \theta_{\mathcal{D}}(\alpha, \beta) = \max \limits_{\alpha, \beta: \alpha_i \geq 0} \min_w \mathcal{L}(w, \alpha, \beta)
 $$
 
 
 The dual problem and primal problem are related as follows
 
 
-
-$$ d^* = \max \limits_{\alpha, \beta: \alpga_i \geq 0} \min_w \mathcal{L}(w, \alpha, \beta) \leq \min_w \max \limits_{\alpha, \beta: \alpga_i \geq 0} \mathcal{L}(w, \alpha, \beta) = p^*. $$
-
+$$ d^* = \max \limits_{\alpha, \beta: \alpha_i \geq 0} \min_w \mathcal{L}(w, \alpha, \beta) \leq \min_w \max \limits_{\alpha, \beta: \alpha_i \geq 0} \mathcal{L}(w, \alpha, \beta) = p^*. $$
 
 
 > In general, you can think $\max \min \leq \min \max$ is always true.
 
-
-
 Under certain conditions, we can get:
-
-
 
 $$d^* = p^*.$$
 
 
-
 So that we can solver the dual problem in lieu of the primal problem under some conditions.
-
 
 
 #### KKT conditions
@@ -199,7 +192,6 @@ The third equation is called KKT dual complementarity condition which is very us
 
 - SVM has only a small number of "support vectors".
 - give convergence test when we talk about the SMO algorithm.
-
 
 
 
@@ -250,6 +242,7 @@ $$
 
 From KKT dual complementarily condition, we have $\alpha_i > 0$ only for the training examples with contraints $g_i(w) = 0$, where functional margin equals to $1$.
 
+
 <div align="center">
   <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/margin.png?raw=true" width="40%">
   <p>Support Vectors. Image source <a href="http://svm.michalhaltuf.cz/support-vector-machines/">Michal's blog of "Support vector machines"</a></p>
@@ -262,11 +255,9 @@ Something to remember concerning support vectors:
 3. $g_i(w) = 0$
 
 
-### largrangian of optimization problem
+### Largrangian of optimization problem
 
-
-
-derive dual problem of the primal problem here
+The next is to derive
 
 
 
