@@ -10,7 +10,6 @@ mathjax: true
 mathjax_autoNumber: true
 ---
 
-> Still updating ...
 
 # Support Vector Machines Explained
 
@@ -18,17 +17,36 @@ A Support Vector Machine (SVM) is a very powerful and versatile Machine Learning
 
 To explain the SVM, we'll need to first talk about **margins** and the idea of separating data with a large "gap". Next, we'll talk about the optimal margin classifier. We'll also see kernels, which give a way to apply SVMs efficiently in very high dimensional (such as infinitedimensional) feature spaces, and finally, we'll close off the introduction with the SMO algorithm, which gives an efficient implementation of SVMs.
 
-- [Overview and notation]()
+- [Overview and notation](#overview-and-notation)
 - [Prerequisites](#prerequisites)
   - [Linearly separable](#linearly-separable)
   - [Lagrange duality](#lagrange-duality)
     - [Lagrangian](#lagrangian)
     - [Generalized Lagrangian](#generalized-lagrangian)
+    - [KKT conditions](#kkt-conditions)
+    - [KKT dual complementarity condition](#kkt-dual-complementarity-condition)
 - [Functional and geometric margins](#functional-and-geometric-margins)
   - [Functional margin](#functional-margin)
   - [Geometric margin](#geometric-margin)
-
-
+- [Derivation optimal margin classifier](#derivation-optimal-margin-classifier)
+- [Large margin classifiers](#large-margin-classifiers)
+  - [Largrangian of optimization problem](#largrangian-of-optimization-problem)
+- [Kernels](#kernels)
+  - [Mercer Theorem](#mercer-theorem)
+- [Regularization and non-linear separable case](#regularization-and-non-linear-separable-case)
+- [Simplified SMO Algorithm](#simplified-smo-algorithm)
+  - [Selecting $\alpha$ Parameters](#selecting-alpha-parameters)
+  - [Optimizing $alpha_i$ and $alpha_j$](#optimizing-alpha_i-and-alpha_j)
+  - [Computing the $b$ threshold](#computing-the-b-threshold)
+- [Maximum margin solution in non-linearly separable case](#maximum-margin-solution-in-non-linearly-separable-case)
+  - [Original form](#original-form)
+  - [Regularized form](#regularized-form)
+  - [Unconstrained form](#unconstrained-form)
+- [Interview Questions](#interview-questions)
+  - [Parameter $C$ in softmargin SVM](#parameter-c-in-softmargin-svm)
+  - [Bias-Variance tradeoff of SVMs](#bias-variance-tradeoff-of-svms)
+  - [Main advantages and drawbacks of SVM](#main-advantages-and-drawbacks-of-svm)
+- [References](#references)
 
 
 ## Overview and notation
@@ -201,15 +219,14 @@ $$
 $$
 
 
-
-Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1,\dots, m \}$, we define the geometric margin of $(w, b)$ w.r.t. $S$ to be smallest of the geometric margins $\gamma$ of the individual training examples.
+Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1, \dots, m \}$, we define the geometric margin of $(w, b)$ w.r.t. $S$ to be smallest of the geometric margins $\gamma$ of the individual training examples.
 
 $$
 \gamma = \min \limits_{i=1, \dots, m} \gamma^{(i)}.
 $$
 
 
-## The optimal margin classifier
+## Derivation optimal margin classifier
 
 We assume the training set is linearly separable and we would like to find the maximum margin classifier. We pose the following optimization problem:
 
@@ -230,7 +247,7 @@ $$\begin{aligned} \min_{\gamma, w, b} \quad & \frac{1}{2}\|w\|^{2} \\ \text { s.
 Its solution gives us **optimal margin classifier** and it is a quadratic programming (QP) problem which can be solved using and QP solver.
 
 
-## Optimal margin classifiers
+## Large margin classifiers
 
 According to Largrange duality we re-write the constaints as
 
@@ -333,9 +350,7 @@ Since $z$ was arbitrary, this shows that $K$ is positive semi-deﬁnite ($K \geq
 
 ### Mercer Theorem
 
-$
-\begin{array}{l}{\text { Theorem (Mercer). Let } K : \mathbb{R}^{n} \times \mathbb{R}^{n} \mapsto \mathbb{R} \text { be given. Then for } K} \\ {\text { to be a valid (Mercer) kernel, it is necessary and sufficient that for any }} \\ {\left\{x^{(1)}, \ldots, x^{(m)}\right\},(m<\infty), \text { the corresponding kernel matrix is symmetric }} \\ {\text { positive semi-definite. }}\end{array}
-$
+**Theorem (Mercer).** Let $K : \mathbb{R}^{n} \times \mathbb{R}^{n} \mapsto \mathbb{R}$ be given. Then for $K$ to be a valid (Mercer) kernel, it is necessary and sufficient that for any $\left\{x^{(1)}, \ldots, x^{(m)}\right\},(m<\infty)$, the corresponding kernel matrix is symmetric positive semi-deﬁnite.
 
 
 ## Regularization and non-linear separable case
@@ -343,7 +358,8 @@ $
 The derivation of the SVM presented so far assumes that the data is **linearly separable**. Although mapping data to a high-dimensional feature space via $\phi$ usually increases the likelihood of data separability, we cannot guarantee that it will always be. Also, in some cases, it is not clear that finding a separation hyperplane is exactly what we want to do because it can be susceptible to outliers. For example, the left side of the figure below shows an optimal margin classifier. When an outlier is added to the upper left corner (right), it will cause a dramatic swing in the decision boundary, and the resulting classifier is small. The excess amount.
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/regularization.png?raw=true" width="40%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/regularization.png?raw=true" width="70%">
+  <p>Regularized separating hyperplane in non-linearly separable case.</p>
 </div><br>
 
 
@@ -392,7 +408,7 @@ This process is repeated until the $\alpha$'s converge.
 
 ### Selecting $\alpha$ Parameters
 
-For the simplified version of SMO, we employ a much simple heuristic. We simply iterate over all $\alpha_i, i = 1, \ldots, m$. If $alpha_i$ does not fulfill the KKT conditions to within some numerical tolerance, we select $\alpha_j$ at random from the remaining $m − 1$ $\alpha$'s and attempt to jointly optimize $\alpha_i$ and $\alpha_j$. If none of the $\alpha$s are changed after a few iteration over all the $alpha_i$'s, then the algorithm terminates.
+For the simplified version of SMO, we employ a much simple heuristic. We simply iterate over all $\alpha_i, i = 1, \ldots, m$. If $alpha_i$ does not fulfill the KKT conditions to within some numerical tolerance, we select $\alpha_j$ at random from the remaining $m − 1$ $\alpha$'s and attempt to jointly optimize $\alpha_i$ and $\alpha_j$. If none of the $\alpha$s are changed after a few iteration over all the $\alpha_i$'s, then the algorithm terminates.
 
 It is important to realize that by employing this simplification, the algorithm is no longer guaranteed to converge to the global optimum , since we are not attempting to optimize all possible $alpha_i$, $alpha_j$ pairs, there exists the possibility that some pair could be optimized which we do not consider.
 
@@ -475,9 +491,7 @@ $$L(z,y)=[1-yz]_+=\max(0,1-yz)$$
 
 ### Parameter $C$ in softmargin SVM
 
-<div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/regularized.png?raw=true" width="40%">
-</div><br>
+Recall the softmargin SVM is as follows:
 
 $$
 \begin{align*}
@@ -492,7 +506,6 @@ The parameter $C$ tells the algorithm how much you want to **avoid mis-classifyi
 1. For large value of $C$, optimization will choose a smaller-margin hyperplane.
 2. For small value of $C$, optimization will look for a larger-margin separating hyperplane.
 3. For tiny value of $C$, will find mis-classified examples, even if data is linearly separable.
-
 
 
 ### Bias-Variance tradeoff of SVMs
@@ -522,7 +535,6 @@ The procedure of bias-variance tradeoff analysis can be as follows:
 
 1. When $C$ is large, which means $\lambda$ is small. We ignore / take away regularization term and lead to a **high variance model** (overfitting related), so the separating hyperplane is more variable and the margin should be really **small**.
 2. When $C$ is small, which mean $\lambda$ is large. We take too much regularization term into account, so that we have a **high bias model** (underfitting related), so the hyperplane is to ensure the margin is **large** enough.
-
 
 
 ### Main advantages and drawbacks of SVM
