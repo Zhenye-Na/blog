@@ -2,7 +2,7 @@
 layout: article
 title: "Support Vector Machines Explained"
 date: 2019-04-18
-modify_date: 2019-04-18
+modify_date: 2019-04-19
 excerpt: "Under the hood - Support Vector Machines (SVM)"
 tags: [Machine Learning, Supervised Learning, Support Vector Machines]
 pageview: true
@@ -16,10 +16,14 @@ A Support Vector Machine (SVM) is a very powerful and versatile Machine Learning
 
 
 
-- [Functional and geometric margins]()
-  - [Functional margin]()
-  - [Geometric margin]()
-- [haha]()
+- [Functional and geometric margins](#functional-and-geometric-margins)
+  - [Functional margin](#functional-margin)
+  - [Geometric margin](#geometric-margin)
+- [Prerequisites](#prerequisites)
+  - [Linearly separable](#linearly-separable)
+  - [Lagrange duality](#lagrange-duality)
+    - [Lagrangian](#lagrangian)
+    - [Generalized Lagrangian](#generalized-lagrangian)
 
 
 
@@ -29,16 +33,13 @@ A Support Vector Machine (SVM) is a very powerful and versatile Machine Learning
 
 ### Functional margin
 
-Consider training example $(x^{(i)}, y^{(i)})$, the functional margin of $(w, b)$ w.r.t. the training example
+Consider training example $(x^{(i)}, y^{(i)})$, the functional margin of $(w, b)$ w.r.t. the training example is as follows:
 
 $$
 \hat{\gamma}^{(i)} = y^{(i)} (w^T x + b).
 $$
 
-a large functional margin represents a confident and a correct prediction.
-
-
-Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1,\dots, m \}$, we also define the functional margin of $(w, b)$ w.r.t. $S$ to be smallest of the functional margins $\hat{\gamma}$ of the individual training examples.
+A large functional margin represents a confident and a correct prediction. Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1,\dots, m \}$, we also define the functional margin of $(w, b)$ w.r.t. $S$ to be smallest of the functional margins $\hat{\gamma}$ of the individual training examples.
 
 $$
 \hat{\gamma} = \min \limits_{i=1, \dots, m} \hat{\gamma}^{(i)}.
@@ -52,7 +53,7 @@ $$
 $$
 
 
-Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1,\dots, m \}$, we also define the geometric margin of $(w, b)$ w.r.t. $S$ to be smallest of the geometric margins $\gamma$ of the individual training examples.
+Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1,\dots, m \}$, we define the geometric margin of $(w, b)$ w.r.t. $S$ to be smallest of the geometric margins $\gamma$ of the individual training examples.
 
 $$
 \gamma = \min \limits_{i=1, \dots, m} \gamma^{(i)}.
@@ -77,25 +78,24 @@ The image on the RHS is a case of linearly separable, which is possible to separ
 
 ### Lagrange duality
 
-
-
 #### Lagrangian 
 
 Optimization problems may be viewed from either of two perspectives, the **primal problem** or the **dual problem**.
 
 Consider a optimzation problem as follows:
 
-<div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/optimization-problem.gif?raw=true" width="35%">
-</div><br>
+$$
+\begin{aligned} {\min_{w}} \quad & {f(w)} \\ \textrm{s.t.} \quad & {h_{i}(w) \quad i=1, \dots, l} \end{aligned}
+$$
 
 
 Then we define the **Lagrangian** of the preceding problem as:
 
-<div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/lagrangian.png?raw=true" width="35%">
-</div><br>
-
+$$
+\begin{equation}
+\mathcal{L}(w, \beta) = f(w) + \sum_{i=1}^{l} \beta_{i} h_{i}(w)
+\end{equation}
+$$
 
 The $\beta_i$'s are called **Lagrange multipliers**. The next step is to take the derivatie of $\mathcal{L}$ w.r.t $w$ and $\beta$ and set to zero to solve for $w$ and $\beta$.
 
@@ -127,7 +127,7 @@ We use $\mathcal{P}$ to stand for "primal". If $w$ violates any of the constrain
 
 
 $$
-\begin{aligned} \theta_{\mathcal{P}}(w) &=\max _{\alpha, \beta : \alpha_{i} \geq 0} f(w)+\sum_{i=1}^{k} \alpha_{i} g_{i}(w)+\sum_{i=1}^{l} \beta_{i} h_{i}(w) \\ &=\infty \end{aligned}
+\begin{aligned} \theta_{\mathcal{P}}(w) &=\max_{\alpha, \beta : \alpha_{i} \geq 0} f(w)+\sum_{i=1}^{k} \alpha_{i} g_{i}(w)+\sum_{i=1}^{l} \beta_{i} h_{i}(w) \\ &=\infty \end{aligned}
 $$
 
 
@@ -139,10 +139,7 @@ $$
 $$
 
 
-We use $p^{\*}$ to stand for the **value** of the primal problem, which means that $p^{\*} = \min_{w} \theta_{\mathcal{P}}(w)$.
-
-
-Like we defined $\mathcal{P}$ subscript as primal problem before, we use $\mathcal{D}$ subscript standing for "dual" problem.
+We use $p^{\*}$ to stand for the **value** of the primal problem, which means that $p^{\*} = \min_{w} \theta_{\mathcal{P}}(w)$. Like we defined $\mathcal{P}$ subscript as primal problem before, we use $\mathcal{D}$ subscript standing for "dual" problem.
 
 
 $$
@@ -150,13 +147,13 @@ $$
 $$
 
 
-The dual problem and primal problem are related as follows
+The dual problem and primal problem are related as follows:
 
 
-$$ d^* = \max \limits_{\alpha, \beta: \alpha_i \geq 0} \min_w \mathcal{L}(w, \alpha, \beta) \leq \min_w \max \limits_{\alpha, \beta: \alpha_i \geq 0} \mathcal{L}(w, \alpha, \beta) = p^*. $$
+$$ d^{\*} = \max \limits_{\alpha, \beta: \alpha_i \geq 0} \min_w \mathcal{L}(w, \alpha, \beta) \leq \min_w \max \limits_{\alpha, \beta: \alpha_i \geq 0} \mathcal{L}(w, \alpha, \beta) = p^{\*}. $$
 
 
-> In general, you can think $\max \min \leq \min \max$ is always true.
+> In general, you may think $\max \min \leq \min \max$ is always true.
 
 Under certain conditions, we can get:
 
@@ -174,21 +171,22 @@ Suppose:
 - $h_i$'s are affine
 - further assumption: $g_i$ are (strictly) feasible
 
-this means that there exists some $w$ so that $g_i(w) < 0$ for all $i$. Under our above assumptions, there must exist $w^*$ , $\alpha^*$ , $\beta^*$ so that $w^*$ is the solution to the primal problem, $\alpha^*$ , $\beta^*$ are the solution to the dual problem, and moreover $p^* = d^* = \mathcal{L}(w^*, \alpha^*, \beta^*)$. Moreover, $w^*$ , $\alpha^*$ , $\beta^*$ satisfy the Karush-Kuhn-Tucker (KKT) conditions, which are as follows:
+this means that there exists some $w$ so that $g_i(w) < 0$ for all $i$. Under our above assumptions, there must exist $w^{\*}$ , $\alpha^{\*}$ , $\beta^{\*}$ so that $w^{\*}$ is the solution to the primal problem, $\alpha^{\*}$ , $\beta^{\*}$ are the solution to the dual problem, and moreover $p^{\*} = d^{\*} = \mathcal{L}(w^{\*}, \alpha^{\*}, \beta^{\*})$. Moreover, $w^{\*}$ , $\alpha^{\*}$ , $\beta^{\*}$ satisfy the **Karush-Kuhn-Tucker (KKT)** conditions, which are as follows:
 
 
 $$
-\begin{aligned} \frac{\partial}{\partial w_{i}} \mathcal{L}\left(w^{*}, \alpha^{*}, \beta^{*}\right) &=0, \quad i=1, \ldots, n \\ \frac{\partial}{\partial \beta_{i}} \mathcal{L}\left(w^{*}, \alpha^{*}, \beta^{*}\right) &=0, \quad i=1, \ldots, l \\ \alpha_{i}^{*} g_{i}\left(w^{*}\right) &=0, \quad i=1, \ldots, k \\ g_{i}\left(w^{*}\right) & \leq 0, \quad i=1, \ldots, k \\ \alpha^{*} & \geq 0, \quad i=1, \ldots, k \end{aligned}
+\begin{aligned} \frac{\partial}{\partial w_{i}} \mathcal{L}\left(w^{\*}, \alpha^{\*}, \beta^{\*}\right) &=0, \quad i=1, \ldots, n \\ \frac{\partial}{\partial \beta_{i}} \mathcal{L}\left(w^{\*}, \alpha^{\*}, \beta^{\*}\right) &=0, \quad i=1, \ldots, l \\ \alpha_{i}^{\*} g_{i}\left(w^{\*}\right) &=0, \quad i=1, \ldots, k \\ g_{i}\left(w^{\*}\right) & \leq 0, \quad i=1, \ldots, k \\ \alpha^{\*} & \geq 0, \quad i=1, \ldots, k \end{aligned}
 $$
 
 
 If some $w^{\*}$ , $\alpha^{\*}$ , $\beta^{\*}$ satisfy KKT conditions, then it is also a solution to the primal and dual problems.
 
 
-
 #### KKT dual complementarity condition
 
-The third equation is called KKT dual complementarity condition which is very useful when:
+$$\alpha_{i}^{\*} g_{i}\left(w^{\*}\right) &=0, \quad i=1, \dots, k$$
+
+This equation is called KKT dual complementarity condition which is very useful when:
 
 - SVM has only a small number of "support vectors".
 - give convergence test when we talk about the SMO algorithm.
@@ -316,6 +314,9 @@ $$
 $$
 
 
+## The SMO algorithm
+
+The SMO (sequential mimimal optimization) algorithm gives an efficient way to **solve the dual problem arising from the derivation of the SVM**.
 
 
 
@@ -334,17 +335,6 @@ $$
 
 
 ### Unconstrained form
-
-
-
-
-
-
-
-## The SMO algorithm
-
-The SMO (sequential mimimal optimization) algorithm gives an efficient way to **solve the dual problem arising from the derivation of the SVM**.
-
 
 
 
