@@ -139,7 +139,7 @@ $$
 $$
 
 
-We use $p^*$ to stand for the **value** of the primal problem, which means that $p^* = \min_{w} \theta_{\mathcal{P}}(w)$.
+We use $p^{\*}$ to stand for the **value** of the primal problem, which means that $p^{\*} = \min_{w} \theta_{\mathcal{P}}(w)$.
 
 
 Like we defined $\mathcal{P}$ subscript as primal problem before, we use $\mathcal{D}$ subscript standing for "dual" problem.
@@ -160,7 +160,7 @@ $$ d^* = \max \limits_{\alpha, \beta: \alpha_i \geq 0} \min_w \mathcal{L}(w, \al
 
 Under certain conditions, we can get:
 
-$$d^* = p^*.$$
+$$d^{\*} = p^{\*}.$$
 
 
 So that we can solver the dual problem in lieu of the primal problem under some conditions.
@@ -182,7 +182,7 @@ $$
 $$
 
 
-If some $w^*$ , $\alpha^*$ , $\beta^*$ satisfy KKT conditions, then it is also a solution to the primal and dual problems.
+If some $w^{\*}$ , $\alpha^{\*}$ , $\beta^{\*}$ satisfy KKT conditions, then it is also a solution to the primal and dual problems.
 
 
 
@@ -257,13 +257,32 @@ Something to remember concerning support vectors:
 
 ### Largrangian of optimization problem
 
-The next is to derive
+The next is to derive Largrangian for the optimization problem we have:
+
+$$
+\mathcal{L}(w, b, \alpha)=\frac{1}{2}\|w\|^{2}-\sum_{i=1}^{m} \alpha_{i}\left \[y^{(i)}\left(w^{T} x^{(i)}+b\right)-1\right \].
+$$
+
+Then we need take the derivatives corresponding to $w$ and $\beta$ and we will get:
+
+$$
+\nabla_{w} \mathcal{L}(w, b, \alpha)=w-\sum_{i=1}^{m} \alpha_{i} y^{(i)} x^{(i)}=0 \Longrightarrow w=\sum_{i=1}^{m} \alpha_{i} y^{(i)} x^{(i)}
+$$
+
+and
+
+$$
+\frac{\partial}{\partial b} \mathcal{L}(w, b, \alpha)=\sum_{i=1}^{m} \alpha_{i} y^{(i)}=0
+$$
+
+This leads to the dual optimization problem:
+
+$$
+\begin{aligned} \max_{\alpha} \quad & W(\alpha)=\sum_{i=1}^{m} \alpha_{i}-\frac{1}{2} \sum_{i, j=1}^{m} y^{(i)} y^{(j)} \alpha_{i} \alpha_{j}\left\langle x^{(i)}, x^{(j)}\right\rangle \\ \textrm{s.t.} \quad & \alpha_{i} \geq 0, \quad i=1, \ldots, m \\ & \sum_{i=1}^{m} \alpha_{i} y^{(i)}=0 \end{aligned}
+$$
 
 
-
-
-
-## 4 Kernels
+## Kernels
 
 
 
@@ -300,21 +319,21 @@ $$
 
 
 
-## 6 Maximum margin solution in non-linearly separable case
+## Maximum margin solution in non-linearly separable case
 
-### 6.1 Original form
-
-
-
-
-
-### 6.2 Regularized form
+### Original form
 
 
 
 
 
-### 6.3 Unconstrained form
+### Regularized form
+
+
+
+
+
+### Unconstrained form
 
 
 
@@ -322,27 +341,14 @@ $$
 
 
 
-## 7 The SMO algorithm
+## The SMO algorithm
 
 The SMO (sequential mimimal optimization) algorithm gives an efficient way to **solve the dual problem arising from the derivation of the SVM**.
 
 
 
-### 7.1 Coordinate ascent
 
-
-
-
-
-### 7.2 SMO algorithm
-
-
-
-
-
-
-
-## 8 Interview Questions
+## Interview Questions
 
 ### Parameter $C$ in softmargin SVM
 
@@ -405,43 +411,6 @@ The procedure of bias-variance tradeoff analysis can be as follows:
 - Can be time consuming to train
 - Parameterization can be tricky in some cases
 - Communicating isn't easy
-
-
-
-## Intuition
-
-
-
-
-
-## Lagrange Duality
-
-
-
-
-
-## Primal Problem
-
-
-
-
-
-## Dual Problem
-
-
-
-
-
-## Regularized solution
-
-
-
-
-
-## Other
-
-
-
 
 
 ## References
