@@ -14,51 +14,28 @@ mathjax_autoNumber: true
 
 A Support Vector Machine (SVM) is a very powerful and versatile Machine Learning model, capable of performing linear or nonlinear classification, regression, and even outlier detection. It is one of the most popular models in Machine Learning, and anyone interested in Machine Learning should have it in their toolbox. SVMs are particularly well suited for classification of complex but small- or medium-sized datasets. In this tutorial, I will explain the core concepts of SVMs, how to use them, and how they work.
 
+To explain the SVM, we'll need to first talk about **margins** and the idea of separating data with a large "gap". Next, we'll talk about the optimal margin classifier. We'll also see kernels, which give a way to apply SVMs efficiently in very high dimensional (such as infinitedimensional) feature spaces, and finally, we'll close off the introduction with the SMO algorithm, which gives an efficient implementation of SVMs.
 
-
-- [Functional and geometric margins](#functional-and-geometric-margins)
-  - [Functional margin](#functional-margin)
-  - [Geometric margin](#geometric-margin)
+- [Overview and notation]()
 - [Prerequisites](#prerequisites)
   - [Linearly separable](#linearly-separable)
   - [Lagrange duality](#lagrange-duality)
     - [Lagrangian](#lagrangian)
     - [Generalized Lagrangian](#generalized-lagrangian)
+- [Functional and geometric margins](#functional-and-geometric-margins)
+  - [Functional margin](#functional-margin)
+  - [Geometric margin](#geometric-margin)
 
 
 
 
+## Overview and notation
 
-## Functional and geometric margins
+Previously, we used $\theta$ to parametrizing the hypothesis function $h$. For SVM, we will will use parameters $w$, $b$, and re-write our classifier as:
 
-### Functional margin
+$h_{w, b}(x)=g\left(w^{T} x+b\right)$
 
-Consider training example $(x^{(i)}, y^{(i)})$, the functional margin of $(w, b)$ w.r.t. the training example is as follows:
-
-$$
-\hat{\gamma}^{(i)} = y^{(i)} (w^T x + b).
-$$
-
-A large functional margin represents a confident and a correct prediction. Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1,\dots, m \}$, we also define the functional margin of $(w, b)$ w.r.t. $S$ to be smallest of the functional margins $\hat{\gamma}$ of the individual training examples.
-
-$$
-\hat{\gamma} = \min \limits_{i=1, \dots, m} \hat{\gamma}^{(i)}.
-$$
-
-
-### Geometric margin
-
-$$
-\gamma^{(i)} = y^{(i)} \Large( \large( \frac{w}{\|w\|} \large)^T x^{(i)} + \frac{b}{\|w\|} \Large).
-$$
-
-
-Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1,\dots, m \}$, we define the geometric margin of $(w, b)$ w.r.t. $S$ to be smallest of the geometric margins $\gamma$ of the individual training examples.
-
-$$
-\gamma = \min \limits_{i=1, \dots, m} \gamma^{(i)}.
-$$
-
+Where, $g(z) = 1$ if $z \geq 0$, and $g(z) = −1$ otherwise, $b$ takes the role of what was previously $\theta_{0}$ (bias), and $w$ takes the role of $\left[\theta_{1} \ldots \theta_{n}\right]^{T}$ (weights).
 
 
 ## Prerequisites
@@ -92,9 +69,7 @@ $$
 Then we define the **Lagrangian** of the preceding problem as:
 
 $$
-\begin{equation}
 \mathcal{L}(w, \beta) = f(w) + \sum_{i=1}^{l} \beta_{i} h_{i}(w)
-\end{equation}
 $$
 
 The $\beta_i$'s are called **Lagrange multipliers**. The next step is to take the derivatie of $\mathcal{L}$ w.r.t $w$ and $\beta$ and set to zero to solve for $w$ and $\beta$.
@@ -108,6 +83,11 @@ As we said before, optimization can be viewed as **primal** problem as well as *
 <div align="center">
   <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/primal-problem.png?raw=true" width="40%">
 </div><br>
+
+$$
+\begin{aligned} \min _{w} \quad & f(w) \\ \textrm{s.t.} \quad & {g_{i}(w) \leq 0, \quad i=1, \dots, k \\ & h_{i}(w)=0, \quad i=1, \dots, l\end{aligned}
+$$
+
 
 The **generalized Lagrangian** is defined as follows:
 
@@ -157,7 +137,7 @@ $$ d^{\*} = \max \limits_{\alpha, \beta: \alpha_i \geq 0} \min_w \mathcal{L}(w, 
 
 Under certain conditions, we can get:
 
-$$d^{\*} = p^{\*}.$$
+$$d^{*} = p^{*}.$$
 
 
 So that we can solver the dual problem in lieu of the primal problem under some conditions.
@@ -179,7 +159,7 @@ $$
 $$
 
 
-If some $w^{\*}$ , $\alpha^{\*}$ , $\beta^{\*}$ satisfy KKT conditions, then it is also a solution to the primal and dual problems.
+If some $w^{\*}$, $\alpha^{\*}$, $\beta^{\*}$ satisfy KKT conditions, then it is also a solution to the primal and dual problems.
 
 
 #### KKT dual complementarity condition
@@ -192,6 +172,47 @@ This equation is called KKT dual complementarity condition which is very useful 
 - give convergence test when we talk about the SMO algorithm.
 
 
+## Functional and geometric margins
+
+### Functional margin
+
+Consider training example $(x^{(i)}, y^{(i)})$, the functional margin of $(w, b)$ w.r.t. the training example is as follows:
+
+$$
+\hat{\gamma}^{(i)} = y^{(i)} (w^T x + b).
+$$
+
+A large functional margin represents a confident and a correct prediction. Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1,\dots, m \}$, we also define the functional margin of $(w, b)$ w.r.t. $S$ to be smallest of the functional margins $\hat{\gamma}$ of the individual training examples.
+
+$$
+\hat{\gamma} = \min \limits_{i=1, \dots, m} \hat{\gamma}^{(i)}.
+$$
+
+
+### Geometric margin
+
+Let's now talk ablout geometric margin.
+
+
+<div align="center">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/geometric-margins.png?raw=true" width="70%">
+  <p>Geometric margin. Image resource: Andrew Ng's lecture notes on SVM</p>
+</div><br>
+
+We define geometric margin as:
+
+$$
+\gamma^{(i)} = y^{(i)} \Large( \large( \frac{w}{\|w\|} \large)^T x^{(i)} + \frac{b}{\|w\|} \Large).
+$$
+
+
+
+Given training set $S = \{ (x^{(i)}, y^{(i)}); i = 1,\dots, m \}$, we define the geometric margin of $(w, b)$ w.r.t. $S$ to be smallest of the geometric margins $\gamma$ of the individual training examples.
+
+$$
+\gamma = \min \limits_{i=1, \dots, m} \gamma^{(i)}.
+$$
+
 
 ## The optimal margin classifier
 
@@ -202,6 +223,10 @@ We assume the training set is linearly separable and we would like to find the m
   <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original1.png?raw=true" width="40%">
 </div><br>
 
+$$
+\begin{aligned} \max _{\gamma, w, b} \quad & \gamma \\ \textrm{ s.t. } \quad & y^{(i)}\left(w^{T} x^{(i)}+b\right) \geq \gamma, \quad i=1, \ldots, m \\ &\|w\|=1 \end{aligned}
+$$
+
 
 $\| w \| = 1$ ensures that the **functional margin equals to geometric margin**, but this constraint is "non-convex". So we transformed this optimization problem as follows:
 
@@ -209,6 +234,7 @@ $\| w \| = 1$ ensures that the **functional margin equals to geometric margin**,
   <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/original2.png?raw=true" width="40%">
 </div><br>
 
+$$\begin{aligned} \max _{\hat{\gamma}, w, b} \quad  & \frac{\hat{\gamma}}{\|w\|} \\ \text { s.t. } \quad  & y^{(i)}\left(w^{T} x^{(i)}+b\right) \geq \hat{\gamma}, \quad i=1, \ldots, m \end{aligned}$$
 
 Then we scale the factor of $w$ and $b$ to make $\hat{\gamma} = 1$. Note that maximize $\hat{\gamma} / \|w\| = 1/\|w\|$ is the same thing as minimize the $\|w\|^2$. We have the following optimization problem:
 
@@ -229,6 +255,7 @@ According to Largrange duality we re-write the constaints as
   <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/primal.png?raw=true" width="40%">
 </div><br>
 
+$$\begin{aligned} \max _{\gamma, w, b} \quad & \gamma \\ \textrm{ s.t. } \quad & y^{(i)}\left(w^{T} x^{(i)}+b\right) \geq \gamma, \quad i=1, \ldots, m \\ &\|w\|=1 \end{aligned}$$
 
 where
 
