@@ -36,7 +36,7 @@ To explain the SVM, we'll need to first talk about **margins** and the idea of s
 - [Regularization and non-linear separable case](#regularization-and-non-linear-separable-case)
 - [Simplified SMO Algorithm](#simplified-smo-algorithm)
   - [Selecting $\alpha$ Parameters](#selecting-alpha-parameters)
-  - [Optimizing $alpha_i$ and $alpha_j$](#optimizing-alpha_i-and-alpha_j)
+  - [Optimizing $\alpha_i$ and $\alpha_j$](#optimizing-alpha_i-and-alpha_j)
   - [Computing the $b$ threshold](#computing-the-b-threshold)
 - [Maximum margin solution in non-linearly separable case](#maximum-margin-solution-in-non-linearly-separable-case)
   - [Original form](#original-form)
@@ -350,7 +350,7 @@ Since $z$ was arbitrary, this shows that $K$ is positive semi-deﬁnite ($K \geq
 
 ### Mercer Theorem
 
-**Theorem (Mercer).** Let $K : \mathbb{R}^{n} \times \mathbb{R}^{n} \mapsto \mathbb{R}$ be given. Then for $K$ to be a valid (Mercer) kernel, it is necessary and sufficient that for any $\left\{x^{(1)}, \ldots, x^{(m)}\right\},(m<\infty)$, the corresponding kernel matrix is symmetric positive semi-deﬁnite.
+**Theorem (Mercer).** Let $K : \mathbb{R}^{n} \times \mathbb{R}^{n} \mapsto \mathbb{R}$ be given. Then for $K$ to be a valid (Mercer) kernel, it is necessary and sufficient that for any $\{x^{(1)}, \ldots, x^{(m)}\}, (m<\infty)$, the corresponding kernel matrix is symmetric positive semi-deﬁnite.
 
 
 ## Regularization and non-linear separable case
@@ -410,7 +410,7 @@ This process is repeated until the $\alpha$'s converge.
 
 For the simplified version of SMO, we employ a much simple heuristic. We simply iterate over all $\alpha_i, i = 1, \ldots, m$. If $alpha_i$ does not fulfill the KKT conditions to within some numerical tolerance, we select $\alpha_j$ at random from the remaining $m − 1$ $\alpha$'s and attempt to jointly optimize $\alpha_i$ and $\alpha_j$. If none of the $\alpha$s are changed after a few iteration over all the $\alpha_i$'s, then the algorithm terminates.
 
-It is important to realize that by employing this simplification, the algorithm is no longer guaranteed to converge to the global optimum , since we are not attempting to optimize all possible $alpha_i$, $alpha_j$ pairs, there exists the possibility that some pair could be optimized which we do not consider.
+It is important to realize that by employing this simplification, the algorithm is no longer guaranteed to converge to the global optimum , since we are not attempting to optimize all possible $\alpha_i$, $\alpha_j$ pairs, there exists the possibility that some pair could be optimized which we do not consider.
 
 ### Optimizing $\alpha_i$ and $\alpha_j$
 
