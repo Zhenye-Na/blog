@@ -1,0 +1,48 @@
+# jemdoc: menu{MENU}{index.html}
+== Zhenye Na
+
+
+~~~
+{}{img_left}{me.jpg}{alt text}{200}{HEIGHTpx}{}
+
+MS Candidate\n 
+[https://ise.illinois.edu/ Department of Industrial and Enterprise Systems Engineering]\n 
+[https://illinois.edu/ University of Illinois at Urbana-Champaign]\n 
+
+Email: zna2 AT illinois.edu\n
+Github: [https://github.com/Zhenye-Na @zhenye-na]\n
+LinkedIn: [https://www.linkedin.com/in/zhenyena/ @zhenyena]\n
+[resume.pdf Resume]
+~~~
+
+
+== About Me
+
+*Research Interests:* /Artificial Intelligence/
+
+I'm a second-year Master student in Industrial Engineering at University of Illinois [https://ise.illinois.edu/ (ISE @ Illinois)], with concentration in Advanced Analytics and Computational Science & Engineering. I worked with [http://jasirign.github.io/ Prof. Justin A. Sirignano] on Deep Learning with High-Frequency Finacial Data. I am currently working with [https://ise.illinois.edu/directory/profile/wrnorris Prof. Bob Norris] on Autonomous Vehicles. My research interest lies in Artificial Intelligence (AI). Within AI, I am interested in problems related to probabilistic modeling, machine learning and deep learning. I obtained my Bachelor Degree in [http://en.dlut.edu.cn/ Dalian University of Technology], majoring in Harbor, Waterway and Coastal Engineering under the supervision of [http://faculty.dlut.edu.cn/chentg/zh_CN/index/786083/list/index.htm Prof. Tingguo Chen]. I worked with [http://faculty.dlut.edu.cn/1998011035/zh_CN/index.htm Prof. Meng Jiang] on my thesis topic being "The Structure Design of a Gravity Quay Wall of Ocean Fishery Group in Dalian".
+
+
+~~~
+This is my personal [https://zhenye-na.github.io/ blog]. I used it to keep record my learning notes and hands-on projects. Please check it out, if you are also interested in Machine Learning and Deep Learning.
+~~~
+
+== Education
+
+*University of Illinois Urbana - Champaign*, May 2019\n
+Master of Science, Industrial Engineering in Advanced Analytics\n
+/Concentration in Computational Science & Engineering/
+
+*Dalian University of Technology*, July 2017\n
+Bachelor of Engineering, Harbor, Waterway and Coastal Engineering\n
+/Thesis: The Structure Design of a Gravity Quay Wall of Ocean Fishery Group in Dalian./
+
+
+== Latest News
+
+- April, 2019. Started participating in competition -- [https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification Jigsaw Unintended Bias in Toxicity Classification].
+- April, 2019. Top 5%, Silver Medal solution in [https://www.kaggle.com/c/santander-customer-transaction-prediction Santander Customer Transaction Prediction].
+- February, 2019. Independent Study project, [https://github.com/Zhenye-Na/self-driving-vehicles-sim-with-ml Self-Driving Vehicles Simulation using Machine Learning].
+- December, 2018. Top 20% solution in [https://www.kaggle.com/c/humpback-whale-identification Humpback Whale Identification].
+- December 15, 2018. Finished our Deep Learning group project "Deep Reinforcement Learning - Flappy Bird Hack using Double Q Learning". Check [https://github.com/drl-dql this project] out!
+- Summer 2018. Participated in [https://www.kaggle.com/c/youtube8m-2018 Youtube-8M Challange].
