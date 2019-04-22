@@ -2,7 +2,7 @@
 layout: article
 title: "Support Vector Machines Explained"
 date: 2019-04-18
-modify_date: 2019-04-19
+modify_date: 2019-04-22
 excerpt: "Under the hood - Support Vector Machines (SVM)"
 tags: [Machine Learning, Supervised Learning, Support Vector Machines]
 pageview: true
@@ -16,37 +16,6 @@ mathjax_autoNumber: true
 A Support Vector Machine (SVM) is a very powerful and versatile Machine Learning model, capable of performing linear or nonlinear classification, regression, and even outlier detection. It is one of the most popular models in Machine Learning, and anyone interested in Machine Learning should have it in their toolbox. SVMs are particularly well suited for classification of complex but small- or medium-sized datasets. In this tutorial, I will explain the core concepts of SVMs, how to use them, and how they work.
 
 To explain the SVM, we'll need to first talk about **margins** and the idea of separating data with a large "gap". Next, we'll talk about the optimal margin classifier. We'll also see kernels, which give a way to apply SVMs efficiently in very high dimensional (such as infinitedimensional) feature spaces, and finally, we'll close off the introduction with the SMO algorithm, which gives an efficient implementation of SVMs.
-
-- [Overview and notation](#overview-and-notation)
-- [Prerequisites](#prerequisites)
-  - [Linearly separable](#linearly-separable)
-  - [Lagrange duality](#lagrange-duality)
-    - [Lagrangian](#lagrangian)
-    - [Generalized Lagrangian](#generalized-lagrangian)
-    - [KKT conditions](#kkt-conditions)
-    - [KKT dual complementarity condition](#kkt-dual-complementarity-condition)
-- [Functional and geometric margins](#functional-and-geometric-margins)
-  - [Functional margin](#functional-margin)
-  - [Geometric margin](#geometric-margin)
-- [Derivation optimal margin classifier](#derivation-optimal-margin-classifier)
-- [Large margin classifiers](#large-margin-classifiers)
-  - [Largrangian of optimization problem](#largrangian-of-optimization-problem)
-- [Kernels](#kernels)
-  - [Mercer Theorem](#mercer-theorem)
-- [Regularization and non-linear separable case](#regularization-and-non-linear-separable-case)
-- [Simplified SMO Algorithm](#simplified-smo-algorithm)
-  - [Selecting $\alpha$ Parameters](#selecting-alpha-parameters)
-  - [Optimizing $\alpha_i$ and $\alpha_j$](#optimizing-alpha_i-and-alpha_j)
-  - [Computing the $b$ threshold](#computing-the-b-threshold)
-- [Maximum margin solution in non-linearly separable case](#maximum-margin-solution-in-non-linearly-separable-case)
-  - [Original form](#original-form)
-  - [Regularized form](#regularized-form)
-  - [Unconstrained form](#unconstrained-form)
-- [Interview Questions](#interview-questions)
-  - [Parameter $C$ in softmargin SVM](#parameter-c-in-softmargin-svm)
-  - [Bias-Variance tradeoff of SVMs](#bias-variance-tradeoff-of-svms)
-  - [Main advantages and drawbacks of SVM](#main-advantages-and-drawbacks-of-svm)
-- [References](#references)
 
 
 ## Overview and notation
@@ -132,7 +101,7 @@ $$
 $$
 
 
-We use $p^{\*}$ to stand for the **value** of the primal problem, which means that $p^{\*} = \min \limits_{w} \theta_{\mathcal{P}}(w)$. Like we defined $\mathcal{P}$ subscript as primal problem before, we use $\mathcal{D}$ subscript standing for "dual" problem.
+We use $p^{*}$ to stand for the **value** of the primal problem, which means that $p^{*} = \min \limits_{w} \theta_{\mathcal{P}}(w)$. Like we defined $\mathcal{P}$ subscript as primal problem before, we use $\mathcal{D}$ subscript standing for "dual" problem.
 
 
 $$
@@ -164,7 +133,7 @@ Suppose:
 - $h_i$'s are affine
 - further assumption: $g_i$ are (strictly) feasible
 
-this means that there exists some $w$ so that $g_i(w) < 0$ for all $i$. Under our above assumptions, there must exist $w^{\*}$ , $\alpha^{\*}$ , $\beta^{\*}$ so that $w^{\*}$ is the solution to the primal problem, $\alpha^{\*}$ , $\beta^{\*}$ are the solution to the dual problem, and moreover $p^{\*} = d^{\*} = \mathcal{L}(w^{\*}, \alpha^{\*}, \beta^{\*})$. Moreover, $w^{\*}$ , $\alpha^{\*}$ , $\beta^{\*}$ satisfy the **Karush-Kuhn-Tucker (KKT)** conditions, which are as follows:
+this means that there exists some $w$ so that $g_i(w) < 0$ for all $i$. Under our above assumptions, there must exist $w^{*}$ , $\alpha^{*}$ , $\beta^{*}$ so that $w^{*}$ is the solution to the primal problem, $\alpha^{*}$ , $\beta^{*}$ are the solution to the dual problem, and moreover $p^{*} = d^{*} = \mathcal{L}(w^{*}, \alpha^{*}, \beta^{*})$. Moreover, $w^{*}$ , $\alpha^{*}$ , $\beta^{*}$ satisfy the **Karush-Kuhn-Tucker (KKT)** conditions, which are as follows:
 
 
 $$
@@ -172,7 +141,7 @@ $$
 $$
 
 
-If some $w^{\*}$, $\alpha^{\*}$, $\beta^{\*}$ satisfy KKT conditions, then it is also a solution to the primal and dual problems.
+If some $w^{*}$, $\alpha^{*}$, $\beta^{*}$ satisfy KKT conditions, then it is also a solution to the primal and dual problems.
 
 
 #### KKT dual complementarity condition
