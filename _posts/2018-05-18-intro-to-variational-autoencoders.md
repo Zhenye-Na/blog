@@ -1,11 +1,11 @@
 ---
 layout: article
-pageview: true
-title: "Introduction to Variational Autoencoders"
+title: "Brief Introduction to Variational Autoencoders"
 date: 2018-05-18
-modify_date: 2019-04-15
-excerpt: "Understanding Variational Autoencoders (VAEs)"
+modify_date: 2019-04-23
+excerpt: "Understanding Variational Autoencoders (VAEs) from math and codes"
 tags: [Deep Learning, Machine Learning, Generative models]
+pageview: true
 mathjax: true
 mathjax_autoNumber: true
 ---
@@ -25,15 +25,15 @@ Before we start examining VAEs closely, let us first review the metric used in V
 
 $$ D_{KL}(p \| q) = \int_x p(x) \log \frac{p(x)}{q(x)} dx $$
 
-<figure>
+<div align="center">
     <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/KL.png?raw=true" width="60%" class="center">
-    <figcaption>Figure 1: Illustration of the Kullback–Leibler (KL) divergence for two normal distributions. The typical asymmetry for the Kullback–Leibler divergence is clearly visible. <i>(Image source: <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence#/media/File:KL-Gauss-Example.png">Wikipedia: Kullback–Leibler divergence</a>)</i>.</figcaption>
-</figure>
+    <p>Figure 1: Illustration of the Kullback–Leibler (KL) divergence for two normal distributions. The typical asymmetry for the Kullback–Leibler divergence is clearly visible. <i>(Image source: <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence#/media/File:KL-Gauss-Example.png">Wikipedia: Kullback–Leibler divergence</a>)</i>.</p>
+</div>
 
 
 $D_{KL}(p(x) \| q(x))$ achieves minimum (zero) if and only if $p(x) = q(x)$ everywhere.
 
-> **Proof:**
+**Proof:**
 
 $$ \begin{align} D_{KL}(p(x) \| q(x)) &= - \int p(x) \log \frac{q(x)}{p(x)} dx \\ &\geq - \log \int p(x) \frac{q(x)}{p(x)} dx \\ &= - \log \int q(x) dx \\ &= 0 \end{align} $$
 
@@ -118,7 +118,6 @@ The mathematical basis of VAEs actually has relatively little to do with classic
 
 
 According to Manifold Hypothesis, real-world high dimensional data (such as images) lie on low-dimensional manifolds embedded in the high-dimensional space. If $x​$ is a high dimensional vector, then data is concentrated around a low dimensional manifold. So we can represent our sample data using "latent variables".
-
 
 
 Decoder is a Neural Net. Its input is the latent variables $z$, it outputs sample data $x$, and has weights and biases $\theta$. Decoder is denoted by $p_\theta (x \vert z)$ in this tutorial.
@@ -210,8 +209,6 @@ Where are we now? We have figured out the architecture for both Encoder and Deco
 <div align="center">
   <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vae/archi2.png?raw=true" width="80%">
 </div>
-
-
 
 
 We can easily backpropgation through Decoder. However, how to take derivatives with respect to the parameters of a stochastic variable. If we are given $z​$ that is drawn from a distribution $q_\theta (z \vert x)​$, and we want to take derivatives of a function of $z​$ with respect to $\theta​$, how do we do that?
@@ -343,11 +340,13 @@ Recall what we mentioned in Reblablablabla section, we will use that in latent v
 
 More details for implementation can be found [here](https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.py).
 
-<img src="https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.gif?raw=true" width="60%" class="center">
-
+<div align="center">
+    <img src="https://github.com/Zhenye-Na/cs446/blob/master/assignments/assignment10/mp10/vae.gif?raw=true" width="60%" class="center">
+</div>
 
 
 ## Quiz
+
 * What is the difference between generative and discriminative modeling?
 * What generative modeling techniques do you know about?
 * What are the approximations used in variational auto-encoders?
