@@ -1,6 +1,5 @@
 ---
 layout: article
-pageview: true
 title: "Deep Residual Neural Network for CIFAR100 with Pytorch"
 date: 2018-10-07
 excerpt: "Deep Residual Neural Network for CIFAR100 with Pytorch"

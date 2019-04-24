@@ -7,7 +7,6 @@ excerpt: "Object detection"
 tags: [Deep Learning, Convolutional Neural Networks, Object detection]
 mathjax: true
 mathjax_autoNumber: true
-pageview: true
 ---
 
 # Object detection

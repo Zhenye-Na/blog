@@ -1,6 +1,5 @@
 ---
 layout: article
-pageview: true
 title: "Build Neural Network from scratch with Numpy on MNIST Dataset"
 date: 2018-09-09
 excerpt: "Build Neural Network from scratch with Numpy on MNIST Dataset"
@@ -14,9 +13,6 @@ mathjax_autoNumber: true
 > Long read and Heavy mathematical notations
 >
 > *This is originally HW1 of CS598: Deep Learning at UIUC.*
->
-> If you have no access to the dataset or the full source code right now. Please be patient, I will make my repo "public" as soon as 2018 Fall semester ends. ^_^
-
 
 
 # Build Neural Network from scratch with Numpy on MNIST Dataset

@@ -5,7 +5,6 @@ date: 2019-04-18
 modify_date: 2019-04-22
 excerpt: "Under the hood - Support Vector Machines (SVM)"
 tags: [Machine Learning, Supervised Learning, Support Vector Machines]
-pageview: true
 mathjax: true
 mathjax_autoNumber: true
 ---
