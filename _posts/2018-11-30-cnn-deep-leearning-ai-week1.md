@@ -1,6 +1,5 @@
 ---
 layout: article
-pageview: true
 title: "Week 1 lecture note of Coursera - Convolutional Neural Networks from deeplearning.ai"
 date: 2018-11-30
 modify_date: 2019-04-12

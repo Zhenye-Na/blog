@@ -1,6 +1,5 @@
 ---
 layout: article
-pageview: true
 title: "Install MySQL on Mac OS X"
 date: 2017-07-17 
 excerpt: "Tutorial: How to install MySQL on Mac OS X"

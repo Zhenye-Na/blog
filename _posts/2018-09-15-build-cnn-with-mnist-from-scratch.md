@@ -1,6 +1,5 @@
 ---
 layout: article
-pageview: true
 title: "Build Convolutional Neural Network from scratch with Numpy on MNIST Dataset"
 date: 2018-09-15
 excerpt: "Build Convolutional Neural Network from scratch with Numpy on MNIST Dataset"
@@ -12,8 +11,6 @@ mathjax_autoNumber: true
 > In this post, I will introduce how to implement a Convolutional Neural Network from scratch with Numpy and training on MNIST dataset. 
 > 
 > *This is originally HW2 of CS598: Deep Learning at UIUC.*
->
-> If you have no access to the dataset or the full source code right now. Please be patient, I will make my repo "public" as soon as 2018 Fall semester ends.
 
 
 

@@ -1,6 +1,5 @@
 ---
 layout: article
-pageview: true
 title: "Fenwick Tree or Binary Indexed Tree"
 date: 2018-08-22
 excerpt: "Fenwick Tree or Binary Indexed Tree"

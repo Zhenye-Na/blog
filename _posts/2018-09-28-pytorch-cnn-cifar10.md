@@ -1,6 +1,5 @@
 ---
 layout: article
-pageview: true
 title: "Deep Learning with Pytorch on CIFAR10 Dataset"
 date: 2018-09-28
 excerpt: "Deep Learning with Pytorch on CIFAR10 Dataset"
