@@ -2,8 +2,9 @@
 layout: article
 title: "Backtracking"
 date: 2018-08-29
-excerpt: "Backtracking && Recursion"
+excerpt: "How to understand Backtracking and Recursion?"
 tags: [Algorithms, Backtracking]
+key: page-aside
 ---
 
 # Backtracking
