@@ -124,24 +124,24 @@ comments:
   disqus:
     shortname: zhenye # the Disqus shortname for the site
 
-  ## Gitalk
-  # please refer to https://github.com/gitalk/gitalk for more info.
-  gitalk:
-    clientID    : # GitHub Application Client ID
-    clientSecret: # GitHub Application Client Secret
-    repository  : # GitHub repo
-    owner       : # GitHub repo owner
-    admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-      # - your GitHub Id
+  # ## Gitalk
+  # # please refer to https://github.com/gitalk/gitalk for more info.
+  # gitalk:
+  #   clientID    : # GitHub Application Client ID
+  #   clientSecret: # GitHub Application Client Secret
+  #   repository  : # GitHub repo
+  #   owner       : # GitHub repo owner
+  #   admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
+  #     # - your GitHub Id
 
-  ## Valine
-  # please refer to https://valine.js.org/en/ for more info.
-  valine:
-    app_id      : # LeanCloud App id
-    app_key     : # LeanCloud App key
-    placeholder : # Prompt information
-    visitor     : # false (default)
-    meta        : # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
+  # ## Valine
+  # # please refer to https://valine.js.org/en/ for more info.
+  # valine:
+  #   app_id      : # LeanCloud App id
+  #   app_key     : # LeanCloud App key
+  #   placeholder : # Prompt information
+  #   visitor     : # false (default)
+  #   meta        : # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
 
 
 ## => Pageview
