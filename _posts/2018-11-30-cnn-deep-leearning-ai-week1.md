@@ -7,6 +7,7 @@ excerpt: "Foundations of Convolutional Neural Networks"
 tags: [Deep Learning, Convolutional Neural Networks]
 mathjax: true
 mathjax_autoNumber: true
+key: page-aside
 ---
 
 # Week 1 lecture notes: Convolutional Neural Networks

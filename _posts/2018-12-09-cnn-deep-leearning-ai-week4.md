@@ -7,6 +7,7 @@ excerpt: "Special applications: Face recognition & Neural style transfer"
 tags: [Deep Learning, Convolutional Neural Networks, Face recognition, Neural style transfer]
 mathjax: true
 mathjax_autoNumber: true
+key: page-aside
 ---
 
 # Special applications: Face recognition & Neural style transfer
