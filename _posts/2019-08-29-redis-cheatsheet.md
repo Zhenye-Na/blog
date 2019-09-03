@@ -3,7 +3,7 @@ layout: article
 title: "Redis Cheatsheet - Redis 知识点笔记整理"
 date: 2019-08-29
 modify_date: 2019-08-29
-excerpt: "Redis 知识点笔记整理"
+excerpt: "Redis Cheatsheet"
 tags: [Redis, NoSQL]
 key: redis-cheatsheet
 ---
