@@ -6,7 +6,7 @@ excerpt: "Build Convolutional Neural Network from scratch with Numpy on MNIST Da
 tags: [Machine Learning, Deep Learning, Python]
 mathjax: true
 mathjax_autoNumber: true
-key: page-aside
+key: cnn-from-scratch
 ---
 
 > In this post, I will introduce how to implement a Convolutional Neural Network from scratch with Numpy and training on MNIST dataset. 

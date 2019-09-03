@@ -7,7 +7,7 @@ excerpt: "Understanding Variational Autoencoders (VAEs) from math and codes"
 tags: [Deep Learning, Machine Learning, Generative models]
 mathjax: true
 mathjax_autoNumber: true
-key: page-aside
+key: intro-to-vae
 ---
 
 > *Variational Autoencoders (VAEs) have emerged as one of the most popular approaches to unsupervised learning of complicated distributions. VAEs are appealing because they are built on top of standard function approximators (Neural Networks), and can be trained with Stochastic Gradient Descent (SGD). VAEs have already shown promise in generating many kinds of complicated data. In this tutorial, I will introduce the intuitions behind VAEs, explains the mathematics behind them, and experiments with MNIST dataset.*

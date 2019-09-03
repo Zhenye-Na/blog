@@ -6,7 +6,7 @@ excerpt: "Deep Residual Neural Network for CIFAR100 with Pytorch"
 tags: [Machine Learning, Deep Learning, Python]
 mathjax: true
 mathjax_autoNumber: true
-key: page-aside
+key: reset-cifar100
 ---
 
 > Residual Network developed by Kaiming He et al. was the winner of ILSVRC 2015. It features special skip connections and a heavy use of batch normalization. The architecture is also missing fully connected layers at the end of the network. ResNets are currently by far state of the art Convolutional Neural Network models and are the default choice for using ConvNets in practice (as of May 10, 2016). In particular, also see more recent developments that tweak the original architecture from Kaiming He et al. In this post, I will introduce the architecture of ResNet (Residual Network) and the implementation of ResNet in Pytorch.  

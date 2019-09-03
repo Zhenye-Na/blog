@@ -5,7 +5,7 @@ date: 2019-08-29
 modify_date: 2019-08-29
 excerpt: "Redis 知识点笔记整理"
 tags: [Redis, NoSQL]
-key: page-aside
+key: redis-cheatsheet
 ---
 
 
@@ -16,6 +16,8 @@ key: page-aside
   <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Redis_Logo.svg/1200px-Redis_Logo.svg.png" width="45%">
 </div>
 
+
+> Redis 脑图下载地址: [here](https://drive.google.com/drive/folders/1hIXhJMMCK2d6N6DYsz-Qi1YQpq34gBPX?usp=sharing).
 
 
 ## NoSQL 入门

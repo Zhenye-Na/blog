@@ -7,7 +7,7 @@ excerpt: "Under the hood - Support Vector Machines (SVM)"
 tags: [Machine Learning, Supervised Learning, Support Vector Machines]
 mathjax: true
 mathjax_autoNumber: true
-key: page-aside
+key: svm-explained
 ---
 
 

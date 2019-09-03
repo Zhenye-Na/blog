@@ -4,7 +4,7 @@ title: "Backtracking"
 date: 2018-08-29
 excerpt: "How to understand Backtracking and Recursion?"
 tags: [Algorithms, Backtracking]
-key: page-aside
+key: backtracking
 ---
 
 # Backtracking

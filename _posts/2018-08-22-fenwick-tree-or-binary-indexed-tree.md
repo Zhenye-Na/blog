@@ -4,7 +4,7 @@ title: "Fenwick Tree or Binary Indexed Tree"
 date: 2018-08-22
 excerpt: "Fenwick Tree or Binary Indexed Tree"
 tags: [Algorithms, Fenwick Tree, Binary Indexed Tree]
-key: page-aside
+key: binary-indexed-tree
 ---
 
 # Fenwick Tree or Binary Indexed Tree
