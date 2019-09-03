@@ -3,7 +3,7 @@ layout: article
 title: "Time Series Forecasting Explained"
 date: 2019-06-19
 modify_date: 2019-06-19
-excerpt: "Under the hood - Support Vector Machines (SVM)"
+excerpt: "Introduction to Time Series Forecasting"
 tags: [Time Series]
 mathjax: true
 mathjax_autoNumber: true
