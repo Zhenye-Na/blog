@@ -7,7 +7,7 @@ excerpt: "Deep convolutional models: case studies"
 tags: [Deep Learning, Convolutional Neural Networks]
 mathjax: true
 mathjax_autoNumber: true
-key: page-aside
+key: deep-learning-coursera-2
 ---
 
 

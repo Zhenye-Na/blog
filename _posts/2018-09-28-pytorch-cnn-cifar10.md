@@ -6,7 +6,7 @@ excerpt: "Deep Learning with Pytorch on CIFAR10 Dataset"
 tags: [Machine Learning, Deep Learning, Python]
 mathjax: true
 mathjax_autoNumber: true
-key: page-aside
+key: pytorch-cifar10
 ---
 
 

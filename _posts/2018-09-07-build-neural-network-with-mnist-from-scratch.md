@@ -6,7 +6,7 @@ excerpt: "Build Neural Network from scratch with Numpy on MNIST Dataset"
 tags: [Machine Learning, Deep Learning, Python]
 mathjax: true
 mathjax_autoNumber: true
-key: page-aside
+key: nn-from-scratch
 ---
 
 > In this post, I will introduce how to implement a Neural Network from scratch with Numpy and training on MNIST dataset. 
