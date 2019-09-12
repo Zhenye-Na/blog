@@ -271,6 +271,54 @@ def print_actual_solution(T, prices):
         print("Sell on day {day} at price {price}".format(day=stack[entry], price=prices[stack[transaction - 1]]))
 ```
 
+## AC Solution in LeetCode
+
+Some minor changes should be added so that it can pass the large testcases
+
+```python
+class Solution:
+    """
+    @param K: An integer
+    @param prices: An integer array
+    @return: Maximum profit
+    """
+    def maxProfit(self, K, prices):
+        # write your code here
+        if not prices or len(prices) <= 1:
+            return 0
+
+        if K > len(prices) // 2:
+            return self.unlimited_profits(prices)
+
+        n = len(prices)
+
+        # state: f[i][j] represents until jth day, i transactions have been occured
+        f = [[0 for _ in range(n)] for _ in range(2)]
+
+        # function: optimized version
+        # f[i][j] = max(f[i][j - 1]  we dont make transactions on day j
+        #               prices[j] + maxDiff  make transactions on day j
+        # maxDiff = max(maxDiff, f[i - 1][j] - prices[j - 1])
+
+        for i in range(1, K + 1):
+            maxDiff = - prices[0]
+            for j in range(1, n):
+                f[i % 2][j] = max(f[i % 2][j - 1], prices[j] + maxDiff)
+                maxDiff = max(maxDiff, f[(i - 1) % 2][j] - prices[j])
+
+        return f[K % 2][-1]
+
+
+    def unlimited_profits(self, prices):
+        profits = 0
+        closing = prices[0]
+        for opening in prices:
+            profits += opening - closing if opening > closing else 0
+            closing = opening
+        return profits
+```
+
+
 ## References
 
 Tushar's youtube Channel - [Buy/Sell Stock With K transactions To Maximize Profit Dynamic Programming](https://www.youtube.com/watch?v=oDhu5uGq_ic)
