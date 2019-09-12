@@ -47,7 +47,7 @@ Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-
 
 ## Solution 1
 
-Dynamic Programming [Slow Version]
+**Dynamic Programming**
 
 `n` - days, `k` - k transactions
 
@@ -111,7 +111,7 @@ def max_profit_slow_solution(prices, K):
 
 ## Solution 2
 
-Dynamic Programming with optimization
+**Dynamic Programming with Time Complexity optimization**
 
 `n` - days, `k` - k transactions
 
@@ -170,6 +170,81 @@ def max_profit(prices, K):
 ```
 
 
+## Solution 3
+
+## Solution 2
+
+**Dynamic Programming with Time and SpaceComplexity optimization**
+
+`n` - days, `k` - k transactions
+
+- Time Complexity: $O(nk)$
+- Space Complexity: $O(n)$
+
+
+### State
+
+```
+f[i][j] represents max profit occurs on ith transaction on day j 
+```
+
+
+### Initialization
+
+- `f[0][j] = 0`, 0th transaction, profit is zero
+- `f[i][0] = 0`, there is only one price, cannot make profit at all
+
+
+### Function
+
+Rolling Array optimize Space Complexity
+
+```
+f[i % 2][j] = max{ f[i % 2][j - 1], prices[j] + maxDiff }
+maxDiff = max{ maxDiff, f[(i - 1) % 2][j] - prices[j] }
+```
+
+### Answer
+
+After calculating the DP array, the answer is `f[K % 2][-1]`
+
+
+### Implementation
+
+```python
+class Solution:
+    """
+    @param K: An integer
+    @param prices: An integer array
+    @return: Maximum profit
+    """
+    def maxProfit(self, K, prices):
+        # write your code here
+        if not prices or len(prices) <= 1:
+            return 0
+
+        n = len(prices)
+
+        # state: f[i][j] represents until jth day, i transactions have been occured
+        f = [[0 for _ in range(n)] for _ in range(2)]
+
+        # function: optimized version
+        # f[i][j] = max(f[i][j - 1]  we dont make transactions on day j
+        #               prices[j] + maxDiff  make transactions on day j
+        # maxDiff = max(maxDiff, f[i - 1][j] - prices[j - 1])
+
+        for i in range(1, K + 1):
+            maxDiff = - prices[0]
+            for j in range(1, n):
+                f[i % 2][j] = max(f[i % 2][j - 1], prices[j] + maxDiff)
+                maxDiff = max(maxDiff, f[(i - 1) % 2][j] - prices[j])
+
+        return f[K % 2][-1]
+```
+
+
+
+
 ## Print solution
 
 ```python
@@ -198,13 +273,6 @@ def print_actual_solution(T, prices):
         print("Sell on day {day} at price {price}".format(day=stack[entry], price=prices[stack[transaction - 1]]))
 ```
 
+## References
 
-
-
-
-
-
-
-
-
-
+Tushar's youtube Channel - [Buy/Sell Stock With K transactions To Maximize Profit Dynamic Programming](https://www.youtube.com/watch?v=oDhu5uGq_ic)
