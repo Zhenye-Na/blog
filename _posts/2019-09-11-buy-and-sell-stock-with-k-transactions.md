@@ -172,8 +172,6 @@ def max_profit(prices, K):
 
 ## Solution 3
 
-## Solution 2
-
 **Dynamic Programming with Time and SpaceComplexity optimization**
 
 `n` - days, `k` - k transactions
