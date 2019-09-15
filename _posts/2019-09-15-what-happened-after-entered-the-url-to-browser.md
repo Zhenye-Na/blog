@@ -211,9 +211,9 @@ TCP/IP 分为四层，在发送数据时，每层都要对数据进行封装：
 
 **基本流程**
 
-![img](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/http-url-deep-dive/20190822183712-20190915004358299.png){:.shadow.border.rounded}
+![img](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/http-url-deep-dive/20190822183712-20190915004358299.png?raw=true){:.shadow.border.rounded}
 
-### **1.HTML 解析**
+### 1.HTML 解析
 
 首先要知道浏览器解析是从上往下一行一行地解析的。
 
