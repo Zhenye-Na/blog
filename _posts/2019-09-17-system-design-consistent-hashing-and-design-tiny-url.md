@@ -1,8 +1,8 @@
 ---
 layout: article
 title: "系统设计 - 一致性哈希算法与短网址系统"
-date: 2019-09-09
-modify_date: 2019-09-09
+date: 2019-09-17
+modify_date: 2019-09-17
 excerpt: "System Design - Consistent Hashing and Design Tiny Url"
 tags: [System Design, Consistent Hashing, Design Tiny Url]
 key: system-design-consistent-hashing-and-design-tiny-url
