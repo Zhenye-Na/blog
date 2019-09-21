@@ -20,9 +20,9 @@ key: leetcode-buy-and-sell-stock
 
 ## Problem Description
 
-Say you have an array for which the i^(th) element is the price of a given stock on day `i`.
+Say you have an array for which the $i^{th}$ element is the price of a given stock on day `i`.
 
-Design an algorithm to find the maximum profit. You may complete at most **`k`** transactions.
+Design an algorithm to find the maximum profit. You may complete *at most* **`k`** transactions.
 
 **Note:**
 
@@ -57,7 +57,7 @@ Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-
 ### State
 
 ```
-f[i][j] represents max profit occurs on ith transaction on day j 
+f[i][j] represents max profit occurs on i-th transaction on day j 
 ```
 
 
@@ -122,7 +122,7 @@ def max_profit_slow_solution(prices, K):
 ### State
 
 ```
-f[i][j] represents max profit occurs on ith transaction on day j 
+f[i][j] represents max profit occurs on i-th transaction on day j 
 ```
 
 
@@ -172,7 +172,7 @@ def max_profit(prices, K):
 
 ## Solution 3
 
-**Dynamic Programming with Time and SpaceComplexity optimization**
+**Dynamic Programming with Time and Space Complexity optimization**
 
 `n` - days, `k` - k transactions
 
@@ -183,7 +183,7 @@ def max_profit(prices, K):
 ### State
 
 ```
-f[i][j] represents max profit occurs on ith transaction on day j 
+f[i][j] represents max profit occurs on i-th transaction on day j 
 ```
 
 
@@ -239,8 +239,6 @@ class Solution:
 
         return f[K % 2][-1]
 ```
-
-
 
 
 ## Print solution
