@@ -86,10 +86,8 @@ Docker 与传统虚拟化方式的不同之处:
 
 #### 1.2.3. 二者对比
 
-
-
 <div align="center">
-  <img src="http://jasonhzy.github.io/images/docker/docker-virtual.png" width=80%>
+  <img src="http://jasonhzy.github.io/images/docker/docker-virtual.png" width="80%">
   <p>图片来源: https://jasonhzy.github.io/2018/03/06/docker-command/</p>
 </div>
 
@@ -112,7 +110,6 @@ Docker 与传统虚拟化方式的不同之处:
 Docker 镜像就是一个**只读**的模板, 镜像可以用来创建 Docker 容器.
 
 > 一个镜像可以创建很多容器
-
 
 
 容器和镜像的关系可以类比 OOP 中的类和对象
@@ -471,7 +468,6 @@ $ docker top <container_id>
 ```
 
 
-
 ##### 查看容器内部细节
 
 ```
@@ -485,13 +481,12 @@ Docker 镜像就像是"套娃 - 一层套着一层"
 ##### 进入正在运行的容器并以命令行交互
 
 ```
-$ $ docker exec -it <container_id> ls -l
-# # 直接返回结果
+$ docker exec -it <container_id> ls -l
+# 直接返回结果
 ```
 
 ```
-$ $ docker attach <container_id>
-
+$ docker attach <container_id>
 ```
 
 `exec` 和 `attach` 的区别:
