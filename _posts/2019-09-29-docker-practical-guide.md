@@ -2,7 +2,7 @@
 layout: article
 title: "Docker 容器技术 (基础篇) | 学习笔记"
 date: 2019-09-29
-modify_date: 2019-09-30
+modify_date: 2019-10-06
 excerpt: "Docker practical guide for beginners"
 tags: [Docker]
 key: docker-practical-guide
@@ -10,7 +10,17 @@ key: docker-practical-guide
 
 # Docker 容器技术 (基础篇) | 学习笔记
 
-**目录**
+<div>
+  <img src="http://www.datacenterdude.com/wp-content/uploads/2015/03/docker-banner.png">
+</div>
+
+
+
+> 本文将介绍 Docker 核心概念, 是什么, 能干什么, Docker 整体架构, 和传统虚拟机的区别. 什么是容器虚拟化技术, 深刻理解镜像, 容器, 仓库的各种概念和操作. 能够熟练掌握 Dockerfile 的编写和构建并使用 Dockerfile 来制作复杂镜像, 能够使用容器卷完成容器间数据共享和持久
+
+
+
+**知识图谱**
 
 1. Docker 简介
 2. Docker 安装
@@ -22,6 +32,8 @@ key: docker-practical-guide
 8. 本地镜像发布到阿里云 (*)
 
 
+
+[TOC]
 
 ## 0. 前提知识储备
 
@@ -44,9 +56,9 @@ Docker 解决了运行环境和配置问题的**软件容器**, 方便做持续�
 
 
 
-### 1.2 Docker 可以做什么
+### 1.2. Docker 可以做什么
 
-#### 1.2.1 虚拟机技术
+#### 1.2.1. 虚拟机技术
 
 虚拟机 (Virtual Machine) 就是带环境安装的一种解决方案
 
@@ -60,7 +72,7 @@ Docker 解决了运行环境和配置问题的**软件容器**, 方便做持续�
 
 
 
-#### 1.2.2 Linux 容器技术
+#### 1.2.2. Linux 容器技术
 
 Linux 容器不是模拟一个完整的操作系统, 而是对进程进行隔离. 只需要软件工作所需的库资源和设置
 
@@ -69,6 +81,17 @@ Docker 与传统虚拟化方式的不同之处:
 1. 传统虚拟机技术是虚拟出一套硬件, 在其上运行一个完整操作系统, 在该系统上再运行所需应用进程
 2. 而容器内的应用进程直接运行于宿主的内核, 容器没有自己的内核, 而且也没有进行硬件虚拟
 3. 每个容器之间互相隔离, 每个容器有自己的文件系统, 容器之间进程不会相互影响, 能区分计算资源
+
+
+
+#### 1.2.3. 二者对比
+
+
+
+<div align="center">
+  <img src="http://jasonhzy.github.io/images/docker/docker-virtual.png" width=80%>
+  <p>图片来源: https://jasonhzy.github.io/2018/03/06/docker-command/</p>
+</div>
 
 
 
@@ -94,8 +117,8 @@ Docker 镜像就是一个**只读**的模板, 镜像可以用来创建 Docker �
 
 容器和镜像的关系可以类比 OOP 中的类和对象
 
-- 容器 - 对象
-- 镜像 - 类
+- 容器 <-> 对象
+- 镜像 <-> 类
 
 
 
@@ -351,6 +374,13 @@ $ CTRL + P + Q
 
 
 
+一个很形象的比喻:
+
+- `exit` : 出门关灯
+- `CTRL + P + Q` : 出门不关灯
+
+
+
 #### 3.3.4. 启动容器
 
 ```
@@ -528,13 +558,21 @@ Docker 镜像实际上是由一层一层的文件系统组成, 这种层级的�
 
 
 
+<div align="center">
+  <img src="https://testerhome.com/uploads/photo/2017/06b60903-0a74-41fa-8e2a-b51694bb7db7.png!large" width="50%">
+</div>
+
+
+
 #### 4.1.3. 镜像分层
 
 以 `docker pull` 为例, 下载过程可以看到 docker 镜像好像是一层一层在下载
 
-以 tomcat 为例, `docker pull` 下来的镜像文件有 400 MB, 为何文件如此之大?
 
-答: "镜像分层", kernel -> centOS -> jdk8 -> tomcat, 虽然我们只是用到了最后的 tomcat, 但是所有之前的都下载了
+
+> 以 tomcat 为例, `docker pull` 下来的镜像文件有 400 MB, 为何文件如此之大?
+>
+> 答: "镜像分层", kernel -> centOS -> jdk8 -> tomcat, 虽然我们只是用到了最后的 tomcat, 但是所有之前的都下载了
 
 
 
@@ -572,45 +610,392 @@ $ docker commit -m="message" -a="author" <container_id> target_name:[tag_name]
 
 ## 5. Docker 容器数据卷
 
+### 5.1. 什么是 Docker 容器数据卷
+
+- 将运用与运行的环境打包成容器运行, 运行可以伴随着容器, 但是我们希望**数据持久化**
+- 容器之间可以会有**数据共享**的需要 (容器间继承 + 共享数据)
 
 
 
+Docker 容器产生的数据, 如果不 `docker commit` 那么容器删除后, 数据也就丢失了
 
 
 
+> 类似于 Redis 里的 RDB 和 AOF
 
 
 
+特点:
+
+1. 数据卷可在容器之间共享或者重用数据
+2. 卷中的更改可以直接生效
+3. 数据卷中的更改不会包含在镜像的更新中
+4. 数据卷的生命周期一直持续到没有容器使用它为止
 
 
 
+### 5.2. 数据卷
+
+> 数据卷是一个可供一个或多个容器使用的特殊目录, 它绕过 UFS, 可以提供很多有用的特性:
+>
+> - 数据卷可以在容器之间共享和重用
+> - 对数据卷的修改会立马生效
+> - 对数据卷的更新，不会影响镜像
+> - 卷会一直存在，直到没有容器使用
+>
+> 数据卷的使用，类似于 Linux 下对目录或文件进行 `mount`
 
 
 
+#### 5.2.1. 创建一个数据卷
+
+##### 1. 直接命令添加
+
+**添加数据卷命令**
+
+在用 `docker run` 命令的时候, 使用 `-v` (`volume` 缩写) 标记来创建一个数据卷并挂载到容器里. 在一次 `run` 中多次使用可以挂载多个数据卷
+
+```
+$ $ docker run -it -v /宿主机绝对路径:/容器内目录 <image_name>
+```
 
 
 
+**查看数据卷是否挂载成功**
+
+```
+$ docker inspect
+# 以 json 形式返回
+```
+
+在 `Volumes` key 中会看到挂载的文件夹, 在 `HostConfig` 中的 `Binds` 看到二者相互绑定, 那么成功.
 
 
 
+**容器和宿主机之间数据共享**
+
+在容器中修改文件内容, 宿主机中可以发现文件内容发生改变. **"可读可写"**
 
 
 
+**容器停止退出后, 宿主机修改后数据是否同步?**
+
+同步
 
 
 
+**文件操作权限**
+
+```
+$ docker run -it -v /宿主机绝对路径:/容器内目录:权限 <image_name>
+```
+
+举个🌰子
+
+```
+$ docker run -it -v /hostDataV:/containerDataV:ro <image_name>
+```
+
+`ro` - Read Only, 只读
+
+在 container 中 执行 `touch container.txt` 会返回错误信息
 
 
 
+##### 2. 使用 Dockerfile 添加
+
+> Dockerfile 会在下一章讲解
+
+添加步骤 (举例) 简略说明:
+
+1. 在根目录下创建 `mydocker` 文件夹并进入
+2. 在 `Dockerfile` 中使用 `VOLUME` 指令来给镜像添加一个或多个数据卷
+3. 编写 `Dockerfile` 文件
+4. `build` 后生成镜像
+   1. 比如 `myCentOS/centos`
+   2. `docker build -f yourDockerFile -t nameOfImage .`
+5. `run` 容器
+6. 通过上述步骤, 容器内的卷目录地址如何知道对应的主机目录地址?
+7. 主机对应默认地址
+   1. 使用 `docker insect` 查看
 
 
 
+```dockerfile
+# Dockerfile example
+FROM centos
+VOLUME ["/dataVolumeContainer1", "/dataVolumeContainer1"]
+CMD echo ">>> finished, success ..."
+CMD /bin/bash
+```
 
 
 
+> Docker 挂载主机目录 Docker 访问出现 `cannot open directory .: Permission denied` 的解决方法:
+>
+> 在挂载目录后多加一个 `--privileged=true` 参数即可
 
 
 
+### 5.3. 数据卷容器
+
+命名的容器挂载数据卷, 其他的容器通过挂载这个 (父容器) 实现数据共享, 挂载数据卷的容器被称为**数据卷容器**
+
+
+
+> 容器间数据的传递共享
+
+
+
+#### 5.3.1. 利用数据卷容器来备份, 恢复, 迁移数据卷
+
+> 摘选自: Docker - 从入门到实践 [Gitbook](http://leilux.github.io/lou/docker_practice/index.html)
+
+可以利用数据卷对其中的数据进行进行备份, 恢复和迁移.
+
+##### 备份
+
+首先使用 `--volumes-from` 标记来创建一个加载 dbdata 容器卷的容器, 并从本地主机挂载当前到容器的 `/backup` 目录. 命令如下：
+
+```
+$ sudo docker run --volumes-from dbdata -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
+```
+
+容器启动后, 使用了 `tar` 命令来将 dbdata 卷备份为本地的 `/backup/backup.tar`.
+
+##### 恢复
+
+如果要恢复数据到一个容器, 首先创建一个带有数据卷的容器 dbdata2
+
+```
+$ sudo docker run -v /dbdata --name dbdata2 ubuntu /bin/bash
+```
+
+然后创建另一个容器, 挂载 dbdata2 的容器, 并使用 `untar` 解压备份文件到挂载的容器卷中.
+
+```
+$ sudo docker run --volumes-from dbdata2 -v $(pwd):/backup busybox tar xvf
+/backup/backup.tar
+```
+
+
+
+## 6. Dockerfile 解析
+
+> 详细讲解 Dockerfile 中的关键字, 如何编写 Dockerfile 文件
+>
+> 执行 `docker build` 命令, 获得一个自定义的镜像
+>
+> 运行镜像
+
+
+
+### 6.1. 什么是 Dockerfile?
+
+Dockerfile 是用来构件 Docker **镜像**的构建文件, 是由一系列命令和参数构成的脚本
+
+以 centos 6.8 的 Dockerfile 为例, 我们先来看一下 Dockerfile 的组成
+
+```dockerfile
+FROM scratch
+MAINTAINER The CentOS Project <cloud-ops@centos.org>
+ADD c68-docker.tar.xz /
+LABEL name="CentOS Base Image" \
+    vendor="CentOS" \
+    license="GPLv2" \
+    build-date="2016-06-02"
+
+# Default command
+CMD ["/bin/bash"]
+```
+
+
+
+### 6.2. Dockerfile 构建过程解析
+
+#### 6.2.1. Dockerfile 内容基础知识
+
+1. 每条保留字指令都必须为大写字母且后面要跟随至少一个参数
+2. 指令按照从上到下, 顺序执行
+3. `#` 表示注释
+4. **每条指令都会创建一个新的镜像层**, 并对镜像进行提交
+
+
+
+#### 6.2.2. Docker 执行 Dockerfile 的大致流程
+
+1. Docker 从基础镜像运行一个容器
+2. 执行一条指令并对容器作出修改
+3. 执行类似 `docker commit` 的操作提交一个新的镜像层
+4. Docker 再基于刚提交的镜像运行一个新容器
+5. 执行 Dockerfile 中的下一条指令直到完成
+
+
+
+#### 6.2.3. 总结
+
+Dockerfile, Docker 镜像, Docker 容器相当于软件的三个不同阶段:
+
+- Dockerfile 是软件的原材料
+- Docker 镜像是软件的交付品
+- Docker 容器可以认为是软件的运行态
+
+> Dockerfile -> `build` -> Docker Images -> `run` -> Docker Container
+
+
+
+### 6.3. Dockerfile 体系结构 (保留字指令)
+
+- FROM
+  - 基础镜像, 当前新镜像是基于哪个镜像的
+- MAINTAINER
+  - 镜像维护者
+- RUN
+  - 容器构建时需要运行的命令
+- EXPOSE
+  - 当前容器对外暴露的端口号
+- WORKDIR
+  - 指定在创建容器后, 终端默认登录的工作目录
+- ENV
+  - 用来构建镜像过程中设置环境变量
+- ADD
+  - 将宿主机目录下的文件拷贝进镜像且 ADD 命令自动处理 url 和解压 tar 包
+- COPY
+  - 类似 ADD, 拷贝文件和目录到镜像中
+- VOLUME
+  - 容器数据化, 保存数据和数据持久化
+- CMD
+  - 指定容器运行时要启动的命令
+  - **可以有多个 CMD 指令, 但只有最后一个生效**, CMD 会被 `docker run` 后面的参数代替
+- ENTRYPOINT
+  - 指定容器运行时要启动的命令
+  - ENTRYPOINT 的目的和 CMD 一样, <u>都是指定容器启动程序以及参数</u>
+- ONBUILD
+  - 当构建一个被继承的 Dockerfile 时运行命令, 父镜像被继承后, 父镜像 onbuild 被触发
+
+
+
+举个栗子 (Redis.dockerfile):
+
+```dockerfile
+FROM debian:buster-slim
+
+# add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
+RUN groupadd -r -g 999 redis && useradd -r -g redis -u 999 redis
+
+# grab gosu for easy step-down from root
+# https://github.com/tianon/gosu/releases
+ENV GOSU_VERSION 1.11
+RUN set -eux; \
+# save list of currently installed packages for later so we can clean up
+	savedAptMark="$(apt-mark showmanual)"; \
+	apt-get update; \
+	apt-get install -y --no-install-recommends \
+		ca-certificates \
+		dirmngr \
+		gnupg \
+		wget \
+	; \
+	rm -rf /var/lib/apt/lists/*; \
+	\
+	dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')"; \
+	wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch"; \
+	wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch.asc"; \
+	\
+# verify the signature
+	export GNUPGHOME="$(mktemp -d)"; \
+	gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4; \
+	gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu; \
+	gpgconf --kill all; \
+	rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc; \
+	\
+# clean up fetch dependencies
+	apt-mark auto '.*' > /dev/null; \
+	[ -z "$savedAptMark" ] || apt-mark manual $savedAptMark > /dev/null; \
+	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+	\
+	chmod +x /usr/local/bin/gosu; \
+# verify that the binary works
+	gosu --version; \
+	gosu nobody true
+
+ENV REDIS_VERSION 5.0.6
+ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-5.0.6.tar.gz
+ENV REDIS_DOWNLOAD_SHA 6624841267e142c5d5d5be292d705f8fb6070677687c5aad1645421a936d22b3
+
+RUN set -eux; \
+	\
+	savedAptMark="$(apt-mark showmanual)"; \
+	apt-get update; \
+	apt-get install -y --no-install-recommends \
+		ca-certificates \
+		wget \
+		\
+		gcc \
+		libc6-dev \
+		make \
+	; \
+	rm -rf /var/lib/apt/lists/*; \
+	\
+	wget -O redis.tar.gz "$REDIS_DOWNLOAD_URL"; \
+	echo "$REDIS_DOWNLOAD_SHA *redis.tar.gz" | sha256sum -c -; \
+	mkdir -p /usr/src/redis; \
+	tar -xzf redis.tar.gz -C /usr/src/redis --strip-components=1; \
+	rm redis.tar.gz; \
+	\
+# disable Redis protected mode [1] as it is unnecessary in context of Docker
+# (ports are not automatically exposed when running inside Docker, but rather explicitly by specifying -p / -P)
+# [1]: https://github.com/antirez/redis/commit/edd4d555df57dc84265fdfb4ef59a4678832f6da
+	grep -q '^#define CONFIG_DEFAULT_PROTECTED_MODE 1$' /usr/src/redis/src/server.h; \
+	sed -ri 's!^(#define CONFIG_DEFAULT_PROTECTED_MODE) 1$!\1 0!' /usr/src/redis/src/server.h; \
+	grep -q '^#define CONFIG_DEFAULT_PROTECTED_MODE 0$' /usr/src/redis/src/server.h; \
+# for future reference, we modify this directly in the source instead of just supplying a default configuration flag because apparently "if you specify any argument to redis-server, [it assumes] you are going to specify everything"
+# see also https://github.com/docker-library/redis/issues/4#issuecomment-50780840
+# (more exactly, this makes sure the default behavior of "save on SIGTERM" stays functional by default)
+	\
+	make -C /usr/src/redis -j "$(nproc)"; \
+	make -C /usr/src/redis install; \
+	\
+# TODO https://github.com/antirez/redis/pull/3494 (deduplicate "redis-server" copies)
+	serverMd5="$(md5sum /usr/local/bin/redis-server | cut -d' ' -f1)"; export serverMd5; \
+	find /usr/local/bin/redis* -maxdepth 0 \
+		-type f -not -name redis-server \
+		-exec sh -eux -c ' \
+			md5="$(md5sum "$1" | cut -d" " -f1)"; \
+			test "$md5" = "$serverMd5"; \
+		' -- '{}' ';' \
+		-exec ln -svfT 'redis-server' '{}' ';' \
+	; \
+	\
+	rm -r /usr/src/redis; \
+	\
+	apt-mark auto '.*' > /dev/null; \
+	[ -z "$savedAptMark" ] || apt-mark manual $savedAptMark > /dev/null; \
+	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+	\
+	redis-cli --version; \
+	redis-server --version
+
+RUN mkdir /data && chown redis:redis /data
+VOLUME /data
+WORKDIR /data
+
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+EXPOSE 6379
+CMD ["redis-server"]
+```
+
+
+
+### 6.4. 总结
+
+
+
+<div align="center">
+  <img src="https://netadmin.com.tw/images/news/NP170801000317080114394102.png" width="60%">
+</div>
 
 
 
@@ -618,4 +1003,5 @@ $ docker commit -m="message" -a="author" <container_id> target_name:[tag_name]
 
 - Docker 基础篇 - 尚硅谷课程, [Bilibili](https://www.bilibili.com/video/av26993050)
 - Docker - 从入门到实践, [Gitbook](http://leilux.github.io/lou/docker_practice/index.html)
-- 
+- Dockerfile 参考：https://docs.docker.com/reference/builder/
+- Dockerfile 最佳实践：https://docs.docker.com/articles/dockerfile_best-practices/
