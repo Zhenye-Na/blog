@@ -1,0 +1,225 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.25in,top=0.4in,right=0.25in,bottom=0.4in]{geometry} % Document margins
+\usepackage{hyperref}
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{Zhenye Na} % Your name
+% \name{My name} % Your name
+
+\address{Urbana, IL 61801 \\ +1 475 300 8646 \\ Email: \url{zna2@illinois.edu} \\ \href{https://github.com/Zhenye-Na}{Github: zhenye-na} \\ \href{https://www.linkedin.com/in/zhenyena/}{LinkedIn: zhenyena}} % Your address, phone number and email
+% \address{Where I live \\ My phone number \\ My email address \\ My Github \\ My LinkedIn} % Your address
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%   OBJECTIVE
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{OBJECTIVE}
+
+% % {Recently graduated, multidisciplinary Engineer with excellent problem solving abilities and process-thinking skill seeks hands on experience within a company that embraces creativity and innovation.Through my studies, I have gained extensive knowledge of production and manufacturing engineering, product design, among many other components of  Mechanical Engineering.Effective communicator who builds positive, cohesive relationship with all level of staff, eager to put my extensive studies to practical, applied use.}
+
+% {Software Development Engineer Intern since 2018 Fall}
+
+% \end{rSection}
+
+% \textbf{Objective}: Actively seeking Software Development Engineer opportunity since 2018 Fall\\
+% \\
+%----------------------------------------------------------------------------------------
+%   EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Education}
+
+% \textbf{University of Illinois at Urbana-Champaign}\\%\hfill Urbana-Champaign, IL\\
+% {\sl Master of Science}, Advanced Analytics, May 2019\hfill GPA: 4.0/4.0
+% Concentration in Computational Science \& Engineering\\
+% {\sl Related Coursework:}
+% Data Structures, Operating Systems, Database Systems, Machine Learning,\\Computer Vision.%, Deep Learning.
+
+% \textbf{Dalian University of Technology}\\%\hfill Dalian, China\\
+% {\sl Bachelor of Engineer}, Harbor, Waterway and Coastal Engineering, Jul. 2017\hfill GPA: 3.67/4.0
+
+{\bf University of Illinois at Urbana-Champaign} \hfill {May 2019}
+\\ 
+Master of Science, Industrial Engineering in Advanced Analytics, GPA: 3.91/4.0
+\\
+Concentration in Computational Science \& Engineering
+
+{\bf Dalian University of Technology} \hfill {July 2017}
+\\ 
+Bachelor of Engineering, Harbor, Waterway and Coastal Engineering, GPA: 3.78/4.0
+
+\end{rSection}
+
+
+%----------------------------------------------------------------------------------------
+%   PROJECTS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{SELECTED PROJECTS}
+
+%------------------------------------------------
+
+\begin{rSubsection}{Flappy Bird hack using Deep Reinforcement Learning (OpenCV, PyTorch)}{Nov. 2018 - Present}{\url{https://github.com/drl-dql/DQN-Flappy-Bird}}{}
+\item Implemented Double DQN model with PyTorch in PyGame Learning Environment
+\item Applied DNN with convolution layers to extract features of Flappy-Bird game and trained the agent using Double DQN algorithm
+\item Trained model in NCSA Blue Waters supercomputers and utilized Google Colab for environmental pre-configuration
+\item Analyzed the influences of different parameters settings and optimizer choices make on the agent training results - reward and loss
+\item Concluded $\sim 30$ reward scores and 1-min play before game ended after training
+\end{rSubsection}
+
+
+%------------------------------------------------
+
+\begin{rSubsection}{Image Similarity using Deep Ranking (Python, PyTorch)}{Oct. 2018 - Nov. 2018}{\url{https://github.com/Zhenye-Na/image-similarity-using-deep-ranking}}{}
+\item Implemented Siamese Network in PyTorch by using pre-trained ResNet-101 model on ImageNet for Deep Ranking
+\item Integrated with image query API for interactive image similarity searching and displaying
+\item Proved that Multi-scale Network model could be replaced by a ResNet-101 model and still reached impressive 55\% test accuracy after training only 20 epochs
+\end{rSubsection}
+
+%------------------------------------------------
+
+% \begin{rSubsection}{Node.js based Web Application: Marketplace}{Aug. 2018 - present}{This project is ongoing}{}
+% \item Designed an eCommerce application prototype and WeChat mini-program which helped students sell used products on campus
+% \item Implemented MVC back-end with Express.js and MongoDB and front-end with Bootstrap integrated with Node.js
+% \item Introduced product recommendation system using frequent pattern mining to recommend similar products
+% % \item Improved user experience by ...
+% \end{rSubsection} 
+
+%------------------------------------------------
+
+% \begin{rSubsection}{Full Stack Web Application: mini Quora}{Jul. 2018 - Aug. 2018}{\url{https://qac.herokuapp.com/}}{}
+% \item Developed a Q\&A Community Web Application using AngularJS for front-end, Laravel and MySQL for back-end
+% \item Designed database schema and maintained database in MySQL using Laravel Migration mechanism
+% \item Integrated features such as upvote/downvote, user following and questions suggestion into the application
+% \end{rSubsection}
+
+%------------------------------------------------
+
+\begin{rSubsection}{MAMP based Online Store: Mining Rig Assembly (Bootstrap, MariaDB)}{Mar. 2018 - May 2018}{\url{http://rigassembly.web.engr.illinois.edu/}}{}
+\item Conceptualized an MAMP based eCommerce application for conveniently browsing, storing rig setups 
+\item Implemented on-line store using Bootstrap for front-end, MariaDB for back-end, FushionCharts for data visualization
+% \item Worked on implementing 3rd-party API integrations with Amazon and Newegg data.
+% \item Designed and maintained database in MariaDB with data crawled from Amazon using Java.
+\item Designed and maintained database in MariaDB by 3rd-party API integrating Amazon and Newegg
+% \item Maintained database by updating information of mining-rigs by implementing 3rd-party API integrations with Amazon and Newegg
+\item Introduced additional features such as performance estimate, product information visualization, price notification and rigs payback period computation
+\end{rSubsection}
+
+%------------------------------------------------
+
+% \begin{rSubsection}{Shortest Path Prediction with GCN}{Nov. 2017 - Dec. 2017}{Team Leader}{}
+% \item Innovated Graph Convolution Network and Deep Neural Network separately for Shortest Path Prediction
+% \item Created Data Visualization of Dataset such as Similarity Matrix, Heat Map and predicted Shortest Path visualization
+% \item Preprocessed Airlines Delay dataset to Partition Graph and implemented models in Tensorflow
+% \item Resulted in 75\% prediction accuracy in GCN model v.s. 34\% accuracy in DNN model
+% \end{rSubsection}
+
+
+\end{rSection} 
+
+%----------------------------------------------------------------------------------------
+%   WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+\begin{rSection}{WORKING EXPERIENCE} \itemsep -3pt  
+
+% {Quality Control and Assurance Training at Echjay Industries Pvt. Ltd. Rajkot.} \hfill July 2015 - April 2016 \\ 
+% {Lab Technician, Senor Metal Pvt. Ltd, Jamnagar} \hfill june 2012 - Auguest 2012\\
+% {Mechanical Draftsman and Q.C Inspector, Geeta Machine Tools Pvt. Ltd, Jamnagar} \hfill May 2010 - May 2012 \\
+
+\begin{rSubsection}{Data Analyst Intern}{Sept. 2016 - Nov. 2016}{Dalian Highway Construction Group}{Dalian, China}
+\item Evaluated highway maintenance cost based on factors like traffic weight, bridge/tunnel ratio and so forth
+\item Adapted Linear and Nonlinear Regression model in SPSS and the model error is within 10\%
+\item Created data visualization in Excel for Cost Manager by using VBA
+\item Optimized road maintenance cost by 20\% based on the appraisal factor model
+% \item The final plan I participated in drawing successfully saved cost of road maintenance by 20\%.
+\end{rSubsection} 
+
+\end{rSection} 
+
+
+
+%----------------------------------------------------------------------------------------
+%   TECHNICAL SKILL SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{TECHNICAL SKILLS}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{5ex}} l }
+Languages & Python, Java, C/C++, Go, MATLAB, SQL, Shell scripting, JavaScript, Julia\\
+Frameworks & Tensorflow, Pytorch, Node.js, REST\\ % Hadoop, Spark, Laravel, Tensorflow.js, D3.js, REST
+Tools & MySQL, MongoDB, MariaDB, Hadoop, Spark
+\end{tabular}
+
+\end{rSection}
+
+
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{CERTIFICATES}
+
+% Applied Data Science with Python Specialization by University of Michigan on Coursera.\hfill Aug. 2018\\
+% Deep Learning Specialization by deeplearning.ai on Coursera.\hfill Jul. 2018\\
+
+% \end{rSection}
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{POSITION OF RESPONSIBILITY}
+
+% \begin{rSubsection}{Mechanical Draftsman and Q.C Inspector}{May 2010 - May 2012} {Geeta Machine Tools Pvt. Ltd. Jamnagar} {} 
+% \item Prepare 2D AND 3D Drawing and planning of a different CNC machine details
+% parts drawings and their assembly drawing.
+% \item Do some quality control work for maintain the quality of machine in the Units.
+% \item Prepare of foundation and electrical layout drawings.
+% \end{rSubsection}
+
+
+% %------------------------------------------------
+
+% \begin{rSubsection}{Lab Technician}{june 2012 - Auguest 2012}{Senor Metal Pvt. Ltd. Jamnagar} {}
+%  \item Do Some Mechanical Destructive Testing- Tensile Test, Impact Test,Hardness Test
+% \end{rSubsection}
+ 
+% \end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{Extra-Cirrucular Activities} \itemsep -1pt {}   
+% \item STTP on "Life Long Research" in SVNIT,Surat \hfill February 2016
+% \item Design War Cad, SRCOE, Rajkot, Secured 2rd rank in a state level competition\hfill January-2016
+% \item  Design War Cad, B.H Gardi, Rajkot, Secured 2rd rank in a
+% state level competition. \hfill January-2014 
+% \item Participated in National Level Technical Symposium Festival Edge and Above, SVIT, Vasad. \hfill February-2013
+% \item Participated in National Level Technical Symposium Festival Home Basix, SVIT, Vasad.
+%  \hfill  February-2013 
+% \item Participated in National Level Technical Symposium Rise of Machine, SVIT, Vasad,  \hfill March-2014 
+ 
+% \end{rSection}
+
+
+
+\end{document}
