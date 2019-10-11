@@ -11,7 +11,10 @@ type: article
 <div class="layout--article">
   {%- include article/top/custom.html -%}
 
-  <div class="article__content" itemprop="articleBody">{{ content }}</div>
+  <div class="article__content" itemprop="articleBody">
+    {{ content }}
+    {% include advertisements.html %}
+  </div>
 
   {%- if _sharing -%}
     <section class="article__sharing d-print-none">{%- include sharing.html -%}</section>
