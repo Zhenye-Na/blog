@@ -2,7 +2,7 @@
 layout: article
 title: "Redis Cheatsheet - Redis 知识点笔记整理"
 date: 2019-08-29
-modify_date: 2019-08-29
+modify_date: 2019-10-29
 excerpt: "Redis Cheatsheet"
 tags: [Redis, NoSQL]
 key: redis-cheatsheet
@@ -415,13 +415,22 @@ zcard / zcount key <score_range> / zrank key values
 
 ## Redis 持久化 (Persistence)
 
+之前我们提到过 Redis 是一个 key-value 的内存 NoSQL 数据库, 所有的数据都保存在数据库里
+
+对于只把 `Redis` 当缓存来用的项目来说，数据消失或许问题不大，重新从数据源把数据加载进来就可以了，但如果直接把用户提交的业务数据存储在 `Redis` 当中，把`Redis`作为数据库来使用，在其放存储重要业务数据，那么`Redis`的内存数据丢失所造成的影响也许是毁灭性。
+
+为了避免内存中数据丢失，`Redis`提供了对持久化的支持，我们可以选择不同的方式将数据从内存中保存到硬盘当中，使数据可以持久化保存。
+
+
+
+
 ### RDB (Redis Database)
 
 #### 简介
 
 1. 在指定的时间间隔内将内存中的数据集快照写入磁盘, 也就是 Snapshot 快照, 恢复时将快照文件直接读到内存中
 
-2. Redis 会单独创建 (fork) 一个子进程来进行持久化, 会将数据写入到一个临时文件中, 待持久化过程结束, 再用这个临时文件替换上次持久化好的文件.
+2. Redis 会单独创建 (fork) 一个子进程来进行持久化, 会将数据写入到一个**临时文件**中, 待持久化过程结束, **再用这个临时文件替换上次持久化好的文件**.
 
 3. 整个过程, 主进程没有 IO 操作
 
@@ -431,7 +440,7 @@ zcard / zcount key <score_range> / zrank key values
 
 #### Fork
 
-复制一个与当前进程一样的进程, 新进程所有数值和原进程一致
+**复制一个与当前进程一样的进程**, 新进程所有数值和原进程一致
 
 
 
@@ -439,7 +448,7 @@ zcard / zcount key <score_range> / zrank key values
 
 - RDB 保存的是 `dump.rdb` 文件
 
-- `save <seconds> <changes>` xx秒内 key 有xx次更改, 就保存 DB 到 Disk
+- `save <seconds> <changes>` xx 秒内 key 有xx次更改, 就保存 DB 到 Disk
 
 - 如果 `SHUTDOWN` 也会立即生成一个 `dump.rdb` 
 
@@ -452,15 +461,18 @@ zcard / zcount key <score_range> / zrank key values
 #### Snapshot 快照
 
 1. `SAVE`: save 只管保存, 其他的不管, 全部阻塞
-2. `BGSAVE`: Redis 会在后台异步进行快照操作, 快照同时还可以响应客户端请求, 可以通过 lastsave 命令获取最后一次成功执行快照的时间
+2. `BGSAVE`: Redis 会在后台**异步**进行快照操作, 快照同时还可以响应客户端请求, 可以通过 lastsave 命令获取最后一次成功执行快照的时间
 3. 执行 `FLUSHALL` 也会生成 `dump.rdb` 但是是空的
 
 
 
 #### 优势
 
-- 适合大规模那个的数据恢复
+- 适合大规模的数据恢复
 - 对数据完整性和一致性要求不高
+- 与 AOF 方式相比，通过 RDB 文件恢复数据比较快。
+- RDB 文件非常紧凑，适合于数据备份。
+- 通过 RDB 进行数据备，由于使用**子进程**生成，所以对 Redis 服务器性能影响较小
 
 
 
@@ -468,6 +480,8 @@ zcard / zcount key <score_range> / zrank key values
 
 - 在一定时间间隔做一次备份, 如果 Redis 意外 Shutdown, 就会丢失最后一次快照后的所有修改
 - Fork 的时候, 内存中的数据克隆了一份, 2倍膨胀性
+- 使用 `save` 命令会造成服务器阻塞，直接数据同步完成才能接收后续请求。
+- 使用 `bgsave` 命令在 forks子进程时，如果数据量太大，forks 的过程也会发生阻塞，另外，forks 子进程会耗费内存
 
 
 <div align="center">
@@ -486,14 +500,14 @@ zcard / zcount key <score_range> / zrank key values
 
 #### 保存文件
 
-- appendfilename = `appendonly.aof`
+- `appendfilename = appendonly.aof`
 - `APPEND ONLY MODE` - good enough
 - 如果既有 `dump.rdb` 又有 `appendonly.aof`, 可以和平共存, 先加载 `appendonly.aof` (with better durability guarantees)
 - `Appendfsync` : `default` 是 `Everysec`异步操作, 每秒记录, `Always` 同步持久化
 
 
 
-#### Rewrite
+#### Rewrite 重写机制
 
 ##### 简介
 
@@ -503,7 +517,7 @@ AOF 采用文件追加方式, 文件会越拉越大为避免出现此种情况, 
 
 ##### 重写原理
 
-AOF 文件大小增长而过大时, 会 fork 出一条新进程来将文件重写, 也是先写临时文件然后 rename, 遍历新进程的内存中的数据.
+AOF 文件大小增长而过大时, 会 fork 出一条**新进程**来将文件重写, 也是先写临时文件然后 `rename`, 遍历新进程的内存中的数据. AOF 重写方式也是**异步**操作
 
 
 
@@ -515,16 +529,17 @@ Redis 会记录上次重写时的 AOF 大小, 默认配置是当 AOF 文件大�
 
 #### 优势
 
-1. 每秒同步: `appendfsync always` 同步持久化, 每次发生数据变更会被立即记录到磁盘 性能较差但是完整性好
-2. 每修改同步: `appendfsync everysec` 异步操作, 每秒记录, 如果一秒内宕机, 有数据丢失
-3. 不同步: `appendfsync no`
+1. AOF 只是追加日志文件，因此对<u>服务器性能影响较小，速度比 RDB 要快，消耗的内存较少</u>
+2. 每秒同步: `appendfsync always` 同步持久化, 每次发生数据变更会被立即记录到磁盘 性能较差但是完整性好
+3. 每修改同步: `appendfsync everysec` 异步操作, 每秒记录, 如果一秒内宕机, 有数据丢失
+4. 不同步: `appendfsync no`
 
 
 
 #### 劣势
 
 1. 相同数据集的数据而言 aof 文件要大于 rdb 文件, 恢复速度慢于 rdb
-2. aof 运行效率慢于 rdb, 美妙同步策略效率较好, 不同步效率和 rdb 相同
+2. aof 运行效率慢于 rdb, 同步策略效率较好, 不同步效率和 rdb 相同
 
 
 <div align="center">
@@ -543,6 +558,23 @@ Redis 会记录上次重写时的 AOF 大小, 默认配置是当 AOF 文件大�
 5. 同时开启两种持久化方式
    1. Redis 重启的时候会**优先载入 AOF 文件**来回复原始的数据, 因为通常情况下, AOF 保存的数据更完整
    2. RDB 数据不实, 同时使用两者时服务器重启也只会找 AOF 文件. 
+
+
+
+通过上面的介绍，我们了解了RDB与AOF各自的优点与缺点，到底要如何选择呢？
+
+通过下面的表示，我们可以从几个方面对比一下RDB与AOF,在应用时，要根本自己的实际需求，选择RDB或者AOF，其实，如果想要数据足够安全，可以两种方式都开启，但两种持久化方式同时进行IO操作，会严重影响服务器性能，因此有时候不得不做出选择。
+
+
+
+<div align="center">
+  <img src="" width="80%">
+  <p>图片转载自: https://juejin.im/post/5d09a9ff51882577eb133aa9#heading-21</p>
+</div>
+
+
+
+当 RDB 与 AOF 两种方式都开启时，Redis会优先使用AOF日志来恢复数据，因为AOF保存的文件比RDB文件更完整。
 
 
 
@@ -766,3 +798,14 @@ Redis可以使用主从同步，从从同步。
 Redis Sentinal着眼于高可用，在master宕机时会自动将slave提升为master，继续提供服务。
 
 Redis Cluster着眼于扩展性，在单个redis内存不足时，使用Cluster进行分片存储。
+
+
+
+## References
+
+1. [张君鸿](https://juejin.im/user/5c6665476fb9a049a81fd8e9), [10 分钟彻底理解 Redis 的持久化机制: RDB 和 AOF](https://juejin.im/post/5d09a9ff51882577eb133aa9)
+2. 尚硅谷 Redis 教程
+3. 
+
+
+
