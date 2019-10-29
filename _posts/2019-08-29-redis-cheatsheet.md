@@ -568,7 +568,7 @@ Redis 会记录上次重写时的 AOF 大小, 默认配置是当 AOF 文件大�
 
 
 <div align="center">
-  <img src="" width="80%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/redis-cheatsheet/comparison.png?raw=true" width="80%">
   <p>图片转载自: https://juejin.im/post/5d09a9ff51882577eb133aa9#heading-21</p>
 </div>
 
