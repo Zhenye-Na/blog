@@ -216,11 +216,11 @@ $ docker images
 $ docker run <image_name>
 ```
 
-- REPOSITORY: 镜像仓库源
-- TAG: 镜像的标签
-- IMAGE ID: 镜像 id
-- CREATED: 镜像创建时间
-- SIZE: 镜像大小
+- `REPOSITORY`: 镜像仓库源
+- `TAG`: 镜像的标签
+- `IMAGE ID`: 镜像 id
+- `CREATED`: 镜像创建时间
+- `SIZE`: 镜像大小
 
 同一个仓库源可以有多个 tag, 代表这个仓库源的不同版本. `REPOSITORY:TAG` 来定义不同的镜像.
 
@@ -257,6 +257,7 @@ OPTIONS:
 >
 > docker pull 镜像[:标签]
 
+
 ```
 $ docker search -s 30 tomcat
 $ docker pull tomcat
@@ -276,7 +277,7 @@ $ docker pull tomcat
 $ docker rmi -f hello-world[:latest]
 ```
 
-如果不写标签, 默认删除的是 latest
+如果不写标签, 默认删除的是 `latest`
 
 
 
@@ -303,11 +304,11 @@ $ docker rmi -f $(docker images -qa)
 #### 3.3.1. 新建并启动容器
 
 ```
-$ dcoker run [OPTIONS] IMAGE [COMMAND] [ARGS]
+$ docker run [OPTIONS] IMAGE [COMMAND] [ARGS]
 ```
 
-- 本地有 - 新建运行
-- 本地没有 - 去 dockerhub 下载
+- 本地有: 新建运行
+- 本地没有: 去 dockerhub 下载
 
 
 
@@ -325,13 +326,10 @@ $ dcoker run [OPTIONS] IMAGE [COMMAND] [ARGS]
   - `containerPort`
 
 
-
 ```
 $ docker run -it <image_id>
 # 新建, 进入容器, 创建一个命令行
 ```
-
-
 
 > 启动交互式容器
 
@@ -368,7 +366,6 @@ $ CTRL + P + Q
 # 离开, 但是别关闭, 还想再回来使用
 # docker ps 查看 container 是否还在运行
 ```
-
 
 
 一个很形象的比喻:
@@ -498,10 +495,10 @@ $ docker attach <container_id>
 
 ##### 从容器内拷贝文件到主机上
 
+
 ```
 $ docker cp <container_id>:<path> <target_path>
 ```
-
 
 
 ### 3.4 总结
@@ -564,7 +561,6 @@ Docker 镜像实际上是由一层一层的文件系统组成, 这种层级的�
 以 `docker pull` 为例, 下载过程可以看到 docker 镜像好像是一层一层在下载
 
 
-
 > 以 tomcat 为例, `docker pull` 下来的镜像文件有 400 MB, 为何文件如此之大?
 >
 > 答: "镜像分层", kernel -> centOS -> jdk8 -> tomcat, 虽然我们只是用到了最后的 tomcat, 但是所有之前的都下载了
@@ -611,13 +607,10 @@ $ docker commit -m="message" -a="author" <container_id> target_name:[tag_name]
 - 容器之间可以会有**数据共享**的需要 (容器间继承 + 共享数据)
 
 
-
 Docker 容器产生的数据, 如果不 `docker commit` 那么容器删除后, 数据也就丢失了
 
 
-
 > 类似于 Redis 里的 RDB 和 AOF
-
 
 
 特点:
@@ -626,7 +619,6 @@ Docker 容器产生的数据, 如果不 `docker commit` 那么容器删除后, �
 2. 卷中的更改可以直接生效
 3. 数据卷中的更改不会包含在镜像的更新中
 4. 数据卷的生命周期一直持续到没有容器使用它为止
-
 
 
 ### 5.2. 数据卷
@@ -687,6 +679,7 @@ $ docker run -it -v /宿主机绝对路径:/容器内目录:权限 <image_name>
 
 举个🌰子
 
+
 ```
 $ docker run -it -v /hostDataV:/containerDataV:ro <image_name>
 ```
@@ -735,7 +728,6 @@ CMD /bin/bash
 ### 5.3. 数据卷容器
 
 命名的容器挂载数据卷, 其他的容器通过挂载这个 (父容器) 实现数据共享, 挂载数据卷的容器被称为**数据卷容器**
-
 
 
 > 容器间数据的传递共享
@@ -841,32 +833,32 @@ Dockerfile, Docker 镜像, Docker 容器相当于软件的三个不同阶段:
 
 ### 6.3. Dockerfile 体系结构 (保留字指令)
 
-- FROM
+- `FROM`
   - 基础镜像, 当前新镜像是基于哪个镜像的
-- MAINTAINER
+- `MAINTAINER`
   - 镜像维护者
-- RUN
+- `RUN`
   - 容器构建时需要运行的命令
-- EXPOSE
+- `EXPOSE`
   - 当前容器对外暴露的端口号
-- WORKDIR
+- `WORKDIR`
   - 指定在创建容器后, 终端默认登录的工作目录
-- ENV
+- `ENV`
   - 用来构建镜像过程中设置环境变量
-- ADD
+- `ADD`
   - 将宿主机目录下的文件拷贝进镜像且 ADD 命令自动处理 url 和解压 tar 包
-- COPY
+- `COPY`
   - 类似 ADD, 拷贝文件和目录到镜像中
-- VOLUME
+- `VOLUME`
   - 容器数据化, 保存数据和数据持久化
-- CMD
+- `CMD`
   - 指定容器运行时要启动的命令
   - **可以有多个 CMD 指令, 但只有最后一个生效**, CMD 会被 `docker run` 后面的参数代替
-- ENTRYPOINT
+- `ENTRYPOINT`
   - 指定容器运行时要启动的命令
-  - ENTRYPOINT 的目的和 CMD 一样, <u>都是指定容器启动程序以及参数</u>
-- ONBUILD
-  - 当构建一个被继承的 Dockerfile 时运行命令, 父镜像被继承后, 父镜像 onbuild 被触发
+  - `ENTRYPOINT` 的目的和 CMD 一样, <u>都是指定容器启动程序以及参数</u>
+- `ONBUILD`
+  - 当构建一个被继承的 Dockerfile 时运行命令, 父镜像被继承后, 父镜像 `onbuild` 被触发
 
 
 
