@@ -75,7 +75,7 @@ OPTIONS:
 
 ```powershell
 临时设置：
-# alias grep='grep --color=auto'			//只针对当前终端和当前用户生效
+# alias grep='grep --color=auto'			// 只针对当前终端和当前用户生效
 
 永久设置：
 1）全局（针对所有用户生效）
@@ -112,8 +112,6 @@ source ~/.bashrc
 ```
 
 
-
-
 ### 1.2. sed
 
 > 流文本编辑器 (Stream Editor), 处理文件
@@ -125,17 +123,13 @@ sed <u>一行一行</u>读取文件内容并按照要求进行处理， 把处�
 3. sed 用来自动编辑一个或者多个文件；简化对文件的重复操作，对文件进行过滤和转换操作
 
 
-
 使用 sed 一般有两种情景
 
 1. 直接在命令行
 2. 写在脚本中运行
 
 
-
 #### 1.2.1. 命令行格式
-
-
 
 ##### 语法格式
 
@@ -143,10 +137,7 @@ sed <u>一行一行</u>读取文件内容并按照要求进行处理， 把处�
 sed [options] '处理动作' 文件名
 ```
 
-
-
 ##### 常用选项
-
 
 
 | 选项 | 说明                   | 备注               |
@@ -158,9 +149,7 @@ sed [options] '处理动作' 文件名
 | `-f` | 指定 sed 脚本的文件名  |                    |
 
 
-
 ##### 常用处理操作
-
 
 
 | 处理方式 | 说明                          | 备注 |
@@ -172,9 +161,7 @@ sed [options] '处理动作' 文件名
 | `'d'`    | 删除指定行                    |      |
 
 
-
 #### 1.2.2. 举例说明
-
 
 
 ##### 一、增删改查
@@ -182,7 +169,6 @@ sed [options] '处理动作' 文件名
 ```bash
 sed [options] '定位+命令' 需要处理的文件
 ```
-
 
 
 1. 打印文件内容
@@ -226,7 +212,6 @@ sed [options] '定位+命令' 需要处理的文件
    ```
 
 
-
 ##### 二、对文件进行搜索替换
 
 **使用格式**
@@ -236,7 +221,6 @@ sed [options] 's/搜索的内容/替换的内容/动作' 需要处理的文件
 ```
 
 其中 `s` 表示搜索， 斜杠是分隔符，p 是打印，g 是全局替换, **分隔符是可以自定义的**
-
 
 
 **举例说明**
@@ -251,9 +235,7 @@ $ sed -n '10s#/sbin/nologin#bla#p' 1.txt
 ```
 
 
-
 ##### 三、其他命令
-
 
 
 | 命令 | 解释                                       | 备注            |
@@ -274,7 +256,6 @@ $ sed -n '10s#/sbin/nologin#bla#p' 1.txt
 - `-i` 修改源文件
 
 
-
 | 正则             | 说明                                                         | 备注                        |
 | ---------------- | ------------------------------------------------------------ | --------------------------- |
 | `/key/`          | 查询包含关键字的行                                           | `sed -n '/root/p 1.txt'`    |
@@ -286,15 +267,12 @@ $ sed -n '10s#/sbin/nologin#bla#p' 1.txt
 
 
 
-
-
 ### 1.3. awk
 
 - 对文本和数据及逆行处理
   - 逐行扫描文件：逐行寻找匹配的特定模式
 - 统计数据，比如统计访问量等
 - 支持条件判断
-
 
 
 #### 1.3.1. 命令行使用模式
@@ -306,7 +284,6 @@ $ awk [options] '命令' 文件名
 
 # 如果引用 shell 变量需要用双引号引起
 ```
-
 
 
 ##### 二、常用选项介绍
@@ -342,7 +319,7 @@ $ awk [options] '命令' 文件名
 
 ## 1.4. cut
 
-> cut是**==列==**截取工具，用于列的截取
+> cut是**列**截取工具，用于列的截取
 
 ### 语法和选项
 
@@ -362,14 +339,14 @@ $ awk [options] '命令' 文件名
 
 **举例说明:**
 
-~~~powershell
+```powershell
 # cut -d: -f1 1.txt 			以:冒号分割，截取第1列内容
 # cut -d: -f1,6,7 1.txt 	以:冒号分割，截取第1,6,7列内容
 # cut -c4 1.txt 				截取文件中每行第4个字符
 # cut -c1-4 1.txt 			截取文件中每行的1-4个字符
 # cut -c4-10 1.txt 			截取文件中每行的4-10个字符
 # cut -c5- 1.txt 				从第5个字符开始截取后面所有字符
-~~~
+```
 
 **课堂练习：**
 用小工具列出你当系统的运行级别。5/3
@@ -412,7 +389,7 @@ sort工具
 
 **举例说明**
 
-~~~powershell
+```powershell
 # sort -n -t: -k3 1.txt 			按照用户的uid进行升序排列
 # sort -nr -t: -k3 1.txt 			按照用户的uid进行降序排列
 # sort -n 2.txt 						按照数字排序
@@ -423,13 +400,13 @@ sort工具
 # sort -n 2.txt -o 3.txt 			按照数字排序并将结果重定向到文件
 # sort -R 2.txt 
 # sort -u 2.txt 
-~~~
+```
 
 ## 1.5. uniq
 
-> uniq用于去除**==连续==**的**==重复==**行
+> uniq用于去除**连续**的**重复**行
 
-~~~powershell
+```powershell
 常见选项：
 -i: 忽略大小写
 -c: 统计重复行次数
@@ -439,13 +416,13 @@ sort工具
 # uniq 2.txt 
 # uniq -d 2.txt 
 # uniq -dc 2.txt 
-~~~
+```
 
 ## 1.6. tee
 
 > tee工具是从标准输入读取并写入到标准输出和文件，即：双向覆盖重定向（屏幕输出|文本输入）
 
-~~~powershell
+```powershell
 选项：
 -a 双向追加重定向
 
@@ -454,7 +431,7 @@ sort工具
 # cat file1 
 # echo 999|tee -a file1
 # cat file1 
-~~~
+```
 
 ## 1.7. diff
 
@@ -470,6 +447,7 @@ sort工具
 diff [选项] 文件1 文件2
 ```
 
+
 **常用选项：**
 
 | 选项     | 含义               | 备注 |
@@ -482,9 +460,10 @@ diff [选项] 文件1 文件2
 | -c       | 上下文格式显示     |      |
 | -u       | 合并格式显示       |      |
 
+
 **举例说明：**
 
-- 比较两个==普通文件==异同，文件准备：
+- 比较两个**普通文件**异同，文件准备：
 
 ```powershell
 [root@MissHou ~]# cat file1
@@ -547,7 +526,6 @@ diff目的：file1如何改变才能和file2匹配
   bbb
 + 333					表示第一个文件需要加上该行才与第二个文件匹配
 + world				表示第一个文件需要加上该行才与第二个文件匹配
-
 ```
 
 3）合并格式显示
@@ -570,7 +548,7 @@ diff目的：file1如何改变才能和file2匹配
 +world
 ```
 
-- 比较两个==目录不同==
+- 比较两个**目录不同**
 
 ```powershell
 默认情况下也会比较两个目录里相同文件的内容
@@ -608,10 +586,10 @@ patching file file1
 
 
 
-
 ## 2. Bash 特性
 
 ### 2.1. Bash 的通配符
+
 
 ```
 * : 匹配 0 或多个任意字符
@@ -644,13 +622,11 @@ patching file file1
 将需要<u>执行的命令存在文本</u>中, 按照<u>顺序执行</u>. 解释性语言, 不需要编译
 
 
-
 1. 自动化软件部署
 2. 自动化管理
 3. 自动化分析处理
 4. 自动化备份
 5. 自动化监控脚本
-
 
 
 #### Shell 脚本基本组成
@@ -671,7 +647,6 @@ patching file file1
 ```sh
 chmod +x <filename>
 ```
-
 
 
 ## 3. 变量定义
@@ -993,10 +968,10 @@ com
 
 
 
+```
+pass
 
-
-
-
+```
 
 
 
@@ -1523,15 +1498,22 @@ $ function1
 
 
 
+## 补充一些写代码时用到的 tricks
+
+### `${variableName,,}`
+
+This is called "Parameter Expansion" available in bash version 4+ . To change the case of the string stored in the variable to lower case. Eg:
+
+```
+var=HeyThere
+echo ${var,,}
+heythere
+```
 
 
+### `jq`
 
-
-
-
-
-
-
+jq is a lightweight and flexible command-line JSON processor. very useful when use shell for `curl` and receive a JSON format do some filterings.
 
 
 
