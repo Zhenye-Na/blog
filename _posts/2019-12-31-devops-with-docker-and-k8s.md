@@ -15,12 +15,12 @@ key: devops-docker-k8s
 
 
 <div align="center">
-  <img src="../assets/images/posts-img/devops-docker-k8s/2020-01-04_225040.png" width="80%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/devops-docker-k8s/2020-01-04_225040.png?raw=true" width="80%">
 </div>
 
 
 <div align="center">
-  <img src="../assets/images/posts-img/devops-docker-k8s/2020-01-04_225106.png" width="80%">
+  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/devops-docker-k8s/2020-01-04_225106.png?raw=true" width="80%">
   <p>经典的 CI/CD 流程</p>
 </div>
 
@@ -448,7 +448,7 @@ CMD []
 网络分层
 
 
-<img src="/Users/macbookpro/Desktop/website/_posts/2019-12-31-devops-with-docker-and-k8s.assets/764050-20150904095142060-1017190812.gif" style="zoom:67%;" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/devops-docker-k8s/764050-20150904095142060-1017190812.gif?raw=true" style="zoom:67%;" />
 
 
 
@@ -553,7 +553,6 @@ $ docker run -d --name test2 --network none busybox /bin/sh -c "while true; do s
 ```
 
 孤立的 network namespace
-
 
 
 一个模块一个容器
@@ -690,20 +689,7 @@ $ docker-compose up --scale
 ## Docker Swarm 容器编排
 
 
-
-Service 和 Replicas
-
-
-
-
-服务创建和调度流程
-
-
-
-
-
 ### 实践: 创建一个三节点的 Docker Swarm 集群
-
 
 
 创建宿主机环境的方法
@@ -765,9 +751,6 @@ $ docker service ps wordpress
 ### 集群服务间通信之 Routing Mesh
 
 
-DNS 服务发现
-
-
 
 使用 `whoami` 镜像来举例讲解
 
@@ -798,7 +781,7 @@ $ ping whoami
 
 
 
-Ingress Network
+**Ingress Network**
 
 - 外部访问的负载均衡
 - 服务端口被暴露到各个 swarm 节点
@@ -806,7 +789,7 @@ Ingress Network
 
 
 
-Internal Load Balancing
+**Internal Load Balancing**
 
 
 ### Docker Stack 进行部署
@@ -841,15 +824,13 @@ $ docker stack deploy
 > 比如数据库密码啦, 什么 token 啦, 用来保密的
 
 
-
 - 用户名密码
 - SSH Key
 - TLS 认证
 - Data
 
 
-
-Secret Management
+**Secret Management**
 
 1. 所有的 secrets 都存储在 Swarm Manager 节点的 Raft Database 里面
 2. Secret 可以 assign 给一个 service, 这个 service 就能看到存储的 secret
@@ -874,13 +855,13 @@ $ docker secret ls
 
 ## Kubernetes 实战容器编排
 
-<img src="/Users/macbookpro/Desktop/website/_posts/2019-12-31-devops-with-docker-and-k8s.assets/Chart_02_Kubernetes-Architecture.png" style="zoom: 67%;" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/devops-docker-k8s/Chart_02_Kubernetes-Architecture.png?raw=true" style="zoom: 67%;" />
 
 
-<img src="/Users/macbookpro/Desktop/website/_posts/2019-12-31-devops-with-docker-and-k8s.assets/Chart_03_Kubernetes-Master.png" style="zoom:67%;" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/devops-docker-k8s/Chart_03_Kubernetes-Master.png?raw=true" style="zoom:67%;" />
 
 
-<img src="/Users/macbookpro/Desktop/website/_posts/2019-12-31-devops-with-docker-and-k8s.assets/Chart_04_Kubernetes-Node.png" style="zoom:67%;" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/devops-docker-k8s/Chart_04_Kubernetes-Node.png?raw=true" style="zoom:67%;" />
 
 
 ### K8s 最小调度单位 - Pod
@@ -890,13 +871,11 @@ $ docker secret ls
 Pod: 容器调度的<u>最小单位</u>. 具有相同 namespace 的 container 组合, 单个/多个容器, 如果多个, 则共享 network
 
 
-
 - 一个 Pod 共享一个 namespace (user, network ...)
 - 可以包含多个或者单个容器
 
 
-
-举个栗子, nginx 相关的 yaml 文件`pod_nginx.yml`
+举个栗子, nginx 相关的 yaml 文件 `pod_nginx.yml`
 
 ```yaml
 apiVersion: v1
