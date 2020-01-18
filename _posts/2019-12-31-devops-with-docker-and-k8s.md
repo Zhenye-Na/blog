@@ -10,11 +10,21 @@ mathjax_autoNumber: false
 key: devops-docker-k8s
 ---
 
+
 # 慕课网: 系统学习 Docker 践行 DevOps 理念 - 课程笔记
 
-![](../assets/images/posts-img/devops-docker-k8s/2020-01-04_225040.png)
 
-![](../assets/images/posts-img/devops-docker-k8s/2020-01-04_225106.png)
+<div align="center">
+  <img src="../assets/images/posts-img/devops-docker-k8s/2020-01-04_225040.png" width="80%">
+</div>
+
+
+<div align="center">
+  <img src="../assets/images/posts-img/devops-docker-k8s/2020-01-04_225106.png" width="80%">
+  <p>经典的 CI/CD 流程</p>
+</div>
+
+
 
 [TOC]
 
@@ -49,16 +59,13 @@ key: devops-docker-k8s
 - 易上云 - AWS, GCP, 阿里云等
 
 
-
 但是虚拟化具有一定的局限性: 虚拟机是一个完整的操作系统, 需要分配资源, 当虚拟机数量增多时, 操作系统本身消耗的资源势必增多
 
 那么使用容器解决了什么问题呢?
 
 
-
 - 解决了开发和运维的矛盾
 - 在开发和运维之间搭建桥梁, 帮助实现 DevOps
-
 
 
 容器的定义:
@@ -67,6 +74,7 @@ key: devops-docker-k8s
 - 应用之间的相互隔离
 - 共享同一个 OS Kernel
 - 可以运行在很多主流 OS 上
+
 
 <div align="center">
   <img src="https://www.docker.com/sites/default/files/d8/2018-11/docker-containerized-and-vm-transparent-bg.png" width="70%">
@@ -79,10 +87,7 @@ key: devops-docker-k8s
 ## 2. Docker 的架构和底层技术
 
 
-
 ### Docker Image 概述
-
-
 
 什么是 Docker Image?
 
@@ -194,7 +199,6 @@ $ docker image build <arg>
 ```
 
 
-
 比较简单但是不安全的做法就是, 比如你想发布一个带有 `vim` 的 centos 镜像. 你可以直接 pull 一个 centos 在里面安装 vim 然后发布, 但是怕就怕在一但讲什么重要的文件也发布出去就尴尬了, 所以我们可以用 `dockerfile` 来直接制作
 
 ```dockerfile
@@ -207,9 +211,7 @@ $ docker build -t <name>
 ```
 
 
-
 ### Dockerfile 语法梳理及最佳实践
-
 
 
 **`FROM`**
@@ -286,7 +288,6 @@ RUN apt-get install -y mysql-server="${MYSQL_VERSION}" \
 ### RUN vs CMD vs ENTRYPOINT
 
 
-
 - `RUN` 执行命令并创建新的 `Image Layer`
 - `CMD` 设置容器启动后默认执行的命令和参数
 - `ENTRYPOINT` 设置容器启动时运行的命令
@@ -331,17 +332,12 @@ RUN apt-get install -y mysql-server="${MYSQL_VERSION}" \
 
 
 
-
-
 #### ENTRYPOINT
-
 
 
 1. 让容器以应用程序或者服务的形式运行
 2. 不会被忽略, 一定会执行
 3. 最佳实践: 写一个 shell 脚本
-
-
 
 > 使用较多
 
@@ -350,14 +346,11 @@ RUN apt-get install -y mysql-server="${MYSQL_VERSION}" \
 ### 发布镜像
 
 
-
 - 带着自己的 dockerhub username
 - `docker login`
 - `docker push <image_name>`
 
 - dockerhub -> automated build
-
-
 
 
 
@@ -409,7 +402,6 @@ CMD []
 ```
 
 
-
 这样在使用的时候, vm 等的参数可以被传入 (相当于添加到 CMD)
 
 
@@ -417,9 +409,7 @@ CMD []
 ### 容器的资源限制
 
 
-
 > 比如说限制 container 内存的大小等
-
 
 
 限制内存
@@ -430,7 +420,6 @@ CMD []
 
 设置了 memory 但是没有设置 swap-memory -> swap memory 大小和设置的 memory 大小相等
 ```
-
 
 
 限制 CPU
@@ -457,7 +446,6 @@ CMD []
 基于数据包的通信方式
 
 网络分层
-
 
 
 <img src="/Users/macbookpro/Desktop/website/_posts/2019-12-31-devops-with-docker-and-k8s.assets/764050-20150904095142060-1017190812.gif" style="zoom:67%;" />
@@ -491,13 +479,10 @@ $ ip a
 ```
 
 
-
 创建 container 会生成 name space
 
 
-
 #### Docker Bridge 网络
-
 
 
 ```bash
@@ -505,7 +490,6 @@ $ docker network ls
 ```
 
 两个可以通信的 container 可以通过 `veth` 对 通过 `docker0` 链接.
-
 
 
 ##### 针对单个 docker container 是如何访问网络的
@@ -527,8 +511,6 @@ $ ping test1 # 可以 ping 通
 # 只需要知道名字, 不需要知道 ip 地址
 ```
 
-
-
 创建一个 bridge 并将新的容器连接
 
 ```bash
@@ -540,7 +522,6 @@ $ docker run -d --name test2 --network my-bridge busybox /bin/sh -c "while true;
 
 $ docker network inspect <network_id>
 ```
-
 
 
 如何将之前已经创建好的容器连接到新创建的 bridge 呢?
@@ -565,8 +546,6 @@ $ docker network connect my-bridge test1
 
 ### 容器网络 host 和 none
 
-
-
 #### none
 
 ```bash
@@ -580,23 +559,10 @@ $ docker run -d --name test2 --network none busybox /bin/sh -c "while true; do s
 一个模块一个容器
 
 
-
 ### 多机器通信
 
 
-
 在不同 Linux 宿主机的 docker 容器通信
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Docker 持久化存储和数据共享
@@ -604,12 +570,10 @@ $ docker run -d --name test2 --network none busybox /bin/sh -c "while true; do s
 容器是临时存储和保存数据, 一旦删除, 数据都会被删除
 
 
-
 **Docker 持久化数据的方案**
 
 1. <u>基于本地文件系统的 Volume</u>. 可以执行 `Docker create` 或者 `Docker run` 时, 通过 `-v` 参数将主机的目录作为容器的数据卷. 这部分功能便是基于本地文件系统的 volume 管理
 2. <u>基于 plugin 的 Volume</u>. 支持第三方的存储方案, 比如 AWS
-
 
 
 Volume 的类型
@@ -716,15 +680,11 @@ $ docker run -d --network back-tier -v db-data:/var/lib/postgresql/data postgres
 ```
 
 
-
 ```bash
 $ docker-compose up --scale
 
 # scale SERVICES to NUM instances
 ```
-
-
-
 
 
 ## Docker Swarm 容器编排
@@ -736,10 +696,7 @@ Service 和 Replicas
 
 
 
-
 服务创建和调度流程
-
-
 
 
 
@@ -773,17 +730,13 @@ $ docker node ls
 ### Service 的创建维护和水平扩展
 
 
-
 ```bash
 $ docker service scale SERVICE=REPLICAS
 
 $ docker service ls
 ```
 
-
-
 ### Swarm 集群通过 Service 进行部署
-
 
 
 ```bash
@@ -795,7 +748,6 @@ $ docker service create --name mysql --env MYSQL_ROOT_PASSWORD=root \
 ```
 
 
-
 ```bash
 $ docker service create --name wordpress -p 80:80 \
     --env WORKDPRESS_DB_PASSWORD=root \
@@ -805,54 +757,192 @@ $ docker service create --name wordpress -p 80:80 \
 ```
 
 
-
 ```bash
 $ docker service ps wordpress
 ```
 
 
-
 ### 集群服务间通信之 Routing Mesh
 
 
+DNS 服务发现
 
 
 
+使用 `whoami` 镜像来举例讲解
+
+```bash
+$ docker service create --name whoami -p 8000:8000 --network demo -d jwilder/whoami
+
+$ docker service ls
+
+$ docker service ps whoami
+
+$ ping whoami
+
+# 将服务 scale 成 2 份
+$ docker service scale whoami=2
+$ ping whoami
+```
 
 
 
+会生成 `virtual ip address` (vip), ping 两次返回的地址是相通的. 不管它 host 在哪台机器. 虚拟 ip 不会更改
 
 
 
+**Routing Mesh 的两种体现**
+
+- `Internal` - Container 和 Container 之间的访问, 通过 `overlay`  网络 (通过虚拟 IP)
+- `Ingress` - 如果服务有绑定接口, 则此服务可以通过任意 swarm 节点的相应接口访问
 
 
 
+Ingress Network
+
+- 外部访问的负载均衡
+- 服务端口被暴露到各个 swarm 节点
+- 内部通过 IPVS 进行负载均衡
 
 
 
+Internal Load Balancing
+
+
+### Docker Stack 进行部署
+
+
+`docker-compose.yml`
+
+```yaml
+services:
+
+  mysql:
+    image:
+    ....
+    
+    deploy:
+      mode: global # no replicas
+      placement:
+        constraints:
+          - node.role == manager
+```
 
 
 
+```bash
+$ docker stack deploy 
+```
 
 
 
+### Docker Secret 管理和使用
+
+> 比如数据库密码啦, 什么 token 啦, 用来保密的
 
 
 
+- 用户名密码
+- SSH Key
+- TLS 认证
+- Data
 
 
 
+Secret Management
+
+1. 所有的 secrets 都存储在 Swarm Manager 节点的 Raft Database 里面
+2. Secret 可以 assign 给一个 service, 这个 service 就能看到存储的 secret
+3. 在 containers 内部 Secret 看起来像文件, 但是实际是在**内存**中
 
 
 
+```bash
+$ docker secret create
+"docker secret create" requires at least 1 and at most 2 arguments.
+See 'docker secret create --help'.
+
+Usage:  docker secret create [OPTIONS] SECRET [file|-]
+
+Create a secret from a file or STDIN as content
+
+
+$ docker secret ls
+```
 
 
 
+## Kubernetes 实战容器编排
+
+<img src="/Users/macbookpro/Desktop/website/_posts/2019-12-31-devops-with-docker-and-k8s.assets/Chart_02_Kubernetes-Architecture.png" style="zoom: 67%;" />
+
+
+<img src="/Users/macbookpro/Desktop/website/_posts/2019-12-31-devops-with-docker-and-k8s.assets/Chart_03_Kubernetes-Master.png" style="zoom:67%;" />
+
+
+<img src="/Users/macbookpro/Desktop/website/_posts/2019-12-31-devops-with-docker-and-k8s.assets/Chart_04_Kubernetes-Node.png" style="zoom:67%;" />
+
+
+### K8s 最小调度单位 - Pod
+
+> 不对容器进行直接操作
+
+Pod: 容器调度的<u>最小单位</u>. 具有相同 namespace 的 container 组合, 单个/多个容器, 如果多个, 则共享 network
 
 
 
+- 一个 Pod 共享一个 namespace (user, network ...)
+- 可以包含多个或者单个容器
 
-## References
 
 
+举个栗子, nginx 相关的 yaml 文件`pod_nginx.yml`
+
+```yaml
+apiVersion: v1
+kind: pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+```
+
+
+
+```bash
+# create a new pod
+$ kubectl create -f <filename>
+
+# delete pod
+$ kubectl delete -f <filename>
+
+# list all pods
+$ kubectl get pods -o wide
+
+$ kubectl exec -it nginx sh
+
+# 返回描述信息
+$ kubectl decribe pods nginx
+```
+
+直接进入到容器中进行操作
+
+```bash
+$ kubectl get pods -o wide
+
+$ kubectl exec -it nginx sh
+# (in shell)
+# ls
+bin dev home ...
+```
+
+```bash
+$ minikube ssh
+```
 
