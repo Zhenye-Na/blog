@@ -1,8 +1,8 @@
 ---
 layout: article
 title: "慕课网: 系统学习 Docker 践行 DevOps 理念 - 课程笔记"
-date: 2019-12-16
-modify_date: 2019-12-16
+date: 2019-12-31
+modify_date: 2019-12-31
 excerpt: "DevOps Best Practice with Docker and Kubernetes"
 tags: [Docker, Kubernetes, DevOps]
 mathjax: false
