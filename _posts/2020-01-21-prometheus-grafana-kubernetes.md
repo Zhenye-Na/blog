@@ -5,6 +5,7 @@ date: 2020-01-21
 modify_date: 2020-01-25
 excerpt: "Monitoring K8s ecosystem with Prometheus and Grafana"
 tags: [Prometheus, Grafana, K8s]
+mermaid: true
 mathjax: false
 mathjax_autoNumber: false
 key: prometheus-grafana-kubernetes
