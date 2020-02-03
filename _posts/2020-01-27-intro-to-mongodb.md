@@ -1,13 +1,23 @@
+---
+layout: article
+title: "了解非关系型数据库 NoSQL - MongoDB | 安装使用以及CRUD 操作"
+date: 2020-01-27
+modify_date: 2020-01-28
+excerpt: "Introduction to MongoDB, installation and CRUD operations with mongoose"
+tags: [MongoDB, NoSQL]
+mathjax: false
+mathjax_autoNumber: false
+key: intor-to-mongodb
+---
+
+
 # 了解非关系型数据库 NoSQL - MongoDB | 安装使用以及CRUD 操作
-
-
 
 [TOC]
 
 ## MongoDB 数据库 CRUD 操作
 
 ![](https://i.ytimg.com/vi/nigPkP6QeTk/maxresdefault.jpg)
-
 
 
 MongoDB 数据模型是面向<u>文档</u>的，所谓文档就是一种类似于 JSON 的结构，简单理解 MongoDB 这个数据库中存在的是各种各样的 JSON（BSON）
@@ -53,7 +63,6 @@ MongoDB 数据模型是面向<u>文档</u>的，所谓文档就是一种类似�
 > https://docs.mongodb.com/manual/crud/
 
 
-
 #### 创建 Create
 
 > Create or insert operations add new [documents](https://docs.mongodb.com/manual/core/document/#bson-document-format) to a [collection](https://docs.mongodb.com/manual/core/databases-and-collections/#collections). If the collection does **not** currently exist, insert operations will create the collection.
@@ -62,7 +71,6 @@ MongoDB 数据模型是面向<u>文档</u>的，所谓文档就是一种类似�
 
 - 使用 `db.<collection_name>.insertOne()` 向集合中添加*一个文档*, 参数一个 json 格式的文档
 - 使用 `db.<collection_name>.insertMany()` 向集合中添加*多个文档*, 参数为 json 文档数组
-
 
 
 ![](https://docs.mongodb.com/manual/_images/crud-annotated-mongodb-insertOne.bakedsvg.svg)
