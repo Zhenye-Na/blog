@@ -581,6 +581,27 @@ describe('Creating records', () => {
 
 
 
+## NoSQL Databases
+
+**Benefits of NoSQL**
+
+- Easy for inserting and retrieving data, since they are contained in one block, in one json object
+- Flexible schema, if a new attribute added, it is easy to just add / append to the object
+- Scalability, horizontally partition the data (availability > consistency)
+- Aggregation, find metrics and etc
+
+
+
+**Drawbacks of NoSQL**
+
+- Update = Delete + Insert, not built for update
+- Not consistent, ACID is not guaranteed, do not support transactions
+- Not read optimized. Read entire block find the attribute. But SQL, just need one column (read time compartively slow)
+- Relations are not implicit
+- JOINS are hard to accomplish, all manually
+
+
+
 ## References
 
 - https://mongoosejs.com/docs/guides.html
