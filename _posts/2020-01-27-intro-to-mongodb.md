@@ -1,8 +1,8 @@
 ---
 layout: article
-title: "了解非关系型数据库 NoSQL - MongoDB | 安装使用以及CRUD 操作"
+title: "了解非关系型数据库 NoSQL - MongoDB | 安装使用以及 CRUD 操作"
 date: 2020-01-27
-modify_date: 2020-01-28
+modify_date: 2020-02-04
 excerpt: "Introduction to MongoDB, installation and CRUD operations with mongoose"
 tags: [MongoDB, NoSQL]
 mathjax: false
@@ -11,7 +11,7 @@ key: intor-to-mongodb
 ---
 
 
-# 了解非关系型数据库 NoSQL - MongoDB | 安装使用以及CRUD 操作
+# 了解非关系型数据库 NoSQL - MongoDB | 安装使用以及 CRUD 操作
 
 [TOC]
 
@@ -92,7 +92,7 @@ db.collection.insertMany([
 
 
 
-注：当我们向 collection 中插入 document 文档时，如果没有给文档指定 `_id` 属性，那么数据库会为文档自动添加 `_id` field, 并且值类型是 `ObjectId(blablabla)`, 就是文档的唯一标识
+注：当我们向 `collection` 中插入 `document` 文档时，如果没有给文档指定 `_id` 属性，那么数据库会为文档自动添加 `_id` field, 并且值类型是 `ObjectId(blablabla)`, 就是文档的唯一标识, 类似于 relational database 里的 `primary key`
 
 
 
@@ -100,8 +100,8 @@ db.collection.insertMany([
 
 
 
-- 使用 `db.<collection_name>.find()` 方法对集合进行查询, 接受一个 json 格式的查询条件. 返回的是一个数组
-- `db.<collection_name>.findOne()` 查询集合中符合条件的<u>第一个</u>文档，返回的是一个对象
+- 使用 `db.<collection_name>.find()` 方法对集合进行查询, 接受一个 json 格式的查询条件. 返回的是一个**数组**
+- `db.<collection_name>.findOne()` 查询集合中符合条件的<u>第一个</u>文档，返回的是一个**对象**
 
 
 
@@ -160,18 +160,57 @@ db.inventory.find( {
 
 
 
+在 terminal 中查看结果可能不是很方便, 所以我们可以用 `pretty()` 来帮助阅读
+
+```javascript
+db.inventory.find().pretty()
+```
+
+
+
+匹配内容
+
+```javascript
+db.posts.find({
+  comments: {
+    $elemMatch: {
+      user: 'Harry Potter'
+    }
+  }
+}).pretty()
+```
+
+
+
+创建索引
+
+```javascript
+db.posts.createIndex({
+  { title : 'text' }
+})
+
+// 文本搜索
+// will return document with title "Post One"
+// if there is no more posts created
+db.posts.find({
+  $text : {
+    $ search : "\"Post O\""
+  }
+}).pretty()
+```
+
+
+
 #### 更新 Update
 
 - 使用 `db.<collection_name>.updateOne(<filter>, <update>, <options>)` 方法修改一个匹配 `<filter>` 条件的文档
 - 使用 `db.<collection_name>.updateMany(<filter>, <update>, <options>)` 方法修改所有匹配 `<filter>` 条件的文档
-- 使用 `db.<collection_name>.replaceOne(<filter>, <update>, <options>)` 方法替换一个匹配 `<filter>` 条件的文档
-- `db.<collection_name>.update(查询对象, 新对象)` 默认情况下会使用新对象替换旧对象
+- 使用 `db.<collection_name>.replaceOne(<filter>, <update>, <options>)` 方法**替换**一个匹配 `<filter>` 条件的文档
+- `db.<collection_name>.update(查询对象, 新对象)` 默认情况下会使用<u>新对象替换旧对象</u>
 
 
 
 其中 `<filter>` 参数与查询方法中的条件参数用法一致.
-
-
 
 如果需要修改指定的属性，而不是替换需要用“修改操作符”来进行修改
 
@@ -265,12 +304,13 @@ db.inventory.deleteMany( { qty : { $lt : 50 } } )
 { $sort: { <field1>: <sort order>, <field2>: <sort order> ... } }
 ```
 
-For the field or fields to sort by, set the sort order to `1` or `-1` to specify an ascending or descending sort respectively, as in the following example:
+For the field or fields to sort by, set the sort order to `1` or `-1` to specify an *ascending* or *descending* sort respectively, as in the following example:
 
 ```javascript
 db.users.aggregate(
    [
      { $sort : { age : -1, posts: 1 } }
+     // ascending on posts and descending on age
    ]
 )
 ```
@@ -289,6 +329,16 @@ Optimizations are subject to change between releases.
 
 
 
+举个栗子:
+
+```javascript
+db.posts.find().sort({ title : -1 }).limit(2).pretty()
+```
+
+
+
+
+
 #### 投影
 
 有些情况，我们对文档进行查询并不是需要所有的字段，比如只需要 id 或者 用户名，我们可以对文档进行“投影”
@@ -301,6 +351,16 @@ db.users.find( {}, {username: 1} )
 
 db.users.find( {}, {age: 1, _id: 0} )
 ```
+
+
+
+### forEach()
+
+```javascript
+db.posts.find().forEach(fucntion(doc) { print('Blog Post: ' + doc.title) })
+```
+
+
 
 
 
@@ -352,8 +412,34 @@ mongoose 是一个对象文档模型（ODM）库
 
 
 
+使用 mongoose 返回的是一个 `mogoose Query object`, mongoose 执行 query 语句后的结果会被传进 callback 函数 `callback(error, result)` 
+
+
+
+> A mongoose query can be executed in one of two ways. First, if you pass in a `callback` function, Mongoose will execute the query asynchronously and pass the results to the `callback`.
+>
+> A query also has a `.then()` function, and thus can be used as a promise.
+
+
+
+```javascript
+const q = MyModel.updateMany({}, { isDeleted: true }, function() {
+  console.log("Update 1");
+}));
+
+q.then(() => console.log("Update 2"));
+q.then(() => console.log("Update 3"));
+```
+
+上面这一段代码会执行三次 `updateMany()` 操作, 第一次是因为 callback, 之后的两次是因为 `.then()` (因为 `.then()` 也会调用 `updatemany()`)
+
+
+
+**连接数据库并且创建 Model 类**
+
 ```javascript
 const mongoose = require('mongoose');
+// test is the name of database, will be created automatically
 mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true});
 
 const Cat = mongoose.model('Cat', { name: String });
@@ -370,11 +456,11 @@ kitty.save().then(() => console.log('meow'));
 
 ```javascript
 mongoose.connection.once("open", function() {
-
+  console.log("connection opened.")
 });
 
 mongoose.connection.once("close", function() {
-
+  console.log("connection closed.")
 });
 ```
 
@@ -382,13 +468,13 @@ mongoose.connection.once("close", function() {
 
 ### Mongoose 的 CRUD
 
-首先定义一个 Schema
+首先定义一个 `Schema`
 
 ```javascript
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var blogSchema = new Schema({
+const blogSchema = new Schema({
     title:  String, // String is shorthand for {type: String}
     author: String,
     body:   String,
@@ -404,16 +490,23 @@ var blogSchema = new Schema({
 
 
 
-然后在 Schema 基础上创建 Model
+然后在 `blogSchema` 基础上创建 `Model`
 
 ```javascript
-var Blog = mongoose.model('Blog', blogSchema);
+const Blog = mongoose.model('Blog', blogSchema);
 // ready to go!
+
+module.exports = Blog;
 ```
 
+当调用上面这一行代码时, MongoDB 会做如下操作
+
+1. 是否存在一个数据库叫做 `Blog` 啊? 没的话那就创建一个
+2. 每次用到 Blog 库的时候都要注意内部数据要按照 `blogSchema` 来规定
 
 
-像数据库中插入文档数据
+
+向数据库中插入文档数据
 
 ```javascript
 Blog.create({
@@ -428,11 +521,62 @@ Blog.create({
 
 
 
-查询
+简单的查询一下下
 
 ```javascript
-// named john and at least 18
+// named john and at least 18 yo
 MyModel.find({ name: 'john', age: { $gte: 18 }});
+```
+
+
+
+mongoose 支持的用法有:
+
+- [`Model.deleteMany()`](https://mongoosejs.com/docs/api.html#model_Model.deleteMany)
+- [`Model.deleteOne()`](https://mongoosejs.com/docs/api.html#model_Model.deleteOne)
+- [`Model.find()`](https://mongoosejs.com/docs/api.html#model_Model.find)
+- [`Model.findById()`](https://mongoosejs.com/docs/api.html#model_Model.findById)
+- [`Model.findByIdAndDelete()`](https://mongoosejs.com/docs/api.html#model_Model.findByIdAndDelete)
+- [`Model.findByIdAndRemove()`](https://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove)
+- [`Model.findByIdAndUpdate()`](https://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate)
+- [`Model.findOne()`](https://mongoosejs.com/docs/api.html#model_Model.findOne)
+- [`Model.findOneAndDelete()`](https://mongoosejs.com/docs/api.html#model_Model.findOneAndDelete)
+- [`Model.findOneAndRemove()`](https://mongoosejs.com/docs/api.html#model_Model.findOneAndRemove)
+- [`Model.findOneAndReplace()`](https://mongoosejs.com/docs/api.html#model_Model.findOneAndReplace)
+- [`Model.findOneAndUpdate()`](https://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate)
+- [`Model.replaceOne()`](https://mongoosejs.com/docs/api.html#model_Model.replaceOne)
+- [`Model.updateMany()`](https://mongoosejs.com/docs/api.html#model_Model.updateMany)
+- [`Model.updateOne()`](https://mongoosejs.com/docs/api.html#model_Model.updateOne)
+
+
+
+
+
+## 使用 Mocha 编写测试 "Test Driven Development"
+
+Mocha 是一个 js 测试的包, 编写测试有两个关键字 `describe` 和 `it`
+
+- `describe` 是一个"统领块", 所有的 test functions 都会在它"名下"
+- `it` 表示每一个 test function
+
+
+
+`create_test.js`
+
+```javascript
+const assert = require('assert')
+// assume we have a User model defined in src/user.js
+const User = require('../src/user')
+
+// after installing Mocha, we have global access
+// to describe and it keywords
+describe('Creating records', () => {
+  it('saves a user', () => {
+    const joe = new User({ name: "Joe" });
+    joe.save();
+    assert()
+  });
+});
 ```
 
 
@@ -440,5 +584,7 @@ MyModel.find({ name: 'john', age: { $gte: 18 }});
 ## References
 
 - https://mongoosejs.com/docs/guides.html
+- https://docs.mongodb.com/
 - https://www.bilibili.com/video/av59604756
+- https://www.youtube.com/watch?v=-56x56UppqQ
 
