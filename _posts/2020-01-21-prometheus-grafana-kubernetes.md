@@ -2,7 +2,7 @@
 layout: article
 title: "Prometheus + Grafana | 全方位立体式监控系统学习笔记"
 date: 2020-01-21
-modify_date: 2020-01-25
+modify_date: 2020-05-04
 excerpt: "Monitoring K8s ecosystem with Prometheus and Grafana"
 tags: [Prometheus, Grafana, K8s]
 mermaid: true
@@ -108,10 +108,10 @@ key: prometheus-grafana-kubernetes
 
 ### 指标类型
 
-- Counter：递增的计数器，比如 API 请求次数
-- Gauge：可以任意变化的数值，比如 CPU 内存利用率变化
-- Histogram：对一段时间范围内数据进行采样，并对所有数值*求和*与*统计数量*
-- Summary：与 Histogram 类似
+- Counter: 递增的计数器，比如 API 请求次数
+- Gauge: 可以任意变化的数值，比如 CPU 内存利用率变化
+- Histogram: 对一段时间范围内数据进行采样，并对所有数值*求和*与*统计数量*
+- Summary: 与 Histogram 类似
 
 
 
@@ -433,15 +433,6 @@ CPU使用率：
 3. 在Prometheus中创建告警规则
 
 
-
-### 配置 Prometheus 与 Alertmanager 通信
-
-
-
-<img src="C:\Users\95183\Desktop\prometheus-grafana-kubernetes.assets\image-20200122233634036.png" alt="image-20200122233634036" style="zoom:67%;" />
-
-
-
 ### 在 Prometheus 中创建告警规则
 
 ```yaml
@@ -458,7 +449,6 @@ groups:
       summary: "Instance {{ $labels.instance }} down"
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes."
 ```
-
 
 
 检查配置文件
@@ -479,9 +469,9 @@ $ systemctl restart prometheus
 
 ### 告警状态
 
-- Inactive：什么都没有发生。
-- Pending：已<u>触发阈值</u>，但**未**满足告警持续时间
-- Firing：已<u>触发阈值</u>且<u>满足告警持续时间</u>。警报发送给接受者。
+- Inactive: 什么都没有发生。
+- Pending: 已<u>触发阈值</u>，但**未**满足告警持续时间
+- Firing: 已<u>触发阈值</u>且<u>满足告警持续时间</u>。警报发送给接受者。
 
 
 
@@ -563,7 +553,7 @@ Alertmanager 的架构图
 
 
 
-官网上的 Inhibition rules
+官网上的 Inhibition rules ⬇️
 
 ```yaml
 # Inhibition rules allow to mute a set of alerts given that another alert is
@@ -610,14 +600,14 @@ graph LR
 
 ### K8s 监控指标
 
-Kubernetes本身监控
+Kubernetes 本身监控
 
 - Node资源利用率
 - Node数量
 - Pods数量（Node）
 - 资源对象状态
 
-Pod监控
+Pod 监控
 
 - Pod数量（项目）
 - 容器资源利用率
