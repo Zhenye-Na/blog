@@ -2,7 +2,7 @@
 layout: article
 title: "了解非关系型数据库 NoSQL - MongoDB | 安装使用以及 CRUD 操作"
 date: 2020-01-27
-modify_date: 2020-05-04
+modify_date: 2020-05-06
 excerpt: "Introduction to MongoDB, installation and CRUD operations with mongoose"
 tags: [MongoDB, NoSQL]
 mathjax: false
@@ -15,13 +15,11 @@ key: intor-to-mongodb
 
 [TOC]
 
-课程目标
+**课程目标**
 
 MongoDB的副本集: 操作、主要概念、故障转移、选举规则 MongoDB的分片集群：概念、优点、操作、分片策略、故障转移 MongoDB的安全认证
 
-## MongoDB 快速上手
 
-课程目标
 
 - 理解 MongoDB 的业务场景、熟悉 MongoDB 的简介、特点和体系结构、数据类型等。
 - 能够在 Windows 和 Linux 下安装和启动 MongoDB、图形化管理界面 Compass 的安装使用
@@ -813,53 +811,154 @@ MongoDB 提供了一种文本索引类型，支持在集合中搜索字符串内
 
 
 
+#### 4.3.1 索引的查看
 
 
 
-
-
-
-
-
-索引使用
-
-分析查询性能
+语法
 
 ```
-db.<collection_name>.find( query, options ).explain(options)
+db.collection.getIndexes()
 ```
 
 
 
-涵盖的查询
+默认 `_id` 索引： MongoDB 在创建集合的过程中，在 `_id` 字段上创建一个唯一的索引，默认名字为 `_id` ，该索引可防止客户端插入两个具有相同值的文 档，不能在 `_id` 字段上删除此索引。 
+
+
+
+注意：该索引是**唯一索引**，因此值不能重复，即 `_id` 值不能重复的。
+
+在分片集群中，通常使用 `_id` 作为**片键**。
+
+
+
+#### 4.3.2 索引的创建
+
+
+
+语法
+
+```
+db.collection.createIndex(keys, options)
+```
+
+
+
+参数
+
+<img src="/Users/macbookpro/Desktop/website/_posts/assets/image-20200506203419523.png" alt="image-20200506203419523" style="zoom:67%;" />
+
+
+
+options（更多选项）列表
+
+<img src="/Users/macbookpro/Desktop/website/_posts/assets/image-20200506203453430.png" alt="image-20200506203453430" style="zoom:67%;" />
+
+
+
+注意在 3.0.0 版本前创建索引方法为 `db.collection.ensureIndex()` ，之后的版本使用了 `db.collection.createIndex()` 方法， `ensureIndex()` 还能用，但只是 `createIndex()` 的别名。
+
+
+
+举个🌰
+
+```sh
+$  db.comment.createIndex({userid:1})
+{
+  "createdCollectionAutomatically" : false,
+  "numIndexesBefore" : 1,
+  "numIndexesAfter" : 2,
+  "ok" : 1
+}
+
+$ db.comment.createIndex({userid:1,nickname:-1})
+...
+
+```
+
+
+
+#### 4.3.3 索引的删除
+
+
+
+语法
+
+```sh
+# 删除某一个索引
+$ db.collection.dropIndex(index)
+
+# 删除全部索引
+$ db.collection.dropIndexes()
+```
+
+
+
+提示:
+
+`_id` 的字段的索引是无法删除的，只能删除非 `_id` 字段的索引
+
+
+
+示例
+
+```sh
+# 删除 comment 集合中 userid 字段上的升序索引
+$ db.comment.dropIndex({userid:1})
+```
+
+
+
+
+
+### 4.4 索引使用
+
+
+
+#### 4.4.1 执行计划
+
+
+
+分析查询性能 (Analyze Query Performance) 通常使用执行计划 (解释计划 - Explain Plan) 来查看查询的情况
+
+```shell
+$ db.<collection_name>.find( query, options ).explain(options)
+```
+
+
+
+
+
+比如: 查看根据userid查询数据的情况
+
+
+
+**未添加索引之前**
+
+`"stage" : "COLLSCAN"`, 表示全集合扫描
+
+<img src="/Users/macbookpro/Desktop/website/_posts/assets/image-20200506205714154.png" alt="image-20200506205714154" style="zoom:67%;" />
+
+
+
+**添加索引之后**
+
+`"stage" : "IXSCAN"`, 基于索引的扫描
+
+
+
+#### 4.4.2 涵盖的查询
+
+
 
 当查询条件和查询的投影仅包含索引字段是, MongoDB 直接从索引返回结果, 而不扫描任何文档或将文档带入内存, 这些覆盖的查询十分有效
 
+> https://docs.mongodb.com/manual/core/query-optimization/#covered-query
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 在 Nodejs 中使用 MongoDB - mongoose
+## 5. 在 Nodejs 中使用 MongoDB - mongoose
 
 mongoose 是一个对象文档模型（ODM）库
 
@@ -872,7 +971,7 @@ mongoose 是一个对象文档模型（ODM）库
 
 
 
-### mongoose 提供的新对象类型
+### 5.1 mongoose 提供的新对象类型
 
 - Schema
   - 定义约束了数据库中的文档结构
@@ -884,7 +983,7 @@ mongoose 是一个对象文档模型（ODM）库
 
 
 
-### 简单使用 Mongoose
+### 5.2 简单使用 Mongoose
 
 > https://mongoosejs.com/docs/guide.html
 
@@ -944,7 +1043,7 @@ mongoose.connection.once("close", function() {
 
 
 
-### Mongoose 的 CRUD
+### 5.3 Mongoose 的 CRUD
 
 首先定义一个 `Schema`
 
@@ -1026,8 +1125,7 @@ mongoose 支持的用法有:
 - [`Model.updateMany()`](https://mongoosejs.com/docs/api.html#model_Model.updateMany)
 - [`Model.updateOne()`](https://mongoosejs.com/docs/api.html#model_Model.updateOne)
 
-
-## 使用 Mocha 编写测试 "Test Driven Development"
+## 6. 使用 Mocha 编写测试 "Test Driven Development"
 
 Mocha 是一个 js 测试的包, 编写测试有两个关键字 `describe` 和 `it`
 
@@ -1056,9 +1154,7 @@ describe('Creating records', () => {
 
 
 
-
-
-## NoSQL Databases
+## 7. NoSQL Databases
 
 **Benefits of NoSQL**
 
@@ -1084,5 +1180,6 @@ describe('Creating records', () => {
 - https://mongoosejs.com/docs/guides.html
 - https://docs.mongodb.com/
 - https://www.bilibili.com/video/av59604756
+- https://www.bilibili.com/video/BV1bJ411x7mq
 - https://www.youtube.com/watch?v=-56x56UppqQ
 
