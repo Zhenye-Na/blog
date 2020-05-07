@@ -27,8 +27,6 @@ MongoDB的副本集: 操作、主要概念、故障转移、选举规则 MongoDB
 - 掌握 MongoDB 的索引类型、索引管理、执行计划
 
 
-
-
 ## 1. MongoDB 相关概念
 
 ### 1.1 业务场景
@@ -106,11 +104,11 @@ MongoDB的副本集: 操作、主要概念、故障转移、选举规则 MongoDB
 
 
 
-![](../assets/images/posts-img/intro-to-mongodb/maxresdefault.jpg)
+![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/maxresdefault.jpg?raw=true)
 
 
 
-![image-20200505220556737](../assets/images/posts-img/intro-to-mongodb/image-20200505220556737.png)
+![image-20200505220556737](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200505220556737.png?raw=true)
 
 
 
@@ -156,7 +154,7 @@ MongoDB 数据模型是面向<u>文档</u>的，所谓文档就是一种类似�
 
 
 
-![image-20200505220650827](../assets/images/posts-img/intro-to-mongodb/image-20200505220650827.png)
+![image-20200505220650827](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200505220650827.png?raw=true)
 
 
 
@@ -773,7 +771,7 @@ MongoDB 支持在文档的单个字段上创建用户定义的**升序/降序索
 
 
 
-![image-20200505231043779](../assets/images/posts-img/intro-to-mongodb/image-20200505231043779.png)
+![image-20200505231043779](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200505231043779.png?raw=true)
 
 
 
@@ -785,13 +783,15 @@ MongoDB 还支持多个字段的用户定义索引，即复合索引 Compound In
 
 
 
-![image-20200505231305941](../assets/images/posts-img/intro-to-mongodb/image-20200505231305941.png)
+![image-20200505231305941](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200505231305941.png?raw=true)
 
 
 
 #### 4.2.3 其他索引
 
-地理空间索引（Geospatial Index）、文本索引（Text Indexes）、哈希索引（Hashed Indexes）。
+- 地理空间索引 Geospatial Index
+- 文本索引 Text Indexes
+- 哈希索引 Hashed Indexes
 
 ##### 地理空间索引（Geospatial Index）
 
@@ -847,13 +847,13 @@ db.collection.createIndex(keys, options)
 
 参数
 
-<img src="../assets/images/posts-img/intro-to-mongodb/image-20200506203419523.png" alt="image-20200506203419523" style="zoom:67%;" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200506203419523.png?raw=true" alt="image-20200506203419523" style="zoom:67%;" />
 
 
 
 options（更多选项）列表
 
-<img src="../assets/images/posts-img/intro-to-mongodb/image-20200506203453430.png" alt="image-20200506203453430" style="zoom:67%;" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200506203453430.png?raw=true" alt="image-20200506203453430" style="zoom:67%;" />
 
 
 
@@ -935,7 +935,7 @@ $ db.<collection_name>.find( query, options ).explain(options)
 
 `"stage" : "COLLSCAN"`, 表示全集合扫描
 
-<img src="../assets/images/posts-img/intro-to-mongodb/image-20200506205714154.png" alt="image-20200506205714154" style="zoom:67%;" />
+<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200506205714154.png?raw=true" alt="image-20200506205714154" style="zoom:67%;" />
 
 
 
@@ -1021,8 +1021,6 @@ const Cat = mongoose.model('Cat', { name: String });
 const kitty = new Cat({ name: 'Zildjian' });
 kitty.save().then(() => console.log('meow'));
 ```
-
-
 
 **监听 MongoDB 数据库的连接状态**
 
