@@ -106,11 +106,11 @@ MongoDB的副本集: 操作、主要概念、故障转移、选举规则 MongoDB
 
 
 
-![](/Users/macbookpro/Desktop/website/_posts/assets/maxresdefault.jpg)
+![](../assets/images/posts-img/intro-to-mongodb/maxresdefault.jpg)
 
 
 
-![image-20200505220556737](/Users/macbookpro/Desktop/website/_posts/assets/image-20200505220556737.png)
+![image-20200505220556737](../assets/images/posts-img/intro-to-mongodb/image-20200505220556737.png)
 
 
 
@@ -156,7 +156,7 @@ MongoDB 数据模型是面向<u>文档</u>的，所谓文档就是一种类似�
 
 
 
-![image-20200505220650827](/Users/macbookpro/Desktop/website/_posts/assets/image-20200505220650827.png)
+![image-20200505220650827](../assets/images/posts-img/intro-to-mongodb/image-20200505220650827.png)
 
 
 
@@ -773,7 +773,7 @@ MongoDB 支持在文档的单个字段上创建用户定义的**升序/降序索
 
 
 
-![image-20200505231043779](/Users/macbookpro/Desktop/website/_posts/assets/image-20200505231043779.png)
+![image-20200505231043779](../assets/images/posts-img/intro-to-mongodb/image-20200505231043779.png)
 
 
 
@@ -785,7 +785,7 @@ MongoDB 还支持多个字段的用户定义索引，即复合索引 Compound In
 
 
 
-![image-20200505231305941](/Users/macbookpro/Desktop/website/_posts/assets/image-20200505231305941.png)
+![image-20200505231305941](../assets/images/posts-img/intro-to-mongodb/image-20200505231305941.png)
 
 
 
@@ -847,13 +847,13 @@ db.collection.createIndex(keys, options)
 
 参数
 
-<img src="/Users/macbookpro/Desktop/website/_posts/assets/image-20200506203419523.png" alt="image-20200506203419523" style="zoom:67%;" />
+<img src="../assets/images/posts-img/intro-to-mongodb/image-20200506203419523.png" alt="image-20200506203419523" style="zoom:67%;" />
 
 
 
 options（更多选项）列表
 
-<img src="/Users/macbookpro/Desktop/website/_posts/assets/image-20200506203453430.png" alt="image-20200506203453430" style="zoom:67%;" />
+<img src="../assets/images/posts-img/intro-to-mongodb/image-20200506203453430.png" alt="image-20200506203453430" style="zoom:67%;" />
 
 
 
@@ -927,9 +927,6 @@ $ db.<collection_name>.find( query, options ).explain(options)
 ```
 
 
-
-
-
 比如: 查看根据userid查询数据的情况
 
 
@@ -938,7 +935,7 @@ $ db.<collection_name>.find( query, options ).explain(options)
 
 `"stage" : "COLLSCAN"`, 表示全集合扫描
 
-<img src="/Users/macbookpro/Desktop/website/_posts/assets/image-20200506205714154.png" alt="image-20200506205714154" style="zoom:67%;" />
+<img src="../assets/images/posts-img/intro-to-mongodb/image-20200506205714154.png" alt="image-20200506205714154" style="zoom:67%;" />
 
 
 
