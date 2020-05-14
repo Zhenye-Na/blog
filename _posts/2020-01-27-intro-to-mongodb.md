@@ -15,6 +15,10 @@ key: intor-to-mongodb
 
 [TOC]
 
+> 配套资料: `https://pan.baidu.com/s/18au42FIhSNrXY9p7MbmNbg` 提取码: `29ad`
+> 
+> 感谢 B 站用户 [`冷鸟丨会飞 `](https://space.bilibili.com/55263887) 分享
+
 **课程目标**
 
 MongoDB的副本集: 操作、主要概念、故障转移、选举规则 MongoDB的分片集群：概念、优点、操作、分片策略、故障转移 MongoDB的安全认证
