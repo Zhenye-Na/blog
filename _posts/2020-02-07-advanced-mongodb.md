@@ -1,16 +1,16 @@
 ---
 layout: article
-title: "MonoDB 数据库高级进阶 - 集群和安全"
+title: "MongoDB 数据库高级进阶 - 集群和安全"
 date: 2020-02-07
 modify_date: 2020-05-16
-excerpt: "MonoDB 数据库高级进阶 - 集群和安全"
+excerpt: "MongoDB 数据库高级进阶 - 集群和安全"
 tags: [MongoDB, NoSQL]
 mathjax: false
 mathjax_autoNumber: false
 key: advanced-monogodb
 ---
 
-# MonoDB 数据库高级进阶 - 集群和安全
+# MongoDB 数据库高级进阶 - 集群和安全
 
 [TOC]
 
