@@ -8,7 +8,7 @@ key: intro-to-shell
 ---
 
 > A shell script is a computer program designed to be run by the Unix shell, a command-line interpreter. The various dialects of shell scripts are considered to be scripting languages. Typical operations performed by shell scripts include file manipulation, program execution, and printing text. A script which sets up the environment, runs the program, and does any necessary cleanup, logging, etc. is called a wrapper.
-> In this tutorial, I will try to help you understand some of the basics of shell script programming (aka shell scripting). You can find all source codes [here](https://github.com/Zhenye-Na/sh-tutorial).
+> In this tutorial, I will try to help you understand some of the basics of shell script programming (aka shell scripting). You can find all source codes [here](https://gist.github.com/Zhenye-Na/35f9adcd6d26d91f33c59a0e416f32a3).
 
 # Learn Shell script in 15 minutes
 
