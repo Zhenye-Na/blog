@@ -21,8 +21,9 @@ highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "t
 url     : # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
 title   : Zhenye's Blog
+tagline : Technical blog and notes for personal archive
 description: > # this means to ignore newlines until "Language & timezone"
-  一杯茶, 一包烟, 一行代码写一天
+  Sharing technical knowledge in a easy-to-learn way
 
 
 ## => Language and Timezone
@@ -39,7 +40,7 @@ author:
   url       :
   avatar    : # path or url of avatar image (square)
   bio       :
-  email     : zna2@illinois.edu
+  email     : nazhenye@gmail.com
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
   twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
   weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
@@ -218,3 +219,4 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+  - jekyll-seo-tag
