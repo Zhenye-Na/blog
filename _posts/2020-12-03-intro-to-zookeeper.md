@@ -4,7 +4,7 @@ title: "理解 Zookeeper 原理以及源码分析"
 date: 2020-12-03
 modify_date: 2020-12-03
 excerpt: "Introduction to Zookeeper"
-tags: [Zookeeper, Big Data]
+tags: [Zookeeper]
 mathjax: false
 mathjax_autoNumber: false
 key: intro-to-zookeeper
@@ -32,11 +32,18 @@ key: intro-to-zookeeper
 
 Zookeeper 是一个开源的分布式的, 为分布式应用提供**协调服务**的 Apache 项目。
 
-Zookeeper 从设计模式角度来理解：是一个基于**<u>观察者模式</u>**设计的分布式服务管理框架,  它负责**存储和管理**大家都关心的数据, 然后**接受观察者的注册**, <u>一旦这些数据的状态发生变化, Zookeeper 就将负责通知已经在 Zookeeper 上注册的那些观察者做出相应的反应</u>, 从而实现集群中类似 Master/Slave 管理模式
-
-
-
 <strong><u>Zookeeper = "文件系统 + 通知机制"</u></strong>
+
+
+
+>  Zookeeper 从设计模式角度来理解：是一个基于**<u>观察者模式</u>**设计的分布式服务管理框架,  它负责**存储和管理**大家都关心的数据, 然后**接受观察者的注册**, <u>一旦这些数据的状态发生变化, Zookeeper 就将负责通知已经在 Zookeeper 上注册的那些观察者做出相应的反应</u>, 从而实现集群中类似 Master/Slave 管理模式
+
+
+
+- Zookeeper 是一个“数据库”
+- Zookeeper 是一个拥有文件系统特点的“数据库” （文件树形结构）
+- Zookeeper 可以解决数据一致性问题的分布式“数据库”
+- Zookeeper 具有发布, 订阅功能的分布式“数据库”
 
 
 
@@ -227,8 +234,16 @@ Zookeeper 的配置文件是 `/opt/zookeeper/conf/zoo.cfg`, 文件中的一些�
 
 ### 3.1. Zookeeper 内部选举机制 ★★★
 
-1. 半数机制（Paxos 协议）：**集群中半数以上机器存活, 集群可用**。所以 zookeeper 适合装在**奇数**台机器
+> 如果 Zookeeper 是单机部署的情况是不需要进行选举的, 集群模式下才会进行选举
+
+#### 3.1.1. 选举机制
+
+1. 半数机制 ("Paxos" 协议) ：**集群中半数以上机器存活, 集群可用**。所以 zookeeper 适合装在**奇数**台机器
 2. Zookeeper 虽然在配置文件中并没有指定 main 和 secondary。但是, zookeeper 工作时, 是有一个节点为 leader, 其他则为 follower, Leader 是通过内部的选举机制临时产生的
+
+
+
+> Zookeeper 并没有直接采用 Paxos 协议算法, 而是采用 ZAB (Zookeeper Atomic Broadcast) 的一致性协议算法
 
 
 
@@ -244,90 +259,79 @@ Zookeeper 的配置文件是 `/opt/zookeeper/conf/zoo.cfg`, 文件中的一些�
 
 
 
-- 服务器 1 启动, 此时只有它一台服务器启动了, 它发出去的报没有任何响应, 所 以它的选举状态一直是 LOOKING 状态。
-- 服务器 2 启动, 它与最开始启动的服务器 1 进行通信, 互相交换自己的选举结果,  由于两者都没有历史数据, 所以 id 值较大的服务器 2 胜出, 但是由于没有达到超过半数以上的服务器都同意选举它 ( 这个例子中的半数以上是 3) , 所以服务器 1, 2 还是继续保持 LOOKING 状态。
+- 服务器 1 启动, 此时只有它一台服务器启动了, 它发出去的报没有任何响应, 所 以它的选举状态一直是 `LOOKING` 状态。
+- 服务器 2 启动, 它与最开始启动的服务器 1 进行通信, 互相交换自己的选举结果,  由于两者都没有历史数据, 所以 id 值较大的服务器 2 胜出, 但是由于没有达到超过半数以上的服务器都同意选举它 ( 这个例子中的半数以上是 3) , 所以服务器 1, 2 还是继续保持 `LOOKING` 状态。
 - 服务器 3 启动, 根据前面的理论分析, 服务器 3 成为服务器 1, 2, 3 中的老大,  而与上面不同的是, 此时有三台服务器选举了它, 所以它成为了这次选举的 leader。
 - 服务器 4 启动, 根据前面的分析, 理论上服务器 4 应该是服务器 1, 2, 3, 4 中最大的, 但是由于前面已经有半数以上的服务器选举了服务器 3, 所以它只能接收当小弟的命 了。
 - 服务器 5 启动, 同 4 一样当小弟。
 
 
 
-### 3.2. Zookeeper 节点类型
+> Zookeeper 中通常是以 `zxid` (Zookeeper Transaction Id) 来标识数据的新旧程度 (版本), 节点的最新 `zxid` 越大代表这个节点的数据越新 
 
 
 
-Znode 有两种类型:
+#### 3.1.2. 领导者选举发生的节点
 
-- 短暂 (ephemeral): 客户端和服务器端断开连接后, 创建的**节点自动删除**
-- 持久 (persistent): 客户端和服务器端断开连接后, **创建的节点不删除**
-
-
-
-Znode 有四种形式的目录节点（默认是 persistent ）
-
-1. 持久化目录节点 (**`PERSISTENT`**)
-   1. 客户端与 zookeeper 断开连接后, 该节点依旧存在
-2. 持久化顺序编号目录节点 (**`PERSISTENT_SEQUENTIAL`**)
-   1. 客户端与 zookeeper 断开连接后, 该节点依旧存在, 只是 Zookeeper 给该节点名称进行**顺序编号**
-3. 临时目录节点 (**`EPHEMERAL`**)
-   1. 客户端与 zookeeper 断开连接后, 该节点被删除
-4. 临时顺序编号目录节点 (**`EPHEMERAL_SEQUENTIAL`**)
-   1. 客户端与 zookeeper 断开连接后, 该节点被删除, 只是 Zookeeper 给该节点名称进行顺序编号
+- 集群刚刚启动
+- Leader down
+- Follower down, Leader 发现已经没有过半的 Follower 跟随自己 - 不能对外提供服务了
 
 
 
-创建 znode 时设置顺序标识, znode 名称后会附加一个值, 顺序号是一个单调递增的计数器, 由父节点维护
+#### 3.1.3. 哈哈?
 
 
 
-在分布式系统中, **顺序号可以被用于为所有的事件进行全局排序**, 这样客户端可以通过顺序号推断事件的顺序
+#### 3.1.4. 选举机制中涉及到的核心概念
+
+##### Server Id (`sid`) 服务器 Id
+
+比如有三台服务器, 编号越大, 那么在选择算法中的权重越大. 比如初始化启动时就是根据服务器的 Id 来进行比较的 (没有数据, 无 `zxid`)
 
 
 
+##### `zxid ` 事务 Id
+
+这是服务器中存放的数据的事务 Id, zxid 越大, 说明数据越新, 在选举时比较权重越高
 
 
 
+##### `Epoch` 逻辑时钟
 
-### 3.3. stat 结构体
-
-
-
-1. `czxid`
-   1. 引起这个 znode 创建的 `zxid`, 创建节点的事务的 `zxid`. 每次修改 ZooKeeper 状态都会收到一个 `zxid` 形式的时间戳, 也就是 ZooKeeper **事务 ID**。
-   2. 事务 ID 是 ZooKeeper 中**所有修改总的次序**。每个修改都有唯一的 `zxid`, 如果 zxid1 小
-2. `ctime` - znode 被创建的毫秒数 (从 1970 年开始, lol)
-3. `mzxid` - znode 最后更新的 zxid
-4. `mtime` - znode 最后修改的毫秒数(从 1970 年开始)
-5. `pZxid` - znode 最后更新的子节点 zxid
-6. `cversion` - znode 子节点变化号, znode 子节点修改次数
-7. `dataversion` - znode 数据变化号
-8. `aclVersion` - znode 访问控制列表的变化号
-9. `ephemeralOwner` - 如果是临时节点, 这个是 znode 拥有者的 session id。如果不是临时节 点则是 0。
-10. `dataLength` - znode 的数据长度
-11. `numChildren` - znode 子节点数量
+投票次数. 同一论投票过程中的逻辑时钟的值是相同的, 每投完一次票这个数据就会增加
 
 
 
+##### Server 状态 - 选举状态
+
+- `LOOKING`: 竞选状态
+- `FOLLOWING`: 随从状态, 同步 leader, 参与投票
+- `OBSERVING`: 观察状态, 同步 leader, 不参与投票
+- `LEADING`: 领导者
 
 
-### 3.4. Zookeeper 监听器原理 ★★★
+
+### 3.2. Zookeeper 监听器原理 ★★★
 
 
 
-
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/zookeeper-6.png">
+</div>
 
 
 
 1. 监听原理详解
 
    1. 首先要有一个 `main()` 线程
-   2. 在 main 线程中创建 Zookeeper 客户端, 这时就会创建两个线程, 一个负责网络连接 通信（connet）, 一个负责监听（listener）。
+   2. 在 main 线程中创建 Zookeeper 客户端, 这时就会创建两个线程, 一个负责网络连接通信（connet）, 一个负责监听（listener）。
    3. 通过 connect 线程将注册的监听事件发送给 Zookeeper。
    4. 在 Zookeeper 的注册监听器列表中将注册的监听事件添加到列表中。
    5. Zookeeper 监听到有数据或路径变化, 就会将这个消息发送给 listener 线程。
    6. listener 线程内部调用了 `process()` 方法。
 
-2. 常见的监听
+2. 常见的监听使用
 
    1. 监听节点数据的变化：
 
@@ -339,11 +343,70 @@ Znode 有四种形式的目录节点（默认是 persistent ）
 
 
 
+### 3.3. 一致性 Consistency
+
+
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/zookeeper-8.png">
+</div>
+
+
+
+- 强一致性
+  - 要求步骤 2 读取时， 读到的 value 必须是 2 , 不能是 1
+  - 要求数据库之间同步非常迅速或者在步骤 2 上加锁以等待数据同步完成
+- 弱一致性
+  - 步骤 2 读取时, 可以读取到 1
+- 最终一致性
+  - 步骤 2 读取时, 可以先读取到 1, 然后过一段时间读取到 2, 等待一段时间后才一致
+
+
+
+保证了强一致性, 通常需要损耗可用性
+
+
+
+### 3.3. Zookeeper 节点类型
+
+
+
+Znode 有两种类型:
+
+- 短暂 (ephemeral): 客户端和服务器端断开连接后, 创建的**节点自动删除**
+- 持久 (persistent): 客户端和服务器端断开连接后, **创建的节点不删除**
+
+
+
+Znode 有四种形式的目录节点（**默认是 persistent** ）
+
+1. 持久化目录节点 (**`PERSISTENT`**)
+   1. 客户端与 zookeeper 断开连接后, 该节点依旧存在
+2. 持久化顺序编号目录节点 (**`PERSISTENT_SEQUENTIAL`**)
+   1. 客户端与 zookeeper 断开连接后, 该节点依旧存在, Zookeeper 给该节点名称进行**顺序编号**
+3. 临时目录节点 (**`EPHEMERAL`**)
+   1. 客户端与 zookeeper 断开连接后, 该节点被删除
+4. 临时顺序编号目录节点 (**`EPHEMERAL_SEQUENTIAL`**)
+   1. 客户端与 zookeeper 断开连接后, 该节点被删除, Zookeeper 给该节点名称进行**顺序编号**
+
+
+
+> 顺序编号:
+>
+> - 创建 Znode 时设置顺序标识, Znode 名称后会附加一个值, 顺序号是一个**单调递增的计数器**, 由**父节点**维护
+> - 在分布式系统中, **顺序号可以被用于为所有的事件进行全局排序**, 这样客户端可以通过顺序号推断事件的顺序
 
 
 
 
-### 3.5. Zookeeper 写数据的流程
+
+### 3.4. Zookeeper 写数据的流程
+
+
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/zookeeper-7.png">
+</div>
 
 
 
@@ -356,16 +419,36 @@ ZooKeeper 的写数据流程主要分为以下几步：
 
 
 
+## 4. Zookeeper 客户端命令行
+
+> https://www.tutorialspoint.com/zookeeper/zookeeper_cli.htm
 
 
 
+### 4.1. Check Status
+
+**`Status`** describes the metadata of a specified znode. It contains details such as Timestamp, Version number, ACL, Data length, and Children znode.
+
+Return values:
+
+1. `czxid`
+   1. 引起这个 znode 创建的 `zxid`, 创建节点的事务的 `zxid`. 每次修改 ZooKeeper 状态都会收到一个 `zxid` 形式的时间戳, 也就是 ZooKeeper **事务 ID**。
+   2. 事务 ID 是 ZooKeeper 中**所有修改总的次序**。每个修改都有唯一的 `zxid`, 如果 `zxid1` 小于 `zxid2`, 那么 `zxid1` 是在 `zxid2` 之前发生的
+2. `ctime` - znode 被创建的毫秒数 (从 1970 年开始, lol)
+3. `mzxid` - znode 最后更新的 zxid
+4. `mtime` - znode 最后修改的毫秒数(从 1970 年开始)
+5. `pZxid` - znode 最后更新的子节点 zxid
+6. `cversion` - znode 子节点变化号, znode 子节点修改次数
+7. `dataversion` - znode 数据变化号
+8. `aclVersion` - znode 访问控制列表的变化号
+9. `ephemeralOwner` - 如果是临时节点, 这个是 znode 拥有者的 session id。如果不是临时节点则是 0。
+10. `dataLength` - znode 的数据长度
+11. `numChildren` - znode 子节点数量
 
 
 
 ## References
 
-[1] [用ZooKeeper来做：统一配置管理、统一命名服务、分布式锁、集群管理](https://blog.csdn.net/redfivehit/article/details/97831337)  
-
-[2] [How To Install and Configure an Apache ZooKeeper Cluster on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-an-apache-zookeeper-cluster-on-ubuntu-18-04)  
-
-[3] 
+1. [用ZooKeeper来做：统一配置管理、统一命名服务、分布式锁、集群管理](https://blog.csdn.net/redfivehit/article/details/97831337)
+2. [How To Install and Configure an Apache ZooKeeper Cluster on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-an-apache-zookeeper-cluster-on-ubuntu-18-04)
+3. [Zookeeper 与 Paxos - 简书]()
