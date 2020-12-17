@@ -19,33 +19,34 @@ key: time-series
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [Fundamentals of Time Series Forecasting](#fundamentals-of-time-series-forecasting)
-- [ETS Models](#ets-models)
-  - [Time Series Scenarios](#time-series-scenarios)
-  - [Possible scenarios](#possible-scenarios)
-  - [ETS Models (Exponential Smoothing Models)](#ets-models-exponential-smoothing-models)
-    - [Simple Exponential Smoothing Explained](#simple-exponential-smoothing-explained)
-      - [Choosing the correct smoothing parameter is often an iterative process.](#choosing-the-correct-smoothing-parameter-is-often-an-iterative-process)
-    - [Time Series Decomposition Plot](#time-series-decomposition-plot)
-    - [Double Exponential Smoothing (Holt's Linear Trend Method)](#double-exponential-smoothing-holts-linear-trend-method)
-    - [Exponential Trend Method](#exponential-trend-method)
-    - [Damped Trend Method](#damped-trend-method)
-    - [Holt-Winters Seasonal Method](#holt-winters-seasonal-method)
-  - [Summary of four ETS Models](#summary-of-four-ets-models)
-  - [Extension of ETS](#extension-of-ets)
-- [ARIMA Models](#arima-models)
-  - [ARIMA](#arima)
-    - [Autocorrelation](#autocorrelation)
-    - [Autocorrelation Plot / Correlogram](#autocorrelation-plot--correlogram)
-    - [Partial Autocorrelation](#partial-autocorrelation)
-    - [How to choose `AR` or `MA` Models?](#how-to-choose-ar-or-ma-models)
-    - [Steps to build an ARIMA Model](#steps-to-build-an-arima-model)
-  - [Seasonal ARIMA](#seasonal-arima)
-- [Interpreting Measures of Error](#interpreting-measures-of-error)
-  - [Scale Dependent Errors](#scale-dependent-errors)
-  - [Percentage Errors](#percentage-errors)
-  - [Scale-Free Errors](#scale-free-errors)
-- [References](#references)
+- [Time Series Forecasting Explained](#time-series-forecasting-explained)
+  - [Fundamentals of Time Series Forecasting](#fundamentals-of-time-series-forecasting)
+  - [ETS Models](#ets-models)
+    - [Time Series Scenarios](#time-series-scenarios)
+    - [Possible scenarios](#possible-scenarios)
+    - [ETS Models (Exponential Smoothing Models)](#ets-models-exponential-smoothing-models)
+      - [Simple Exponential Smoothing Explained](#simple-exponential-smoothing-explained)
+        - [Choosing the correct smoothing parameter is often an iterative process.](#choosing-the-correct-smoothing-parameter-is-often-an-iterative-process)
+      - [Time Series Decomposition Plot](#time-series-decomposition-plot)
+      - [Double Exponential Smoothing (Holt's Linear Trend Method)](#double-exponential-smoothing-holts-linear-trend-method)
+      - [Exponential Trend Method](#exponential-trend-method)
+      - [Damped Trend Method](#damped-trend-method)
+      - [Holt-Winters Seasonal Method](#holt-winters-seasonal-method)
+    - [Summary of four ETS Models](#summary-of-four-ets-models)
+    - [Extension of ETS](#extension-of-ets)
+  - [ARIMA Models](#arima-models)
+    - [ARIMA](#arima)
+      - [Autocorrelation](#autocorrelation)
+      - [Autocorrelation Plot / Correlogram](#autocorrelation-plot--correlogram)
+      - [Partial Autocorrelation](#partial-autocorrelation)
+      - [How to choose `AR` or `MA` Models?](#how-to-choose-ar-or-ma-models)
+      - [Steps to build an ARIMA Model](#steps-to-build-an-arima-model)
+    - [Seasonal ARIMA](#seasonal-arima)
+  - [Interpreting Measures of Error](#interpreting-measures-of-error)
+    - [Scale Dependent Errors](#scale-dependent-errors)
+    - [Percentage Errors](#percentage-errors)
+    - [Scale-Free Errors](#scale-free-errors)
+  - [References](#references)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -319,9 +320,7 @@ Partial Autocorrelation is "The correlation between 2 variables controlling for 
 #### How to choose `AR` or `MA` Models?
 
 
-
-![model-selection](../assets/images/posts-img/time-series-forecasting/model-selection.png)
-
+![modelselection](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/time-series-forecasting/model-selection.png?raw=true)
 
 
 #### Steps to build an ARIMA Model
@@ -382,13 +381,13 @@ To read a bit more of the subject, see [this 4-page paper](http://robjhyndman.co
 In Alteryx you can find these measures in the ARIMA or ETS tools labelled as In-sample error measures. Example below:
 
 
-![img](../assets/images/posts-img/time-series-forecasting/capture1.png)
+![img](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/time-series-forecasting/capture1.png?raw=true)
 
 
 When you forecast values using ARIMA and ETS and compare these forecasted results in the TS Compare tool you will find these measures in the Accuracy Measures section. Example below:
 
 
-![img](../assets/images/posts-img/time-series-forecasting/capture3.png)
+![img](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/time-series-forecasting/capture3.png?raw=true)
 
 
 ## References
