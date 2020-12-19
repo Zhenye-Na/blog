@@ -5,6 +5,8 @@ date: 2019-09-29
 modify_date: 2019-10-06
 excerpt: "Docker practical guide for beginners"
 tags: [Docker]
+mathjax: false
+mathjax_autoNumber: false
 key: docker-practical-guide
 ---
 
@@ -32,8 +34,6 @@ key: docker-practical-guide
 8. 本地镜像发布到阿里云 (*)
 
 
-
-[TOC]
 
 ## 0. 前提知识储备
 

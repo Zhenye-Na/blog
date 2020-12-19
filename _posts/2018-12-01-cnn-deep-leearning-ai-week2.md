@@ -130,7 +130,7 @@ If you have a lot lot lot of data, then you should use the existed models (pre-t
 ### Color Shifting
 
 <div class="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week2/color_shifting.png?raw=true" class="center"/>
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/color_shifting.png" class="center"/>
 </div>
 
 

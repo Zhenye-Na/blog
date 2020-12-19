@@ -3,7 +3,7 @@ layout: article
 title: "了解非关系型数据库 NoSQL - MongoDB | 安装使用以及 CRUD 操作"
 date: 2020-01-27
 modify_date: 2020-05-06
-excerpt: "Introduction to MongoDB, installation and CRUD operations with mongoose"
+excerpt: "Introduction to MongoDB and CRUD operations with mongoose"
 tags: [MongoDB, NoSQL]
 mathjax: false
 mathjax_autoNumber: false
@@ -13,22 +13,18 @@ key: intor-to-mongodb
 
 # 了解非关系型数据库 NoSQL - MongoDB | 安装使用以及 CRUD 操作
 
-[TOC]
-
 > 配套资料: `https://pan.baidu.com/s/18au42FIhSNrXY9p7MbmNbg` 提取码: `29ad`
 > 
 > 感谢 B 站用户 [`冷鸟丨会飞 `](https://space.bilibili.com/55263887) 分享
 
 **课程目标**
 
-MongoDB的副本集: 操作、主要概念、故障转移、选举规则 MongoDB的分片集群：概念、优点、操作、分片策略、故障转移 MongoDB的安全认证
+MongoDB的副本集: 操作, 主要概念, 故障转移, 选举规则 MongoDB的分片集群：概念, 优点, 操作, 分片策略, 故障转移 MongoDB的安全认证
 
-
-
-- 理解 MongoDB 的业务场景、熟悉 MongoDB 的简介、特点和体系结构、数据类型等。
-- 能够在 Windows 和 Linux 下安装和启动 MongoDB、图形化管理界面 Compass 的安装使用
+- 理解 MongoDB 的业务场景, 熟悉 MongoDB 的简介, 特点和体系结构, 数据类型等.
+- 能够在 Windows 和 Linux 下安装和启动 MongoDB, 图形化管理界面 Compass 的安装使用
 - 掌握 MongoDB 基本常用命令实现数据的 CRUD
-- 掌握 MongoDB 的索引类型、索引管理、执行计划
+- 掌握 MongoDB 的索引类型, 索引管理, 执行计划
 
 
 ## 1. MongoDB 相关概念
@@ -45,20 +41,15 @@ MongoDB的副本集: 操作、主要概念、故障转移、选举规则 MongoDB
 - High Storage: 对<u>海量数据的高效率存储和访问</u>的需求
 - High Scalability && High Available: 对数据的<u>高扩展性和高可用性</u>的需求
 
-
-
 **而 MongoDB 可以应对三高需求**
 
+具体的应用场景:
 
-
-具体的应用场景
-
-- 社交场景，使用 MongoDB 存储存储用户信息，以及用户发表的朋友圈信息，通过地理位置索引实现附近的人、地点等功能。
-- 游戏场景，使用 MongoDB 存储游戏用户信息，用户的装备、积分等直接以内嵌文档的形式存储，方便查询、高效率存储和访问。
-- 物流场景，使用 MongoDB 存储订单信息，订单状态在运送过程中会不断更新，以 MongoDB 内嵌数组的形式来存储，一次查询就能将 订单所有的变更读取出来。
-- 物联网场景，使用 MongoDB 存储所有接入的智能设备信息，以及设备汇报的日志信息，并对这些信息进行多维度的分析。
-- 视频直播，使用 MongoDB 存储用户信息、点赞互动信息等。
-
+- 社交场景, 使用 MongoDB 存储存储用户信息, 以及用户发表的朋友圈信息, 通过地理位置索引实现附近的人, 地点等功能.
+- 游戏场景, 使用 MongoDB 存储游戏用户信息, 用户的装备, 积分等直接以内嵌文档的形式存储, 方便查询, 高效率存储和访问.
+- 物流场景, 使用 MongoDB 存储订单信息, 订单状态在运送过程中会不断更新, 以 MongoDB 内嵌数组的形式来存储, 一次查询就能将订单所有的变更读取出来.
+- 物联网场景, 使用 MongoDB 存储所有接入的智能设备信息, 以及设备汇报的日志信息, 并对这些信息进行多维度的分析.
+- 视频直播, 使用 MongoDB 存储用户信息, 点赞互动信息等.
 
 
 这些应用场景中, 数据操作方面的共同点有:
@@ -70,67 +61,53 @@ MongoDB的副本集: 操作、主要概念、故障转移、选举规则 MongoDB
 对于这样的数据, 更适合用 MongoDB 来实现数据存储
 
 
-
 那么我们**什么时候选择 MongoDB 呢?**
 
 除了架构选型上, 除了上述三个特点之外, 还要考虑下面这些问题:
 
 - 应用不需要事务及复杂 JOIN 支持
-- 新应用，需求会变，数据模型无法确定，想快速迭代开发
+- 新应用, 需求会变, 数据模型无法确定, 想快速迭代开发
 - 应用需要 2000 - 3000 以上的读写QPS（更高也可以）
 - 应用需要 TB 甚至 PB 级别数据存储
-- 应用发展迅速，需要能快速水平扩展
+- 应用发展迅速, 需要能快速水平扩展
 - 应用要求存储的数据不丢失
 - 应用需要 `99.999%` 高可用
-- 应用需要大量的地理位置查询、文本查询
+- 应用需要大量的地理位置查询, 文本查询
 
-
-
-如果上述有1个符合，可以考虑 MongoDB，2个及以上的符合，选择 MongoDB 绝不会后悔。
-
+如果上述有1个符合, 可以考虑 MongoDB, 2个及以上的符合, 选择 MongoDB 绝不会后悔.
 
 
 > 如果用MySQL呢?
 >
-> 相对MySQL，可以以更低的成本解决问题（包括学习、开发、运维等成本）
-
+> 相对MySQL, 可以以更低的成本解决问题（包括学习, 开发, 运维等成本）
 
 
 ### 1.2 MongoDB 简介
 
-
-
-> MongoDB是一个开源、高性能、无模式的文档型数据库，当初的设计就是用于简化开发和方便扩展，是NoSQL数据库产品中的一种。是最 像关系型数据库（MySQL）的非关系型数据库。 它支持的数据结构非常松散，是一种类似于 JSON 的 格式叫BSON，所以它既可以存储比较复杂的数据类型，又相当的灵活。 MongoDB中的记录是一个文档，它是一个由字段和值对（ﬁeld:value）组成的数据结构。MongoDB文档类似于JSON对象，即一个文档认 为就是一个对象。字段的数据类型是字符型，它的值除了使用基本的一些类型外，还可以包括其他文档、普通数组和文档数组。
-
+> MongoDB是一个开源, 高性能, 无模式的文档型数据库, 当初的设计就是用于简化开发和方便扩展, 是NoSQL数据库产品中的一种.是最 像关系型数据库（MySQL）的非关系型数据库. 它支持的数据结构非常松散, 是一种类似于 JSON 的 格式叫BSON, 所以它既可以存储比较复杂的数据类型, 又相当的灵活. MongoDB中的记录是一个文档, 它是一个由字段和值对（ﬁeld:value）组成的数据结构.MongoDB文档类似于JSON对象, 即一个文档认 为就是一个对象.字段的数据类型是字符型, 它的值除了使用基本的一些类型外, 还可以包括其他文档, 普通数组和文档数组.
 
 
 **"最像关系型数据库的 NoSQL 数据库"**. MongoDB 中的记录是一个文档, 是一个 key-value pair. 字段的数据类型是字符型, 值除了使用基本的一些类型以外, 还包括其它文档, 普通数组以及文档数组
 
 
-
-![](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/maxresdefault.jpg?raw=true)
-
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/maxresdefault.jpg)
 
 
-![image-20200505220556737](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200505220556737.png?raw=true)
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200505220556737.png)
 
 
-
-MongoDB 数据模型是面向<u>文档</u>的，所谓文档就是一种类似于 JSON 的结构，简单理解 MongoDB 这个数据库中存在的是各种各样的 JSON（BSON）
-
+MongoDB 数据模型是面向<u>文档</u>的, 所谓文档就是一种类似于 JSON 的结构, 简单理解 MongoDB 这个数据库中存在的是各种各样的 JSON（BSON）
 
 
 - 数据库 (database)
-  - 数据库是一个仓库，存储集合 (collection)
+  - 数据库是一个仓库, 存储集合 (collection)
 - 集合 (collection)
-  - 类似于数组，在集合中存放文档
+  - 类似于数组, 在集合中存放文档
 - 文档 (document)
-  - 文档型数据库的最小单位，通常情况，我们存储和操作的内容都是文档
+  - 文档型数据库的最小单位, 通常情况, 我们存储和操作的内容都是文档
 
 
-
-在 MongoDB 中，数据库和集合都不需要手动创建，当我们创建文档时，如果文档所在的集合或者数据库不存在，**则会自动创建数据库或者集合**
-
+在 MongoDB 中, 数据库和集合都不需要手动创建, 当我们创建文档时, 如果文档所在的集合或者数据库不存在, **则会自动创建数据库或者集合**
 
 
 ### 数据库 (databases) 管理语法
@@ -143,7 +120,6 @@ MongoDB 数据模型是面向<u>文档</u>的，所谓文档就是一种类似�
 | 删除当前数据库                                  | `db.dropDatabase();`             |
 
 
-
 ### 集合 (collection) 管理语法
 
 | 操作         | 语法                                        |
@@ -153,15 +129,9 @@ MongoDB 数据模型是面向<u>文档</u>的，所谓文档就是一种类似�
 | 删除集合     | `db.<collection_name>.drop()`               |
 
 
-
 ### 1.3. 数据模型
 
-
-
-![image-20200505220650827](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200505220650827.png?raw=true)
-
-
-
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200505220650827.png)
 
 
 ### 1.4 MongoDB 的特点
@@ -176,11 +146,9 @@ MongoDB 提供高性能的数据持久化
 - Gridfs 解决文件存储需求
 
 
-
 #### 1.4.2 高可用
 
 MongoDB 的复制工具称作**副本集** (replica set) 可以提供自动<u>故障转移和数据冗余</u>
-
 
 
 #### 1.4.3 高扩展
@@ -195,7 +163,7 @@ MongoDB 支持基于**片键**创建数据区域, 在一个平衡的集群当中
 
 #### 1.4.4 其他
 
-MongoDB支持丰富的查询语言，支持读和写操作(CRUD)，比如数据聚合、文本搜索和地理空间查询等。 无模式（动态模式）、灵活的文档模型
+MongoDB支持丰富的查询语言, 支持读和写操作(CRUD), 比如数据聚合, 文本搜索和地理空间查询等. 无模式（动态模式）, 灵活的文档模型
 
 
 
@@ -217,12 +185,10 @@ MongoDB支持丰富的查询语言，支持读和写操作(CRUD)，比如数据�
 >$ show dbs
 >
 >
->
 >$ use articledb
 >
 >$ show dbs
 >```
->
 >
 >
 >当使用 `use articledb` 的时候. `articledb` 其实存放在内存之中, 当 `articledb` 中存在一个 collection 之后, mongo 才会将这个数据库持久化到硬盘之中.
@@ -234,9 +200,7 @@ MongoDB支持丰富的查询语言，支持读和写操作(CRUD)，比如数据�
 ### 2.2 文档基本 CRUD
 
 
-
 > 官方文档: https://docs.mongodb.com/manual/crud/
-
 
 
 #### 2.2.1 创建 Create
@@ -274,27 +238,27 @@ db.collection.insertMany([
 
 
 
-注：当我们向 `collection` 中插入 `document` 文档时，如果没有给文档指定 `_id` 属性，那么数据库会为文档自动添加 `_id` field, 并且值类型是 `ObjectId(blablabla)`, 就是文档的唯一标识, 类似于 relational database 里的 `primary key`
+注：当我们向 `collection` 中插入 `document` 文档时, 如果没有给文档指定 `_id` 属性, 那么数据库会为文档自动添加 `_id` field, 并且值类型是 `ObjectId(blablabla)`, 就是文档的唯一标识, 类似于 relational database 里的 `primary key`
 
 
 
-> - mongo 中的数字，默认情况下是 double 类型，如果要存整型，必须使用函数 `NumberInt(整型数字)`，否则取出来就有问题了
+> - mongo 中的数字, 默认情况下是 double 类型, 如果要存整型, 必须使用函数 `NumberInt(整型数字)`, 否则取出来就有问题了
 > - 插入当前日期可以使用 `new Date()`
 
 
 
-如果某条数据插入失败，将会终止插入，但已经插入成功的数据**不会回滚掉**。 因为批量插入由于数据较多容易出现失败，因此，可以使用 `try catch` 进行异常捕捉处理，测试的时候可以不处理。如：
+如果某条数据插入失败, 将会终止插入, 但已经插入成功的数据**不会回滚掉**. 因为批量插入由于数据较多容易出现失败, 因此, 可以使用 `try catch` 进行异常捕捉处理, 测试的时候可以不处理.如：
 
 
 
 ```javascript
 try {
   db.comment.insertMany([
-    {"_id":"1","articleid":"100001","content":"我们不应该把清晨浪费在手机上，健康很重要，一杯温水幸福你我 他。","userid":"1002","nickname":"相忘于江湖","createdatetime":new Date("2019-0805T22:08:15.522Z"),"likenum":NumberInt(1000),"state":"1"},
-    {"_id":"2","articleid":"100001","content":"我夏天空腹喝凉开水，冬天喝温开水","userid":"1005","nickname":"伊人憔 悴","createdatetime":new Date("2019-08-05T23:58:51.485Z"),"likenum":NumberInt(888),"state":"1"},
-    {"_id":"3","articleid":"100001","content":"我一直喝凉开水，冬天夏天都喝。","userid":"1004","nickname":"杰克船 长","createdatetime":new Date("2019-08-06T01:05:06.321Z"),"likenum":NumberInt(666),"state":"1"},
-    {"_id":"4","articleid":"100001","content":"专家说不能空腹吃饭，影响健康。","userid":"1003","nickname":"凯 撒","createdatetime":new Date("2019-08-06T08:18:35.288Z"),"likenum":NumberInt(2000),"state":"1"},
-    {"_id":"5","articleid":"100001","content":"研究表明，刚烧开的水千万不能喝，因为烫 嘴。","userid":"1003","nickname":"凯撒","createdatetime":new Date("2019-0806T11:01:02.521Z"),"likenum":NumberInt(3000),"state":"1"}
+    {"_id":"1","articleid":"100001","content":"我们不应该把清晨浪费在手机上, 健康很重要, 一杯温水幸福你我 他.","userid":"1002","nickname":"相忘于江湖","createdatetime":new Date("2019-0805T22:08:15.522Z"),"likenum":NumberInt(1000),"state":"1"},
+    {"_id":"2","articleid":"100001","content":"我夏天空腹喝凉开水, 冬天喝温开水","userid":"1005","nickname":"伊人憔 悴","createdatetime":new Date("2019-08-05T23:58:51.485Z"),"likenum":NumberInt(888),"state":"1"},
+    {"_id":"3","articleid":"100001","content":"我一直喝凉开水, 冬天夏天都喝.","userid":"1004","nickname":"杰克船 长","createdatetime":new Date("2019-08-06T01:05:06.321Z"),"likenum":NumberInt(666),"state":"1"},
+    {"_id":"4","articleid":"100001","content":"专家说不能空腹吃饭, 影响健康.","userid":"1003","nickname":"凯 撒","createdatetime":new Date("2019-08-06T08:18:35.288Z"),"likenum":NumberInt(2000),"state":"1"},
+    {"_id":"5","articleid":"100001","content":"研究表明, 刚烧开的水千万不能喝, 因为烫 嘴.","userid":"1003","nickname":"凯撒","createdatetime":new Date("2019-0806T11:01:02.521Z"),"likenum":NumberInt(3000),"state":"1"}
 
 ]);
 
@@ -310,12 +274,10 @@ try {
 
 
 - 使用 `db.<collection_name>.find()` 方法对集合进行查询, 接受一个 json 格式的查询条件. 返回的是一个**数组**
-- `db.<collection_name>.findOne()` 查询集合中符合条件的<u>第一个</u>文档，返回的是一个**对象**
+- `db.<collection_name>.findOne()` 查询集合中符合条件的<u>第一个</u>文档, 返回的是一个**对象**
 
 
-
-![](https://docs.mongodb.com/manual/_images/crud-annotated-mongodb-find.bakedsvg.svg)
-
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/crud-annotated-mongodb-find.bakedsvg.png)
 
 
 可以使用 `$in` 操作符表示*范围查询*
@@ -426,7 +388,7 @@ db.posts.find({
 
 其中 `<filter>` 参数与查询方法中的条件参数用法一致.
 
-如果需要修改指定的属性，而不是替换需要用“修改操作符”来进行修改
+如果需要修改指定的属性, 而不是替换需要用“修改操作符”来进行修改
 
 - `$set` 修改文档中的制定属性
 
@@ -486,7 +448,7 @@ db.document.update( { userid: "30", { $set {username: "guest"} } }, {multi: true
 
 
 
-如果我们想实现对某列值在原有值的基础上进行增加或减少，可以使用 `$inc` 运算符来实现
+如果我们想实现对某列值在原有值的基础上进行增加或减少, 可以使用 `$inc` 运算符来实现
 
 ```javascript
 db.document.update({ _id: "3", {$inc: {likeNum: NumberInt(1)}} })
@@ -533,7 +495,7 @@ db.inventory.deleteMany( { qty : { $lt : 50 } } )
 >
 > 
 >
-> 一般数据库中的数据都不会真正意义上的删除，会添加一个字段，用来表示这个数据是否被删除
+> 一般数据库中的数据都不会真正意义上的删除, 会添加一个字段, 用来表示这个数据是否被删除
 
 
 
@@ -545,7 +507,7 @@ db.inventory.deleteMany( { qty : { $lt : 50 } } )
 
 
 
-在查询文档内容的时候，默认是按照 `_id` 进行排序
+在查询文档内容的时候, 默认是按照 `_id` 进行排序
 
 我们可以用 `$sort` 更改文档排序规则
 
@@ -574,7 +536,7 @@ When a [`$sort`](https://docs.mongodb.com/manual/reference/operator/aggregation/
 
 Optimizations are subject to change between releases.
 
-> 有点类似于用 heap 做 topK 这种问题，只维护 k 个大小的 heap，会加速 process
+> 有点类似于用 heap 做 topK 这种问题, 只维护 k 个大小的 heap, 会加速 process
 
 
 
@@ -590,7 +552,7 @@ db.posts.find().sort({ title : -1 }).limit(2).pretty()
 
 
 
-有些情况，我们对文档进行查询并不是需要所有的字段，比如只需要 id 或者 用户名，我们可以对文档进行“投影”
+有些情况, 我们对文档进行查询并不是需要所有的字段, 比如只需要 id 或者 用户名, 我们可以对文档进行“投影”
 
 - `1` - display
 - `0` - dont display
@@ -631,7 +593,7 @@ $ db.collection.find({字段:/正则表达式/})
 
 
 
-`<`, `<=`, `>`, `>=` 这些操作符也是很常用的，格式如下:
+`<`, `<=`, `>`, `>=` 这些操作符也是很常用的, 格式如下:
 
 ```javascript
 db.collection.find({ "field" : { $gt: value }}) // 大于: field > value
@@ -647,7 +609,7 @@ db.collection.find({ "field" : { $ne: value }}) // 不等于: field != value
 
 
 
-包含使用 `$in` 操作符。 示例：查询评论的集合中 `userid` 字段包含 `1003` 或 `1004`的文档
+包含使用 `$in` 操作符. 示例：查询评论的集合中 `userid` 字段包含 `1003` 或 `1004`的文档
 
 ```
 db.comment.find({userid:{$in:["1003","1004"]}})
@@ -655,7 +617,7 @@ db.comment.find({userid:{$in:["1003","1004"]}})
 
 
 
-不包含使用 `$nin` 操作符。 示例：查询评论集合中 `userid` 字段不包含 `1003` 和 `1004` 的文档
+不包含使用 `$nin` 操作符. 示例：查询评论集合中 `userid` 字段不包含 `1003` 和 `1004` 的文档
 
 ```
 db.comment.find({userid:{$nin:["1003","1004"]}})
@@ -686,9 +648,9 @@ db.comment.find({userid:{$nin:["1003","1004"]}})
 统计查询：db.comment.count({条件})
 模糊查询：db.comment.find({字段名:/正则表达式/})
 条件比较运算：db.comment.find({字段名:{$gt:值}})
-包含查询：db.comment.find({字段名:{$in:[值1，值2]}})
+包含查询：db.comment.find({字段名:{$in:[值1, 值2]}})
         或
-        db.comment.find({字段名:{$nin:[值1，值2]}})
+        db.comment.find({字段名:{$nin:[值1, 值2]}})
 
 条件连接查询：db.comment.find({$and:[{条件1},{条件2}]})
            或
@@ -705,7 +667,7 @@ db.comment.find({userid:{$nin:["1003","1004"]}})
 
 
 
-举个例子，比如“用户-订单”这个一对多的关系中，我们想查询某一个用户的所有或者某个订单，我们可以
+举个例子, 比如“用户-订单”这个一对多的关系中, 我们想查询某一个用户的所有或者某个订单, 我们可以
 
 ```javascript
 var user_id = db.users.findOne( {username: "username_here"} )._id
@@ -722,15 +684,15 @@ db.orders.find( {user_id: user_id} )
 
 
 
-索引支持在 MongoDB 中高效地执行查询。如果没有索引，MongoDB 必须执行全集合扫描，即扫描集合中的每个文档，以选择与查询语句 匹配的文档。这种扫描全集合的查询效率是非常低的，特别在处理大量的数据时，查询可以要花费几十秒甚至几分钟，这对网站的性能是非常致命的。 
+索引支持在 MongoDB 中高效地执行查询.如果没有索引, MongoDB 必须执行全集合扫描, 即扫描集合中的每个文档, 以选择与查询语句 匹配的文档.这种扫描全集合的查询效率是非常低的, 特别在处理大量的数据时, 查询可以要花费几十秒甚至几分钟, 这对网站的性能是非常致命的. 
 
 
 
-如果查询存在适当的索引，MongoDB 可以使用该索引限制必须检查的文档数。 
+如果查询存在适当的索引, MongoDB 可以使用该索引限制必须检查的文档数. 
 
 
 
-索引是特殊的数据结构，它以易于遍历的形式存储集合数据集的一小部分。索引存储特定字段或一组字段的值，按字段值排序。索引项的排 序支持有效的相等匹配和基于范围的查询操作。此外，MongoDB 还可以使用索引中的排序返回排序结果。
+索引是特殊的数据结构, 它以易于遍历的形式存储集合数据集的一小部分.索引存储特定字段或一组字段的值, 按字段值排序.索引项的排 序支持有效的相等匹配和基于范围的查询操作.此外, MongoDB 还可以使用索引中的排序返回排序结果.
 
 
 
@@ -769,26 +731,20 @@ db.<collection_name>.dropIndexes()
 
 
 
-MongoDB 支持在文档的单个字段上创建用户定义的**升序/降序索引**，称为**单字段索引** Single Field Index
+MongoDB 支持在文档的单个字段上创建用户定义的**升序/降序索引**, 称为**单字段索引** Single Field Index
 
-对于单个字段索引和排序操作，索引键的排序顺序（即升序或降序）并不重要，因为 MongoDB 可以在任何方向上遍历索引。
-
-
-
-![image-20200505231043779](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200505231043779.png?raw=true)
+对于单个字段索引和排序操作, 索引键的排序顺序（即升序或降序）并不重要, 因为 MongoDB 可以在任何方向上遍历索引.
 
 
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200505231043779.png)
 
 #### 4.2.2 复合索引
 
-MongoDB 还支持多个字段的用户定义索引，即复合索引 Compound Index
+MongoDB 还支持多个字段的用户定义索引, 即复合索引 Compound Index
 
-复合索引中列出的字段顺序具有重要意义。例如，如果复合索引由 `{ userid: 1, score: -1 }` 组成，则索引首先按 `userid` 正序排序，然后 在每个 `userid` 的值内，再在按 `score` 倒序排序。
+复合索引中列出的字段顺序具有重要意义.例如, 如果复合索引由 `{ userid: 1, score: -1 }` 组成, 则索引首先按 `userid` 正序排序, 然后 在每个 `userid` 的值内, 再在按 `score` 倒序排序.
 
-
-
-![image-20200505231305941](https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200505231305941.png?raw=true)
-
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200505231305941.png)
 
 
 #### 4.2.3 其他索引
@@ -799,15 +755,15 @@ MongoDB 还支持多个字段的用户定义索引，即复合索引 Compound In
 
 ##### 地理空间索引（Geospatial Index）
 
-为了支持对地理空间坐标数据的有效查询，MongoDB 提供了两种特殊的索引: 返回结果时使用平面几何的二维索引和返回结果时使用球面几何的二维球面索引。 
+为了支持对地理空间坐标数据的有效查询, MongoDB 提供了两种特殊的索引: 返回结果时使用平面几何的二维索引和返回结果时使用球面几何的二维球面索引. 
 
 ##### 文本索引（Text Indexes）
 
-MongoDB 提供了一种文本索引类型，支持在集合中搜索字符串内容。这些文本索引不存储特定于语言的停止词（例如 "the", "a", "or"）， 而将集合中的词作为词干，只存储根词。 
+MongoDB 提供了一种文本索引类型, 支持在集合中搜索字符串内容.这些文本索引不存储特定于语言的停止词（例如 "the", "a", "or"）,  而将集合中的词作为词干, 只存储根词. 
 
 ##### 哈希索引（Hashed Indexes）
 
-为了支持基于散列的分片，MongoDB 提供了散列索引类型，它对字段值的散列进行索引。这些索引在其范围内的值分布更加随机，但只支持相等匹配，不支持基于范围的查询。
+为了支持基于散列的分片, MongoDB 提供了散列索引类型, 它对字段值的散列进行索引.这些索引在其范围内的值分布更加随机, 但只支持相等匹配, 不支持基于范围的查询.
 
 
 
@@ -827,13 +783,13 @@ db.collection.getIndexes()
 
 
 
-默认 `_id` 索引： MongoDB 在创建集合的过程中，在 `_id` 字段上创建一个唯一的索引，默认名字为 `_id` ，该索引可防止客户端插入两个具有相同值的文 档，不能在 `_id` 字段上删除此索引。 
+默认 `_id` 索引： MongoDB 在创建集合的过程中, 在 `_id` 字段上创建一个唯一的索引, 默认名字为 `_id` , 该索引可防止客户端插入两个具有相同值的文 档, 不能在 `_id` 字段上删除此索引. 
 
 
 
-注意：该索引是**唯一索引**，因此值不能重复，即 `_id` 值不能重复的。
+注意：该索引是**唯一索引**, 因此值不能重复, 即 `_id` 值不能重复的.
 
-在分片集群中，通常使用 `_id` 作为**片键**。
+在分片集群中, 通常使用 `_id` 作为**片键**.
 
 
 
@@ -848,20 +804,17 @@ db.collection.createIndex(keys, options)
 ```
 
 
-
 参数
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200506203419523.png?raw=true" alt="image-20200506203419523" style="zoom:67%;" />
-
+<img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200506203419523.png" alt="image-20200506203419523" style="zoom:67%;" />
 
 
 options（更多选项）列表
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200506203453430.png?raw=true" alt="image-20200506203453430" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200506203453430.png" alt="image-20200506203453430" style="zoom:67%;" />
 
 
-
-注意在 3.0.0 版本前创建索引方法为 `db.collection.ensureIndex()` ，之后的版本使用了 `db.collection.createIndex()` 方法， `ensureIndex()` 还能用，但只是 `createIndex()` 的别名。
+注意在 3.0.0 版本前创建索引方法为 `db.collection.ensureIndex()` , 之后的版本使用了 `db.collection.createIndex()` 方法,  `ensureIndex()` 还能用, 但只是 `createIndex()` 的别名.
 
 
 
@@ -901,7 +854,7 @@ $ db.collection.dropIndexes()
 
 提示:
 
-`_id` 的字段的索引是无法删除的，只能删除非 `_id` 字段的索引
+`_id` 的字段的索引是无法删除的, 只能删除非 `_id` 字段的索引
 
 
 
@@ -913,11 +866,7 @@ $ db.comment.dropIndex({userid:1})
 ```
 
 
-
-
-
 ### 4.4 索引使用
-
 
 
 #### 4.4.1 执行计划
@@ -931,7 +880,7 @@ $ db.<collection_name>.find( query, options ).explain(options)
 ```
 
 
-比如: 查看根据userid查询数据的情况
+比如: 查看根据 `user_id` 查询数据的情况
 
 
 
@@ -939,8 +888,8 @@ $ db.<collection_name>.find( query, options ).explain(options)
 
 `"stage" : "COLLSCAN"`, 表示全集合扫描
 
-<img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro-to-mongodb/image-20200506205714154.png?raw=true" alt="image-20200506205714154" style="zoom:67%;" />
 
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200506205714154.png)
 
 
 **添加索引之后**
@@ -950,7 +899,6 @@ $ db.<collection_name>.find( query, options ).explain(options)
 
 
 #### 4.4.2 涵盖的查询
-
 
 
 当查询条件和查询的投影仅包含索引字段是, MongoDB 直接从索引返回结果, 而不扫描任何文档或将文档带入内存, 这些覆盖的查询十分有效
@@ -978,9 +926,9 @@ mongoose 是一个对象文档模型（ODM）库
   - 定义约束了数据库中的文档结构
   - 个人感觉类似于 SQL 中建表时事先规定表结构
 - Model
-  - 集合中的所有文档的表示，相当于 MongoDB 数据库中的 collection
+  - 集合中的所有文档的表示, 相当于 MongoDB 数据库中的 collection
 - Document
-  - 表示集合中的具体文档，相当于集合中的一个具体的文档
+  - 表示集合中的具体文档, 相当于集合中的一个具体的文档
 
 
 
@@ -1028,7 +976,7 @@ kitty.save().then(() => console.log('meow'));
 
 **监听 MongoDB 数据库的连接状态**
 
-在 mongoose 对象中，有一个属性叫做 `connection`，该对象就表示数据库连接。通过监视该对象的状态，可以来监听数据库的连接和端口
+在 mongoose 对象中, 有一个属性叫做 `connection`, 该对象就表示数据库连接.通过监视该对象的状态, 可以来监听数据库的连接和端口
 
 ```javascript
 mongoose.connection.once("open", function() {
@@ -1039,7 +987,6 @@ mongoose.connection.once("close", function() {
   console.log("connection closed.")
 });
 ```
-
 
 
 ### 5.3 Mongoose 的 CRUD

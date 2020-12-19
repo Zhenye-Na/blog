@@ -45,7 +45,7 @@ if $d(\text{img1}, \text{img2}) \leq \tau$, where $\tau$ is a threshold paramete
 Siamese networks are a special type of neural network architecture. Instead of a model learning to *classify* its inputs, the neural networks learns to *differentiate* between two inputs. **It learns the similarity between them.**
 
 <div align="center">
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/network.png?raw=true">
+    <img src="(https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/network.png">
 </div>
 
 
@@ -75,7 +75,7 @@ Each image in the image pair is fed to one of these networks. The networks are o
 ### Learning objective
 
 <div align="center">
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/learning_objective.png?raw=true">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/learning_objective.png">
 </div>
 
 
@@ -105,7 +105,7 @@ $g$ is the gap parameter that regularizes the gap between the distance of two im
 ## Face Verification and Binary Classification
 
 <div align="center">
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/face_verification.png?raw=true" >
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/face_verification.png" >
 </div>
 
 
@@ -125,7 +125,7 @@ $$ J(G) = \alpha J_{\text{content}}(C, G) + \beta J_{\text{style}}(S, G) ​$$
 #### Content cost function
 
 <div align="center">
-    <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week4/content_cost_function.png?raw=true" >
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/content_cost_function.png" >
 </div>
 
 
@@ -148,6 +148,3 @@ where $G^{(S)}$ and $G^{(G)}$ are respectively the Gram matrices of the "style" 
 ## References
 
 [1] Harshvardhan Gupta, [One Shot Learning with Siamese Networks in PyTorch](https://hackernoon.com/one-shot-learning-with-siamese-networks-in-pytorch-8ddaab10340e)
-
-
-

@@ -5,6 +5,8 @@ date: 2019-08-29
 modify_date: 2019-10-29
 excerpt: "Redis Cheatsheet"
 tags: [Redis, NoSQL]
+mathjax: false
+mathjax_autoNumber: false
 key: redis-cheatsheet
 ---
 
@@ -95,10 +97,8 @@ key: redis-cheatsheet
 
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/redis-cheatsheet/nosql.png?raw=true" width="80%">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/nosql.png" width="80%">
 </div>
-
-
 
 
 ## 分布式数据库中的 CAP + BASE
@@ -142,7 +142,7 @@ CAP 最多只能同时较好地满足两个: 满足 CA 原则 **或** 满足 CP 
 
 
 <div align="center">
-  <img src="https://www.researchgate.net/profile/David_Lee297/publication/323309389/figure/fig2/AS:596430729261057@1519211575897/CAP-theorem-concept-5-II-WHY-YOU-NEED-NOSQL-The-first-reason-to-use-NoSQL-is-because.png" width="80%">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/CAP-theorem-concept-5-II-WHY-YOU-NEED-NOSQL-The-first-reason-to-use-NoSQL-is-because.png" width="80%">
 </div>
 
 
@@ -485,7 +485,7 @@ zcard / zcount key <score_range> / zrank key values
 
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/redis-cheatsheet/rdb.png?raw=true" width="80%">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/rdb.png" width="80%">
 </div>
 
 
@@ -543,7 +543,7 @@ Redis 会记录上次重写时的 AOF 大小, 默认配置是当 AOF 文件大�
 
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/redis-cheatsheet/aof.png?raw=true" width="80%">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/aof.png" width="80%">
 </div>
 
 
@@ -568,7 +568,7 @@ Redis 会记录上次重写时的 AOF 大小, 默认配置是当 AOF 文件大�
 
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/redis-cheatsheet/comparison.png?raw=true" width="80%">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/comparison.png" width="80%">
   <p>图片转载自: https://juejin.im/post/5d09a9ff51882577eb133aa9#heading-21</p>
 </div>
 

@@ -12,9 +12,6 @@ key: advanced-monogodb
 
 # MongoDB 数据库高级进阶 - 集群和安全
 
-[TOC]
-
-
 
 > 配套资料: `https://pan.baidu.com/s/18au42FIhSNrXY9p7MbmNbg` 提取码: `29ad`
 >
@@ -80,9 +77,8 @@ MongoDB 中的副本集（Replica Set）是一组维护相同数据集的 mongod
 
 
 <div align="center">
-  <img src="https://docs.mongodb.com/manual/_images/replica-set-primary-with-secondary-and-arbiter.bakedsvg.svg" width="60%">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/replica-set-primary-with-secondary-and-arbiter.bakedsvg.png" width="60%">
 </div>
-
 
 
 > 关于仲裁者的额外说明：
@@ -117,8 +113,10 @@ MongoDB 中的副本集（Replica Set）是一组维护相同数据集的 mongod
 
 
 
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/replica-set-primary-with-secondary-and-arbiter.bakedsvg.png)
 
-<img src="/Users/macbookpro/Desktop/website/_posts/assets/image-20200507220642083.png" alt="image-20200507220642083"  />
+
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200507220642083.png)
 
 
 
@@ -419,7 +417,7 @@ MongoDB 分片群集包含以下组件：
 
 
 
-<img src="/Users/macbookpro/Desktop/website/_posts/assets/image-20200513214148083.png" alt="image-20200513214148083" style="zoom:67%;" />
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200513214148083.png)
 
 
 
@@ -608,7 +606,8 @@ $ db.runCommand({
 
 
 
-<img src="/Users/macbookpro/Desktop/website/_posts/assets/image-20200516223618830.png" alt="image-20200516223618830" style="zoom:67%;" />
+
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/image-20200516223618830.png)
 
 
 

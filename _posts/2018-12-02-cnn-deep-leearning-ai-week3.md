@@ -20,7 +20,7 @@ key: deep-learning-coursera-3
 ### Classification with Localization
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/classification_with_localization.png?raw=true" />
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/classification_with_localization.png" />
 </p>
 
 
@@ -28,7 +28,7 @@ key: deep-learning-coursera-3
 ### Defining the target label y
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/target_label_y.png?raw=true" />
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/target_label_y.png" />
 </p>
 
 Loss function is defined as follows:
@@ -45,7 +45,7 @@ $$
 ## Landmark Detection
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/landmark_detection.png?raw=true" />
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/landmark_detection.png" />
 </p>
 
 
@@ -65,7 +65,7 @@ $$
 ### Turning FC layers to Convolutional layers
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/fc_to_conv.png?raw=true" />
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/fc_to_conv.png" />
 </p>
 
 
@@ -92,7 +92,7 @@ Each grid cell predicts a fixed number of boundary boxes. In this example, the y
 ## Intersection over Union
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/iou.png?raw=true" />
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/iou.png" />
 </p>
 
 
@@ -124,10 +124,10 @@ $$ \text{IoU} = \frac{\text{Area of Overlap}}{\text{Area of Union}} $$
 
 
 <p align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/deeplearningspecialization/4_cnn/week3/nonmax_suppresion.png?raw=true" />
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/nonmax_suppresion.png" />
 </p>
 
-### Python implementation from Pyimageserach.com
+### Python implementation from `Pyimageserach.com`
 
 ```python
 # import the necessary packages

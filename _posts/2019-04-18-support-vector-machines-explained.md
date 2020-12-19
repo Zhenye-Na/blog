@@ -177,7 +177,7 @@ Let's now talk ablout geometric margin.
 
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/geometric-margins.png?raw=true" width="50%">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/geometric-margins.png" width="50%">
   <p>Geometric margin. Image resource: Andrew Ng's lecture notes on SVM</p>
 </div><br>
 
@@ -233,7 +233,7 @@ $$
 From KKT dual complementarily condition, we have $\alpha_i > 0$ only for the training examples with contraints $g_i(w) = 0$, where functional margin equals to $1$. The points with the smallest margins are exactly the ones closest to the decision boundary; here, the red points that lie on the dashed lines parallel to the decision boundary. Thus, only two of the $\alpha_i$'s—namely, the ones corresponding to these training examples - will be non-zero at the optimal solution to our optimization problem. These points are called the support vectors in this problem. The fact that the number of support vectors can be much smaller than the size the training set will be useful later.
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/margin.png?raw=true" width="40%">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/margin.png" width="40%">
   <p>Support Vectors. Image source <a href="http://svm.michalhaltuf.cz/support-vector-machines/">Michal's blog of "Support vector machines"</a></p>
 </div><br>
 
@@ -327,7 +327,7 @@ Since $z$ was arbitrary, this shows that $K$ is positive semi-deﬁnite ($K \geq
 The derivation of the SVM presented so far assumes that the data is **linearly separable**. Although mapping data to a high-dimensional feature space via $\phi$ usually increases the likelihood of data separability, we cannot guarantee that it will always be. Also, in some cases, it is not clear that finding a separation hyperplane is exactly what we want to do because it can be susceptible to outliers. For example, the left side of the figure below shows an optimal margin classifier. When an outlier is added to the upper left corner (right), it will cause a dramatic swing in the decision boundary, and the resulting classifier is small. The excess amount.
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/intro2svm/regularization.png?raw=true" width="70%">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/regularization.png" width="70%">
   <p>Regularized separating hyperplane in non-linearly separable case.</p>
 </div><br>
 

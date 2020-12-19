@@ -12,10 +12,28 @@ key: vscode-remote-development-setup
 
 # VS Code 远程开发配置
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [VS Code 远程开发配置](#vs-code-远程开发配置)
+  - [1. 配置 VS Code](#1-配置-vs-code)
+  - [2. 配置 Virtual Box Ubuntu 虚拟机](#2-配置-virtual-box-ubuntu-虚拟机)
+    - [2.1 SSH 连接到 Ubuntu](#21-ssh-连接到-ubuntu)
+      - [On Mac](#on-mac)
+      - [On Ubuntu](#on-ubuntu)
+    - [2.2 配置 SSH, 简化登录过程](#22-配置-ssh-简化登录过程)
+      - [更改 Hostname](#更改-hostname)
+      - [免密登录](#免密登录)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 先说一下使用背景:
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vscode-remote-dev/use-case.png?raw=true">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/use-case.png">
 </div>
 
 
@@ -30,14 +48,14 @@ key: vscode-remote-development-setup
 ## 1. 配置 VS Code
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vscode-remote-dev/install-remote-ssh.png?raw=true">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/install-remote-ssh.png">
 </div>
 
 
 安装如图所示的插件, 然后在 VS Code 左下角就会有一个类似 `><` (不是卖萌) 的图标, 点击它就会询问是否连接到 VM
 
 <div align="center">
-  <img src="https://github.com/Zhenye-Na/Zhenye-Na.github.io/blob/master/assets/images/posts-img/vscode-remote-dev/configure-remote-ssh.png?raw=true">
+  <img src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/configure-remote-ssh.png">
 </div>
 
 
@@ -123,8 +141,4 @@ $ ssh-keygen -t rsa
 生成的文件会在 `$HOME/.ssh/id_rsa.pub`. 如果有这个文件那么不用在生成一次了. 复制 `id_rsa.pub` 文件的内容. 将它粘贴到 Ubuntu 系统中 `$HOME/.ssh/authorized_keys` 文件中
 
 重新使用 VS Code 连接 Ubuntu, 你会发现不在弹出密码输入页面了.
-
-
-
-
 
