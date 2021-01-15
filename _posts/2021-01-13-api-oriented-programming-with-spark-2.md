@@ -68,7 +68,7 @@ Spark 的 `SparkContext` 通过 `.textFile()` 读取数据生成内存中的 RDD
 filter, map, flatMap, groupByKey, reduceByKey ...
 
 
-![spark-transformations-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-transformations-api.png){:.rounded}
+![spark-transformations-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-transformations-api.png)
 
 
 `filter(func)`
@@ -83,7 +83,7 @@ Spark is better
 Spark is fast
 ```
 
-![spark-filter-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-filter-api.png){:.rounded}
+![spark-filter-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-filter-api.png)
 
 ***
 
@@ -98,7 +98,7 @@ Spark is fast
 ['Spark', 'is', 'better']
 ```
 
-![spark-map-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-map-api.png){:.rounded}
+![spark-map-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-map-api.png)
 
 ***
 
@@ -132,7 +132,7 @@ Spark is fast
 
 value 这个列表是被封装进 `pyspark.resultiterable.ResultIterable` 类中
 
-![spark-groupByKey-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-groupByKey-api.png){:.rounded}
+![spark-groupByKey-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-groupByKey-api.png)
 
 ***
 
@@ -152,17 +152,17 @@ value 这个列表是被封装进 `pyspark.resultiterable.ResultIterable` 类中
 ('fast', 1)
 ('is', 3)
 ```
-![spark-reduceByKey2](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-reduceByKey2.png){:.rounded}
+![spark-reduceByKey2](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-reduceByKey2.png)
 
 
-![spark-reduceByKey-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-reduceByKey-api.png){:.rounded}
+![spark-reduceByKey-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-reduceByKey-api.png)
 
 
 #### Action
 
 行动操作是真正触发计算的地方. Spark 程序执行到行动操作时, 才会执行真正的计算, 从文件中加载数据, 完成一次又一次转换操作, 最终, 完成行动操作得到结果
 
-![spark-action-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-action-api.png){:.rounded}
+![spark-action-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-action-api.png)
 
 ```python
 >>> rdd = sc.parallelize([1,2,3,4,5])
@@ -241,7 +241,7 @@ RDD是弹性分布式数据集，通常RDD很大，会被分成很多个分区�
 
 **1. 增加并行度**
 
-![spark-partition-1](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-partition-1.png){:.rounded}
+![spark-partition-1](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-partition-1.png)
 
 **2. 减少通信开销**
 
@@ -302,17 +302,17 @@ sc.textFile(path, partitionNum)
 [('good', 1), ('Spark', 2), ('is', 3), ('better', 1), ('Hadoop', 1), ('fast', 1)]
 ```
 
-![spark-wordCount-example](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-wordCount-example.png)){:.rounded}
+![spark-wordCount-example](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-wordCount-example.png))
 
 在实际应用中, 单词文件可能非常大, 会被保存到分布式文件系统 HDFS 中, Spark 和 Hadoop 会统一部署在一个集群上
 
 部署的方式就是 Hadoop 的 DataNode 和 Spark 的 WorkerNode 部署在同一机器上
 
-![hadoop-spark-deployment](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/hadoop-spark-deployment.png)){:.rounded}
+![hadoop-spark-deployment](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/hadoop-spark-deployment.png))
 
 在集群中执行词频统计过程示意图:
 
-![distributed-wordCount-diagram](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/distributed-wordCount-diagram.png){:.rounded}
+![distributed-wordCount-diagram](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/distributed-wordCount-diagram.png)
 
 
 
@@ -525,7 +525,7 @@ sortByKey()的功能是返回一个根据键排序的RDD
 [('hadoop', 5.0), ('spark', 4.0)]
 ```
 
-![spark-action-usecase-example](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-action-usecase-example.png){:.rounded}
+![spark-action-usecase-example](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-action-usecase-example.png)
 
 
 ## 数据读写
@@ -581,7 +581,7 @@ sortByKey()的功能是返回一个根据键排序的RDD
 
 #### HBase 介绍
 
-![hadoop-ecosystem](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/hadoop-ecosystem.png){:.rounded}
+![hadoop-ecosystem](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/hadoop-ecosystem.png)
 
 - HBase 是一个稀疏, 多维度, 排序的映射表, 这张表的索引是行键, 列族, 列限定符和时间戳
 - 每个值是一个未经解释的字符串, 没有数据类型
@@ -590,7 +590,7 @@ sortByKey()的功能是返回一个根据键排序的RDD
 - 列族支持动态扩展, 可以很轻松地添加一个列族或列, 无需预先定义列的数量以及类型, 所有列均以字符串形式存储, 用户需要自行进行数据类型转换
 - HBase 中执行更新操作时, 并不会删除数据旧的版本, 而是生成一个新的版本, 旧有的版本仍然保留 (这是和 HDFS 只允许追加不允许修改的特性相关的)
 
-![hbase-intro](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/hbase-intro.png){:.rounded}
+![hbase-intro](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/hbase-intro.png)
 
 - 表: HBase 采用表来组织数据, 表由行和列组成, 列划分为若干个列族
 - 行: 每个 HBase 表都由若干行组成, 每个行由**行键 (Row Key)** 来标识。
@@ -695,7 +695,7 @@ sc.parallelize(rawData) \
 
 ## 综合案例
 
-### 求 TOP 值
+### 案例1: 求 TOP 值
 
 `orderid,userid,payment,productid`, 求 Top N 个 payment 值
 
@@ -801,7 +801,7 @@ input
 3 2
 ```
 
-![secondary-sort-example](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/secondary-sort-example.png){:.rounded}
+![secondary-sort-example](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/secondary-sort-example.png)
 
 ```python
 #!/usr/bin/env python3
