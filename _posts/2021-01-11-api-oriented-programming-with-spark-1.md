@@ -180,5 +180,16 @@ print("Line with a: {numAs}, with b: {numBs}".format(numAs=numAs, numBs=numBs))
 ## References
 
 - [厦门大学 - 林子雨 - Spark编程基础 (Python版)](https://study.163.com/course/introduction/1209408816.htm)
-- [厦门大学 - 林子雨 - Spark编程基础(Python版) - 课件](http://dblab.xmu.edu.cn/post/12157/#kejianxiazai)
+- [厦门大学 - 林子雨 - Spark编程基础 (Python版) - 课件](http://dblab.xmu.edu.cn/post/12157/#kejianxiazai)
 
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6161588707523400"
+     data-ad-slot="2418749784"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
