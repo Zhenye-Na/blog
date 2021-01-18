@@ -273,7 +273,6 @@ studentDF.write.jdbc("jdbc:mysql://localhost:3306/spark",'student','append',prop
 
 - [厦门大学 - 林子雨 - Spark编程基础 (Python版)](https://study.163.com/course/introduction/1209408816.htm)
 - [厦门大学 - 林子雨 - Spark编程基础 (Python版) - 课件](http://dblab.xmu.edu.cn/post/12157/#kejianxiazai)
-- https://stackoverflow.com/questions/28837426/spark-sort-rdd-and-join-their-rank
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
