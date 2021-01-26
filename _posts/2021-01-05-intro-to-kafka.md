@@ -109,7 +109,7 @@ Producer 生产的数据会被不断追加到该 log 文件末端, 且每条数�
 由于生产者生产的消息会不断追加到 log 文件末尾, 为防止 log 文件过大导致数据定位 效率低下, Kafka 采取了分片和索引机制, 将每个 partition 分为多个 `segment`. 每个 `segment` 对应两个文件 - `".index"` 文件和 `".log"` 文件. 这些文件位于一个文件夹下, 该文件夹的命名 规则为: `topic 名称 + 分区序号`. 例如, first 这个 topic 有三个分区, 则其对应的文件夹为 `first0, first-1, first-2`
 
 
-index 和 log 文件以当前 segment 的第一条消息的 offset 命名. 下图为 `index` 文件和 `log` 文件的结构示意图
+index 和 log 文件以当前 segment 的第一条消息的 `offset` 命名. 下图为 `index` 文件和 `log` 文件的结构示意图
 
 ![kafka-index-and-log](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/kafka-index-and-log.png)
 
@@ -135,8 +135,8 @@ index 和 log 文件以当前 segment 的第一条消息的 offset 命名. 下�
 我们需要将 producer 发送的数据封装成一个 `ProducerRecord` 对象
 
 1. 指明 partition 的情况下, 直接将指明的值直接作为 partiton 值
-2. 没有指明 partition 值但有 key 的情况下, 将 key 的 hash 值与 topic 的 partition 数进行取余得到 partition 值
-3. 既没有 partition 值又没有 key 值的情况下, 第一次调用时随机生成一个整数 (后面每次调用在这个整数上自增) , 将这个值与 topic 可用的 partition 总数取余得到 partition 值, 也就是常说的 `round-robin` 算法. 
+2. 没有指明 partition 值但有 `key` 的情况下, 将 key 的 hash 值与 topic 的 partition 数进行取余得到 partition 值
+3. 既没有 partition 值又没有 `key` 值的情况下, 第一次调用时随机生成一个整数 (后面每次调用在这个整数上自增) , 将这个值与 topic 可用的 partition 总数取余得到 partition 值, 也就是常说的 `round-robin` 算法. 
 
 ![kafka-producer-partition-rules](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/kafka-producer-partition-rules.png)
 
@@ -167,7 +167,6 @@ Kafka 选择了第二种方案, 但是又引入了一个新的知识点, 就是 
 Leader 维护了一个动态的 in-sync replica set (ISR), 意为和 leader 保持同步的 follower 集合. 当 ISR 中的 follower 完成数据的同步之后, leader 就会给 follower 发送 ack. 如果 follower 长时间未向 leader 同步数据 ,  则该 follower 将被踢出 ISR ,  该时间阈值由 `replica.lag.time.max.ms` 参数设定. Leader 发生故障之后, 就会从 ISR 中选举新的 leader 
 
 
-
 > `replica.lag.time.max.ms`
 > 
 > If a follower hasn't sent any fetch requests or hasn't consumed up to the leaders log end offset for at least this time, the leader will remove the follower from isr. default = 30000 (30s)
@@ -196,15 +195,13 @@ acks 参数配置:
 #### 保证数据一致性 (HW 和 LEO)
 
 
-
 所以 Kafka 引入了两个新的概念: HW 和 LEO
 
 - `LEO`: 指的是每个副本最大的 offset；
 - `HW`: 指的是消费者能见到的最大的 offset, ISR 队列中最小的 LEO
 
 
-
-HW 之前的数据才对 Consumer 可见, 也就是 Consumer 可见的 Offset 最大值
+`HW` 之前的数据才对 Consumer 可见, 也就是 Consumer 可见的 `Offset` 最大值
 {:.info}
 
 ![kafka-hw-and-leo](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/kafka-hw-and-leo.png)
@@ -309,7 +306,7 @@ Kafka 从 0.11 版本开始引入了事务支持. 事务可以保证 Kafka 在 E
 ## References
 
 - [kafka leader 选举 ](https://aidodoo.com/post/kafka/kafka-leader%E9%80%89%E4%B8%BE/)
-- [Kafka消费者组三种分区分配策略roundrobin，range，StickyAssignor](https://www.cnblogs.com/chenxiaoge/p/13335416.html)
+- [Kafka 消费者组三种分区分配策略 roundrobin, range, StickyAssignor](https://www.cnblogs.com/chenxiaoge/p/13335416.html)
 
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
