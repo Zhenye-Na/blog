@@ -14,7 +14,7 @@ key: api-oriented-programming-with-spark-3
 
 ![spark-sql-architecture](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-sql-architecture.png)
 
-> Spark SQL架构
+> Spark SQL 架构
 
 
 ## DataFrame 概述
@@ -41,7 +41,7 @@ spark = SparkSession.builder.config(conf=SparkConf()).getOrCreate()
 
 > 实际上, 在启动进入 pyspark 交互式环境以后, pyspark 就默认提供了一个 `SparkContext` 对象 (名称为 `sc` ) 和一个 `SparkSession` 对象 (名称为 `spark` )
 
-在创建 DataFrame 时, 可以使用 `spark.read()` 或 `spark.read.format()` 操作, 从不同类型的文件中加载数据创建DataFrame, 
+在创建 DataFrame 时, 可以使用 `spark.read()` 或 `spark.read.format()` 操作, 从不同类型的文件中加载数据创建 DataFrame
 
 ```python
 # 读取文本文件 people.txt 创建 DataFrame
@@ -55,7 +55,6 @@ spark.read.format("json").load("people.json")
 # 读取 people.parquet 文件创建 DataFrame
 spark.read.parquet("people.parquet")
 spark.read.format("parquet").load("people.parquet")
-
 ```
 
 ### 举个栗子
@@ -76,7 +75,6 @@ spark.read.format("parquet").load("people.parquet")
 ```
 
 
-
 ## DataFrame 的保存
 
 ```python
@@ -91,7 +89,7 @@ df.write.format("parquet").save("people.parquet")
 ```
 
 
-下面从示例文件 `people.json` 中创建一个 `DataFrame`, 名称为 `peopleDF`, 把 `peopleDF` 保存到另外一个JSON文件中, 然后, 再从 `peopleDF` 中选取一个列 (即 `name` 列), 把该列数据保存到一个文本文件中
+下面从示例文件 `people.json` 中创建一个 `DataFrame`, 名称为 `peopleDF`, 把 `peopleDF` 保存到另外一个 JSON 文件中, 然后, 再从 `peopleDF` 中选取一个列 (即 `name` 列), 把该列数据保存到一个文本文件中
 
 
 ```python
@@ -151,13 +149,13 @@ schemaPeople.createOrReplaceTempView("people")
 
 # DataFrame 中的每个元素都是一行记录, 包含 name 和 age 两个字段, 分别用 p.name 和 p.age 来获取值
 personsDF = spark.sql("select name,age from people where age > 20")
-personsRDD = personsDF.rdd.map(lambda p:"Name: "+p.name+ ","+"Age:"+str(p.age))
+personsRDD = personsDF.rdd.map(lambda p:"Name: "+p.name+ ", "+"Age:"+str(p.age))
 
 personsRDD.foreach(print)
 
 # Output
-# Name: Michael,Age: 29
-# Name: Andy,Age: 30
+# Name: Michael, Age: 29
+# Name: Andy, Age: 30
 ```
 
 
@@ -271,8 +269,8 @@ studentDF.write.jdbc("jdbc:mysql://localhost:3306/spark",'student','append',prop
 
 ## References
 
-- [厦门大学 - 林子雨 - Spark编程基础 (Python版)](https://study.163.com/course/introduction/1209408816.htm)
-- [厦门大学 - 林子雨 - Spark编程基础 (Python版) - 课件](http://dblab.xmu.edu.cn/post/12157/#kejianxiazai)
+- [厦门大学 - 林子雨 - Spark 编程基础 (Python 版)](https://study.163.com/course/introduction/1209408816.htm)
+- [厦门大学 - 林子雨 - Spark 编程基础 (Python 版) - 课件 ](http://dblab.xmu.edu.cn/post/12157/#kejianxiazai)
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"

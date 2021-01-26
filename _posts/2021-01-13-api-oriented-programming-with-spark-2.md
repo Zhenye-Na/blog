@@ -41,7 +41,6 @@ Spark 的 `SparkContext` 通过 `.textFile()` 读取数据生成内存中的 RDD
 >>> lines = sc.textFiles("example.txt")
 
 >>> lines.foreach(print)
-
 ```
 
 
@@ -65,15 +64,13 @@ Spark 的 `SparkContext` 通过 `.textFile()` 读取数据生成内存中的 RDD
 
 #### Transformation
 
-filter, map, flatMap, groupByKey, reduceByKey ...
-
-
 ![spark-transformations-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-transformations-api.png)
 
+***
 
 `filter(func)`
 
-筛选出满足函数 func 的元素, 并返回一个新的数据集
+筛选出满足函数 `func` 的元素, 并返回一个新的数据集
 
 ```python
 >>> lines = sc.textFile("file:///usr/local/spark/mycode/rdd/word.txt")
@@ -130,7 +127,7 @@ Spark is fast
 ('is', <pyspark.resultiterable.ResultIterable object at 0x7fb210552e10>)
 ```
 
-value 这个列表是被封装进 `pyspark.resultiterable.ResultIterable` 类中
+`value` 这个列表是被封装进 `pyspark.resultiterable.ResultIterable` 类中
 
 ![spark-groupByKey-api](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-groupByKey-api.png)
 
@@ -152,6 +149,7 @@ value 这个列表是被封装进 `pyspark.resultiterable.ResultIterable` 类中
 ('fast', 1)
 ('is', 3)
 ```
+
 ![spark-reduceByKey2](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/spark-reduceByKey2.png)
 
 
@@ -198,7 +196,7 @@ value 这个列表是被封装进 `pyspark.resultiterable.ResultIterable` 类中
 
 ### 持久化
 
-在Spark中, RDD 采用惰性求值的机制, 每次遇到行动操作, 都会从头开始执行计算. 每次调用行动操作, 都会触发一次从头开始的计算. 这对于迭代计算而言, 代价是很大的, 迭代计算经常需要多次重复使用同一组数据
+在 Spark 中, RDD 采用惰性求值的机制, 每次遇到行动操作, 都会从头开始执行计算. 每次调用行动操作, 都会触发一次从头开始的计算. 这对于迭代计算而言, 代价是很大的, 迭代计算经常需要多次重复使用同一组数据
 
 ```python
 >>> list = ["Hadoop","Spark","Hive"]
@@ -211,7 +209,7 @@ Hadoop,Spark,Hive
 
 所以可以通过持久化 (缓存) 机制避免这种重复计算的开销, 可以使用 `persist()` 方法对一个 RDD 标记为持久化
 
-- 之所以说"标记为持久化", 是因为出现 `persist()` 语句的地方, 并不会马上计算生成 RDD 并把它持久化, 而是要等到遇到**第一个行动操作触发真正计算以后, 才会把计算结果进行持久化**
+- 之所以说 "标记为持久化", 是因为出现 `persist()` 语句的地方, 并不会马上计算生成 RDD 并把它持久化, 而是要等到遇到**第一个行动操作触发真正计算以后, 才会把计算结果进行持久化**
 - 持久化后的 RDD 将会被保留在计算节点的内存中被后面的行动操作重复使用
 
 #### `persist()`
@@ -224,18 +222,18 @@ Hadoop,Spark,Hive
 可以使用 `.unpersist()` 方法手动地把持久化的 RDD 从缓存中移除
 
 ```python
->>> list = ["Hadoop","Spark","Hive"]
->>> rdd = sc.parallelize(list)
->>> rdd.cache() # 会调用 persist(MEMORY_ONLY), 但是, 语句执行到这里, 并不会缓存rdd, 因为这时rdd还没有被计算生成
->>> print(rdd.count()) # 第一次行动操作, 触发一次真正从头到尾的计算, 这时上面的 rdd.cache() 才会被执行, 把这个rdd放到缓存中
+>>> lst = ["Hadoop","Spark","Hive"]
+>>> rdd = sc.parallelize(lst)
+>>> rdd.cache() # 会调用 persist(MEMORY_ONLY), 但是, 语句执行到这里, 并不会缓存 rdd, 因为这时 rdd 还没有被计算生成
+>>> print(rdd.count()) # 第一次行动操作, 触发一次真正从头到尾的计算, 这时上面的 rdd.cache() 才会被执行, 把这个 rdd 放到缓存中
 3
->>> print(','.join(rdd.collect())) # 第二次行动操作, 不需要触发从头到尾的计算, 只需要重复使用上面缓存中的rdd
+>>> print(','.join(rdd.collect())) # 第二次行动操作, 不需要触发从头到尾的计算, 只需要重复使用上面缓存中的 rdd
 Hadoop,Spark,Hive
 ```
 
 ### 分区
 
-RDD是弹性分布式数据集，通常RDD很大，会被分成很多个分区，分别保存在不同的节点上
+RDD 是弹性分布式数据集, 通常 RDD 很大, 会被分成很多个分区, 分别保存在不同的节点上
 
 **分区的作用**
 
@@ -248,19 +246,19 @@ RDD是弹性分布式数据集，通常RDD很大，会被分成很多个分区�
 
 #### RDD 分区原则
 
-RDD 分区的一个原则是**使得分区的个数尽量等于集群中的CPU核心 (core) 数目**
+RDD 分区的一个原则是**使得分区的个数尽量等于集群中的 CPU 核心 (core) 数目**
 
-对于不同的 Spark 部署模式而言 (本地模式, Standalone模式, YARN模式, Mesos模式), 都可以通过设置 `spark.default.parallelism` 这个参数的值, 来配置默认的分区数目, 一般而言:
+对于不同的 Spark 部署模式而言 (本地模式, Standalone 模式, YARN 模式, Mesos 模式), 都可以通过设置 `spark.default.parallelism` 这个参数的值, 来配置默认的分区数目, 一般而言:
 
 - 本地模式: 默认为本地机器的 CPU 数目, 若设置了 `local[N]`, 则默认为 `N`
 - Apache Mesos: 默认的分区数为 `8`
-- Standalone 或 YARN: 在"**集群中所有CPU核心数目总和**"和"2"二者中取较大值作为默认值
+- Standalone 或 YARN: 在"**集群中所有 CPU 核心数目总和**"和"2"二者中取较大值作为默认值
 
 ***
 
 **设置分区的个数**
 
-**1. 创建RDD时手动指定分区个数**
+**1. 创建 RDD 时手动指定分区个数**
 
 在调用 `.textFile()` 和 `.parallelize()` 方法的时候手动指定分区个数即可, 语法格式如下:
 
@@ -268,23 +266,23 @@ RDD 分区的一个原则是**使得分区的个数尽量等于集群中的CPU�
 sc.textFile(path, partitionNum)
 ```
 
-其中, `path` 参数用于指定要加载的文件的地址, `partitionNum` 参数用于指定分区个数。
+其中, `path` 参数用于指定要加载的文件的地址, `partitionNum` 参数用于指定分区个数. 
 
 ```python
 >>> list = [1,2,3,4,5]
 >>> rdd = sc.parallelize(list,2) # 设置两个分区
 ```
 
-**2. 使用reparititon方法重新设置分区个数**
+**2. 使用 reparititon 方法重新设置分区个数**
 
 通过转换操作得到新 RDD 时, 直接调用 `.repartition()` 方法即可. 例如:
 
 ```python
 >>> data = sc.parallelize([1,2,3,4,5],2)
->>> len(data.glom().collect()) # 显示data这个RDD的分区数量
+>>> len(data.glom().collect()) # 显示 data 这个 RDD 的分区数量
 2
->>> rdd = data.repartition(1)  # 对data这个RDD进行重新分区
->>> len(rdd.glom().collect())  # 显示rdd这个RDD的分区数量
+>>> rdd = data.repartition(1)  # 对 data 这个 RDD 进行重新分区
+>>> len(rdd.glom().collect())  # 显示 rdd 这个 RDD 的分区数量
 1
 ```
 
@@ -306,7 +304,7 @@ sc.textFile(path, partitionNum)
 
 在实际应用中, 单词文件可能非常大, 会被保存到分布式文件系统 HDFS 中, Spark 和 Hadoop 会统一部署在一个集群上
 
-部署的方式就是 Hadoop 的 DataNode 和 Spark 的 WorkerNode 部署在同一机器上
+部署的方式就是 Hadoop 的 `DataNode` 和 Spark 的 `WorkerNode` 部署在同一机器上
 
 ![hadoop-spark-deployment](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/hadoop-spark-deployment.png))
 
@@ -361,6 +359,7 @@ sc.textFile(path, partitionNum)
 ('Hadoop', 1)
 ```
 
+***
 
 `groupByKey(func)`
 
@@ -375,10 +374,10 @@ PythonRDD[27] at RDD at PythonRDD.scala:48
 ```
 
 <div class="alert alert-info">
-<p><code>reduceByKey</code> 和 <code>groupByKey</code> 的区别</p>
+<p><code>reduceByKey</code> 和 <code>groupByKey</code> 的区别 </p>
 <ul>
-<li><code>reduceByKey</code> 用于对每个 <code>key</code> 对应的多个 <code>value</code> 进行 <code>merge</code> 操作, 最重要的是它能够在本地先进行 <code>merge</code> 操作, 并且 <code>merge</code> 操作可以通过函数自定义</li>
-<li><code>groupByKey</code> 也是对每个 <code>key</code> 进行操作, 但只生成一个 <code>sequence</code>, <code>groupByKey</code> 本身不能自定义函数, 需要先用 <code>groupByKey</code> 生成 RDD, 然后才能对此 RDD 通过 <code>map</code> 进 行自定义函数操作</li>
+<li><code>reduceByKey</code> 用于对每个 <code>key</code> 对应的多个 <code>value</code> 进行 <code>merge</code> 操作, 最重要的是它能够在本地先进行 <code>merge</code> 操作, 并且 <code>merge</code> 操作可以通过函数自定义 </li>
+<li><code>groupByKey</code> 也是对每个 <code>key</code> 进行操作, 但只生成一个 <code>sequence</code>, <code>groupByKey</code> 本身不能自定义函数, 需要先用 <code>groupByKey</code> 生成 RDD, 然后才能对此 RDD 通过 <code>map</code> 进 行自定义函数操作 </li>
 </ul>
 </div>
 
@@ -403,7 +402,7 @@ PythonRDD[27] at RDD at PythonRDD.scala:48
 
 `keys()`
 
-keys 只会把 Pair RDD中的 key 返回形成一个新的 RDD
+`keys()` 只会把 Pair RDD 中的 `key` 返回形成一个新的 RDD
 
 ```python
 >>> lst = [("Hadoop",1),("Spark",1),("Hive",1),("Spark",1)]
@@ -417,9 +416,9 @@ Spark
 
 ***
 
-values
+`values()`
 
-values只会把Pair RDD中的value返回形成一个新的RDD。
+`values()` 只会把 Pair RDD 中的 `value` 返回形成一个新的 RDD. 
 
 ```python
 >>> lst = [("Hadoop",1),("Spark",1),("Hive",1),("Spark",1)]
@@ -433,9 +432,9 @@ values只会把Pair RDD中的value返回形成一个新的RDD。
 
 ***
 
-sortByKey()
+`sortByKey()`
 
-sortByKey()的功能是返回一个根据键排序的RDD
+`sortByKey()` 的功能是返回一个根据键排序的 RDD
 
 ```python
 >>> lst = [("Hadoop",1),("Spark",1),("Hive",1),("Spark",1)]
@@ -498,7 +497,6 @@ sortByKey()的功能是返回一个根据键排序的RDD
 
 `join()`
 
-
 `join` 就表示内连接. 对于内连接, 对于给定的两个输入数据集 `(K,V1)` 和 `(K,V2)`, 只有在两个数据集中都存在的 `key` 才会被输出, 最终得到一个 `(K,(V1,V2))` 类型的数据集
 
 ```python
@@ -514,6 +512,7 @@ sortByKey()的功能是返回一个根据键排序的RDD
 ### 一个综合实例
 
 题目:
+
 给定一组键值对 `("spark",2),("hadoop",6),("hadoop",4),("spark",6)`, 键值对的 `key` 表示图书名称, `value`表示某天图书销量, 请计算每个键对应的平均值, 也就是计算每种图书的每天平均销量
 
 
@@ -534,7 +533,7 @@ sortByKey()的功能是返回一个根据键排序的RDD
 
 #### 本地文件系统的数据读写
 
-从文件中读取数据创建RDD
+从文件中读取数据创建 RDD
 
 ```python
 >>> textFile = sc.\
@@ -554,7 +553,6 @@ sortByKey()的功能是返回一个根据键排序的RDD
 >>> textFile.\
 ... saveAsTextFile("file:///usr/local/spark/mycode/rdd/writeback") # 传入的是一个目录 `dir/`
 ```
-
 
 
 #### 分布式文件系统 HDFS 的数据读写
@@ -593,13 +591,13 @@ sortByKey()的功能是返回一个根据键排序的RDD
 ![hbase-intro](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/hbase-intro.png)
 
 - 表: HBase 采用表来组织数据, 表由行和列组成, 列划分为若干个列族
-- 行: 每个 HBase 表都由若干行组成, 每个行由**行键 (Row Key)** 来标识。
-- 列族: 一个 HBase 表被分组成许多**"列族" (Column Family)** 的集合, 它是基本的访问控制单元
-- 列限定符: 列族里的数据通过列限定符(或列) 来定位
+- 行: 每个 HBase 表都由若干行组成, 每个行由 **行键 (Row Key)** 来标识. 
+- 列族: 一个 HBase 表被分组成许多 **"列族" (Column Family)** 的集合, 它是基本的访问控制单元
+- 列限定符: 列族里的数据通过列限定符 (或列) 来定位
 - 单元格: 在 HBase 表中, 通过行, 列族和列限定符确定一个 "单元格" (cell), 单元格中存储的数据没有数据类型, 总被视为字节数组 `byte[]`
 - 时间戳: 每个单元格都保存着同一份数据的多个版本, 这些版本采用**时间戳**进行索引
 
-> HBase 中需要根据行键, 列族, 列限定符和时间戳来确定一个单元格，因此，可以视为一个 "四维坐标", 即 `[行键, 列族, 列限定符, 时间戳]`
+> HBase 中需要根据行键, 列族, 列限定符和时间戳来确定一个单元格, 因此, 可以视为一个 "四维坐标", 即 `[行键, 列族, 列限定符, 时间戳 ]`
 
 
 #### 读写 HBase 数据
@@ -695,7 +693,7 @@ sc.parallelize(rawData) \
 
 ## 综合案例
 
-### 案例1: 求 TOP 值
+### 案例 1: 求 TOP 值
 
 `orderid,userid,payment,productid`, 求 Top N 个 payment 值
 
@@ -734,9 +732,9 @@ for a in result7:
 ```
 
 
-### 案例2: 文件排序
+### 案例 2: 文件排序
 
-有多个输入文件，每个文件中的每一行内容均为一个整数。要求读取所有文件中的整数，进行排序后，输出到一个新的文件中，输出的内容个数为每行两个整数，第一个整数为第二个整数的排序位次，第二个整数为原待排序的整数
+有多个输入文件, 每个文件中的每一行内容均为一个整数. 要求读取所有文件中的整数, 进行排序后, 输出到一个新的文件中, 输出的内容个数为每行两个整数, 第一个整数为第二个整数的排序位次, 第二个整数为原待排序的整数
 
 ```python
 #!/usr/bin/env python3
@@ -785,7 +783,7 @@ res1: Array[((String, Int), Long)] = Array(((A,1),0), ((B,2),1))
 ```
 
 
-### 案例3: 二次排序
+### 案例 3: 二次排序
 
 对于一个给定的文件 (数据如 `file1.txt` 所示), 请对数据进行排序, 首先根据第 1 列数据降序排序, 如果第 1 列数据相等, 则根据第 2 列数据降序排序
 
@@ -840,8 +838,8 @@ if __name__ == '__main__':
 
 ## References
 
-- [厦门大学 - 林子雨 - Spark编程基础 (Python版)](https://study.163.com/course/introduction/1209408816.htm)
-- [厦门大学 - 林子雨 - Spark编程基础 (Python版) - 课件](http://dblab.xmu.edu.cn/post/12157/#kejianxiazai)
+- [厦门大学 - 林子雨 - Spark 编程基础 (Python 版)](https://study.163.com/course/introduction/1209408816.htm)
+- [厦门大学 - 林子雨 - Spark 编程基础 (Python 版) - 课件 ](http://dblab.xmu.edu.cn/post/12157/#kejianxiazai)
 - https://stackoverflow.com/questions/28837426/spark-sort-rdd-and-join-their-rank
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
