@@ -1,8 +1,8 @@
 ---
 layout: article
 title: "面向 API 编程: Structured Streaming"
-date: 2021-01-17
-modify_date: 2021-01-18
+date: 2021-01-18
+modify_date: 2021-01-20
 excerpt: "面向 API 编程 - Structured Streaming (API Oriented Programming with Spark)"
 tags: [Spark, Python, Scala]
 mathjax: false
