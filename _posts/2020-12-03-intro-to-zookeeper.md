@@ -463,15 +463,3 @@ Return values:
 1. [用ZooKeeper来做：统一配置管理、统一命名服务、分布式锁、集群管理](https://blog.csdn.net/redfivehit/article/details/97831337)
 2. [How To Install and Configure an Apache ZooKeeper Cluster on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-an-apache-zookeeper-cluster-on-ubuntu-18-04)
 3. [Zookeeper 与 Paxos - 简书](https://www.jianshu.com/p/8bf3b7ce3eaa)
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6161588707523400"
-     data-ad-slot="2418749784"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>

@@ -307,15 +307,3 @@ Kafka 从 0.11 版本开始引入了事务支持. 事务可以保证 Kafka 在 E
 
 - [kafka leader 选举 ](https://aidodoo.com/post/kafka/kafka-leader%E9%80%89%E4%B8%BE/)
 - [Kafka 消费者组三种分区分配策略 roundrobin, range, StickyAssignor](https://www.cnblogs.com/chenxiaoge/p/13335416.html)
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6161588707523400"
-     data-ad-slot="2418749784"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
