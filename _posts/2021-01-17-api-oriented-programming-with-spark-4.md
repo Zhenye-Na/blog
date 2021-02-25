@@ -39,6 +39,14 @@ Spark Streaming 最主要的抽象是 DStream (`Discretized Stream`, 离散化�
 - Spark Streaming 通过 input DStream 与外部数据源进行连接, 读取相关数据
 
 
+Every input DStream (**except file stream**) is associated with a **`Receiver`** (Scala doc, Java doc) object which receives the data from a source and stores it in Spark's memory for processing. {:.info}
+
+
+Points to remember:
+
+- When running a Spark Streaming program locally, do not use `"local"` or `"local[1]"` as the master URL. Either of these means that only one thread will be used for running tasks locally. If you are using an input DStream based on a receiver (e.g. sockets, Kafka, etc.), then the single thread will be used to run the receiver, leaving no thread for processing the received data. Hence, when running locally, always use `"local[n]"` as the master URL, where `n > number of receivers to run` (see Spark Properties for information on how to set the master).
+- Extending the logic to running on a cluster, the number of cores allocated to the Spark Streaming application must be more than the number of receivers. Otherwise the system will receive data, but not be able to process it.
+
 #### Spark Streaming 程序的基本步骤
 
 编写 Spark Streaming 程序的基本步骤是:
