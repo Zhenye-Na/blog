@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: landing
 titles:
   en      : &EN       About
   en-GB   : *EN
@@ -23,10 +23,9 @@ comment: false
 <br>
 
 <div align="center">
-  <img src="http://ghchart.rshah.org/f94f54/Zhenye-Na" alt="Zhenye-Na's Blue Github Chart" />
+  <img src="http://ghchart.rshah.org/f94f54/Zhenye-Na" alt="Zhenye-Na's Github Chart" />
 </div><br>
 
- 
 
 ## About Me
 
