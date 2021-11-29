@@ -79,7 +79,7 @@ Decorator class - is the class that can contains the add-on
     Concrete Decorator class - the concrete decorator class, concrete add-ons
 ```
 
-<img class="image image--md" src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/Medium.webp"/>
+![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/Medium.webp)
 
 With Decorator Pattern, you can decorate or **wrap** the base class `Component.class` with different add-ons.
 
