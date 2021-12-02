@@ -31,4 +31,4 @@ header:
       zh-HK   : *ZH_HANT
       ko      : &KO       소개
       ko-KR   : *KO
-    url: /
+    url: https://zhenye-na.github.io/
