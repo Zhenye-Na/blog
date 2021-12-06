@@ -12,25 +12,15 @@ key: design-patterns-adapter-pattern
 
 ## Background
 
-<div class="item">
-  <div class="item__image">
-    <img class="image" src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/adapter-en.png" width="30%" alt="Adapter Pattern" />
-  </div>
-  <div class="item__content">
-    <div class="item__header">
-      <h4><strong>What is adapter (patterns) ?</strong></h4>
-    </div>
-    <div class="item__description">
-      <blockquote>
-        <p>Suppose you have a US-made laptop and you are now in Europe or China for a vacation. You may notice that the interface on the wall is incompatible for the plug you have for the laptop. Then you might need an <em>adapter</em> to &quot;translate&quot; or &quot;convert&quot; your plug interface.</p>
-        <br />
-        <p>This also applies to Software Development. A very common scenario is that. Customers or Clients will have a set of APIs to call or you used an external library to proceed the requests. But, the Backend system you build use another set of APIs with different arguments or endpoints. You wanna unify the gap betweens these two different sets of APIs. This is the time you wanna bring the &quot;Adapter Pattern&quot; onboard.</p>
-      </blockquote>
-    </div>
-  </div>
-</div>
+<img style="float: right;" src="https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/adapter-en.png" width="30%" alt="Adapters">
 
 
+> **What is adapter (patterns) ?**
+> 
+> Suppose you have a US-made laptop and you are now in Europe or China for a vacation. You may notice that the interface on the wall is incompatible for the plug you have for the laptop. Then you might need an *adapter* to "translate" or "convert" your plug interface.
+> 
+> This also applies to Software Development. A very common scenario is that. Customers or Clients will have a set of APIs to call or you used an external library to proceed the requests. But, the Backend system you build use another set of APIs with different arguments or endpoints. You wanna unify the gap betweens these two different sets of APIs. This is the time you wanna bring the "Adapter Pattern" onboard.
+> 
 > Meanwhile, you may also wanna check
 > - Facade Pattern
 > - Decorator Pattern
@@ -42,7 +32,7 @@ key: design-patterns-adapter-pattern
 
 ## Adapter Pattern
 
-**The Adapter Pattern** converts the interface of a class into another interface the clients expect. Adapter lets classes work together that couldn't otherwise because of imcompatble interfaces
+**The Adapter Pattern (a.k.a Wrapper)** converts the interface of a class into another interface the clients expect. Adapter lets classes work together that couldn't otherwise because of imcompatble interfaces.
 {:.success}
 
 
