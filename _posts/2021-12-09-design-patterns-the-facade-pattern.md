@@ -22,7 +22,7 @@ A facade pattern can help:
 1. Improve readability and usability.
    1. Since Facade Pattern creates a high-level interface for clients [^1] to use, this way complex logic has been hidden behind the interface, which gives clients a better code readability
 2. Decouple client implementation from the complex subsystem.
-   1. The Law of Demeter (aka Principle of Least Knowledge) [^2] mainly was saying that the object should only talk to the most immediate object and fewer objects as possible. This helps greatly to decouple your service.
+   1. [The Law of Demeter (aka Principle of Least Knowledge)](https://www.wikiwand.com/en/Law_of_Demeter) mainly was saying that the object should only talk to the most immediate object and fewer objects as possible. This helps greatly to decouple your service.
 
 
 ## Example
@@ -284,5 +284,3 @@ You can find out that the typical for loop for training data is ignored and was 
     1. it could be clients or customers who use your package or library.
     2. it could be a downstream or upstream service that depends on your codes.
     3. it could be other classes or components in the same service that depends on your codes.
-
-[^2] Wiki: https://www.wikiwand.com/en/Law_of_Demeter
