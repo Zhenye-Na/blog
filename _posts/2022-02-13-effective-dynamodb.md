@@ -60,7 +60,149 @@ So, how can I choose the correct DDB index? I found this flow chart very helpful
 
 > Image source: https://www.dynamodbguide.com/local-or-global-choosing-a-secondary-index-type-in-dynamo-db/#the-too-long-didnt-read-version-of-choosing-an-index
 
+
+## Item 3: `SaveBehavior` Configuration
+
+When you use DynamoDB for CRUD operations, you will find out that DynamoDB does not have the actual "Update" concept. However, there is a `SaveBehavior` configuration which serves as the missed role in DynamoDB. Let's take a look.
+
+```java
+DynamoDBMapper mapper = new DynamoDBMapper(dynamoDBClient);
+
+// SaveBehavior.UPDATE is the default value
+mapper.save(something, new DynamoDBMapperConfig(SaveBehavior.UPDATE));
+```
+
+There are four different configurations for `SaveBehavior`
+
+- `UPDATE` (default)
+- `UPDATE_SKIP_NULL_ATTRIBUTE`
+- `CLOBBER`
+- `APPEND_SET`
+
+Given this existing record and DynamoDB schema
+
+| AttributeName 	| key    	| modeled_scalar 	| modeled_set 	| unmodeled 	|
+|---------------	|--------	|----------------	|-------------	|-----------	|
+| KeyType       	| Hash   	| Non-key        	| Non-key     	| Non-key   	|
+| AttributeType 	| Number 	| String         	| String set  	| String    	|
+
+```json
+{
+    "key" : "99",
+    "modeled_scalar" : "foo", 
+    "modeled_set" : [
+        "foo0", 
+        "foo1"
+    ], 
+    "unmodeled" : "bar" 
+}
+```
+
+together with this POJO class object
+
+```java
+TestTableItem obj = new TestTableItem();
+obj.setKey(99);
+obj.setModeledScalar(null);
+obj.setModeledSet(Collections.singleton("foo2");
+```
+
+***
+
+**`SaveBehavior.UPDATE`**
+
+`UPDATE` will not affect unmodeled attributes on a save operation, and a `null` value for the modeled attribute will **remove** it from that item in DynamoDB.
+
+so basically after onvoking `mapper.save()`, the record in DDB will be as follows
+
+```json
+{
+  "key" : "99",
+  "modeled_set" : [
+    "foo2"
+  ], 
+  "unmodeled" : "bar" 
+}
+```
+
+You can see that `modeled_set` has been updated, but since `modeled_scalar` is passed in using a `null` value, so it is removed from DDB.
+
+In this case. if you wanna use `SaveBehavior.UPDATE` to update something, you have to include all the fields with proper value in your DynamoDB POJO class. Otherwise, it will be removed from DDB table instead of keep them as is.
+
+***
+
+**`SaveBehavior.UPDATE_SKIP_NULL_ATTRIBUTES`**
+
+`UPDATE_SKIP_NULL_ATTRIBUTES` is similar to `UPDATE`, except that it ignores any `null` value attribute(s) and will **NOT** remove them from that item in DynamoDB.
+
+```json
+{
+  "key" : "99",
+  "modeled_scalar" : "foo",
+  "modeled_set" : [
+    "foo2"
+  ], 
+  "unmodeled" : "bar" 
+}
+```
+
+As you can find out, even though we set `modeled_scalar` to be `null`, this field is still persisted in DDB. So with this configuration, when you trying to update something with only specifying the hashKey and the field you wanna alter, it will properly update the field and keep the others the same without deleting.
+
+***
+
+**`SaveBehavior.CLOBBER`**
+
+CLOBBER will _clear and replace all attributes_, including unmodeled ones
+
+> (delete and recreate) on save.
+
+```json
+{
+  "key" : "99", 
+  "modeled_set" : [
+    "foo2"
+  ]
+}
+```
+
+This is already self-explained. delete the record with same hashKey and re-create a new one with the specified fields.
+
+***
+
+**`SaveBehavior.APPEND_SET`**
+
+`APPEND_SET` treats scalar attributes (String, Number, Binary) the same as UPDATE_SKIP_NULL_ATTRIBUTES does.
+
+However, for **set attributes, it will append to the existing attribute value**, instead of overriding it.
+
+
+```json
+{
+  "key" : "99",
+  "modeled_scalar" : "foo",
+  "modeled_set" : [
+    "foo0", 
+    "foo1", 
+    "foo2"
+  ], 
+  "unmodeled" : "bar" 
+}
+```
+
+Scalar attributes are kept, but set attributes are appended.
+
+***
+
+| SaveBehavior                	| On unmodeled attribute 	| On null-value attribute 	| On set attribute 	|
+|-----------------------------	|------------------------	|-------------------------	|------------------	|
+| UPDATE                      	| keep                   	| remove                  	| override         	|
+| UPDATE_SKIP_NULL_ATTRIBUTES 	| keep                   	| keep                    	| override         	|
+| CLOBBER                     	| remove                 	| remove                  	| override         	|
+| APPEND_SET                  	| keep                   	| keep                    	| append           	|
+
+
 ## References
 
 - [Best Practices for Querying and Scanning Data](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-query-scan.html)
 - [Local or global: Choosing a secondary index type in DynamoDB](https://www.dynamodbguide.com/local-or-global-choosing-a-secondary-index-type-in-dynamo-db/#the-too-long-didnt-read-version-of-choosing-an-index)
+- [Using the SaveBehavior Configuration for the DynamoDBMapper](https://aws.amazon.com/blogs/developer/using-the-savebehavior-configuration-for-the-dynamodbmapper/)
