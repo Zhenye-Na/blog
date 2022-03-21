@@ -22,22 +22,7 @@ API Gateway supports Zero Trust Model by using "Authorizers". They are considere
 
 > Not familiar wiht Facade Pattern? Check what I wrote before: [Design Patterns: Facade Pattern](https://zhenye-na.github.io/blog/2021/12/09/design-patterns-the-facade-pattern.html)
 
-```mermaid
-flowchart LR
-
-    subgraph Facade
-        direction BT
-        B("API GAteway\nAuthrozier Request Interceptor\n(Facade)")
-        i1("Access control logic\nimplementation 1") -.-> B
-        i2("Access control logic\nimplementation 2") -.-> B
-    end
-
-    A(End User) --> Facade --> C(API Gateway Endpoint)
-
-    A -. End user wants to invoke the API .-> C
-    
-    style B stroke-width:2px,stroke-dasharray: 5 5
-```
+[![](https://mermaid.ink/img/pako:eNqNkTFPwzAQhf_KyVMqtUit1CUDUlIKqsSACmxejH1tLBI7OGdCqPrfuSQtRZ3wYvvpfe98voPQ3qBIxa70rS5UIHjcSicd8Gri2z6ouoB7pZXBUeyXsQE1We8gf7moeSJF9rSBh4ywVZ2ULotUBP9tMcAWPyI2BBtHGDTW5AMbkjF5IsXkkmPnfZDW2DSgvaPgSyj93moGbFWXWKEjNZSfMwizm9kt5H_4xb_5xTWPzpy7z5K1M_DaYGALO8anDsdVMvSphj6BbbW3jia_JEf2KkSGoVWOGiAP1n36dwQqEHq8r7oagdN3U1ci5LwH9s1aa6hIF_XX9CQY1fCAgupSWMJSTEWFoVLW8PQOfYIUHF2hFCkfDe5ULEkK6Y5sjbXh166N5X8XKYWIU6Ei-efO6fN99NxZxUOvRvH4A_6_rjY)](https://mermaid.live/edit#pako:eNqNkTFPwzAQhf_KyVMqtUit1CUDUlIKqsSACmxejH1tLBI7OGdCqPrfuSQtRZ3wYvvpfe98voPQ3qBIxa70rS5UIHjcSicd8Gri2z6ouoB7pZXBUeyXsQE1We8gf7moeSJF9rSBh4ywVZ2ULotUBP9tMcAWPyI2BBtHGDTW5AMbkjF5IsXkkmPnfZDW2DSgvaPgSyj93moGbFWXWKEjNZSfMwizm9kt5H_4xb_5xTWPzpy7z5K1M_DaYGALO8anDsdVMvSphj6BbbW3jia_JEf2KkSGoVWOGiAP1n36dwQqEHq8r7oagdN3U1ci5LwH9s1aa6hIF_XX9CQY1fCAgupSWMJSTEWFoVLW8PQOfYIUHF2hFCkfDe5ULEkK6Y5sjbXh166N5X8XKYWIU6Ei-efO6fN99NxZxUOvRvH4A_6_rjY)
 
 There are three type of autorization methods
 
