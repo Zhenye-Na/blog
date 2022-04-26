@@ -165,7 +165,7 @@ public class exampleClass {
 }
 ```
 
-When you combine the use case of `@Data` and `@Builder` like the way above, you will have some exception errors during compilation, the reason behind this is that, when only `@Data` and `@Builder` annotations are used in your class. The default constructor is missing, in this case, when you integrate the usage with `Jackson` (which is a serialization/deserialization library in Java and we will cover this next time), the deserialization step will fail because of the missing default constructor.
+When you combine the use case of `@Data` and `@Builder` like the way above, you will have some exception errors during compilation, the reason behind this is that when only `@Data` and `@Builder` annotations are used in your class. The default constructor is missing, in this case, when you integrate the usage with `Jackson` (which is a serialization/deserialization library in Java and we will cover this next time), the deserialization step will fail because of the missing default constructor.
 
 To fix it, simply add the two other annotations below:
 
@@ -267,9 +267,9 @@ Another common use case is `@RequiredArgsConstructor(onConstructor = @__(@Autowi
 > 
 > Junit is a Java Testing framework, which provides annotations, assertions, etc to help test the application you are creating.
 > 
-> What is Unit Testing ?
+> What is Unit Testing?
 > 
-> There are different categories of testing, to name a few: Unit Test, Integration Test, Canary Test, Load Test and Smoke Test
+> There are different categories of testing, to name a few: Unit Test, Integration Test, Canary Test, Load Test, and Smoke Test
 > 
 > Unit Test kind of self-explanatory. It tests against individual modules within the application in an isolated fashion, while Integration Test "enables" those dependencies and checks if it works fine following the flow.
 
@@ -277,7 +277,7 @@ Another common use case is `@RequiredArgsConstructor(onConstructor = @__(@Autowi
 
 | Annotation           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@Test`              | Denotes that a method is a test method. Unlike JUnit 4’s `@Test` annotation, this annotation does not declare any attributes, since test extensions in JUnit Jupiter operate based on their own dedicated annotations. Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                               |
+| `@Test`              | Denotes that a method is a test method. Unlike JUnit 4’s `@Test` annotation, this annotation does not declare any attributes, since test extensions in JUnit Jupiter operate based on their dedicated annotations. Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                               |
 | `@ParameterizedTest` | Denotes that a method is a [parameterized test](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests). Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                                                                                                                |
 | `@RepeatedTest`      | Denotes that a method is a test template for a [repeated test](https://junit.org/junit5/docs/current/user-guide/#writing-tests-repeated-tests). Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                                                                                                      |
 | `@TestFactory`       | Denotes that a method is a test factory for [dynamic tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-dynamic-tests). Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                                                                                                          |
@@ -315,7 +315,7 @@ public void exampleTest() {
 
 #### `@BeforeEach` and `@AfterEach`
 
-These two annotations help if the test cases will share a common object, the methods under these annotations will be invoked everytime before/after each test
+These two annotations help if the test cases will share a common object, the methods under these annotations will be invoked every time before/after each test
 
 ```java
 public final class exampleTest {
@@ -353,7 +353,7 @@ public void disabledTest() {
 
 ### Assertion and Assumption
 
-Both Assertion and Assumption stop when a test fails and move on to the next test. But the difference is:
+Both Assertion and Assumption stop when a test fails and moves on to the next test. But the difference is:
 
 - A failed Assertion registered the failed test case, and it means if your code went to production, it will not work
 - A failed Assumption JUST moved to the next test and you don't know what exactly happened
@@ -366,7 +366,7 @@ Both Assertion and Assumption stop when a test fails and move on to the next tes
 
 ### Advanced Usage
 
-Some advanced use cases are related to specific tests based on the Operating System the Unit Tests is running on or the Java Runtime version it is using, etc. These are helpful if the logic in different OS is different or you have seperate logic for Java Runtime.
+Some advanced use cases are related to specific tests based on the Operating System the Unit Tests are running on or the Java Runtime version it is using, etc. These are helpful if the logic in different OS is different or you have separate logic for Java Runtime.
 
 #### Based on Operating System
 
@@ -468,15 +468,192 @@ public final class ExampleClassTest {
 
 However, Mockito cannot mock:
 
-- final class
-- primitive type
-- anonymous class
+- Final class
+- Primitive type
+- Anonymous class
+- Static method
+- Constructor method
 
 
-### Powermock
+### PowerMock
+
+Based on the limitations above, [PowerMock](https://github.com/powermock/powermock) is the one framework that comes to save your life. It also provides an extension for Mockito API, [(PowerMockito)](https://www.javadoc.io/doc/org.powermock/powermock-api-mockito/1.7.0/index.html) which can be easily integrated with Mockito for Unit Testing.
 
 
-> To be continued
+To make your test case run-able with PowerMockito, we need the following configuration beforehand
+
+```java
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(fullyQualifiedNames = "ExampleFinalClass.class")
+public final class exampleTest {
+
+}
+```
+
+- `@RunWith`: required if using JUnit 4.x or the following code block if using Junit 3.x
+
+    ```java
+    public static TestSuite suite() throws Exception {
+        return new PowerMockSuite(MyTestCase.class);
+    }
+    ```
+
+- `@PrepareForTest`: This annotation tells PowerMock to prepare a certain class for testing. Typically, final classes, classes with final, static methods, which need to be byte-code manipulated
+  - This annotation can be placed on both class and individual test methods. If placed on class means: all test methods will be handled by PowerMock
+
+
+Sample class definition we will use for illustration:
+
+```java
+public class CollaboratorWithFinalAndStaticMethods {
+
+    public final String helloMethod() {
+        return "Hello World!";
+    }
+
+    public static String firstMethod(String name) {
+        return "Hello " + name + " !";
+    }
+
+    public static String secondMethod() {
+        return "Hello no one!";
+    }
+
+    public static String thirdMethod() {
+        return "Hello no one again!";
+    }
+}
+
+```
+
+
+#### Mocking Constructors
+
+First, we create a mock object using the PowerMockito API:
+
+```java
+CollaboratorWithFinalAndStaticMethods mock = mock(CollaboratorWithFinalAndStaticMethods.class);
+```
+
+Next, set an expectation telling that whenever the no-arg constructor of that class is invoked, a mock instance should be returned rather than a real one:
+
+```java
+whenNew(CollaboratorWithFinalAndStaticMethods.class).withNoArguments().thenReturn(mock);
+```
+
+Let's see how this construction mocking works in action by instantiating the `CollaboratorWithFinalMethods` class using its default constructor, and then verify the behaviors of PowerMock:
+
+```java
+CollaboratorWithFinalAndStaticMethods collaborator = new CollaboratorWithFinalAndStaticMethods();
+verifyNew(CollaboratorWithFinalAndStaticMethods.class).withNoArguments(); 
+```
+
+
+#### Mocking Final Methods
+
+```java
+when(collaborator.helloMethod()).thenReturn("Hello World!");
+```
+
+This method is then executed:
+
+```java
+String welcome = collaborator.helloMethod();
+```
+
+The following assertions confirm that the `helloMethod` method has been called on the `collaborator` object, and returns the value set by the mocking expectation:
+
+```java
+Mockito.verify(collaborator).helloMethod();
+assertEquals("Hello World!", welcome);
+```
+
+
+#### Mocking Static Methods
+
+Mock static method
+
+```java
+mockStatic(CollaboratorWithFinalAndStaticMethods.class);
+```
+
+Define the output value
+
+```java
+when(CollaboratorWithFinalAndStaticMethods.firstMethod(Mockito.anyString())).thenReturn("Hello World!");
+when(CollaboratorWithFinalAndStaticMethods.secondMethod()).thenReturn("Nothing special");
+```
+
+Or throw an exception
+
+```java
+doThrow(new RuntimeException()).when(CollaboratorWithFinalAndStaticMethods.class);
+CollaboratorWithFinalAndStaticMethods.thirdMethod();
+```
+
+
+```java
+String firstWelcome = CollaboratorWithFinalAndStaticMethods.firstMethod("Whoever");
+String secondWelcome = CollaboratorWithFinalAndStaticMethods.firstMethod("Whatever");
+
+
+assertEquals("Hello World!", firstWelcome);
+assertEquals("Hello World!", secondWelcome);
+```
+
+
+Verify the behavior of the mock's method
+
+```java
+verifyStatic(Mockito.times(2));
+CollaboratorWithStaticMethods.firstMethod(Mockito.anyString());
+
+verifyStatic(Mockito.never());
+CollaboratorWithStaticMethods.secondMethod();
+```
+
+Note: The verifyStatic method must be called right before any static method verification for PowerMockito to know that the successive method invocation is what needs to be verified.
+{:.info}
+
+
+#### Partial Mocking
+
+Partial mocks allow you to mock some of the methods of a class while keeping the rest intact. Thus, you keep your original object, not a mock object, and you are still able to write your test methods in isolation.
+
+Given this example Class:
+
+```java
+class CustomerService {
+ 
+    public void add(Customer customer) {
+        if (someCondition) {
+            subscribeToNewsletter(customer);
+        }
+    }
+ 
+    void subscribeToNewsletter(Customer customer) {
+        // ...subscribing stuff
+    }
+}
+```
+
+So you want to test the `add()` method for actually invoking `subscribeToNewsletter()` and do **NOT** want to execute the logic from `subscribeToNewsletter()` in this test – e.g. since you've already unit tested `subscribeToNewsletter()` somewhere else.
+
+Then you create a **PARTIAL** mock of `CustomerService`, giving a list of methods you want to mock.
+
+```java
+CustomerService customerService = PowerMock.createPartialMock(CustomerService.class, "subscribeToNewsletter");
+customerService.subscribeToNewsletter(anyObject(Customer.class));
+
+replayAll();
+
+customerService.add(createMock(Customer.class));
+```
+
+Note:
+
+- Partial Mock only works with `PUBLIC` or `DEFAULT` methods
+- Using method name could potentially break your test cases sooner or later if the method name is changed
 
 
 
@@ -484,3 +661,6 @@ However, Mockito cannot mock:
 
 - [Project Lombok - Features](https://projectlombok.org/features/all)
 - [Unit tests with Mockito - Tutorial](https://www.vogella.com/tutorials/Mockito/article.html)
+- [Assume vs assert in JUnit tests](https://stackoverflow.com/questions/44628483/assume-vs-assert-in-junit-tests)
+- [Introduction to PowerMock](https://www.baeldung.com/intro-to-powermock)
+- [Partial Mocking](https://docs.telerik.com/devtools/justmock/advanced-usage/partial-mocking#:~:text=Partial%20mocks%20allow%20you%20to,both%20static%20and%20instance%20calls.)
