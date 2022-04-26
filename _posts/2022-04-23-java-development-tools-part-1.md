@@ -259,13 +259,164 @@ By default, the `@RequiredArgsConstructor` annotation is contained in the `@Data
 
 Another common use case is `@RequiredArgsConstructor(onConstructor = @__(@Autowired))` which means, for the constructor of this class, add the `Autowired` annotation to the constructor
 
-
+***
 
 ## JUnit
 
-> To be continued
+> What is Junit?
+> 
+> Junit is a Java Testing framework, which provides annotations, assertions, etc to help test the application you are creating.
+> 
+> What is Unit Testing ?
+> 
+> There are different categories of testing, to name a few: Unit Test, Integration Test, Canary Test, Load Test and Smoke Test
+> 
+> Unit Test kind of self-explanatory. It tests against individual modules within the application in an isolated fashion, while Integration Test "enables" those dependencies and checks if it works fine following the flow.
 
 
+
+| Annotation           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@Test`              | Denotes that a method is a test method. Unlike JUnit 4’s `@Test` annotation, this annotation does not declare any attributes, since test extensions in JUnit Jupiter operate based on their own dedicated annotations. Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                               |
+| `@ParameterizedTest` | Denotes that a method is a [parameterized test](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests). Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                                                                                                                |
+| `@RepeatedTest`      | Denotes that a method is a test template for a [repeated test](https://junit.org/junit5/docs/current/user-guide/#writing-tests-repeated-tests). Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                                                                                                      |
+| `@TestFactory`       | Denotes that a method is a test factory for [dynamic tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-dynamic-tests). Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                                                                                                          |
+| `@TestInstance`      | Used to configure the [test instance lifecycle](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-instance-lifecycle) for the annotated test class. Such annotations are _inherited_.                                                                                                                                                                                                                                                        |
+| `@TestTemplate`      | Denotes that a method is a [template for test cases](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-templates) designed to be invoked multiple times depending on the number of invocation contexts returned by the registered [providers](https://junit.org/junit5/docs/current/user-guide/#extensions-test-templates). Such methods are _inherited_ unless they are _overridden_.                                                       |
+| `@DisplayName`       | Declares a custom display name for the test class or test method. Such annotations are not _inherited_.                                                                                                                                                                                                                                                                                                                                                         |
+| `@BeforeEach`        | Denotes that the annotated method should be executed _before_ **each** `@Test`, `@RepeatedTest`, `@ParameterizedTest`, or `@TestFactory` method in the current class; analogous to JUnit 4’s `@Before`. Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                                              |
+| `@AfterEach`         | Denotes that the annotated method should be executed _after_ **each** `@Test`, `@RepeatedTest`, `@ParameterizedTest`, or `@TestFactory` method in the current class; analogous to JUnit 4’s `@After`. Such methods are _inherited_ unless they are _overridden_.                                                                                                                                                                                                |
+| `@BeforeAll`         | Denotes that the annotated method should be executed _before_ **all** `@Test`, `@RepeatedTest`, `@ParameterizedTest`, and `@TestFactory` methods in the current class; analogous to JUnit 4’s `@BeforeClass`. Such methods are _inherited_ (unless they are _hidden_ or _overridden_) and must be `static` (unless the "per-class" [test instance lifecycle](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-instance-lifecycle) is used). |
+| `@AfterAll`          | Denotes that the annotated method should be executed _after_ **all** `@Test`, `@RepeatedTest`, `@ParameterizedTest`, and `@TestFactory` methods in the current class; analogous to JUnit 4’s `@AfterClass`. Such methods are _inherited_ (unless they are _hidden_ or _overridden_) and must be `static` (unless the "per-class" [test instance lifecycle](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-instance-lifecycle) is used).   |
+| `@Nested`            | Denotes that the annotated class is a nested, non-static test class. `@BeforeAll` and `@AfterAll`methods cannot be used directly in a `@Nested` test class unless the "per-class" [test instance lifecycle](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-instance-lifecycle) is used. Such annotations are not _inherited_.                                                                                                             |
+| `@Tag`               | Used to declare _tags_ for filtering tests, either at the class or method level; analogous to test groups in TestNG or Categories in JUnit 4. Such annotations are _inherited_ at the class level but not at the method level.                                                                                                                                                                                                                                  |
+| `@Disabled`          | Used to _disable_ a test class or test method; analogous to JUnit 4’s `@Ignore`. Such annotations are not _inherited_.                                                                                                                                                                                                                                                                                                                                          |
+| `@ExtendWith`        | Used to register custom [extensions](https://junit.org/junit5/docs/current/user-guide/#extensions). Such annotations are _inherited_.                                                                                                                                                                                                                                                                                                                           |
+
+
+### Commonly Used Annotations
+
+- `@Test`
+- `@BeforeEach` and `@AfterEach`
+- `@Disabled`
+
+
+#### `@Test`
+
+Define a Test case
+
+```java
+@Test
+public void exampleTest() {
+    assertTrue(2, 1 + 1);
+}
+```
+
+
+#### `@BeforeEach` and `@AfterEach`
+
+These two annotations help if the test cases will share a common object, the methods under these annotations will be invoked everytime before/after each test
+
+```java
+public final class exampleTest {
+
+    private SomeClient client;
+    private AutoCloseable closeable;
+
+    @BeforeEach
+    public void setUp() {
+        client = new SomeClient();
+    }
+
+
+    @AfterEach
+    public void tearDown() {
+        closeable.close();
+    }
+
+}
+```
+
+#### `@Disabled`
+
+This annotation is to skip a Test case
+
+```java
+@Disabled
+@Test
+public void disabledTest() {
+
+}
+```
+
+
+
+### Assertion and Assumption
+
+Both Assertion and Assumption stop when a test fails and move on to the next test. But the difference is:
+
+- A failed Assertion registered the failed test case, and it means if your code went to production, it will not work
+- A failed Assumption JUST moved to the next test and you don't know what exactly happened
+
+
+> Java Doc for Assume
+> 
+> A set of methods useful for stating assumptions about the conditions in which a test is meaningful. A failed assumption does not mean the code is broken, but that the test provides no useful information.
+
+
+### Advanced Usage
+
+Some advanced use cases are related to specific tests based on the Operating System the Unit Tests is running on or the Java Runtime version it is using, etc. These are helpful if the logic in different OS is different or you have seperate logic for Java Runtime.
+
+#### Based on Operating System
+
+```java
+@Test
+@EnabledOnOs({ LINUX, MAC })
+void enabledOnLinuxOrMac() {
+
+}
+
+@Test
+@DisabledOnOs(WINDOWS)
+void disabledOnWindows() {
+
+}
+```
+
+#### Based on Java Runtime
+
+```java
+@Test
+@EnabledOnJre({ JAVA_9, JAVA_10 })
+void enabledOnJava9Or10() {
+
+}
+
+@Test
+@DisabledOnJre(JAVA_9)
+void disabledOnJava9() {
+
+}
+```
+
+#### Based on System Property
+
+```java
+@Test
+@EnabledIfSystemProperty(named = "os.arch", matches = ".*64.*")
+void enabledOn64BitArchitectures() {
+
+}
+
+@Test
+@DisabledIfSystemProperty(named = "ci-server", matches = "true")
+void disabledOnCiServer() {
+
+}
+```
+
+***
 
 ## Mockito
 
