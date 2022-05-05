@@ -3,7 +3,7 @@ layout: article
 title: "Java Development Tools - Part 1"
 date: 2022-04-23
 modify_date: 2022-04-25
-excerpt: "Code boilerpate, Unit test, and Logging tools in Java"
+excerpt: "Lombok, Junit and Mockito in Java"
 tags: [Java]
 mathjax: false
 mathjax_autoNumber: false
