@@ -1,9 +1,9 @@
 ---
 layout: article
-title: "Java Development Tools - Part 1"
+title: "Java Best Practices - Lombok, JUnit 5 and Mockito"
 date: 2022-04-23
 modify_date: 2022-04-25
-excerpt: "Lombok, Junit and Mockito in Java"
+excerpt: "How to properly use Lombok, Junit and Mockito in Java"
 tags: [Java]
 mathjax: false
 mathjax_autoNumber: false
