@@ -101,6 +101,20 @@ facade.stopEngine();
 
 ## Real-world Example
 
+### SLF4J and Log family
+
+SLF4J (Simple Logging Facade for Java) is the best example for Facade Pattern. Here, SLF4J defines the API interface, various Log frameworks like Log4j or Logback, utilizes the interface defined in SLF4J to interact with your application.
+
+To know more, check out my post on [Logging frameworks](https://zhenye-na.github.io/blog/2022/05/03/java-best-practices-logging.html#logging-frameworks)
+
+
+### AWS API Gateway Authorizer
+
+The implementation of AWS API Gateway Authorizer is also a industry-level example of Facade Pattern. It defines the interface, but give the flexibility/freedom for user to select which Authorizer provider they want to use better, like using IAM or a custom Lambda for it.
+
+To know more, check out my post on [AWS API Gateway](https://zhenye-na.github.io/blog/2022/03/13/what-you-dont-know-about-aws-api-gateway.html)
+
+
 ### AWS S3 Multi-part upload
 
 Suppose we would like to use Java to do the S3 uploading job, then you might consider multi-part uploading, in which you can upload a file in many segments of the file and then integrate or merge these segments together on S3.
