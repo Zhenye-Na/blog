@@ -84,6 +84,19 @@ mTLS asks each client to authenticate every request they sent in to increase the
 
 > mTLS is commonly used for B2B applications
 
+
+## Binary Files support
+
+API Gateway also supports Binary Media files support, but you have to enable the configuration and re-deploy the gateway to make the change take effect.
+
+- Binary Files as Input
+  - [Enabling binary support using the API Gateway console](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings-configure-with-console.html)
+  - [Binary Media Types in CDK](https://docs.aws.amazon.com/cdk/api/v1/docs/@aws-cdk_aws-apigateway.LambdaRestApiProps.html#binarymediatypes)
+- Binary Files as Output
+  - You should return a Base64 encoded String of the Binary files you wanna return and set the `isBase64Encoded` to `true` from the API output
+  - [Handling binary data using Amazon API Gateway HTTP APIs](https://aws.amazon.com/blogs/compute/handling-binary-data-using-amazon-api-gateway-http-apis/)
+
+
 ## References
 
 - [Security and Microservice Architecture on AWS](https://www.oreilly.com/library/view/security-and-microservice/9781098101459/)
