@@ -474,6 +474,18 @@ However, Mockito cannot mock:
 - Static method
 - Constructor method
 
+**Mock Final Classes and Methods with Mockito**
+
+Now, Mockito 2 support mocking on final types with Mockito extensions
+
+In your project, `src/test/resources/mockito-extensions` directory, create a file with name `org.mockito.plugins.MockMaker`, with the following content
+
+```
+mock-maker-inline
+```
+
+The extension get loaded when Mockito is instantiated. For more, you can check https://site.mockito.org/javadoc/current/org/mockito/plugins/MockMaker.html
+
 
 ### PowerMock
 
@@ -523,7 +535,6 @@ public class CollaboratorWithFinalAndStaticMethods {
         return "Hello no one again!";
     }
 }
-
 ```
 
 
@@ -624,13 +635,13 @@ Given this example Class:
 
 ```java
 class CustomerService {
- 
+
     public void add(Customer customer) {
         if (someCondition) {
             subscribeToNewsletter(customer);
         }
     }
- 
+
     void subscribeToNewsletter(Customer customer) {
         // ...subscribing stuff
     }
