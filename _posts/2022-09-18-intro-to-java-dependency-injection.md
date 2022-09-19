@@ -16,7 +16,12 @@ key: intro-java-dependency-injection
 
 If you're not familiar with Dependency Injection, feel free to watch the following video to grasp the idea behind this pattern
 
-{%- include extensions/youtube.html id='IKD2-MAkXyQ' -%}
+
+<div class="extensions extensions--video">
+  <iframe src="https://www.youtube.com/embed/IKD2-MAkXyQ?rel=0&showinfo=0"
+    frameborder="0" scrolling="no" allowfullscreen></iframe>
+</div>
+
 
 And this article to understand the `why` part [Dependency Injection 101 — What and Why](https://medium.com/bigeye/dependency-injection-101-what-and-why-7bd11d53c528)
 
