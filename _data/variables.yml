@@ -41,8 +41,8 @@ default:
 
 sources:
   bootcdn:
-    font_awesome: 'https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.css'
-    jquery: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js'
+    font_awesome: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
+    jquery: 'https://code.jquery.com/jquery-3.6.4.min.js'
     leancloud_js_sdk: '//cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js'
     chart: 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js'
     gitalk:
