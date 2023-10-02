@@ -2,104 +2,113 @@
 layout: article
 title: "Microservice Communication Patterns"
 date: 2022-03-05
-modify_date: 2022-03-05
-excerpt: "Different patterns for microservices to communicate"
+modify_date: 2023-10-01
+excerpt: "Exploring various communication patterns for microservices"
 tags: [Microservice]
+mermaid: true
 mathjax: false
 mathjax_autoNumber: false
 key: microservice-communication-patterns
 ---
 
-![](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/service-mesh-illustration.png)
+![Service Mesh Illustration](https://raw.githubusercontent.com/Zhenye-Na/img-hosting-picgo/master/img/service-mesh-illustration.png)
 
-> Image source: https://us.nttdata.com/en/blog/tech-blog/service-mesh-use-cases
+*Image source: [NTT Data](https://us.nttdata.com/en/blog/tech-blog/service-mesh-use-cases)*
 
-In the image above, we can see
-
-- API Gateway: external to internal microservices
-- Service Mesh: inter-internal microservices
-
-Today, we are focusing on different patterns/style of communication on "Service Mesh" level
-
-There are several ways for inter-microservice communication.
-
-- Synchronous Blocking
-  - serviceA calls serviceB and blocks upcoming operation and waits for the results
-- Asynchronous Non-blocking
-  - Request-response: serviceA sends a request to serviceB and wait for the response
-  - Event-driven: serviceA emits out a "event" with context, but serviceA is unaware of which service will pick up the event and processing
-  - Common data: communicate with a shared data, like a shared database
-
-It is hard to select the best one for your business logic, sometimes you might even mix and match. Next, let's dive deep for each pattern and let's see the pros and cons of each pattern.
-
-## Synchronous Blocking
-
-A microservice send an API call/request to downstream service and blocks until the call has complete processing.
-
-**Pros**
-
-1. easy to understand, like reading codes from top to bottom
-2. monolithic way
-
-**Cons**
-
-1. if the downstream service is temporarily unreachable, the API call will fail
-   1. same idea, if the upstream service is unable to receive the response
-2. latency issue when invocation chain is long (serviceA -> serviceB -> serviceC -> serviceD)
+Microservices architecture has revolutionized the way we design and deploy scalable applications. Central to this paradigm is the concept of inter-service communication. In this article, we delve deeper into various communication patterns utilized in microservices architecture, focusing on the **Service Mesh** level.
 
 ***
 
-## Asychronous Non-blocking
+### Synchronous Blocking
 
-### Request-response Pattern
+**Overview:**
+Synchronous communication involves a direct request from a microservice to another, blocking until the operation is complete. This pattern is akin to traditional function calls within a monolithic application.
 
-By term of request-response you might think this is similar to the synchronous blocking pattern. I would not deny since theoratically there is some similarity, but when you try to implement, you will find out the difference dramatically.
+```mermaid
+graph TD
+A[Microservice A] -->|Request| B[Microservice B]
+B -->|Response| A
+```
 
-With this pattern, microservice sends a request to the downtream service to process something, and expects to receive a response that contains the processing results, in a async way, like message broker or message queue
+**Pros:**
+- **Simplicity:** The straightforward request-response model is easy to comprehend.
+- **Sequential Execution:** Ensures ordered execution of tasks, ideal for scenarios where actions depend on specific sequences.
 
-**Pros**
-
-1. If serviceA need several downstream services to finish this task, we can parallelized all the requests if there is no dependency for each downstream service
-2. good for retry
-
-
-**Cons**
-
-1. We need a better way to define the "expiration time" or time-out handling, to avoid issues that the system is blocked and may never get back to the original caller
-
+**Cons:**
+- **Latency:** Delays may occur, especially in long invocation chains, impacting overall system responsiveness.
+- **Dependency Risks:** Service outages can propagate, leading to cascading failures.
 
 ***
 
-### Event-Driven Pattern
+### Asynchronous Non-blocking
 
-> When it comes to event-driven the first thing I think about is Node.js
+#### Request-Response Pattern
 
-With Event-Driven pattern, the microservice emits an event and it may or may not be received by downstream service. Also, the event emitter is unaware of which service will pick up the event, it just emitted the event. In this way, the coupling is greatly reduced since we want "High cohesion and low coupling".
+In this pattern, microservices send requests asynchronously and await responses. Asynchronous messaging systems like RabbitMQ or Kafka facilitate decoupled communication.
 
+```mermaid
+sequenceDiagram
+    participant A as Microservice A
+    participant B as Microservice B
+    A->>B: Request
+    B->>A: Response
+```
 
-#### What should be in the event ?
+**Pros:**
+- **Parallel Processing:** Enables parallel execution of tasks, enhancing overall system throughput.
+- **Fault Tolerance:** Suited for scenarios where retries and error handling are crucial.
 
-It should be a fully detailed events contains all the information that downstream service need to know, otherwise, the downstream service have to make an API call to the event emitter to request some context data, then what is the point of this pattern ?
+**Cons:**
+- **Complexity:** Managing asynchronous tasks requires robust error handling and coordination mechanisms.
+- **Timeouts:** Careful handling of timeouts is essential to prevent indefinite waiting.
 
-For example, from `Order` service to `Shipping` service, what kind of information should we include in the event? just a orderId and customerId? of course not, we should include something like, shipping address, what is the ETA for delievery (shipping priority) etc. So that `Shipping` can continue processing the order.
+#### Event-Driven Pattern
+
+Microservices emit events without specific recipients. Other services can subscribe to relevant events, fostering loose coupling.
+
+```mermaid
+sequenceDiagram
+    participant A as Microservice A
+    participant E as Event Emitter
+    participant B as Microservice B
+    A->>E: Emit Event
+    E->>B: Event
+```
+
+**Pros:**
+- **Flexibility:** Decoupled services can evolve independently, accommodating changes without disrupting other services.
+- **Scalability:** Well-suited for handling variable workloads, enabling responsive architectures.
+
+**Cons:**
+- **Event Schema:** Event structures need careful planning to ensure comprehensiveness, avoiding unnecessary coupling.
+- **Event Choreography:** Coordinating event sequences might require additional effort and complexity.
 
 ***
 
 ### Common Data Pattern
 
-This is pattern is called common data pattern, basically you will see this pattern when using data lake or data warehouse. In both case, the same record can be retrieved and updated in two or more microservices.
+In this pattern, microservices share a common data store, such as a data lake or database. Multiple services can read and write data independently, allowing seamless information exchange.
 
-**Pros**
+```mermaid
+graph TD
+A[Microservice A] -->|Read/Write| D[Shared Data]
+B[Microservice B] -->|Read/Write| D
+C[Microservice C] -->|Read/Write| D
+```
 
-1. very easy to understand and implement
+**Pros:**
+- **Consistency:** Shared data ensures uniformity across services, preventing data inconsistencies.
+- **Simplicity:** Relatively straightforward to implement, especially for simple applications.
 
+**Cons:**
+- **Latency:** Polling mechanisms introduce delays, affecting real-time data access.
+- **Schema Rigidity:** Changes in the shared data schema necessitate careful coordination to prevent disruptions.
 
-**Cons**
+### Conclusion
 
-1. latency: the polling mechanism is the problem
-2. common data store become part of the comupling, one the structure is defined, cannot be changed easily
-3. we need a rule on which service can alter what kind of data
+Choosing the right communication pattern is pivotal in microservices design. Often, a hybrid approach combining multiple patterns addresses diverse application requirements. Understanding the intricacies of each pattern empowers architects and developers to make informed decisions, ensuring robust and responsive microservices ecosystems.
 
+For in-depth exploration and practical insights, refer to the book *Building Microservices, 2nd Edition*[^1].
 
 ## References
 
